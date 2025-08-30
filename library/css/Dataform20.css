@@ -1,0 +1,20 @@
+.cRecPointerSelected {
+     background-image: url(icons/cTriangleRightBlack.png); 
+     background-size: 35px 35px;
+    background-repeat: no-repeat;  
+ }
+button[id$="_recordPointer_new"] {
+  background-image: url(icons/cStarBlack.png);
+  background-size: 35px 35px;
+  background-repeat: no-repeat;   
+}
+.cButtonMiddle   {
+    width: 40px;
+    height: 40px;
+}
+.cSave {
+  background-image: url(icons/cSave.png);
+  background-size: 35px 35px;
+  background-repeat: no-repeat;   
+    
+}

@@ -1,0 +1,113 @@
+#dialogMinimizeArea {
+    position: fixed;
+    bottom: 20px;
+    height: 0px;
+}
+.dialogBox {
+    position: fixed;
+    /*background: linear-gradient(145deg, #0c97e2, #ffffff);*/
+    box-shadow: 10px 10px 20px #0c97e2, -10px -10px 20px #ffffff;
+    background-color: white;
+}
+.dummyRes {
+    background-image: url(icons/cResizer.png);
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: transparent;
+    cursor: se-resize;
+    bottom: -5px;
+    right: -5px;
+}
+.dialogBox > div:first-child {
+    display: flex;
+    cursor: move;
+}
+.dialogBox > div:first-child > div:nth-child(2) {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.dialogBox > div:first-child > div {
+    display: inline-block;
+}
+/* menu */
+.dialogBox > div:nth-child(2) {
+    background: transparent linear-gradient(90deg, #E30613 0%, #E84E0F 15%, #FEC700 34%, #BCCF00 49%, #009FE3 65%, #007BC4 80%, #B14191 100%) 0% 0% no-repeat padding-box;
+    height: 3px
+} 
+/* dialog */
+.dialogBox > div:nth-child(3) {
+    padding: 3px;
+    overflow-y: auto;
+}
+/* footer */
+.dialogBox > div:nth-child(4) {
+    width: 100%;
+    text-align: end;
+}
+.dialogBox > div:nth-child(4) > button {
+        margin: 0.5em 0.5em 0.5em 0.5em;
+}
+/* wrapper */
+.dialogWrapper {
+    background-color: silver;
+    opacity: 0.4;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.wrapperShow {
+    display: block;
+    height: var(--wrapper-height);
+    width: var(--wrapper-width);
+}
+.wrapperHide {
+    display: none;
+    width: 0px;
+    height: 0px;
+    z-index: unset !important;
+}
+
+.dialogHelp *, .dialogInfo * {
+    width: 100%;
+}
+.boxShow {
+    display: block;
+}
+.boxHidden {
+    visibility: hidden;
+}
+.boxVisible {
+    visibility: hidden;
+}
+.boxHide {
+    z-index: unset !important;
+    display: none;    
+}
+
+.minimized > div {
+    /*display: none !important;*/
+    
+}
+.minimized > div > div:nth-child(2) {
+    font-weight: bold;
+}
+.dialogBox > div:first-child > div:nth-child(3) {
+    display: table;
+}
+.dialogBox > div:first-child > div:nth-child(3) > div {
+    display: table-cell;
+}
+
+@media screen and ( min-width: 480px ){
+    .dialogBox > div:first-child > div:nth-child(2) {
+        margin-top: 0.3em;
+    }
+    .dialogBox > div:first-child > div:nth-child(2) {
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    
+}
