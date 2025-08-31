@@ -83,6 +83,7 @@ class DataForm {                    // class for DataForm2.0
             afterDelete:                        undefined,
             afterNew:                           undefined,
             afterSuccessSave:                   undefined,
+            afterBuild:                         undefined,
         }
         let tmpId = "",
             tmpClasses = "",
@@ -145,14 +146,6 @@ class DataForm {                    // class for DataForm2.0
         if( this.opt.searchArray.length > 0 ) {
             this.showSearchHeadline();
         }
-/*
-        data = {};
-        data.command = "getFielddefinitions";
-        data.dVar = this.opt.dVar;
-        data.table = this.opt.table;
-        data.fields = this.opt.fields;
-        //nj().fetchPostNew("library/php/ajax_dataform20.php", data, this.evaluateDF);
-*/
         this.divUpload = new DialogDR( { 
             dVar: param.dVar + ".divUpload", 
             title: "Datei laden", 
@@ -323,6 +316,7 @@ class DataForm {                    // class for DataForm2.0
         
             break;
         }
+        if( typeof df.opt.afterBuild === "function" ) df.opt.afterBuild();
     }
     buildLengthProps = function ( fieldProps, fieldDefs ) {
         // content
@@ -735,7 +729,7 @@ class DataForm {                    // class for DataForm2.0
         this.opt.currentPage = 0;
         this.getRecords();
     }
-    getFieldDefinitions = function ( args ) {
+    getFieldDefinitions = function ( callback ) {
         // content
         data = {};
         data.command = "getFieldDefinitions";
@@ -743,8 +737,8 @@ class DataForm {                    // class for DataForm2.0
         data.table = this.opt.table;
         data.fields = this.opt.fields;
         data.fieldDefinitions = this.opt.fieldDefinitions;
-        console.log( data );
         nj().fetchPostNew("library/php/ajax_dataform20.php", data, this.evaluateDF);
+        if( typeof callback === "function" ) callback();
     }
     getRecords = function ( args ) {
         // content
@@ -786,6 +780,7 @@ class DataForm {                    // class for DataForm2.0
                 addClasses: this.opt.addRSClasses,
                 baseClassField: this.opt.baseClassField,
                 classButtonSize: this.opt.classButtonSize,
+                afterShowRS: this.opt.afterBuild
             } ) );
             m = this.opt.fieldDefinitions.length;
             j = 0;
@@ -860,6 +855,7 @@ class DataForm {                    // class for DataForm2.0
                 addClasses: this.opt.addRSClasses,
                 baseClassField: this.opt.baseClassField,
                 classButtonSize: this.opt.classButtonSize,
+                afterShowRS: this.opt.afterBuild,
             } ) );
             m = this.opt.fieldDefinitions.length;
             j = 0;
@@ -902,23 +898,13 @@ class DataForm {                    // class for DataForm2.0
                 Object.assign( tmpField, tmpFieldType );
                 this.opt.recordsets[i].opt.fields.push( new Field( tmpField ) );
             }
-            //this.buildNewRecord();    
         }
-        //console.log( this.opt.formType );
-/*
-        if( this.opt.autoOpen ) {
-            this.showRecordSets();
-        }
-*/
-        //if( this.opt.formType === "list" ) {
-            this.showRecordSets();
-        //}
+        this.showRecordSets();
     }
     buildNewRecord = function () {
         let l = this.opt.fieldDefinitions.length;
         let i = 0;
         while( i < l ) {
-//            console.log(  this.opt.fieldDefinitions[ i ] );
             i += 1;
         }
     }
@@ -1082,6 +1068,6 @@ class DataForm {                    // class for DataForm2.0
             this.opt.whereClausel = " where " + this.opt.filter;
         }
         this.initBehavior();
-        this.getFieldDefinitions();
+        this.getFieldDefinitions( this.afterBuild );
     }
 }

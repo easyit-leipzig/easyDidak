@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Dataform-Test ICAS</title>
+    <title>Rückmeldung Lehrkraft</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<h1>Rückmeldung Schüler</h1>
+<h1>Rückmeldung Lehrkraft</h1>
 <script src="library/javascript/no_jquery.js"></script>
 <script src="library/javascript/easyit_helper_neu.js"></script>
 <script src="library/javascript/main.js"></script>
@@ -24,6 +24,7 @@
 <script src="library/javascript/Field20.js"></script>
 <script src="library/javascript/RecordSet20.js"></script>
 <script src="library/javascript/DataForm20.js"></script>
+<script src="library/javascript/init_didak_lehrkraft.js"></script>
 <script>
     <?php
     $settings = parse_ini_file('ini/settings.ini', TRUE);
@@ -194,19 +195,19 @@ var Df = new DataForm( {
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: fields,
-    countPerPage: 0,
+    countPerPage: 5,
     currentPage: 0,
-    hasPagination: false,
+    hasPagination: true,
     countRecords: undefined,
     //filter: "id = '1'",
     orderArray: ["val_varchar", "val_int"],
     searchArray: [
-        ]
+        ],
 } );
 var Df_2 = new DataForm( { 
     dVar: "Df_2", 
     id: "#Df_2", 
-    table: "mtr_rueckkopplung_teilnehmer",
+    table: "mtr_rueckkopplung_lehrkraft",
     fields: "id,ue_zuweisung_schueler_id,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,erfasst_am",
     addPraefix: "df2_",
     formType: "html",
@@ -227,7 +228,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "ue_zuweisung_schueler_id",
-            label: "ue_id",
+            label: "Teiln.",
             type: "select",
             addClasses: "cVal_val_select",
             options: list_teilnehmer,
@@ -375,7 +376,7 @@ var Df_2 = new DataForm( {
             label: "erfasst_am",
             type: "input_date",
             Comment: "",
-            default: new Date().addHours(1).toISOString().replace("T", " ").replace("Z", "").split(" ")[0].toString(), // current date without hours
+            Default: "31.08.25", // current date without hours
         },
         ],
     countPerPage: 0,
@@ -383,6 +384,8 @@ var Df_2 = new DataForm( {
     hasPagination: false,
     countRecords: undefined,
     filter: undefined,
+        afterBuild: function(){DfInit()}
+
 /*
     orderArray: ["val_varchar", "val_int"],
     searchArray: [

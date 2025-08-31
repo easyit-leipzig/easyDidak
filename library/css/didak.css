@@ -1,3 +1,30 @@
 .cNumber {
     width: 35px;
 }
+input[id="df_id"] {
+    display: none;
+}
+[id^="df1_id_"] {
+    display: none;
+}
+[id^="df2_id_new"] {
+    display: none;
+}
+[id^="df2_hl_id"], [id^="df2_id_"] {
+    display: none;
+}
+[id^="df2_hl_recordPointer"] {
+    width:40px !important;
+}
+
+[id^="df2_hl_ue_zuweisung_schueler_id"] {
+    width:73px !important;
+}
+#Df_2_head>div {
+    width: 41px
+}
+#Df_2 {
+    position: relative;
+    top: 20px;
+    left: 20px
+}

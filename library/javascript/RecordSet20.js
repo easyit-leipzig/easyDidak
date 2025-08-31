@@ -12,6 +12,7 @@ class RecordSet {                    // class for DataForm2.0
             baseClassField:     "",
             addClasses:         "",
             classButtonSize:    "",
+            afterShowRS:        undefined,
         }
         let showOnInit = true, primaryKey, primaryKeyValue;
         Object.assign( this.opt, param );
@@ -39,7 +40,6 @@ class RecordSet {                    // class for DataForm2.0
     }
     getFields = function () {
         let els = nj().els( this.opt.id + " ." + this.opt.baseClassField );
-        console.log( els );
     }
     prepareRecord = function ( args ) {
 
@@ -90,7 +90,6 @@ class RecordSet {                    // class for DataForm2.0
     }
     getRecordValues = function ( args ) {
         let els = nj().els( "div[id=" + this.opt.id.substring( 1 ) + "] .cField" );
-        console.log( fields );
     }
     saveRecordset = function( df, rs, primaryKey ) {
         console.log( df, rs, primaryKey );

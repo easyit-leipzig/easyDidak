@@ -18,3 +18,10 @@ button[id$="_recordPointer_new"] {
   background-repeat: no-repeat;   
     
 }
+.dataformHead {
+    display: flex
+}
+.cRecordPointer  {
+    position: relative;
+    top: 7px;
+}
