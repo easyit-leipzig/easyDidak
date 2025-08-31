@@ -28,3 +28,10 @@ input[id="df_id"] {
     top: 20px;
     left: 20px
 }
+.dataformHead {
+    display: flex;
+}
+legend {
+    position: relative;
+    top: 60px
+}

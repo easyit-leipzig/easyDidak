@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="stylesheet prefetch" href="library/css/DataForm20.css">
     <link rel="stylesheet prefetch" href="library/css/didak.css">
+    <link rel="stylesheet prefetch" href="library/css/opentip.css">
 
 </head>
 
@@ -24,6 +25,8 @@
 <script src="library/javascript/Field20.js"></script>
 <script src="library/javascript/RecordSet20.js"></script>
 <script src="library/javascript/DataForm20.js"></script>
+<script src="library/javascript/OpenTip_native.js"></script>
+<script src="library/javascript/init_didak.js"></script>
 <script>
     <?php
     $settings = parse_ini_file('ini/settings.ini', TRUE);
@@ -201,7 +204,15 @@ var Df = new DataForm( {
     //filter: "id = '1'",
     orderArray: ["val_varchar", "val_int"],
     searchArray: [
-        ]
+
+            {
+                field: "teilnehmer_typ",
+                type: "select",
+                options: "<option value='>-1'>alle</option><option value='0'>Lehrkräfte</option><option value='1'>Teilnehmer</option>",
+                value: ">-1",
+                sel: "value",
+            },
+    ]
 } );
 var Df_2 = new DataForm( { 
     dVar: "Df_2", 
@@ -375,7 +386,7 @@ var Df_2 = new DataForm( {
             label: "erfasst_am",
             type: "input_date",
             Comment: "",
-            default: new Date().addHours(1).toISOString().replace("T", " ").replace("Z", "").split(" ")[0].toString(), // current date without hours
+            default: new Date().toJSON().slice(0, 10),
         },
         ],
     countPerPage: 0,
@@ -422,5 +433,109 @@ var Df_2 = new DataForm( {
     Df_2.init();
 })();
 </script>
+<legend>
+    <table>
+       <tr>
+          <td>
+             MA
+          </td>
+          <td>
+             Wie aktiv beteiligst du dich am Unterricht &#10;(Fragen stellen, Antworten geben, mitdenken)?
+          </td>
+          <td>
+             AB
+          </td>
+          <td>
+             Hältst du dich an Absprachen mit dem Tutor &#10;(z. B. Formfragen, vereinbarte Ziele, Termine)?
+          </td>
+          <td>
+             St
+          </td>
+          <td>
+             Wie gut kannst du Aufgaben alleine bearbeiten, &#10;ohne ständig Hilfe zu brauchen?
+          </td>
+       </tr>
+       <tr>
+          <td>
+             Ko
+          </td>
+          <td>
+             Wie aufmerksam und fokussiert arbeitest du während der Stunde?
+          </td>
+          <td>
+             Fl
+          </td>
+          <td>
+             Wie viel Mühe und Einsatz bringst du in die Bearbeitung der Aufgaben ein?
+          </td>
+          <td>
+             LF
+          </td>
+          <td>
+             Hast du das Gefühl, dass du dich in den behandelten Themen verbesserst?
+          </td>
+       </tr>
+       <tr>
+          <td>
+             BT
+          </td>
+          <td>
+             Kannst du das aktuelle Thema am Ende der Einheit sicher anwenden und erklären?
+          </td>
+          <td>
+             Tr
+          </td>
+          <td>
+             Schaffst du es, das Gelernte auch in neuen Aufgaben oder Situationen zu nutzen?
+          </td>
+          <td>
+             BW
+          </td>
+          <td>
+             Verfügst du über das nötige Grundwissen, um neue Inhalte zu verstehen und darauf aufzubauen?
+          </td>
+       </tr>
+       <tr>
+          <td>
+             Vo
+          </td>
+          <td>
+             Kommst du vorbereitet in die Stunde (Hausaufgaben, Materialien, Vorwissen)?
+          </td>
+          <td>
+             Th
+          </td>
+          <td>
+             Empfindest du die behandelten Themen als sinnvoll und für dich passend?
+          </td>
+          <td>
+             Ma
+          </td>
+          <td>
+             Helfen dir die eingesetzten Materialien (Arbeitsblätter, Darstellungen, Beispiele) beim Lernen?
+          </td>
+       </tr>
+       <tr>
+          <td>
+             MV
+          </td>
+          <td>
+             Empfindest du die eingesetzten Methoden (Erklärungen, Übungen, Visualisierungen) als abwechslungsreich und hilfreich?
+          </td>
+          <td>
+             In
+          </td>
+          <td>
+             Hast du das Gefühl, dass der Unterricht auf deine persönlichen Stärken und Schwächen eingeht?
+          </td>
+          <td>
+             Af
+          </td>
+          <td>
+             Wirst du vom Tutor ausreichend ermutigt und aufgefordert, dich aktiv einzubringen?
+          </td>
+       </tr>
+    </table>
+</legend>
 </body>
 </html>
