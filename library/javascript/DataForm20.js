@@ -193,7 +193,8 @@ class DataForm {                    // class for DataForm2.0
                         dMNew.show( {title: "Fehler", type: false, text: "Der Linktext darf nicht leer sein."})
                         nj(this).v("Link");
                     }
-                });   
+                }); 
+                this.opt.afterBuild()  
             } 
         } );
         this.divEditSelect = new DialogDR( {
@@ -291,6 +292,7 @@ class DataForm {                    // class for DataForm2.0
                 df.prepareRecords( jsonobject );
                 if( df.opt.hasPagination ) df.initPagination();
                 df.initRecordPointer();
+                //df.opt.afterBuild();
             break;
             case "saveRecordset":
                 if( jsonobject.success ) {

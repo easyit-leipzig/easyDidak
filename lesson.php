@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="stylesheet prefetch" href="library/css/DataForm20.css">
-    <link rel="stylesheet prefetch" href="library/css/didak.css">
+    <link rel="stylesheet prefetch" href="library/css/lession.css">
 
 </head>
 
@@ -29,7 +29,7 @@
 <script src="library/javascript/Field20.js"></script>
 <script src="library/javascript/RecordSet20.js"></script>
 <script src="library/javascript/DataForm20.js"></script>
-<script src="library/javascript/Message20.js"></script>
+<script src="library/javascript/MessageDR.js"></script>
 <script src="library/javascript/init_ue_unterrichtseineit.js"></script>
 <script>
 </script>
@@ -51,7 +51,7 @@
         print_r( json_encode( $return ));
         die;
     }
-    $q = "SELECT id as value, bezeichnung as text from ue_gruppen";
+    $q = "SELECT id as value, concat(tag, ' ', uhrzeit_start) as text from ue_gruppen";
     $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
@@ -63,6 +63,30 @@
         $i += 1;
     }
     print_r( "var list_gruppen = '" . $option . "';\n" );
+    $q = "SELECT id as value, kurzbezeichnung as text from _mtr_definition_zieltyp";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->value . '">' . $r[$i]->text . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_zieltyp = '" . $option . "';\n" );
+    $q = "SELECT * FROM `_mtr_definition_lernmethode`";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->bezeichnung . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_lernmethode = '" . $option . "';\n" );
    ?>
 let fields = [
         {
@@ -213,6 +237,8 @@ var Df_2 = new DataForm( {
     fields: "id,zieltyp_id,lernmethode_id,ue_id,datum,startzeit,dauer,bemerkung",
     addPraefix: "df2_",
     formType: "html",
+    boundForm: ["Df_3"] ,
+    boundFields: [{"from": "id", "to": "ue_zw_unterrichtseinheit_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: [
@@ -229,19 +255,6 @@ var Df_2 = new DataForm( {
 
         },
         {
-            field: "zieltyp_id",
-            label: "Ziel",
-            type: "input_text",
-
-        },
-        {
-            field: "lernmethode_id",
-            label: "Lernmethode",
-            type: "input_text",
-
-
-        },
-        {
             field: "ue_id",
             label: "ue_id",
             type: "input_text",
@@ -252,14 +265,7 @@ var Df_2 = new DataForm( {
             field: "datum",
             label: "datum",
             type: "input_date",
-value: getGermanDate(),
-default: function() {
-                const date = new Date();
-date.setHours(date.getHours() + 1); // +1 Stunde
-
-const germanDate = date.toLocaleDateString("de-DE");
-return germanDate;
-            }
+            value: new Date().toJSON().slice(0, 10),
         },
         {
             field: "startzeit",
@@ -322,10 +328,118 @@ return germanDate;
     /*additionalFields: additionalFields, */
 
 } );
+var Df_3 = new DataForm( { 
+    dVar: "Df_3", 
+    id: "#Df_3", 
+    table: "ue_unterrichtseinheit_zw_thema",
+    fields: "id,ue_zw_unterrichtseinheit_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,beschreibung",
+    addPraefix: "df2_",
+    formType: "html",
+    validOnSave: false, 
+    classButtonSize: "cButtonMiddle",
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+        },
+        {
+            field: "id",
+            label: "Id",
+            type: "input_text",
+
+        },
+        {
+            field: "ue_zw_unterrichtseinheit_id",
+            label: "Id",
+            type: "input_text",
+
+        },
+
+        {
+            field: "zieltyp_id",
+            label: "Ziel",
+            type: "select",
+            options: list_zieltyp,
+
+        },
+        {
+            field: "lernmethode_id",
+            label: "lernmethode_id",
+            type: "select",
+            options: list_lernmethode,
+
+        },
+        {
+            field: "std_lernthema_id",
+            label: "std_lernthema_id",
+            type: "input_text",
+        },
+        {
+            field: "thema",
+            label: "datum",
+           label: "ue_id",
+            type: "input_text",
+        },
+        {
+            field: "startzeit",
+            label: "startzeit",
+            type: "input_time",
+        },
+        {
+            field: "beschreibung",
+            label: "dauer",
+            type: "input_text",
+        },
+    ],
+    countPerPage: 0,
+    currentPage: 0,
+    hasPagination: false,
+    countRecords: undefined,
+    filter: undefined,
+        afterBuild: function(){}
+
+/*
+    orderArray: ["val_varchar", "val_int"],
+    searchArray: [
+            {
+                field: "val_varchar",
+                type: "input_text",
+                value: "",
+                sel: "value",
+            },
+            {
+                field: "val_select",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_select_multi",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+                addAttr: "multiple",
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_checkbox",
+                type: "select",
+                options: "<option value='>-1'>alle</option><option value=0>aus</option><option value='1'>an</option>",
+                value: ">-1",
+                sel: "value",
+            },
+        ]
+    /*additionalFields: additionalFields, */
+
+} );
 
 (function() {
     Df.init();
     Df_2.init();
+    Df_3.init();
 })();
 </script>
 </body>

@@ -1,3 +1,6 @@
+body {
+    margin: 0.5em 1em 1em 1em;
+}
 .cNumber {
     width: 35px;
 }
@@ -17,7 +20,7 @@ input[id="df_id"] {
     width:40px !important;
 }
 
-[id^="df2_hl_ue_zuweisung_schueler_id"] {
+[id^="df2_hl_ue_zuweisung_schueler_id"], [id^="df2_ue_zuweisung_schueler_id_new"], [id^="df2_ue_zuweisung_schueler_id_"] {
     width:73px !important;
 }
 #Df_2_head>div {
@@ -26,7 +29,6 @@ input[id="df_id"] {
 #Df_2 {
     position: relative;
     top: 20px;
-    left: 20px
 }
 .dataformHead {
     display: flex;
@@ -34,4 +36,21 @@ input[id="df_id"] {
 legend {
     position: relative;
     top: 60px
+}
+#df2_TmpSetSelect {
+    width: 260px;
+    height: 250px;   
+}
+#df2_hl_val_emotions {
+    width: 130px !important
+}
+[id^="df2_val_emotions_"] {
+    position: relative;
+    /*top: 11px;*/
+}
+ {
+    width:100px !important;
+}
+[id^="df2_erfasst_am_new"], [id^="df2_hl_erfasst_am"], [id^="df2_erfasst_am_"] {
+    width:100px !important;
 }

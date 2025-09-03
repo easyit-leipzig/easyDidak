@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Dataform-Test ICAS</title>
+    <title>Schülerfeedback easyDidak</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -57,6 +57,42 @@
         $i += 1;
     }
     print_r( "var list_teilnehmer = '" . $option . "';\n" );
+    $q = "SELECT id as value, emotion as text from _mtr_emotionen";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->value . '">' . $r[$i]->text . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_emotionen = '" . $option . "';\n" );
+    $q = "SELECT * FROM `_std_schulform`";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->schulform . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_schulform = '" . $option . "';\n" );
+    $q = "SELECT * FROM `std_teilnehmer`";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->Vorname . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_names = '" . $option . "';\n" );
    ?>
 let fields = [
         {
@@ -106,6 +142,25 @@ let fields = [
             addClasses: "cVal_varchar",
             valid: ["not empty", "minlength 3"],
         },
+        {
+            field: "geschlecht",
+            label: "Geschlecht",
+            type: "select",
+            options: "<option value='0'>ohne</option><option value='1'>männlich</option><option value='2'>weiblich</option><option value='3'>divers</option>",
+        },
+        {
+            field: "Klassenstufe",
+            label: "Klasse",
+            type: "input_number",
+            valid: ["not empty"],
+        },
+        {
+            field: "KlassentypID",
+            label: "Schulform",
+            type: "select",
+            options: list_schulform,
+        },
+
 /*
         {
             field: "val_int",
@@ -189,7 +244,7 @@ var Df = new DataForm( {
     id: "#Df", 
     table: "std_teilnehmer", 
 //    fields: "id,val_varchar,val_dec,val_int,val_select,val_select_multi,val_img,val_checkbox,val_stars",
-    fields: "id,teilnehmer_typ,Vorname,Nachname",
+    fields: "id,teilnehmer_typ,Vorname,Nachname,geschlecht,Klassenstufe,KlassentypID",
     addPraefix: "df1_",
     formType: "html", 
     boundForm: ["Df_2"] ,
@@ -197,18 +252,26 @@ var Df = new DataForm( {
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: fields,
-    countPerPage: 0,
+    countPerPage: 5,
     currentPage: 0,
-    hasPagination: false,
+    hasPagination: true,
     countRecords: undefined,
     //filter: "id = '1'",
     orderArray: ["val_varchar", "val_int"],
     searchArray: [
-
+ 
             {
                 field: "teilnehmer_typ",
                 type: "select",
                 options: "<option value='>-1'>alle</option><option value='0'>Lehrkräfte</option><option value='1'>Teilnehmer</option>",
+                value: ">-1",
+                sel: "value",
+            },
+
+            {
+                field: "id",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + list_names,
                 value: ">-1",
                 sel: "value",
             },
@@ -218,7 +281,7 @@ var Df_2 = new DataForm( {
     dVar: "Df_2", 
     id: "#Df_2", 
     table: "mtr_rueckkopplung_teilnehmer",
-    fields: "id,ue_zuweisung_schueler_id,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,erfasst_am",
+    fields: "id,ue_zuweisung_schueler_id,erfasst_am,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,val_emotions,bemerkungen",
     addPraefix: "df2_",
     formType: "html",
     validOnSave: false, 
@@ -244,156 +307,185 @@ var Df_2 = new DataForm( {
             options: list_teilnehmer,
         },
         {
-            field: "val_mitarbeit",
-            label: "MA",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Wie aktiv beteiligst du dich am Unterricht &#10;(Fragen stellen, Antworten geben, mitdenken)?"
-
-        },
-        {
-            field: "val_absprachen",
-            label: "AB",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Hältst du dich an Absprachen mit dem Tutor &#10;(z. B. Formfragen, vereinbarte Ziele, Termine)?"
-
-        },
-        {
-            field: "val_selbststaendigkeit",
-            label: "St",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Wie gut kannst du Aufgaben alleine bearbeiten, &#10;ohne ständig Hilfe zu brauchen?"
-
-        },
-        {
-            field: "val_konzentration",
-            label: "Ko",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Wie aufmerksam und fokussiert arbeitest du während der Stunde?"
-        },
-        {
-            field: "val_fleiss",
-            label: "Fl",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Wie viel Mühe und Einsatz bringst du in die Bearbeitung der Aufgaben ein?"
-        },
-        {
-            field: "val_lernfortschritt",
-            label: "LF",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Hast du das Gefühl, dass du dich in den behandelten Themen verbesserst?"
-        },
-        {
-            field: "val_beherrscht_thema",
-            label: "BT",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Kannst du das aktuelle Thema am Ende der Einheit sicher anwenden und erklären?"
-        },
-        {
-            field: "val_transferdenken",
-            label: "Tr",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Schaffst du es, das Gelernte auch in neuen Aufgaben oder Situationen zu nutzen?"
-        },
-        {
-            field: "val_basiswissen",
-            label: "BW",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Verfügst du über das nötige Grundwissen, um neue Inhalte zu verstehen und darauf aufzubauen?"
-        },
-        {
-            field: "val_vorbereitet",
-            label: "Vo",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Kommst du vorbereitet in die Stunde (Hausaufgaben, Materialien, Vorwissen)?"
-        },
-        {
-            field: "val_themenauswahl",
-            label: "Th",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Empfindest du die behandelten Themen als sinnvoll und für dich passend?"
-        },
-        {
-            field: "val_materialien",
-            label: "Ma",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Helfen dir die eingesetzten Materialien (Arbeitsblätter, Darstellungen, Beispiele) beim Lernen?"
-        },
-        {
-            field: "val_methodenvielfalt",
-            label: "MV",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Empfindest du die eingesetzten Methoden (Erklärungen, Übungen, Visualisierungen) als abwechslungsreich und hilfreich?"
-        },            
-        {
-            field: "val_individualisierung",
-            label: "In",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Hast du das Gefühl, dass der Unterricht auf deine persönlichen Stärken und Schwächen eingeht?"
-        },
-        {
-            field: "val_aufforderung",
-            label: "Af",
-            type: "input_number",
-            default: 3,
-            minValue: 1,
-            maxValue: 6,
-            Comment: "Wirst du vom Tutor ausreichend ermutigt und aufgefordert, dich aktiv einzubringen?"
-        },
-        {
             field: "erfasst_am",
             label: "erfasst_am",
             type: "input_date",
             Comment: "",
             default: new Date().toJSON().slice(0, 10),
         },
+        {
+            field: "val_mitarbeit",
+            label: "MA",
+            type: "input_number",
+            //default: 3,
+            Comment: "",
+            minValue: 1,
+            maxValue: 6,
+ 
+        },
+        {
+            field: "val_absprachen",
+            label: "AB",
+            type: "input_number",
+            default: "",
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+         },
+        {
+            field: "val_selbststaendigkeit",
+            label: "St",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+ 
+        },
+        {
+            field: "val_konzentration",
+            label: "Ko",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_fleiss",
+            label: "Fl",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_lernfortschritt",
+            label: "LF",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_beherrscht_thema",
+            label: "BT",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_transferdenken",
+            label: "Tr",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_basiswissen",
+            label: "BW",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_vorbereitet",
+            label: "Vo",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_themenauswahl",
+            label: "Th",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_materialien",
+            label: "Ma",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_methodenvielfalt",
+            label: "MV",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },            
+        {
+            field: "val_individualisierung",
+            label: "In",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_aufforderung",
+            label: "Af",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "val_emotions",
+            label: "Emotionen",
+            type: "select",
+            addClasses: "cVal_val_select_multi",
+            addAttr: "multiple data-clickable", // clickable opens the select dialog
+            options: list_emotionen,
+            Comment: "",
+        },
+        {
+            field: "bemerkungen",
+            label: "Bemerkungen",
+            type: "input_text",
+            Comment: "",
+        },
         ],
-    countPerPage: 0,
+    countPerPage: 5,
     currentPage: 0,
-    hasPagination: false,
+    hasPagination: true,
     countRecords: undefined,
-    filter: undefined,
+    //filter: "id='0",
+    afterBuild: undefined,
 /*
     orderArray: ["val_varchar", "val_int"],
     searchArray: [

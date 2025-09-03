@@ -18,10 +18,34 @@ button[id$="_recordPointer_new"] {
   background-repeat: no-repeat;   
     
 }
+.cDelete {
+  background-image: url(icons/cDelete.png);
+  background-size: 35px 35px;
+  background-repeat: no-repeat;   
+    
+}
 .dataformHead {
     display: flex
 }
 .cRecordPointer  {
     position: relative;
     top: 7px;
+}
+.dataformPagination {
+    heigth: 40px;
+    margin-top: 8px;
+}
+.dataformPagination>a {
+  display: inline-block; /* Allows setting width/height and padding */
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Text color */
+  text-decoration: none; /* Remove underline */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Indicate it's clickable */
+  font-family: sans-serif; /* Choose a suitable font */
+  font-size: 16px; /* Adjust font size */
+  text-align: center; /* Center text horizontally */
+  line-height: normal; /* Ensure text aligns correctly */    
 }
