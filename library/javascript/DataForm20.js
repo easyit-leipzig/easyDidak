@@ -632,19 +632,21 @@ class DataForm {                    // class for DataForm2.0
         let l = this.opt.searchArray.length;
         let i = 0;
         while( i < l ) {
-            field = new Field( {
+           field = new Field( {
                 id: "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field,
                 type: this.opt.searchArray[i].type,
                 addAttr: this.opt.searchArray[i].addAttr + " data-field='" + this.opt.searchArray[i].field + "'",
                 options: this.opt.searchArray[i].options,
                 title: this.opt.searchArray[i].title,
-                dVar: this.opt.dVar,    
+                dVar: this.opt.dVar,
+                onChange: this.opt.searchArray[i].onChange    
             } );
             nj( this.opt.id + "_searchline" ).aCh( field.getField()[0] );
             nj( field.opt.id ).v( this.opt.searchArray[i].value );
             if( this.opt.searchArray[i].type === "select" ) {
                 nj( field.opt.id ).on( "change", function( args ) {
-                    nj( this ).Dia().getSearchString();   
+                    nj( this ).Dia().getSearchString();
+                    if(typeof field.opt.onChange==="function" ) field.opt.onChange() 
                 } );    
             }
             if( this.opt.searchArray[i].type === "input_text" ) {

@@ -26,3 +26,6 @@ setTooltips = function() {
     let myTooltip_16 = new Opentip("#df2_val_emotions_new", "Gib bitte ein oder mehrere Gefühle an, die du während der Nachhilfe hattest.", "Emotionen");
     let myTooltip_17 = new Opentip("#df2_bemerkungen_new", "Du kannst hier eine Textnachricht hinterlassen.", "Bemerkungen");
 }
+test = function (){
+    nj("#df1_DfRS_2 button:first-child").tri("click")
+}

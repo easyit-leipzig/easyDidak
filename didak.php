@@ -274,6 +274,7 @@ var Df = new DataForm( {
                 options: "<option value='>-1'>alle</option>" + list_names,
                 value: ">-1",
                 sel: "value",
+                //onChange: test
             },
     ]
 } );
@@ -484,7 +485,7 @@ var Df_2 = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
-    //filter: "id='0",
+    //filter: "id<'1'",
     afterBuild: undefined,
 /*
     orderArray: ["val_varchar", "val_int"],
