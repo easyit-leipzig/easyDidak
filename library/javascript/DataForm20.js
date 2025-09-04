@@ -83,7 +83,7 @@ class DataForm {                    // class for DataForm2.0
             afterDelete:                        undefined,
             afterNew:                           undefined,
             afterSuccessSave:                   undefined,
-            afterBuild:                         undefined,
+            afterbuild:                         function(){},
         }
         let tmpId = "",
             tmpClasses = "",
@@ -292,7 +292,7 @@ class DataForm {                    // class for DataForm2.0
                 df.prepareRecords( jsonobject );
                 if( df.opt.hasPagination ) df.initPagination();
                 df.initRecordPointer();
-                //df.opt.afterBuild();
+                if( typeof df.opt.afterBuild === "function") df.opt.afterBuild();
             break;
             case "saveRecordset":
                 if( jsonobject.success ) {
@@ -632,21 +632,19 @@ class DataForm {                    // class for DataForm2.0
         let l = this.opt.searchArray.length;
         let i = 0;
         while( i < l ) {
-           field = new Field( {
+            field = new Field( {
                 id: "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field,
                 type: this.opt.searchArray[i].type,
                 addAttr: this.opt.searchArray[i].addAttr + " data-field='" + this.opt.searchArray[i].field + "'",
                 options: this.opt.searchArray[i].options,
                 title: this.opt.searchArray[i].title,
-                dVar: this.opt.dVar,
-                onChange: this.opt.searchArray[i].onChange    
+                dVar: this.opt.dVar,    
             } );
             nj( this.opt.id + "_searchline" ).aCh( field.getField()[0] );
             nj( field.opt.id ).v( this.opt.searchArray[i].value );
             if( this.opt.searchArray[i].type === "select" ) {
                 nj( field.opt.id ).on( "change", function( args ) {
-                    nj( this ).Dia().getSearchString();
-                    if(typeof field.opt.onChange==="function" ) field.opt.onChange() 
+                    nj( this ).Dia().getSearchString();   
                 } );    
             }
             if( this.opt.searchArray[i].type === "input_text" ) {
@@ -920,6 +918,8 @@ class DataForm {                    // class for DataForm2.0
             this.opt.recordsets[i].getRecord();
             i += 1;
         }
+        console.log(this.opt)
+        if( typeof this.opt.afterbuild === "function" ) this.opt.afterbuild()
     }
     initPagination = function() {
         console.log( this.opt.dVar, this.opt.countRecords );
@@ -1072,6 +1072,6 @@ class DataForm {                    // class for DataForm2.0
             this.opt.whereClausel = " where " + this.opt.filter;
         }
         this.initBehavior();
-        this.getFieldDefinitions( this.afterBuild );
+        this.getFieldDefinitions( this.opt.afterBuild );
     }
 }

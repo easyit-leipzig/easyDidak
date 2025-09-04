@@ -87,18 +87,6 @@
         $i += 1;
     }
     print_r( "var list_lernmethode = '" . $option . "';\n" );
-    $q = "SELECT * FROM `_std_schulform`";
-    $s = $db_pdo -> query( $q );
-    $r = $s -> fetchAll( PDO::FETCH_CLASS );
-    $l = count( $r );
-    $i = 0;
-    $option = "";
-    while ($i < $l ) {
-        // code...
-        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->schulform . '</option>';
-        $i += 1;
-    }
-    print_r( "var list_schulform = '" . $option . "';\n" );
    ?>
 let fields = [
         {
@@ -246,7 +234,7 @@ var Df_2 = new DataForm( {
     dVar: "Df_2", 
     id: "#Df_2", 
     table: "ue_unterrichtseinheit_zuweisung",
-    fields: "id,ue_id,datum,startzeit,dauer,bemerkung",
+    fields: "id,zieltyp_id,lernmethode_id,ue_id,datum,startzeit,dauer,bemerkung",
     addPraefix: "df2_",
     formType: "html",
     boundForm: ["Df_3"] ,
@@ -344,7 +332,7 @@ var Df_3 = new DataForm( {
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_unterrichtseinheit_zw_thema",
-    fields: "id,ue_zw_unterrichtseinheit_id,schulform_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,beschreibung",
+    fields: "id,ue_zw_unterrichtseinheit_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,beschreibung",
     addPraefix: "df2_",
     formType: "html",
     validOnSave: false, 
@@ -360,14 +348,6 @@ var Df_3 = new DataForm( {
             field: "id",
             label: "Id",
             type: "input_text",
-
-        },
-        {
-            field: "schulform_id",
-            label: "schulform_id",
-            type: "select",
-            options: list_schulform,
-            onChange: function(){console.log("schulform")}
 
         },
         {

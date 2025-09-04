@@ -94,6 +94,7 @@ class Field {                    // class for DataForm2.0
             onChange:           undefined,
             onClick:            function( event ) {
                                     console.log( this );
+
                                     let elId, el, tmp;
                                     if( nj(this).Dia().opt.addAttr.indexOf( "undefined" === -1 ) ) {
                                         switch( nj(this).Dia().opt.type ) {

@@ -100,6 +100,7 @@ let fields = [
             value: "&nbsp;",
             field: "recordPointer",
             baseClass: "cButtonMiddle",
+            onClick: setTooltips()
         },
         {
             field: "id",
@@ -274,7 +275,6 @@ var Df = new DataForm( {
                 options: "<option value='>-1'>alle</option>" + list_names,
                 value: ">-1",
                 sel: "value",
-                //onChange: test
             },
     ]
 } );
@@ -287,6 +287,7 @@ var Df_2 = new DataForm( {
     formType: "html",
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
+    hasHelp: false,
     fieldDefinitions: [
         {
             type: "recordPointer",
@@ -322,7 +323,6 @@ var Df_2 = new DataForm( {
             Comment: "",
             minValue: 1,
             maxValue: 6,
- 
         },
         {
             field: "val_absprachen",
@@ -485,8 +485,8 @@ var Df_2 = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
-    //filter: "id<'1'",
-    afterBuild: undefined,
+    afterbuild: function(){setTooltips()},
+    filter: "id=0",
 /*
     orderArray: ["val_varchar", "val_int"],
     searchArray: [
