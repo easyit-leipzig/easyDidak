@@ -132,6 +132,11 @@ class DataForm {                    // class for DataForm2.0
         nj( tmpEl ).aCl( "dataformHead" );
         nj( this.opt.id ).aCh( tmpEl );
         tmpEl = nj().cEl( "div" );
+        tmpEl.id = this.opt.id.substring( 1 ) + "_head_headline";
+        console.log( "#" + this.opt.id.substring( 1 ) + "_head" )
+        nj( "#" + this.opt.id.substring( 1 ) + "_head" ).aCh( tmpEl );
+        nj( "#" + this.opt.id.substring( 1 ) + "_head_headline" ).aCl( "dataFormHeadHeadline" );
+        tmpEl = nj().cEl( "div" );
         tmpEl.id = this.opt.id.substring( 1 ) + "_data";
         nj( tmpEl ).aCl( "dataformData" );
         nj( this.opt.id ).aCh( tmpEl );
@@ -589,7 +594,8 @@ class DataForm {                    // class for DataForm2.0
                 }
 
                 nj( el ).sDs( "field", this.opt.fieldDefinitions[i].field );
-                nj( this.opt.id + "_head" ).aCh( el );
+                nj( this.opt.id + "_head_headline" ).aCl( "DataFormHeadHeadline" );
+                nj( this.opt.id + "_head_headline" ).aCh( el );
                 if( this.opt.orderArray.indexOf( this.opt.fieldDefinitions[i].field ) > -1 ) {
                 nj( "#" + el.id ).on( "click", function( args ) {
                     console.log( nj(this).htm(), this );
@@ -918,7 +924,6 @@ class DataForm {                    // class for DataForm2.0
             this.opt.recordsets[i].getRecord();
             i += 1;
         }
-        console.log(this.opt)
         if( typeof this.opt.afterbuild === "function" ) this.opt.afterbuild()
     }
     initPagination = function() {

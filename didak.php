@@ -489,19 +489,20 @@ var Df_2 = new DataForm( {
     filter: "id=0",
 /*
     orderArray: ["val_varchar", "val_int"],
+*/
     searchArray: [
             {
-                field: "val_varchar",
-                type: "input_text",
-                value: "",
+                field: "id",
+                type: "select",
+                options: "<option value='>0'>alle</option><option value=0>nur Neu</option>",
+                value: ">-1",
                 sel: "value",
             },
+ /*
             {
                 field: "val_select",
                 type: "select",
                 options: "<option value='>-1'>alle</option>" + optRole,
-                value: ">-1",
-                sel: "value",
             },
             {
                 field: "val_select_multi",
@@ -518,6 +519,7 @@ var Df_2 = new DataForm( {
                 value: ">-1",
                 sel: "value",
             },
+ */
         ]
     /*additionalFields: additionalFields, */
 } );

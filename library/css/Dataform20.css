@@ -25,6 +25,10 @@ button[id$="_recordPointer_new"] {
     
 }
 .dataformHead {
+    display: flex;
+    flex-direction: column;
+}
+.DataFormHeadHeadline {
     display: flex
 }
 .cRecordPointer  {

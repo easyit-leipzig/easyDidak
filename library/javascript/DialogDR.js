@@ -106,6 +106,7 @@ class DialogDR {                    // dialog drag and resize
             boxId = "",
             tmpClasses = "";
         Object.assign( this.opt, param );
+        console.log(this.opt.id)
         if( this.opt.id === "" ) {
             let el = nj().cEl( "div" );
             el.id = this.opt.dVar;

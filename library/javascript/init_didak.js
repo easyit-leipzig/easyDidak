@@ -1,5 +1,4 @@
 setTooltips = function() {
-    console.log("setTooltips")
     try {
 
   let myTooltip_1 = new Opentip("#df2_val_mitarbeit_new", "Wie aktiv beteiligst du dich am Unterricht (Fragen stellen, Antworten geben, mitdenken)?", "Mitarbeit");
@@ -22,7 +21,7 @@ setTooltips = function() {
     let myTooltip_11 = new Opentip("#df2_val_themenauswahl_new", "Empfindest du die behandelten Themen als sinnvoll und für dich passend?", "Themenauswahl");
     let myTooltip_12 = new Opentip("#df2_val_materialien_new", "Helfen dir die eingesetzten Materialien (Arbeitsblätter, Darstellungen, Beispiele) beim Lernen?", "Materialien");
     let myTooltip_13 = new Opentip("#df2_val_methodenvielfalt_new", "Empfindest du die eingesetzten Methoden (Erklärungen, Übungen, Visualisierungen) als abwechslungsreich und hilfreich?", "Methodenvielfalt");
-    let myTooltip_14 = new Opentip("#df2_val_individualisierung_new", "Empfindest du die eingesetzten Methoden (Erklärungen, Übungen, Visualisierungen) als abwechslungsreich und hilfreich?", "Individualisierung");
+    let myTooltip_14 = new Opentip("#df2_val_individualisierung_new", "Hast du das Gefühl, dass der Unterricht auf deine persönlichen Stärken und Schwächen eingeht?    ", "Individualisierung");
     let myTooltip_15 = new Opentip("#df2_val_aufforderung_new", "Wirst du vom Tutor ausreichend ermutigt und aufgefordert, dich aktiv einzubringen?", "Aufforderung");
     let myTooltip_16 = new Opentip("#df2_val_emotions_new", "Gib bitte ein oder mehrere Gefühle an, die du während der Nachhilfe hattest.", "Emotionen");
     let myTooltip_17 = new Opentip("#df2_bemerkungen_new", "Du kannst hier eine Textnachricht hinterlassen.", "Bemerkungen");

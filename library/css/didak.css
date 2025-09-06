@@ -30,9 +30,6 @@ input[id="df_id"] {
     position: relative;
     top: 20px;
 }
-.dataformHead {
-    display: flex;
-}
 legend {
     position: relative;
     top: 60px

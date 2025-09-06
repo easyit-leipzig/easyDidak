@@ -20,7 +20,11 @@
 <div id="Df"></div>
 <h2>Details</h2>
 <div id="Df_2"></div>
+<div id=dialog_teilnehmer>
+    <div id="std_teilnehmer"></div>
+    <div id="tln_bewertung"></div>
 
+</div>
 <script src="library/javascript/no_jquery.js"></script>
 <script src="library/javascript/easyit_helper_neu.js"></script>
 <script src="library/javascript/main.js"></script>
@@ -30,7 +34,7 @@
 <script src="library/javascript/RecordSet20.js"></script>
 <script src="library/javascript/DataForm20.js"></script>
 <script src="library/javascript/MessageDR.js"></script>
-<script src="library/javascript/init_ue_unterrichtseineit.js"></script>
+<script src="library/javascript/lessons.js"></script>
 <script>
 </script>
 <script>
@@ -87,6 +91,18 @@
         $i += 1;
     }
     print_r( "var list_lernmethode = '" . $option . "';\n" );
+    $q = "SELECT * FROM `_std_schulform`";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->schulform . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_schulform = '" . $option . "';\n" );
    ?>
 let fields = [
         {
@@ -101,20 +117,6 @@ let fields = [
             type: "input_text",
 
         },
-/*        {
-            field: "dummy",
-            label: "dummy",
-            value: new Date().addHours(1).toISOString().replace("T", " ").replace("Z", "").split(" ")[0], // current date without hours
-            baseClass: "cDummy",
-            type: "input_date",
-        },
-        {
-            field: "val_dec",
-            label: "Dec",
-            type: "input_text",
-            addClasses: "cDec",
-        },
-*/
         {
             field: "gruppe_id",
             label: "Typ",
@@ -129,82 +131,7 @@ let fields = [
             addClasses: "cVal_varchar",
             valid: ["not empty", "minlength 3"],
         },
-/*
-        {
-            field: "val_int",
-            label: "val_int",
-            type: "input_number",
-            addClasses: "cVal_val_int",
-            minValue: 1,
-        },
-        {
-            field: "val_select",
-            label: "val_select",
-            type: "select",
-            addClasses: "cVal_val_select",
-            options: optRole,
-        },
-        {
-            field: "val_select_multi",
-            label: "val_select_multi",
-            type: "select",
-            addClasses: "cVal_val_select_multi",
-            addAttr: "multiple",
-            options: optRole,
-        },
-        {
-            field: "val_img",
-            label: "val_img",
-            type: "img",
-            addClasses: "cVal_img",
-            withDiv: true,
-        },
-        {
-            field: "val_checkbox",
-            label: "val_checkbox",
-            type: "checkbox",
-            addClasses: "cVal_checkbox",
-        },
-        {
-            field: "val_stars",
-            label: "val_stars",
-            type: "stars",
-            addClasses: "cVal_stars",
-            onClick: function( event ) {
-                console.log( nj().els(this).children[1] );
-              var rect = nj().els(this).getBoundingClientRect(); 
-              var x = event.clientX - rect.left; 
-              var y = event.clientY - rect.top; 
-               
-              console.log(parseInt(x/20) + 1);
-              nj().els(this).children[1].setAttribute("width", (parseInt(x/20) + 1)*20 ) 
-            }
-        },
-        {
-            field: "button_addKey",
-            type: "button",
-            baseClass: "cAddButton",
-            addClasses: "cButtonAddKey",
-            value: "&nbsp;",
-            maxLength: "0",
-            onClick: function () {
-                // content
-                console.log( nj( this ).Dia("dvar", 5 ) );
-            }
-        },
-        {
-            field: "button_setValue",
-            type: "input_but",
-            baseClass: "cAddButton cButtonMiddle",
-            addClasses: "cButtonSetValuey",
-            value: "&nbsp;",
-            maxLength: "0",
-            onClick: function () {
-                // content
-                console.log( nj( this ).Dia().tmpEl );
-            }
-        },
-*/
+
     ];
 // Df;
 var Df = new DataForm( { 
@@ -225,7 +152,7 @@ var Df = new DataForm( {
     hasPagination: true,
     countRecords: undefined,
     //filter: "id = '1'",
-    orderArray: ["val_varchar", "val_int"],
+    orderArray: [],
     searchArray: [
         ],
 } );
@@ -234,7 +161,7 @@ var Df_2 = new DataForm( {
     dVar: "Df_2", 
     id: "#Df_2", 
     table: "ue_unterrichtseinheit_zuweisung",
-    fields: "id,zieltyp_id,lernmethode_id,ue_id,datum,startzeit,dauer,bemerkung",
+    fields: "id,ue_id,datum,startzeit,dauer,bemerkung",
     addPraefix: "df2_",
     formType: "html",
     boundForm: ["Df_3"] ,
@@ -270,7 +197,8 @@ var Df_2 = new DataForm( {
         {
             field: "startzeit",
             label: "startzeit",
-            type: "input_time",
+            type: "select",
+            options: "<option value='14:00'>14:00</option><option value='15:35'>15:35</option><option value='17:10'>17:10</option>",
         },
         {
             field: "dauer",
@@ -293,48 +221,16 @@ var Df_2 = new DataForm( {
     filter: undefined,
         afterBuild: function(){}
 
-/*
-    orderArray: ["val_varchar", "val_int"],
-    searchArray: [
-            {
-                field: "val_varchar",
-                type: "input_text",
-                value: "",
-                sel: "value",
-            },
-            {
-                field: "val_select",
-                type: "select",
-                options: "<option value='>-1'>alle</option>" + optRole,
-                value: ">-1",
-                sel: "value",
-            },
-            {
-                field: "val_select_multi",
-                type: "select",
-                options: "<option value='>-1'>alle</option>" + optRole,
-                addAttr: "multiple",
-                value: ">-1",
-                sel: "value",
-            },
-            {
-                field: "val_checkbox",
-                type: "select",
-                options: "<option value='>-1'>alle</option><option value=0>aus</option><option value='1'>an</option>",
-                value: ">-1",
-                sel: "value",
-            },
-        ]
-    /*additionalFields: additionalFields, */
-
 } );
 var Df_3 = new DataForm( { 
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_unterrichtseinheit_zw_thema",
-    fields: "id,ue_zw_unterrichtseinheit_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,beschreibung",
-    addPraefix: "df2_",
+    fields: "id,ue_zw_unterrichtseinheit_id,schulform_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,dauer,beschreibung",
+    addPraefix: "df3_",
     formType: "html",
+    boundForm: ["Df_4"] ,
+    boundFields: [{"from": "id", "to": "ue_unterrichtseinheit_thema_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: [
@@ -358,38 +254,51 @@ var Df_3 = new DataForm( {
         },
 
         {
+            field: "schulform_id",
+            label: "schulform_id",
+            type: "select",
+            options: "<option value='<-1'>alle</option>" + list_schulform,
+            onChange: function(){changeSchulform(this.id)},
+
+        },
+
+        {
             field: "zieltyp_id",
             label: "Ziel",
             type: "select",
             options: list_zieltyp,
 
         },
+
         {
             field: "lernmethode_id",
             label: "lernmethode_id",
             type: "select",
             options: list_lernmethode,
+            default: 24,
 
         },
         {
             field: "std_lernthema_id",
             label: "std_lernthema_id",
             type: "input_text",
+            onChange: function(){changeLernthema(this.id)},
+            valid: ["not empty"],
         },
         {
             field: "thema",
-            label: "datum",
-           label: "ue_id",
+            label: "thema",
             type: "input_text",
         },
         {
-            field: "startzeit",
-            label: "startzeit",
-            type: "input_time",
+            field: "dauer",
+            label: "dauer",
+            type: "select",
+            options: "<option value='15'>15</option><option value='30'>30</option><option value='45'>45</option><option value='60'>60</option><option value='75'>75</option><option value='90'>90</option>"
         },
         {
             field: "beschreibung",
-            label: "dauer",
+            label: "beschreibung",
             type: "input_text",
         },
     ],
@@ -435,11 +344,249 @@ var Df_3 = new DataForm( {
     /*additionalFields: additionalFields, */
 
 } );
+var Df_4 = new DataForm( { 
+    dVar: "Df_4", 
+    id: "#Df_4", 
+    table: "ue_teilnehmer_zuweisung",
+    fields: "id,ue_unterrichtseinheit_thema_id,teilnehmer_id",
+    addPraefix: "df4_",
+    formType: "html",
+    validOnSave: false, 
+    classButtonSize: "cButtonMiddle",
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+        },
+        {
+            field: "id",
+            label: "Id",
+            type: "input_text",
+
+        },
+        {
+            field: "ue_unterrichtseinheit_thema_id",
+            label: "ue_unterrichtseinheit_thema_id",
+            type: "input_text",
+
+        },
+        {
+            field: "teilnehmer_id",
+            label: "teilnehmer_id",
+            type: "input_text",
+
+        },
+
+    ],
+    countPerPage: 0,
+    currentPage: 0,
+    hasPagination: false,
+    countRecords: undefined,
+    filter: undefined,
+        afterBuild: function(){}
+
+/*
+    orderArray: ["val_varchar", "val_int"],
+    searchArray: [
+            {
+                field: "val_varchar",
+                type: "input_text",
+                value: "",
+                sel: "value",
+            },
+            {
+                field: "val_select",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_select_multi",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+                addAttr: "multiple",
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_checkbox",
+                type: "select",
+                options: "<option value='>-1'>alle</option><option value=0>aus</option><option value='1'>an</option>",
+                value: ">-1",
+                sel: "value",
+            },
+        ]
+    /*additionalFields: additionalFields, */
+
+} );
+var Df_5 = new DataForm( { 
+    dVar: "Df_5", 
+    id: "#std_teilnehmer", 
+    table: "std_teilnehmer", 
+//    fields: "id,val_varchar,val_dec,val_int,val_select,val_select_multi,val_img,val_checkbox,val_stars",
+    fields: "id,Vorname,Nachname",
+    addPraefix: "df1_",
+    formType: "html", 
+    validOnSave: false, 
+    classButtonSize: "cButtonMiddle",
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+        },
+        {
+            field: "id",
+            label: "Id",
+            type: "input_text",
+
+        },
+        {
+            field: "Vorname",
+            label: "Vorname",
+            type: "input_text",
+
+        },
+        {
+            field: "Nachname",
+            label: "Nachname",
+            type: "input_text",
+
+        },
+
+    ],
+
+    countPerPage: 5,
+    currentPage: 0,
+    hasPagination: true,
+    countRecords: undefined,
+    //filter: "id = '1'",
+} );
+/*
+var Df_5 = new DataForm( { 
+    dVar: "Df_5", 
+    id: "#Df_5", 
+    table: "std_teilnehmer",
+    fields: "id,Vorname,Nachname",
+    addPraefix: "df5_",
+    formType: "html",
+    validOnSave: false,
+    //autoOpen: false, 
+    classButtonSize: "cButtonMiddle",
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+        },
+        {
+            field: "id",
+            label: "Id",
+            type: "input_text",
+
+        },
+        {
+            field: "Vorname",
+            label: "Vorname",
+            type: "input_text",
+
+        },
+        {
+            field: "Nachname",
+            label: "Nachname",
+            type: "input_text",
+
+        },
+
+    ],
+    countPerPage: 5,
+    currentPage: 0,
+    hasPagination: true,
+    countRecords: undefined,
+    filter: undefined,
+        afterBuild: function(){}
+
+/*
+    orderArray: ["val_varchar", "val_int"],
+    searchArray: [
+            {
+                field: "val_varchar",
+                type: "input_text",
+                value: "",
+                sel: "value",
+            },
+            {
+                field: "val_select",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_select_multi",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+                addAttr: "multiple",
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_checkbox",
+                type: "select",
+                options: "<option value='>-1'>alle</option><option value=0>aus</option><option value='1'>an</option>",
+                value: ">-1",
+                sel: "value",
+            },
+        ]
+    /*additionalFields: additionalFields, */
+/*
+} );
+*/
+/*
+var tln = new DialogDR( {
+    dVar: "tln", 
+                id: "tln", 
+                title: "Teilnehmer", 
+                width: 600, 
+                height: 400, 
+                modal: true,
+                autoOpen: false,
+                hasHelp: true,
+                onClose: undefined,
+                onShow: undefined,
+
+});
+*/
+var myDia;
+        myDia = new DialogDR({
+        dVar: "myDia", 
+        width: 600,
+        height: 400,
+        addClassFiles: "DialogNew.css dialog_easyit.css",
+        hasClose: true,
+        hasMin: true,
+        hasMax: true,
+        rootPropertyPraefix: 'dialog-',
+        canResize: true,
+        hasInfo: false,
+        hasHelp: false,
+    });
 
 (function() {
+var tln = new DialogDR( {
+    dVar: "tln", 
+});
     Df.init();
     Df_2.init();
     Df_3.init();
+    Df_4.init();
+    Df_5.init();
+    init();
 })();
 </script>
 </body>
