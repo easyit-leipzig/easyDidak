@@ -1,0 +1,29 @@
+/* headline ue */
+#df1_hl_id, div[id^="df1_DfRS_"]>input:nth-child(2) {
+    display: none
+}
+#df3_TmpSetSelect {
+    width: 268px;
+    height: 284px;
+    font-size: 1.2em;
+}
+#std_teilnehmer, #tln_bewertung {
+    width: 1160px;
+}
+div[id^="df5_std_teilnehmerRS_"]>input:nth-child(2), div[id^="df6_tln_bewertungRS_"]>input:nth-child(2), div[id^="df6_tln_bewertungRS_"]>input:nth-child(3) {
+    display: none
+}
+div[id^="df5_std_teilnehmerRS_"]>input:nth-child(7) {
+    width: 50px;
+}
+/* std_teilnehmer */
+#df5_hl_id {
+    display: none
+}
+#df5_hl_Vorname {
+    margin-left: 40px;
+}
+#df5_hl_Nachname {
+    margin-left: 125px;
+}
+ 

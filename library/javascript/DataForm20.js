@@ -19,6 +19,7 @@ const DIV_EDIT_TEXTAREA = ``;
 const optDate = '<option value="[field]>-1">alle</option><option value="[field]>=\'' + getLastWeek().from + '\' and [field]<=\'' + getLastWeek().to + '\'">letzteWoche</option><option value="[field]>=\'' + getCurrentWeek().from + '\' and [field]<=\'' + getCurrentWeek().to + '\'">aktuelle Woche</option><option value="[field]>=\'' + getNextWeek().from + '\' and [field]<=\'' + getNextWeek().to + '\'">nächste Woche</option><option value="[field]>=\'' + getLastMonth().from + '\' and [field]<=\'' + getLastMonth().to + '\'">letzter Monat</option><option value="[field]>=\'' + getCurrentMonth().from + '\' and [field]<=\'' + getCurrentMonth().to + '\'">aktueller Monat</option><option value="[field]>=\'' + getNextMonth().from + '\' and [field]<=\'' + getNextMonth().to + '\'">nächster Monat</option>';
 const DIFF_PAGINATION = 2;
 const MAX_FILE_UPLOADSIZE = 10000;
+var args = {};
 class DataForm {                    // class for DataForm2.0
       constructor( param ) {
         this.opt = {
@@ -84,6 +85,7 @@ class DataForm {                    // class for DataForm2.0
             afterNew:                           undefined,
             afterSuccessSave:                   undefined,
             afterbuild:                         function(){},
+            onsave:                         function(){},
         }
         let tmpId = "",
             tmpClasses = "",
@@ -94,6 +96,7 @@ class DataForm {                    // class for DataForm2.0
             searchWasGreaterThanTwo;
         if( param.addClassFiles !== "" ) param.addClassFiles = this.opt.addClassFiles + " " + param.addClassFiles;
         Object.assign( this.opt, param );
+        console.log( this.opt );
         tmp = this.opt.addClassFiles.split(" ");
         //console.log( tmp );
         let l = tmp.length;
@@ -133,7 +136,6 @@ class DataForm {                    // class for DataForm2.0
         nj( this.opt.id ).aCh( tmpEl );
         tmpEl = nj().cEl( "div" );
         tmpEl.id = this.opt.id.substring( 1 ) + "_head_headline";
-        console.log( "#" + this.opt.id.substring( 1 ) + "_head" )
         nj( "#" + this.opt.id.substring( 1 ) + "_head" ).aCh( tmpEl );
         nj( "#" + this.opt.id.substring( 1 ) + "_head_headline" ).aCl( "dataFormHeadHeadline" );
         tmpEl = nj().cEl( "div" );
@@ -213,9 +215,10 @@ class DataForm {                    // class for DataForm2.0
                         {
                             title: "Übernehmen",
                             action: function( args ) {
-                                let v = nj( "#" + nj(this).gRO().opt.addPraefix + "TmpSetSelect" ).gSV().join(",");
-                                console.log( nj(this).Dia().opt.variables );
-                                nj( nj(this).Dia().opt.variables.el.opt.id ).sSV( v );
+                                let v = nj( "#" + nj(this).gRO().opt.addPraefix + "TmpSetSelect" ).gSV();
+                                console.log( v )
+                                nj( nj(this).Dia().opt.variables.el.opt.id ).sSV( v, true );
+                                console.log( nj( nj(this).Dia().opt.variables.el.opt.id ).gSV()  );
                                 nj(this).Dia().hide();
                                 nj( nj(this).Dia().opt.variables.el.opt.id ).tri( "change" );
                             }
@@ -302,10 +305,14 @@ class DataForm {                    // class for DataForm2.0
             case "saveRecordset":
                 if( jsonobject.success ) {
                     if( jsonobject.oldId === "new" && typeof df.opt.afterNew === "function" ) {
-                        df.opt.afterNew( df, jsonobject );
+                        args.df = df;
+                        args.jsonobject = jsonobject;
+                        df.opt.afterNew();
                     }
                     if( jsonobject.oldId !== "new" && typeof df.opt.afterSuccessSave === "function" ) {
-                        df.opt.afterSuccessSave( df, jsonobject );
+                        data.df = df;
+                        data.jsonobject;
+                        df.opt.afterSuccessSave();
                     }
                 } else {
                     dMNew.show( {title: "Fehler", type: false, text: jsonobject.message } );
@@ -927,10 +934,8 @@ class DataForm {                    // class for DataForm2.0
         if( typeof this.opt.afterbuild === "function" ) this.opt.afterbuild()
     }
     initPagination = function() {
-        console.log( this.opt.dVar, this.opt.countRecords );
         this.opt.countRecords = parseInt( this.opt.countRecords )
         if( this.opt.hasNew ) this.opt.countRecords += 1;
-        console.log( this.opt.countRecords, this.opt.countPerPage );
         let countPages;
         if( Number.isInteger( this.opt.countRecords / this.opt.countPerPage ) ) {
             countPages = this.opt.countRecords / this.opt.countPerPage;

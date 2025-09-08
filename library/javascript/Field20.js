@@ -86,12 +86,28 @@ class Field {                    // class for DataForm2.0
                     let res = nj( this ).Dia().checkValidity();
                     console.log( res );
                     if( !res.success ) {
+                        console.log(dMNew)
                         dMNew.show( {title: "Fehler", type: false, text: res.message } );
                         return;
                     }
                 }   
             },
-            onChange:           undefined,
+            onChange:           function( event ) {                                    
+                                        if( nj(this).Dia().opt.addAttr.indexOf( "undefined" === -1 ) ) {
+                                            switch( nj(this).Dia().opt.type ) {
+                                                case "number":
+                                                    console.log( typeof nj(this).Dia().getValue())
+                                                    let val = nj(this).Dia().getValue();
+                                                    if( val < nj(this).Dia().opt.minValue ) {
+                                                        nj( nj(this).Dia().opt.id ).v( nj(this).Dia().opt.minValue )
+                                                    }
+                                                    if( val > nj(this).Dia().opt.maxValue ) {
+                                                        nj( nj(this).Dia().opt.id ).v( nj(this).Dia().opt.maxValue )
+                                                    }
+                                            break;
+                                            }
+                                        }                            
+                                    },
             onClick:            function( event ) {
                                     console.log( this );
 
@@ -123,8 +139,10 @@ class Field {                    // class for DataForm2.0
                                             break;
                                             case "select":
                                                 if( nj( this ).hAt( "multiple" ) && nj( this ).hAt( "data-clickable" ) ) {
+                                                    if( typeof client_os !== "undefined" && client_os ==="Android" ) return;
                                                     event.preventDefault();
                                                     elId = nj( this ).Dia().opt.id;
+                                                    console.log(elId)
                                                     el = nj().cEl( "select" );
                                                     //el.id = "tmpSetSelect";
                                                     tmp = nj().els( this ).outerHTML;
@@ -153,6 +171,7 @@ class Field {                    // class for DataForm2.0
                                     }
                                 },
             onDblClick:         undefined,
+            onMouseOver:        undefined,
         }
         let showOnInit = true,
             boxId = "",
@@ -368,7 +387,8 @@ class Field {                    // class for DataForm2.0
                         fieldHTML += '<select id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAttr + " ";
                     }
                 }
-                fieldHTML += ' class="cSelect ' + this.opt.addClasses + ' " title="' + this.opt.title +'" ';
+                fieldHTML += ' class="cSelect ' + this.opt.addClasses + '" ';
+                if( typeof this.opt.title !== "undefined" ) fieldHTML += 'title="' + this.opt.title +'" ';
                 fieldHTML += this.opt.addAttr + '>' + this.opt.options + '</select>';
                 this.tmpEl = htmlToElement( fieldHTML );
                 if( typeof this.opt.value !== "undefined" && this.opt.value != null ) {

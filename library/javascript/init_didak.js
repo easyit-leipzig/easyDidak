@@ -1,3 +1,22 @@
+    evaluateDidak = function ( data ) {
+        // content
+        let jsonobject, l, i, m, j, tmp, decVal, strVal;
+        if( typeof data === "string" ) {
+            jsonobject = JSON.parse( data );
+        } else {
+            jsonobject = data;
+        }
+        if( !nj().isJ( jsonobject ) ) {
+            throw "kein JSON-Objekt übergeben";
+        }
+        console.log( jsonobject );
+        let el;
+        switch( jsonobject.command ) {
+            case "setGroup":
+                break;
+        }
+}
+
 setTooltips = function() {
     try {
 
@@ -23,7 +42,12 @@ setTooltips = function() {
     let myTooltip_13 = new Opentip("#df2_val_methodenvielfalt_new", "Empfindest du die eingesetzten Methoden (Erklärungen, Übungen, Visualisierungen) als abwechslungsreich und hilfreich?", "Methodenvielfalt");
     let myTooltip_14 = new Opentip("#df2_val_individualisierung_new", "Hast du das Gefühl, dass der Unterricht auf deine persönlichen Stärken und Schwächen eingeht?    ", "Individualisierung");
     let myTooltip_15 = new Opentip("#df2_val_aufforderung_new", "Wirst du vom Tutor ausreichend ermutigt und aufgefordert, dich aktiv einzubringen?", "Aufforderung");
-    let myTooltip_16 = new Opentip("#df2_val_emotions_new", "Gib bitte ein oder mehrere Gefühle an, die du während der Nachhilfe hattest.", "Emotionen");
+    let myTooltip_16 = new Opentip("#df2_val_emotions_new", "Gib bitte ein oder mehrere Gefühle an, die du während der Nachhilfe hattest.", "Gefühle");
     let myTooltip_17 = new Opentip("#df2_bemerkungen_new", "Du kannst hier eine Textnachricht hinterlassen.", "Bemerkungen");
 }
-setTooltips()
+setGroup = function() {
+    data.id = args.jsonobject.newId;
+    data.command = "setGroup";
+        nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+}
+//setTooltips()

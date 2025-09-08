@@ -27,7 +27,6 @@ class RecordSet {                    // class for DataForm2.0
         if( !nj().isJ( jsonobject ) ) {
             throw "kein JSON-Objekt übergeben";
         }
-        console.log( jsonobject );
         var fr = window[ jsonobject.dVar ];
         switch( jsonobject.command ) {
             case "saveRecordset":
@@ -75,6 +74,9 @@ class RecordSet {                    // class for DataForm2.0
                     if( typeof nj(elField[j]).Dia().opt.onDblClick === "function" ) {
                        nj(elField[j]).on( "dblclick", nj(elField[j]).Dia().opt.onDblClick ); 
                     }
+                    if( typeof nj(elField[j]).Dia().opt.onMouseOver === "function" ) {
+                       nj(elField[j]).on( "mouseover", nj(elField[j]).Dia().opt.onMouseOver ); 
+                    }
                     j += 1;
                 }
                 i += 1;
@@ -92,7 +94,6 @@ class RecordSet {                    // class for DataForm2.0
         let els = nj().els( "div[id=" + this.opt.id.substring( 1 ) + "] .cField" );
     }
     saveRecordset = function( df, rs, primaryKey ) {
-        console.log( df, rs, primaryKey );
         if( df.opt.validOnSave ) {
             let l = rs.fields.length;
             let i = 0;
@@ -137,7 +138,6 @@ class RecordSet {                    // class for DataForm2.0
         nj().fetchPostNew("library/php/ajax_dataform20.php", data, df.evaluateDF)        
     }
     deleteRecordset = function( df, rs, primaryKey ) {
-        console.log( df, rs, primaryKey );
         let orphans = [], oValues = {};
         let l = df.opt.boundForm.length;
         let i = 0;
@@ -155,7 +155,6 @@ class RecordSet {                    // class for DataForm2.0
         data.primaryKey = df.opt.primaryKey;
         data.primaryKeyValue = primaryKey;
         data.orphans = JSON.stringify( orphans );
-        console.log( data );
         nj().fetchPostNew("library/php/ajax_dataform20.php", data, df.evaluateDF )        
     }
     init = function ( fieldDefinitions ) {

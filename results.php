@@ -37,7 +37,6 @@
 <script src="library/javascript/RecordSet20.js"></script>
 <script src="library/javascript/DataForm20.js"></script>
 <script src="library/javascript/MessageDR.js"></script>
-<script src="library/javascript/OpenTip_native.js"></script>
 <script src="library/javascript/lessons.js"></script>
 <script>
 </script>
@@ -71,7 +70,7 @@
         $i += 1;
     }
     print_r( "var list_gruppen = '" . $option . "';\n" );
-    $q = "SELECT id as value, kurzbezeichnung as text, beschreibung from _mtr_definition_zieltyp order by kurzbezeichnung";
+    $q = "SELECT id as value, kurzbezeichnung as text from _mtr_definition_zieltyp";
     $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
@@ -79,7 +78,7 @@
     $option = "";
     while ($i < $l ) {
         // code...
-        $option .= '<option title="' . $r[$i]->beschreibung . '"  value="' . $r[$i]->value . '">' . $r[$i]->text . '</option>';
+        $option .= '<option value="' . $r[$i]->value . '">' . $r[$i]->text . '</option>';
         $i += 1;
     }
     print_r( "var list_zieltyp = '" . $option . "';\n" );
@@ -119,18 +118,6 @@
         $i += 1;
     }
     print_r( "var list_teilnehmer = '" . $option . "';\n" );
-    $q = "SELECT * FROM `_ue_fach`";
-    $s = $db_pdo -> query( $q );
-    $r = $s -> fetchAll( PDO::FETCH_CLASS );
-    $l = count( $r );
-    $i = 0;
-    $option = "";
-    while ($i < $l ) {
-        // code...
-        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->fach . '</option>';
-        $i += 1;
-    }
-    print_r( "var list_fach = '" . $option . "';\n" );
    ?>
 // Df;
 var Df = new DataForm( { 
@@ -254,7 +241,7 @@ var Df_3 = new DataForm( {
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_unterrichtseinheit_zw_thema",
-    fields: "id,ue_zw_unterrichtseinheit_id,schulform_id,fach_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,dauer,teilnehmer_id,beschreibung",
+    fields: "id,ue_zw_unterrichtseinheit_id,schulform_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,dauer,teilnehmer_id,beschreibung",
     addPraefix: "df3_",
     formType: "html",
     boundForm: ["Df_4"] ,
@@ -287,14 +274,6 @@ var Df_3 = new DataForm( {
             type: "select",
             options: "<option value='<-1'>alle</option>" + list_schulform,
             onChange: function(){changeSchulform(this.id)},
-
-        },
-        {
-            field: "fach_id",
-            label: "fach_id",
-            type: "select",
-            options: "<option value='<-1'>alle</option>" + list_fach,
-             /*onChange:function(){changeSchulform(this.id)},*/
 
         },
 
@@ -350,8 +329,8 @@ var Df_3 = new DataForm( {
     hasPagination: false,
     countRecords: undefined,
     filter: undefined,
-    afterBuild: function(){},
-    afterSuccessSave: function(){setUeTeinehmer()},
+    afterBuild: function(){}
+
 } );
 var Df_5 = new DataForm( { 
     dVar: "Df_5", 
@@ -359,7 +338,7 @@ var Df_5 = new DataForm( {
     table: "std_teilnehmer", 
 //    fields: "id,val_varchar,val_dec,val_int,val_select,val_select_multi,val_img,val_checkbox,val_stars",
     fields: "id,Vorname,Nachname,geschlecht,geburtstag,Klassenstufe,KlassentypID",
-    addPraefix: "df5_",
+    addPraefix: "df1_",
     formType: "html", 
     boundForm: ["Df_6"] ,
     boundFields: [{"from": "id", "to": "teilnehmer_id"}],
@@ -429,7 +408,7 @@ var Df_6 = new DataForm( {
     dVar: "Df_6", 
     id: "#tln_bewertung", 
     table: "mtr_persoenlichkeit", 
-    fields: "id,teilnehmer_id,datum,offenheit_erfahrungen,gewissenhaftigkeit,Extraversion,vertraeglichkeit,zielorientierung,lernfaehigkeit,anpassungsfaehigkeit,soziale_interaktion,metakognition,stressbewaeltigung",
+    fields: "id,teilnehmer_id,datum,offenheit_erfahrungen",
     addPraefix: "df6_",
     formType: "html", 
     validOnSave: false,
@@ -443,124 +422,35 @@ var Df_6 = new DataForm( {
         },
         {
             field: "id",
-            label: "",
+            label: "Id",
             type: "input_text",
 
         },
         {
             field: "teilnehmer_id",
-            label: "",
+            label: "teilnehmer_id",
             type: "input_text",
 
         },
         {
             field: "datum",
-            label: "Datum",
+            label: "datum",
             type: "input_date",
             default: new Date().toJSON().slice(0, 10),
 
         },
         {
             field: "offenheit_erfahrungen",
-            label: "Off.",
+            label: "offenheit_erfahrungen",
             type: "input_number",
-            Comment: "Offenheit für Erfahrungen&#10;Hohe Ausprägung: Sucht aktiv nach neuen 'Feldzuständen' (Lerninhalten, Situationen), experimentiert mit verschiedenen 'Akteur-Funktionen' (Lernstrategien, Verhaltensweisen), ist offen für die Transformation symbolischer Meta-Strukturen. Niedrige Ausprägung: Bevorzugt bekannte 'Feldzustände', vermeidet neue Verhaltensmuster, hält an etablierten symbolischen Ordnungen fest.",
+            Comment: "",
             minValue: 1,
             maxValue: 6,
 
         },
-        {
-            field: "gewissenhaftigkeit",
-            label: "Gew.",
-            type: "input_number",
-            Comment: "Gewissenhaftigkeit&#10;Hohe Ausprägung: Richtet seine 'Akteur-Funktion' auf die systematische Verfolgung definierter Ziele aus, zeigt Ausdauer bei der Bearbeitung von Aufgaben im 'Feld', reguliert seine 'Meta-Funktion' zur Selbstüberwachung und -korrektur im Lernprozess. Niedrige Ausprägung: Schwierigkeiten bei der Zielverfolgung, geringe Ausdauer, impulsive oder wenig geplante 'Akteur-Funktionen'.",
-            minValue: 1,
-            maxValue: 6,
 
-        },
-        {
-            field: "Extraversion",
-            label: "Ext.",
-            type: "input_number",
-            Comment: "Extraversion&#10;Hohe Ausprägung: Zeigt eine starke Tendenz zur Bildung gekoppelter 'Akteur-Funktionen' in sozialen Feldern, sucht aktiv soziale 'Feldzustände' auf, zeigt eine hohe 'Handlungsdichte' im sozialen Kontext. Niedrige Ausprägung: Geringere Tendenz zu gekoppelten 'Akteur-Funktionen', vermeidet soziale 'Feldzustände', zeigt weniger 'Handlungen' im sozialen Kontext.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-        {
-            field: "vertraeglichkeit",
-            label: "Ver.",
-            type: "input_number",
-            Comment: "Verträglichkeit&#10;Hohe Ausprägung: Passt seine 'Akteur-Funktion' an die der Ko-Akteure in sozialen Feldern an, zeigt Kooperationsbereitschaft, ist empfänglich für die semantischen Attraktoren gemeinsamer sozialer Narrative. Niedrige Ausprägung: Zeigt weniger Anpassung, ist weniger kooperativ, neigt zu Konflikten in gekoppelten 'Akteur-Funktionen'.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-        {
-            field: "zielorientierung",
-            label: "Zie.",
-            type: "input_number",
-            Comment: "Zielorientierung&#10;Hohe Ausprägung: Setzt sich aktiv Lernziele, verfolgt Aufgaben beharrlich, zeigt Eigeninitiative. Niedrige Ausprägung: Schwierigkeiten, Ziele zu formulieren oder zu verfolgen, geringe Eigenmotivation.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-        {
-            field: "lernfaehigkeit",
-            label: "Ler.",
-            type: "input_number",
-            Comment: "Lernfaehigkeit&#10;Hohe Ausprägung: Passt Lernstrategien an, nutzt Feedback effektiv, lernt aus Fehlern, geht flexibel mit neuen Lerninhalten um. Niedrige Ausprägung: Schwierigkeiten bei der Anpassung, resistent gegen Feedback, wiederholt Fehler. Lernprozesse verändern die Struktur der Akteur-Funktionen. Ausprägungen zeigen sich in der Geschwindigkeit und Effizienz dieser funktionalen Anpassungen.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-        {
-            field: "anpassungsfaehigkeit",
-            label: "Anp.",
-            type: "input_number",
-            Comment: "Anpassungsfaehigkeit&#10;Hohe Ausprägung: Passt Lernstrategien an, nutzt Feedback effektiv, lernt aus Fehlern, geht flexibel mit neuen Lerninhalten um. Niedrige Ausprägung: Schwierigkeiten bei der Anpassung, resistent gegen Feedback, wiederholt Fehler.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-        {
-            field: "soziale_interaktion",
-            label: "Soz.",
-            type: "input_number",
-            Comment: "Soziale Interaktion&#10;Hohe Ausprägung: Kooperativ, kommuniziert offen, integriert sich gut in Gruppen, zeigt Empathie. Niedrige Ausprägung: Schwierigkeiten in der Zusammenarbeit, vermeidet Interaktion, soziale Konflikte.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-        {
-            field: "metakognition",
-            label: "Met.",
-            type: "input_number",
-            Comment: "Metakognition&#10;Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch. Niedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-        {
-            field: "stressbewaeltigung ",
-            label: "Str.",
-            type: "input_number",
-            Comment: "Stressbewältigung&#10;Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch. Niedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-        {
-            field: "bedeutungsbildung ",
-            label: "Bed.",
-            type: "input_number",
-            Comment: "Bedeutungsbildung&#10;Hohe Ausprägung: Konstruiert kohärente Bedeutungen aus Lerninhalten, vernetzt Wissen, entwickelt eigene Interpretationen, findet Sinn im Gelernten. Niedrige Ausprägung: Schwierigkeiten bei der Sinnstiftung, isolierte Wissensfragmente, wenig eigene Interpretationen. Integrale Funktionalität (Kohärenzbildung, Kontextualisierung, Narrativierung, Wertschöpfung) synthetisiert lokale Beobachtungen zu globalen Bedeutungen. Ausprägungen zeigen sich in der Qualität und Struktur der konstruierten semantischen Felder und Narrative.",
-            minValue: 1,
-            maxValue: 6,
-
-        },
-    
     ],
+
     countPerPage: 5,
     currentPage: 0,
     hasPagination: true,
@@ -587,6 +477,7 @@ var myDia;
     Df_2.init();
     Df_3.init();
     Df_5.init();
+    Df_6.init();
     init();
 })();
 </script>

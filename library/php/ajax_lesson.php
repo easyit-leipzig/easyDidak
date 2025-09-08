@@ -110,7 +110,7 @@ switch( $_POST["command"]) {
                                  $schulform = $result[$i]["schulform"];
                                 $i += 1;
                             }
-                            $query = "SELECT id FROM `std_lernthema` where lernthema='" . $_POST["value"] . "' and schulform='$schulform'";
+                            $query = "SELECT id FROM `std_lernthema` where lernthema='" . $_POST["value"] . "'"; //" and schulform='$schulform' or schulform='frei'";
                             try {
                                 $stm = $db_pdo -> query( $query );
                                 $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
@@ -146,8 +146,35 @@ switch( $_POST["command"]) {
                             //$return->schulform = $schulform;
                             print_r( json_encode( $return ));   
     break;
+    case "setUeTeinehmer":
+                            $query = "SELECT teilnehmer_id FROM `ue_unterrichtseinheit_zw_thema` where id = " .  $_POST["id"];
+                            try {
+                                $stm = $db_pdo -> query( $query );
+                                $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
+                            } catch ( Exception $e ) {
+                                $return -> success = false;
+                                $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
+                                return $return;   
+                            }
+                            $l = count( $result );
+                            $i = 0;
+                            while( $i < $l ) {
+                                 $teilnehmer_id = $result[$i]["teilnehmer_id"];
+                                $i += 1;
+                            }
+                            $teilnehmer_id = explode(",", $teilnehmer_id);
+                            $l = count( $teilnehmer_id );
+                            $i = 0;
+                            while( $i < $l ) {
+                                $query = "INSERT INTO `ue_zuweisung_teilnehmer` ( `ue_zuweisung_lernthema_id`, `teinehmer_id`) VALUES (" . $_POST["id"] . ", " . $teilnehmer_id[$i] . ")";
+                                $db_pdo -> query( $query );
+                                $i += 1;
+                            }                            
+                            print_r( json_encode( $teilnehmer_id ));   
+                            
+    break;
     default:
-                            print_r( json_encode( $return ));
+                            print_r( json_encode( $return )); 
     break;
 }
 ?>

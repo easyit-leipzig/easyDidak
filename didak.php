@@ -19,7 +19,7 @@
 <h1>Rückmeldung Schüler</h1>
 <script src="library/javascript/no_jquery.js"></script>
 <script src="library/javascript/easyit_helper_neu.js"></script>
-<script src="library/javascript/main.js"></script>
+<script src="library/javascript/const_main.js"></script>
 <script src="library/javascript/DropResize.js"></script>
 <script src="library/javascript/DialogDR.js"></script>
 <script src="library/javascript/Field20.js"></script>
@@ -29,6 +29,7 @@
 <script src="library/javascript/init_didak.js"></script>
 <script>
     <?php
+require_once("library/php/getOS.php");
     $settings = parse_ini_file('ini/settings.ini', TRUE);
     $dns = $settings['database']['type'] . 
                 ':host=' . $settings['database']['host'] . 
@@ -57,7 +58,7 @@
         $i += 1;
     }
     print_r( "var list_teilnehmer = '" . $option . "';\n" );
-    $q = "SELECT id as value, emotion as text from _mtr_emotionen";
+    $q = "SELECT id as value, emotion as text from _mtr_emotionen where show_emotion=1 order by emotion";
     $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
@@ -81,7 +82,7 @@
         $i += 1;
     }
     print_r( "var list_schulform = '" . $option . "';\n" );
-    $q = "SELECT * FROM `std_teilnehmer`";
+    $q = "SELECT * FROM `std_teilnehmer` order by Vorname";
     $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
@@ -108,20 +109,6 @@ let fields = [
             type: "input_text",
 
         },
-/*        {
-            field: "dummy",
-            label: "dummy",
-            value: new Date().addHours(1).toISOString().replace("T", " ").replace("Z", "").split(" ")[0], // current date without hours
-            baseClass: "cDummy",
-            type: "input_date",
-        },
-        {
-            field: "val_dec",
-            label: "Dec",
-            type: "input_text",
-            addClasses: "cDec",
-        },
-*/
         {
             field: "teilnehmer_typ",
             label: "Typ",
@@ -145,13 +132,13 @@ let fields = [
         },
         {
             field: "geschlecht",
-            label: "Geschlecht",
+            label: "Geschl.",
             type: "select",
             options: "<option value='0'>ohne</option><option value='1'>männlich</option><option value='2'>weiblich</option><option value='3'>divers</option>",
         },
         {
             field: "Klassenstufe",
-            label: "Klasse",
+            label: "Kl.",
             type: "input_number",
             valid: ["not empty"],
         },
@@ -162,82 +149,6 @@ let fields = [
             options: list_schulform,
         },
 
-/*
-        {
-            field: "val_int",
-            label: "val_int",
-            type: "input_number",
-            addClasses: "cVal_val_int",
-            minValue: 1,
-        },
-        {
-            field: "val_select",
-            label: "val_select",
-            type: "select",
-            addClasses: "cVal_val_select",
-            options: optRole,
-        },
-        {
-            field: "val_select_multi",
-            label: "val_select_multi",
-            type: "select",
-            addClasses: "cVal_val_select_multi",
-            addAttr: "multiple",
-            options: optRole,
-        },
-        {
-            field: "val_img",
-            label: "val_img",
-            type: "img",
-            addClasses: "cVal_img",
-            withDiv: true,
-        },
-        {
-            field: "val_checkbox",
-            label: "val_checkbox",
-            type: "checkbox",
-            addClasses: "cVal_checkbox",
-        },
-        {
-            field: "val_stars",
-            label: "val_stars",
-            type: "stars",
-            addClasses: "cVal_stars",
-            onClick: function( event ) {
-                console.log( nj().els(this).children[1] );
-              var rect = nj().els(this).getBoundingClientRect(); 
-              var x = event.clientX - rect.left; 
-              var y = event.clientY - rect.top; 
-               
-              console.log(parseInt(x/20) + 1);
-              nj().els(this).children[1].setAttribute("width", (parseInt(x/20) + 1)*20 ) 
-            }
-        },
-        {
-            field: "button_addKey",
-            type: "button",
-            baseClass: "cAddButton",
-            addClasses: "cButtonAddKey",
-            value: "&nbsp;",
-            maxLength: "0",
-            onClick: function () {
-                // content
-                console.log( nj( this ).Dia("dvar", 5 ) );
-            }
-        },
-        {
-            field: "button_setValue",
-            type: "input_but",
-            baseClass: "cAddButton cButtonMiddle",
-            addClasses: "cButtonSetValuey",
-            value: "&nbsp;",
-            maxLength: "0",
-            onClick: function () {
-                // content
-                console.log( nj( this ).Dia().tmpEl );
-            }
-        },
-*/
     ];
 // Df;
 var Df = new DataForm( { 
@@ -282,7 +193,7 @@ var Df_2 = new DataForm( {
     dVar: "Df_2", 
     id: "#Df_2", 
     table: "mtr_rueckkopplung_teilnehmer",
-    fields: "id,ue_zuweisung_schueler_id,erfasst_am,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,val_emotions,bemerkungen",
+    fields: "id,ue_zuweisung_schueler_id,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,val_emotions,bemerkungen",
     addPraefix: "df2_",
     formType: "html",
     validOnSave: false, 
@@ -309,24 +220,18 @@ var Df_2 = new DataForm( {
             options: list_teilnehmer,
         },
         {
-            field: "erfasst_am",
-            label: "erfasst_am",
-            type: "input_date",
-            Comment: "",
-            default: new Date().toJSON().slice(0, 10),
-        },
-        {
             field: "val_mitarbeit",
-            label: "MA",
+            label: "MA  ",
             type: "input_number",
             //default: 3,
             Comment: "",
             minValue: 1,
             maxValue: 6,
+            addClasses: "elBew"
         },
         {
             field: "val_absprachen",
-            label: "AB",
+            label: "AB  ",
             type: "input_number",
             default: "",
             Comment: "",
@@ -336,7 +241,7 @@ var Df_2 = new DataForm( {
          },
         {
             field: "val_selbststaendigkeit",
-            label: "St",
+            label: "St  ",
             type: "input_number",
 //            default: 3,
             Comment: "",
@@ -347,7 +252,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "val_konzentration",
-            label: "Ko",
+            label: "Ko  ",
             type: "input_number",
 //            default: 3,
             Comment: "",
@@ -467,7 +372,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "val_emotions",
-            label: "Emotionen",
+            label: "Gefühle",
             type: "select",
             addClasses: "cVal_val_select_multi",
             addAttr: "multiple data-clickable", // clickable opens the select dialog
@@ -486,6 +391,7 @@ var Df_2 = new DataForm( {
     hasPagination: true,
     countRecords: undefined,
     afterbuild: function(){setTooltips()},
+    afterNew: function(){setGroup()},
     filter: "id=0",
 /*
     orderArray: ["val_varchar", "val_int"],
