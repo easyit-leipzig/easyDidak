@@ -18,6 +18,7 @@ function draggable(e) {
     } else {
         e = nj().els( "#" + e );
     }
+    console.log(e);
     e.classList.add("draggable");
     let tmp = e.id.replace( "_box", "" );
     let t = nj().els( "#" + tmp + "_headline");

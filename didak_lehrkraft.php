@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="stylesheet prefetch" href="library/css/DataForm20.css">
+    <link rel="stylesheet prefetch" href="library/css/Dataform20.css">
     <link rel="stylesheet prefetch" href="library/css/didak.css">
 
 </head>
@@ -21,9 +21,9 @@
 <script src="library/javascript/main.js"></script>
 <script src="library/javascript/DropResize.js"></script>
 <script src="library/javascript/DialogDR.js"></script>
-<script src="library/javascript/Field20.js"></script>
-<script src="library/javascript/RecordSet20.js"></script>
-<script src="library/javascript/DataForm20.js"></script>
+<script src="library/javascript/Field2.0.1.js"></script>
+<script src="library/javascript/RecordSet2.0.1.js"></script>
+<script src="library/javascript/DataForm2.0.1.js"></script>
 <script src="library/javascript/OpenTip_native.js"></script>
 <script src="library/javascript/init_didak_lehrkraft.js"></script>
 <script>
@@ -209,7 +209,7 @@ var Df_2 = new DataForm( {
     dVar: "Df_2", 
     id: "#Df_2", 
     table: "mtr_rueckkopplung_lehrkraft",
-    fields: "id,ue_zuweisung_schueler_id,val_mitarbeit", //",val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,erfasst_am",
+    fields: "id,ue_zuweisung_schueler_id,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,erfasst_am",
     addPraefix: "df2_",
     formType: "html",
     validOnSave: false, 
@@ -378,7 +378,7 @@ var Df_2 = new DataForm( {
             label: "erfasst_am",
             type: "input_date",
             Comment: "",
-            Default: "31.08.25", // current date without hours
+            Default: "", // current date without hours
         },
         ],
     countPerPage: 0,

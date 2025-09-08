@@ -74,8 +74,12 @@ switch( $_POST["command"]) {
                             $diff = 30;
                             $a = new DateTime($date);
                             $b = new DateTime($date);
+                            
                             $return -> startdiff = $a->sub(new DateInterval('PT' . $diff . 'M'));
                             $return -> enddiff = $b->add(new DateInterval('PT' . $diff . 'M'));
+                            $return -> currentDate = new DateTime();
+                            $return -> currentDate->setTime(0, 0, 0);
+                            $return -> wochentag = $return -> currentDate->format('N')+1;
                            print_r( json_encode( $return )); 
     break;
     default:

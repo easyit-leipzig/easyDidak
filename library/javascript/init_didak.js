@@ -48,6 +48,6 @@ setTooltips = function() {
 setGroup = function() {
     data.id = args.jsonobject.newId;
     data.command = "setGroup";
-        nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 }
 //setTooltips()
