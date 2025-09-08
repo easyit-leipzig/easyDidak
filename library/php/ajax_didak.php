@@ -80,6 +80,32 @@ switch( $_POST["command"]) {
                             $return -> currentDate = new DateTime();
                             $return -> currentDate->setTime(0, 0, 0);
                             $return -> wochentag = $return -> currentDate->format('N')+1;
+                            $query = "select id, uhrzeit_ende FROM `ue_gruppen` where day_number=" . $return -> wochentag;
+                            try {
+                                $stm = $db_pdo -> query( $query );
+                                $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
+                            } catch ( Exception $e ) {
+                                $return -> success = false;
+                                $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
+                                return $return;   
+                            }
+                            $l = count( $result );
+                            $i = 0;
+ 
+                            while( $i < $l ) {
+                                $timearr =  explode( ":", $result[$i]["uhrzeit_ende"] );
+                                $return -> currentDate->setTime( $timearr[0], $timearr[1] );
+                                if ( $return -> currentDate >= $return -> startdiff && $return -> currentDate <= $return -> enddiff ) {
+                                    $q = "update mtr_rueckkopplung_teilnehmer set gruppe_id=" . $result[$i]["id"] . " where id=". $_POST["id"];
+                                    $db_pdo -> query( $q );
+                                    //echo "Die Zeit liegt im Bereich.";
+                                    } else {
+                                    //echo "Die Zeit liegt außerhalb des Bereichs.";
+                                }
+                                $i += 1;
+                            }
+
+                            $return -> q = $q;
                            print_r( json_encode( $return )); 
     break;
     default:

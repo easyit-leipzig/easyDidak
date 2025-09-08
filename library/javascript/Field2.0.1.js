@@ -105,6 +105,13 @@ class Field {                    // class for DataForm2.0
                                                         nj( nj(this).Dia().opt.id ).v( nj(this).Dia().opt.maxValue )
                                                     }
                                             break;
+                                            case "select":
+                                                console.log(this)
+                                                if( nj( this ).hAt( "multiple" ) && nj( this ).hAt( "data-clickable" ) ) {
+                                                    if( typeof client_os !== "undefined" && client_os ==="Android" ) return;
+                                                    event.preventDefault();
+                                                }
+                                            break;
                                             }
                                         }                            
                                     },
@@ -140,9 +147,7 @@ class Field {                    // class for DataForm2.0
                                             case "select":
                                                 if( nj( this ).hAt( "multiple" ) && nj( this ).hAt( "data-clickable" ) ) {
                                                     if( typeof client_os !== "undefined" && client_os ==="Android" ) return;
-                                                    event.preventDefault();
                                                     elId = nj( this ).Dia().opt.id;
-                                                    console.log(elId)
                                                     el = nj().cEl( "select" );
                                                     //el.id = "tmpSetSelect";
                                                     tmp = nj().els( this ).outerHTML;
