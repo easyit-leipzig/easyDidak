@@ -130,11 +130,12 @@ switch( $_POST["command"]) {
                                             $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                             return $return;   
                                         }
-                                        $tnId = $result[0]["teilnehmer_id"] . "," . $tnId;
-                                        $q= "update ue_unterrichtseinheit_zw_thema set teilnehmer_id='" . $tnId . "' where ue_unterrichtseinheit_id =$ueId";
+                                        // tn id anfügen
+                                        $appendTnId = $result[0]["teilnehmer_id"] . "," . $tnId;
+                                        $q= "update ue_unterrichtseinheit_zw_thema set teilnehmer_id='" . $appendTnId . "' where ue_unterrichtseinheit_id =$ueId";
                                         $db_pdo -> query( $q );
                                     }
-                                    //echo "Die Zeit liegt im Bereich.";
+
                                     } else {
  
                                     //echo "Die Zeit liegt außerhalb des Bereichs.";

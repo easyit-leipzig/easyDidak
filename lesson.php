@@ -834,7 +834,7 @@ var Df_6 = new DataForm( {
             field: "metakognition",
             label: "Met.",
             type: "input_number",
-            //Comment: "Metakognition&#10;Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch. Niedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.",
+            Comment: "Metakognition&#10;Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch. Niedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.",
             minValue: 1,
             maxValue: 6,
 
