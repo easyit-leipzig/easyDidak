@@ -57,6 +57,7 @@ class DataForm {                    // class for DataForm2.0
             orderArray:                         [],
             filter:                             "",         // if "undefined" no values will be required on init
             searchArray:                        [],
+            ownArray:                           [],
             hasNew:                             true,
             boundForm:                          [],         // ["form1","form_n"...]
             boundFields:                        [],         // [{from:v,to:t1}...]
@@ -153,6 +154,14 @@ class DataForm {                    // class for DataForm2.0
         if( this.opt.searchArray.length > 0 ) {
             this.showSearchHeadline();
         }
+        if( this.opt.ownArray.length > 0 ) {
+            //tmpEl = nj().cEl("div");
+            //tmpEl.id = "ownArray";
+            this.showOwnHeadline();
+
+            //console.log( this.opt );
+        }
+
         this.divUpload = new DialogDR( { 
             dVar: param.dVar + ".divUpload", 
             title: "Datei laden", 
@@ -698,6 +707,14 @@ class DataForm {                    // class for DataForm2.0
             
             i += 1;
         }
+    }
+    showOwnHeadline = function() {
+        let tmpEl = nj().els( "#" + this.opt.id + "_head" );
+        let e = new Field( {id: this.opt.id + "_head_ownHeadline", type: "div"} );
+        nj( this.opt.id + "_head" ).aCh( e.getField()[0] );
+        let f = new Field({id:"test", type:"input_text"});
+        console.log( f.getField() );
+        nj(this.opt.id + "_head_ownHeadline").aCh( f.getField()[0] );    
     }
     getSearchString = function() {
         if( typeof this.opt.filter === "undefined" ) {

@@ -163,6 +163,8 @@ switch( $_POST["command"]) {
                                 $i += 1;
                             }
                             $teilnehmer_id = explode(",", $teilnehmer_id);
+                            $q = "delete from ue_zuweisung_teilnehmer where ue_zuweisung_lernthema_id = " . $_POST["id"];
+                            $db_pdo -> query( $query );
                             $l = count( $teilnehmer_id );
                             $i = 0;
                             while( $i < $l ) {

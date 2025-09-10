@@ -15,6 +15,7 @@
 </head>
 
 <body>
+<div>Über diesen Link geht es zur Teilnehmerverwaltung <a href="#" id="showTN">Teilnehmerverwaltung</a></div>
 <h1>Unterrichtseinheiten</h1>
 <h2>Einheiten</h2>
 <div id="Df"></div>
@@ -22,6 +23,7 @@
 <div id="Df_2"></div>
 <h2>Zuweisung Themen</h2>
 <div id="Df_3"></div>
+
 <div id=dialog_teilnehmer>
     <div id="std_teilnehmer"></div>
     <div id="tln_bewertung"></div>
@@ -38,7 +40,7 @@
 <script src="library/javascript/DataForm2.0.1.js"></script>
 <script src="library/javascript/MessageDR.js"></script>
 <script src="library/javascript/OpenTip_native.js"></script>
-<script src="library/javascript/lessons.js"></script>
+<script src="library/javascript/init_lessons.js"></script>
 <script>
 </script>
 <script>
@@ -131,6 +133,18 @@
         $i += 1;
     }
     print_r( "var list_fach = '" . $option . "';\n" );
+    $q = "SELECT * FROM `_mtr_emotionen`";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->emotion . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_emotions = '" . $option . "';\n" );
    ?>
 // Df;
 var Df = new DataForm( { 
@@ -141,8 +155,8 @@ var Df = new DataForm( {
     fields: "id,gruppe_id,Beschreibung",
     addPraefix: "df1_",
     formType: "html", 
-    boundForm: ["Df_2"] ,
-    boundFields: [{"from": "id", "to": "ue_id"}],
+    boundForm: ["Df_3", "Df_2"] ,
+    boundFields: [{"from": "id", "to": "ue_unterrichtseinheit_id"}, {"from": "id", "to": "ue_unterrichtseinheit_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: [
@@ -175,6 +189,7 @@ var Df = new DataForm( {
         },
 
     ],
+    ownArray: [{id:"2",type:"text"}],
     countPerPage: 5,
     currentPage: 0,
     hasPagination: true,
@@ -188,12 +203,10 @@ var Df = new DataForm( {
 var Df_2 = new DataForm( { 
     dVar: "Df_2", 
     id: "#Df_2", 
-    table: "ue_unterrichtseinheit_zuweisung",
-    fields: "id,ue_id,datum,startzeit,dauer,bemerkung",
+    table: "mtr_rueckkopplung_lehrkraft_lesson",    
+    fields: "id,ue_unterrichtseinheit_id,erfasst_am,mitarbeit,absprachen,selbststaendigkeit,konzentration,fleiss,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,themenauswahl,materialien,individualisierung,aufforderung,emotions,bemerkungen",
     addPraefix: "df2_",
     formType: "html",
-    boundForm: ["Df_3"] ,
-    boundFields: [{"from": "id", "to": "ue_zw_unterrichtseinheit_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: [
@@ -202,6 +215,7 @@ var Df_2 = new DataForm( {
             value: "&nbsp;",
             field: "recordPointer",
             baseClass: "cButtonMiddle",
+            onClick: function(){console.log(this)}
         },
         {
             field: "id",
@@ -210,35 +224,154 @@ var Df_2 = new DataForm( {
 
         },
         {
-            field: "ue_id",
-            label: "ue_id",
+            field: "ue_unterrichtseinheit_id",
+            label: "ue_unterrichtseinheit_id",
             type: "input_text",
 
+        },
 
-        },
         {
-            field: "datum",
-            label: "datum",
+            field: "erfasst_am",
+            label: "erfasst_am",
             type: "input_date",
-            default: new Date().toJSON().slice(0, 10),
         },
         {
-            field: "startzeit",
-            label: "startzeit",
-            type: "select",
-            options: "<option value='14:00:00'>14:00</option><option value='15:35:00'>15:35</option><option value='17:10:00'>17:10</option>",
-        },
-        {
-            field: "dauer",
-            label: "dauer",
+            field: "mitarbeit",
+            label: "mitarbeit",
             type: "input_number",
-            default: 90,
+            default: 3,
+            Comment: "Mitarbeit",
             minValue: 1,
-            maxValue: 180,
+            maxValue: 6,
         },
         {
-            field: "bemerkung",
-            label: "bemerkung",
+            field: "absprachen",
+            label: "absprachen",
+            type: "input_number",
+            default: 3,
+            Comment: "Absprachen",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "selbststaendigkeit",
+            label: "absprachen",
+            type: "input_number",
+            default: 3,
+            Comment: "Selbstständigkeit",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "konzentration",
+            label: "absprachen",
+            type: "input_number",
+            default: 3,
+            Comment: "Konzentration",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "fleiss",
+            label: "fleiss",
+            type: "input_number",
+            default: 3,
+            Comment: "Fleiss",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "lernfortschritt",
+            label: "lernfortschritt",
+            type: "input_number",
+            default: 3,
+            Comment: "Lernfortschritt",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "beherrscht_thema",
+            label: "beherrscht_thema",
+            type: "input_number",
+            default: 3,
+            Comment: "beherrscht Thema",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "transferdenken",
+            label: "transferdenken",
+            type: "input_number",
+            default: 3,
+            Comment: "Transferdenken",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "basiswissen",
+            label: "basiswissen",
+            type: "input_number",
+            default: 3,
+            Comment: "Basiswissen",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "vorbereitet",
+            label: "vorbereitet",
+            type: "input_number",
+            default: 3,
+            Comment: "vorbereitet",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "themenauswahl",
+            label: "themenauswahl",
+            type: "input_number",
+            default: 3,
+            Comment: "Themenauswahl",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "materialien",
+            label: "materialien",
+            type: "input_number",
+            default: 3,
+            Comment: "Materialien",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "individualisierung",
+            label: "individualisierung",
+            type: "input_number",
+            default: 3,
+            Comment: "Individualisierung",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "aufforderung",
+            label: "aufforderung",
+            type: "input_number",
+            default: 3,
+            Comment: "Aufforderung",
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "emotions",
+            label: "emotions",
+            type: "select",
+            addAttr: "multiple data-clickable",
+            options: list_emotions,
+            Comment: "Gefühle",
+        },
+        {
+            field: "beschreibung",
+            label: "beschreibung",
             type: "input_text",
         },
     ],
@@ -247,18 +380,18 @@ var Df_2 = new DataForm( {
     hasPagination: false,
     countRecords: undefined,
     filter: undefined,
-        afterBuild: function(){}
-
+    afterBuild: function(){/*setTooltipsBewUe()*/},
+    afterSuccessSave: function(){/*setUeTeinehmer()*/},
 } );
 var Df_3 = new DataForm( { 
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_unterrichtseinheit_zw_thema",
-    fields: "id,ue_zw_unterrichtseinheit_id,schulform_id,fach_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,dauer,teilnehmer_id,beschreibung",
+    fields: "id,ue_unterrichtseinheit_id,schulform_id,fach_id,zieltyp_id,lernmethode_id,std_lernthema_id,thema,dauer,teilnehmer_id,beschreibung",
     addPraefix: "df3_",
     formType: "html",
     boundForm: ["Df_4"] ,
-    boundFields: [{"from": "id", "to": "ue_unterrichtseinheit_thema_id"}],
+    boundFields: [{"from": "id", "to": "ue_zuweisung_lernthema_id"},{"from": "teilnehmer_id", "to": "teilnehmer_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: [
@@ -275,8 +408,8 @@ var Df_3 = new DataForm( {
 
         },
         {
-            field: "ue_zw_unterrichtseinheit_id",
-            label: "Id",
+            field: "ue_unterrichtseinheit_id",
+            label: "ue_unterrichtseinheit_id",
             type: "input_text",
 
         },
@@ -352,6 +485,171 @@ var Df_3 = new DataForm( {
     filter: undefined,
     afterBuild: function(){},
     afterSuccessSave: function(){setUeTeinehmer()},
+} );
+var Df_4 = new DataForm( { 
+    dVar: "Df_4", 
+    id: "#Df_4", 
+    table: "ue_zuweisung_teilnehmer",
+    fields: "id,ue_zuweisung_lernthema_id,teinehmer_id",
+    addPraefix: "df4_",
+    boundForm: ["Df_8"] ,
+    boundFields: [{"from": "id", "to": "ue_zuweisung_teilnehmer_id"},{"from": "teinehmer_id", "to": "teinehmer_id"}],
+    formType: "html",
+    validOnSave: false, 
+    classButtonSize: "cButtonMiddle",
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+        },
+        {
+            field: "id",
+            label: "Id",
+            type: "input_text",
+
+        },
+        {
+            field: "ue_zuweisung_lernthema_id",
+            label: "ue_zuweisung_lernthema_id",
+            type: "input_text",
+
+        },
+
+        {
+            field: "teinehmer_id",
+            label: "teinehmer_id",
+            type: "select",
+            options: list_teilnehmer,
+
+        },
+
+    ],
+    countPerPage: 0,
+    currentPage: 0,
+    hasPagination: false,
+    countRecords: undefined,
+    filter: undefined,
+    afterBuild: function(){},
+    afterSuccessSave: function(){},
+} );
+var Df_8 = new DataForm( { 
+    dVar: "Df_8", 
+    id: "#Df_8", 
+    table: "mtr_leistung",
+    fields: "id,ue_zuweisung_teilnehmer_id,teilnehmer_id,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,verhaltensbeurteilung_code,reflexionshinweis",
+    addPraefix: "df8_",
+    formType: "html",
+    validOnSave: false, 
+    classButtonSize: "cButtonMiddle",
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+            onClick: function(){setTeilnehmer( this )},
+        },
+        {
+            field: "id",
+            label: "Id",
+            type: "input_text",
+
+        },
+        {
+            field: "ue_zuweisung_teilnehmer_id",
+            label: "ue_zuweisung_teilnehmer_id",
+            type: "input_text",
+            
+        },
+        {
+            field: "teilnehmer_id",
+            label: "teilnehmer_id",
+            type: "select",
+            options: list_teilnehmer,
+
+        },
+
+        {
+            field: "lernfortschritt",
+            label: "lernfortschritt",
+
+            type: "input_number",
+            default: 3,
+            Comment: "Lernfortschritt",
+            minValue: 1,
+            maxValue: 6,
+
+        },
+        {
+            field: "beherrscht_thema",
+            label: "beherrscht_thema",
+
+            type: "input_number",
+            default: 3,
+            Comment: "beherrscht_thema",
+            minValue: 1,
+            maxValue: 6,
+
+        },
+        {
+            field: "transferdenken",
+            label: "transferdenken",
+
+            type: "input_number",
+            default: 3,
+            Comment: "transferdenken",
+            minValue: 1,
+            maxValue: 6,
+
+        },
+        {
+            field: "basiswissen",
+            label: "basiswissen",
+
+            type: "input_number",
+            default: 3,
+            Comment: "basiswissen",
+            minValue: 1,
+            maxValue: 6,
+
+        },
+        {
+            field: "vorbereitet",
+            label: "vorbereitet",
+
+            type: "input_number",
+            default: 3,
+            Comment: "vorbereitet",
+            minValue: 1,
+            maxValue: 6,
+
+        },
+        {
+            field: "verhaltensbeurteilung_code",
+            label: "verhaltensbeurteilung_code",
+
+            type: "input_text",
+            Comment: "verhaltensbeurteilung_code",
+        },
+        {
+            field: "reflexionshinweis",
+            label: "reflexionshinweis",
+
+            type: "input_text",
+            Comment: "reflexionshinweis",
+        },
+
+    ],
+    countPerPage: 0,
+    currentPage: 0,
+    hasPagination: false,
+    countRecords: undefined,
+    filter: undefined,
+    afterBuild: function(){console.log(this, nj().els('#df8_teilnehmer_id_new'))}
+,
+    afterSuccessSave: function(){},
 } );
 var Df_5 = new DataForm( { 
     dVar: "Df_5", 
@@ -536,30 +834,30 @@ var Df_6 = new DataForm( {
             field: "metakognition",
             label: "Met.",
             type: "input_number",
-            Comment: "Metakognition&#10;Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch. Niedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.",
+            //Comment: "Metakognition&#10;Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch. Niedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.",
             minValue: 1,
             maxValue: 6,
 
         },
+
         {
-            field: "stressbewaeltigung ",
-            label: "Str.",
+            field: "stressbewaeltigung",
+            label: "Bed.",
             type: "input_number",
-            Comment: "Stressbewältigung&#10;Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch. Niedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.",
+            Comment: "Stressbewältigung&#10;Hohe Ausprägung: Reagiert ängstlich auf Prüfungen oder neue Situationen, ist besorgt über Leistung, zeigt emotionale Labilität. Niedrige Ausprägung: Bleibt ruhig unter Druck, geht gelassen mit Unsicherheit um. Könnte sich in der erhöhten Reaktivität der Akteur-Funktion auf als bedrohlich interpretierte Feldzustände (z.B. Prüfungsdruck) oder in negativen Mustern der Meta-Funktion (z.B. negative Selbstbewertung) äußern.",
             minValue: 1,
             maxValue: 6,
 
         },
         {
-            field: "bedeutungsbildung ",
+            field: "bedeutungsbildung",
             label: "Bed.",
             type: "input_number",
             Comment: "Bedeutungsbildung&#10;Hohe Ausprägung: Konstruiert kohärente Bedeutungen aus Lerninhalten, vernetzt Wissen, entwickelt eigene Interpretationen, findet Sinn im Gelernten. Niedrige Ausprägung: Schwierigkeiten bei der Sinnstiftung, isolierte Wissensfragmente, wenig eigene Interpretationen. Integrale Funktionalität (Kohärenzbildung, Kontextualisierung, Narrativierung, Wertschöpfung) synthetisiert lokale Beobachtungen zu globalen Bedeutungen. Ausprägungen zeigen sich in der Qualität und Struktur der konstruierten semantischen Felder und Narrative.",
             minValue: 1,
             maxValue: 6,
 
-        },
-    
+        },   
     ],
     countPerPage: 5,
     currentPage: 0,
@@ -586,7 +884,9 @@ var myDia;
     Df.init();
     Df_2.init();
     Df_3.init();
+    Df_4.init();
     Df_5.init();
+    Df_8.init();
     init();
 })();
 </script>

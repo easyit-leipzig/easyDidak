@@ -93,9 +93,27 @@ setTooltipsBewertung = function() {
     let myTooltip_17 = new Opentip("#df2_bemerkungen_new", "Du kannst hier eine Textnachricht hinterlassen.", "Bemerkungen");
 */
 }
+setTooltipsBewUe = function() {
+    try {
 
+      let myTooltip_20 = new Opentip("#df2_erfasst_am_new", "Wie aktiv beteiligst du dich am Unterricht (Fragen stellen, Antworten geben, mitdenken)?", "Mitarbeit");
+
+    } catch (err) {
+
+      return;
+
+    }
+}
+setTeilnehmer = function( el ) {
+    console.log( el, nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v() );
+    let v = nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v();
+    nj("#df8_teilnehmer_id_new" ).v( v );
+}
 init = function() {
     nj( "#std_teilnehmer" ).m( "#myDia")
     nj( "#tln_bewertung" ).m( "#myDia")
+    nj("#showTN").on("click", function(){
+        myDia.show();
+    })
 //setTooltipsBewertung();
 }

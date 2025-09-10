@@ -15,21 +15,22 @@
         print_r( json_encode( $return ));
         die;
     }
-    $q = "select id, val_emotions from mtr_rueckkopplung_teilnehmer where val_emotions<>''";
-        $s = $db_pdo -> query( $q );
+    $q = "SELECT id, ue_unterrichtseinheit_id, teilnehmer_id FROM ue_unterrichtseinheit_zw_thema";
+    $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
     $i = 0;
     $option = "";
+    var_dump($r);
     while ($i < $l ) {
         // code...
-        $ids = explode( ",", $r[$i]->val_emotions );
+        $ids = explode( ",", $r[$i]->teilnehmer_id );
         $k = count( $ids );
         $j = 0;
         while ($j < $k ) {
-            $q_result_alt = "select emotion FROM `_mtr_emotionen` where id = " . $ids[$j];      
-            $s_alt = $db_pdo -> query( $q );
-            $r_alt = $s -> fetchAll( PDO::FETCH_CLASS );
+            $q_result_alt = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_zuweisung_lernthema_id`, `teinehmer_id`) VALUES (" . $r[$i]->id . ", " . $ids[$j] . ")";
+            echo $q_result_alt;      
+            if( $ids[$j] <> "" ) $db_pdo -> query( $q_result_alt );
            $j += 1;
         }
         $i += 1;

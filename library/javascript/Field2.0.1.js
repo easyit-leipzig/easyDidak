@@ -5,7 +5,7 @@ class Field {                    // class for DataForm2.0
             id:                 undefined,  // necessary - id of field; fieldname in databasetable
             dVar:               undefined,  // necessary - var of field object
             tabIndex:           undefined,  // index in recordset 
-            value:              undefined,  // value of field
+            value:              "",  // value of field
             default:            undefined,  // default value of field
             isPrimaryKey:       false,      // is true if field is primary key
             isAutoInc:          false,      // is true if field is auto increment
@@ -68,7 +68,12 @@ class Field {                    // class for DataForm2.0
             widthLabel:          false,
             withDiv:            false,
             uploadPath:         "library/df/",
+            onMouseDown:            function( args ) {
+            },
             onFocus:            function( args ) {
+                if( nj(this).hAt("multiple") && nj(this).hAt("data-clickable") ) {
+                    data.selectedValues = nj(this).gSV();    
+                }
                 if( nj().els( "button[id^=" + nj( this ).gRO().opt.addPraefix + "recordPointer_].cRecPointerSelected" ).length === 1 ) {
                     if( getIdAndName( this.id ).Id !== getIdAndName( nj().els( "button[id^=" + nj( this ).gRO().opt.addPraefix + "recordPointer_].cRecPointerSelected" )[0].id ).Id ) {
                         nj( "button[id^=" + nj( this ).gRO().opt.addPraefix + "recordPointer_].cRecPointerSelected" ).rCl("cRecPointerSelected");
@@ -147,7 +152,9 @@ class Field {                    // class for DataForm2.0
                                             case "select":
                                                 if( nj( this ).hAt( "multiple" ) && nj( this ).hAt( "data-clickable" ) ) {
                                                     if( typeof client_os !== "undefined" && client_os ==="Android" ) return;
+                                                    console.log( data.selectedValues );
                                                     elId = nj( this ).Dia().opt.id;
+                                                    nj( nj( this ).Dia().opt.id ).sSV( data.selectedValues.join(","));
                                                     el = nj().cEl( "select" );
                                                     //el.id = "tmpSetSelect";
                                                     tmp = nj().els( this ).outerHTML;
@@ -155,6 +162,7 @@ class Field {                    // class for DataForm2.0
                                                     tmp.id = nj( this ).gRO().opt.addPraefix + "TmpSetSelect" ;
                                                     nj( "#" + nj( this ).gRO().opt.dVar + ".divEditSelect" ).htm("");
                                                     nj( "#" + nj( this ).gRO().opt.dVar + ".divEditSelect" ).aCh( tmp );
+                                                    nj( "#" + tmp.id ).sSV( data.selectedValues.join(",") );
                                                     nj( this ).gRO().divEditSelect.show({variables: {df: nj(this).gRO(), el: nj( this ).Dia() } } );                                                    
                                                 }
                                             break;

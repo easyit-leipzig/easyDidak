@@ -216,6 +216,34 @@ var nj = function ( p ) {
         }
     return;
     }
+    /* chatchpt
+    _sSV = function(v, clearField) {
+    if (this.e == null) return false;
+    // Werte aus dem String in ein Array aufteilen
+    if( typeof v == "string" ) {
+        const values = v.split(',').map(s => s.trim());
+    }
+
+    // Falls clearField true oder nicht gesetzt ist → Auswahl zurücksetzen
+    if (clearField || clearField === undefined) {
+        for (let option of this.e.options) {
+            option.selected = false;
+        }
+    }
+    if( typeof values === "undefined" || values.length===0 ) return
+    console.log(v, values)
+
+    // Jetzt durchgehen und passende Optionen auswählen
+    for (let i = 0; i < this.e.options.length; i++) {
+        let option = this.e.options[i];
+        if (values.includes(option.value)) {
+            option.selected = true;
+        }
+    }
+
+    return;
+}
+*/
     _aCN = function ( v ) {
         if( this.e == null ) return false;
         if( Node.prototype.isPrototypeOf( this.e ) ) {

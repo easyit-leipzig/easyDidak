@@ -56,7 +56,7 @@ foreach ( $_POST as &$str) {
 switch( $_POST["command"]) {
     // start standard functions
     case "setGroup":
-                            $query = "SELECT erfasst_am FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
+                            $query = "SELECT ue_zuweisung_schueler_id, erfasst_am FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
                             try {
                                 $stm = $db_pdo -> query( $query );
                                 $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
@@ -65,12 +65,8 @@ switch( $_POST["command"]) {
                                 $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                 return $return;   
                             }
-                            $l = count( $result );
-                            $i = 0;
-                            while( $i < $l ) {
-                                 $date = $result[$i]["erfasst_am"];
-                                $i += 1;
-                            }
+                            $tnId =  $result[0]["ue_zuweisung_schueler_id"];
+                            $date = $result[0]["erfasst_am"];
                             $diff = 30;
                             $a = new DateTime($date);
                             $b = new DateTime($date);
@@ -80,7 +76,7 @@ switch( $_POST["command"]) {
                             $return -> currentDate = new DateTime();
                             $return -> currentDate->setTime(0, 0, 0);
                             $return -> wochentag = $return -> currentDate->format('N')+1;
-                            $query = "select id, uhrzeit_ende FROM `ue_gruppen` where day_number=" . $return -> wochentag;
+                            $query = "select id, uhrzeit_ende, uhrzeit_start FROM `ue_gruppen` where day_number=" . $return -> wochentag . " and uhrzeit_ende between '" .  $return -> startdiff->format('H:i:s') . "' and '" . $return -> enddiff->format('H:i:s') . "'";
                             try {
                                 $stm = $db_pdo -> query( $query );
                                 $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
@@ -89,6 +85,7 @@ switch( $_POST["command"]) {
                                 $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                 return $return;   
                             }
+                            $groupId = $result[0]["id"];
                             $l = count( $result );
                             $i = 0;
  
@@ -98,14 +95,64 @@ switch( $_POST["command"]) {
                                 if ( $return -> currentDate >= $return -> startdiff && $return -> currentDate <= $return -> enddiff ) {
                                     $q = "update mtr_rueckkopplung_teilnehmer set gruppe_id=" . $result[$i]["id"] . " where id=". $_POST["id"];
                                     $db_pdo -> query( $q );
+                                    $a =  $result[$i]["uhrzeit_start"];
+                                    $timearr =  explode( ":", $result[$i]["uhrzeit_start"] );
+                                    $group_id = $result[$i]["id"];
+                                    $return -> currentDate->setTime( $timearr[0], $timearr[1] );                            
+                                    $mysqlDate = $return -> currentDate->format('Y-m-d');
+                                    $q = "select id from ue_unterrichtseinheit where datum= '" . $mysqlDate . "' and gruppe_id=" . $result[$i]["id"];
+                                    try {
+                                        $stm = $db_pdo -> query( $q );
+                                        $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
+                                    } catch ( Exception $e ) {
+                                        $return -> success = false;
+                                        $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
+                                        return $return;   
+                                    }
+                                    if( count( $result ) === 0 ) {
+                                        $q = $result;
+                                        // 1. neue ue
+                                        $q = "INSERT INTO `ue_unterrichtseinheit` (`gruppe_id`, `datum`, `zeit`, `beschreibung`) VALUES (" . $group_id . ", '" . $return -> currentDate->format('Y-m-d') . "', '" . $return -> currentDate->format('H:i:s') . "',  'Gruppenveranstaltung')";
+                                        $db_pdo -> query( $q );
+                                        $newId = $db_pdo -> lastInsertId();
+                                        $q = "INSERT INTO `ue_unterrichtseinheit_zw_thema` (`ue_unterrichtseinheit_id`, `schulform_id`, `fach_id`, `zieltyp_id`, `lernmethode_id`, `std_lernthema_id`, `thema`, `dauer`, `teilnehmer_id`, `beschreibung`) 
+                                                VALUES ($newId, '', '1', '1', 24, '', '', '', $tnId, 'Gruppe " . $groupId . "')" ;
+                                        $db_pdo -> query( $q );
+                                        $newId = $db_pdo -> lastInsertId();
+                                    } else {
+                                        $q = "select `teilnehmer_id` from `ue_unterrichtseinheit_zw_thema` where ue_unterrichtseinheit_id=" . $result[0]["id"];
+                                        $ueId =  $result[0]["id"];
+                                         try {
+                                            $stm = $db_pdo -> query( $q );
+                                            $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
+                                        } catch ( Exception $e ) {
+                                            $return -> success = false;
+                                            $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
+                                            return $return;   
+                                        }
+                                        $tnId = $result[0]["teilnehmer_id"] . "," . $tnId;
+                                        $q= "update ue_unterrichtseinheit_zw_thema set teilnehmer_id='" . $tnId . "' where ue_unterrichtseinheit_id =$ueId";
+                                        $db_pdo -> query( $q );
+                                    }
                                     //echo "Die Zeit liegt im Bereich.";
                                     } else {
+ 
                                     //echo "Die Zeit liegt außerhalb des Bereichs.";
                                 }
                                 $i += 1;
                             }
-
-                            $return -> q = $q;
+/*                            
+                            $q = "select id from ue_unterrichtseinheit_zuweisung where datum= '" . $mysqlDate . "'";
+                            try {
+                                $stm = $db_pdo -> query( $q );
+                                $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
+                            } catch ( Exception $e ) {
+                                $return -> success = false;
+                                $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
+                                return $return;   
+                            }
+*/                            
+                            $return -> q = $tnId;
                            print_r( json_encode( $return )); 
     break;
     default:
