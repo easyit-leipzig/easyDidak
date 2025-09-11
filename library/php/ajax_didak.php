@@ -85,6 +85,10 @@ switch( $_POST["command"]) {
                                 $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                 return $return;   
                             }
+                            if( count($result)===0) {
+                                print_r( json_encode( $result )); 
+                                return;
+                            }
                             $groupId = $result[0]["id"];
                             $l = count( $result );
                             $i = 0;
@@ -118,7 +122,7 @@ switch( $_POST["command"]) {
                                         $q = "INSERT INTO `ue_unterrichtseinheit_zw_thema` (`ue_unterrichtseinheit_id`, `schulform_id`, `fach_id`, `zieltyp_id`, `lernmethode_id`, `std_lernthema_id`, `thema`, `dauer`, `teilnehmer_id`, `beschreibung`) 
                                                 VALUES ($newId, '', '1', '1', 24, '', '', '', $tnId, 'Gruppe " . $groupId . "')" ;
                                         $db_pdo -> query( $q );
-                                        $newId = $db_pdo -> lastInsertId();
+                                        $ueId = $db_pdo -> lastInsertId();
                                     } else {
                                         $q = "select `teilnehmer_id` from `ue_unterrichtseinheit_zw_thema` where ue_unterrichtseinheit_id=" . $result[0]["id"];
                                         $ueId =  $result[0]["id"];
@@ -131,9 +135,16 @@ switch( $_POST["command"]) {
                                             return $return;   
                                         }
                                         // tn id anfügen
-                                        $appendTnId = $result[0]["teilnehmer_id"] . "," . $tnId;
-                                        $q= "update ue_unterrichtseinheit_zw_thema set teilnehmer_id='" . $appendTnId . "' where ue_unterrichtseinheit_id =$ueId";
-                                        $db_pdo -> query( $q );
+                                        $tmpTNIds = explode( ",", $result[0]["teilnehmer_id"] );
+                                        if( !in_array($tnId, $tmpTNIds) ) {
+                                            if( count( $tmpTNIds ) === 1) {
+                                                $appendTnId = $tnId;
+                                            } else {
+                                                $appendTnId = $result[0]["teilnehmer_id"] . "," . $tnId;                                                
+                                            }
+                                            $q= "update ue_unterrichtseinheit_zw_thema set teilnehmer_id='" . $appendTnId . "' where ue_unterrichtseinheit_id =$ueId";
+                                            $db_pdo -> query( $q );                                            
+                                        }
                                     }
 
                                     } else {
@@ -141,19 +152,23 @@ switch( $_POST["command"]) {
                                     //echo "Die Zeit liegt außerhalb des Bereichs.";
                                 }
                                 $i += 1;
-                            }
-/*                            
-                            $q = "select id from ue_unterrichtseinheit_zuweisung where datum= '" . $mysqlDate . "'";
-                            try {
-                                $stm = $db_pdo -> query( $q );
-                                $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
-                            } catch ( Exception $e ) {
-                                $return -> success = false;
-                                $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
-                                return $return;   
-                            }
-*/                            
+                            } 
+
+                   $q = "select id from ue_unterrichtseinheit_zw_thema where FIND_IN_SET('$tnId', teilnehmer_id) > 0 And beschreibung='Gruppe " . $group_id . "'"; 
+                                    try {
+                                        $stm = $db_pdo -> query( $q );
+                                        $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
+                                    } catch ( Exception $e ) {
+                                        $return -> success = false;
+                                        $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
+                                        return $return;   
+                                    }
+                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_zuweisung_lernthema_id`, `teinehmer_id`) VALUES (" . $result[0]["id"] . ", $tnId)";
+                   $db_pdo -> query( $q );
                             $return -> q = $tnId;
+                           $return -> t = $ueId;
+ 
+                            $return -> s = $result;
                            print_r( json_encode( $return )); 
     break;
     default:

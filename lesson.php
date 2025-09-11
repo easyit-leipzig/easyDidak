@@ -19,10 +19,16 @@
 <h1>Unterrichtseinheiten</h1>
 <h2>Einheiten</h2>
 <div id="Df"></div>
-<h2>Details</h2>
+<h2>Bewertung Lehrkraft</h2>
 <div id="Df_2"></div>
 <h2>Zuweisung Themen</h2>
 <div id="Df_3"></div>
+<h2>Zuweisung Teinehmer</h2>
+<div id="Df_4"></div>
+<h2>Bewertung Teilnehmer</h2>
+<div id="Df_8"></div>
+<h2>Bewertung Didaktik</h2>
+<div id="Df_9"></div>
 
 <div id=dialog_teilnehmer>
     <div id="std_teilnehmer"></div>
@@ -39,7 +45,8 @@
 <script src="library/javascript/RecordSet2.0.1.js"></script>
 <script src="library/javascript/DataForm2.0.1.js"></script>
 <script src="library/javascript/MessageDR.js"></script>
-<script src="library/javascript/OpenTip_native.js"></script>
+<script src="library/javascript/tippy_core.js"></script>
+<script src="library/javascript/tippy.js"></script>
 <script src="library/javascript/init_lessons.js"></script>
 <script>
 </script>
@@ -133,7 +140,7 @@
         $i += 1;
     }
     print_r( "var list_fach = '" . $option . "';\n" );
-    $q = "SELECT * FROM `_mtr_emotionen`";
+    $q = "SELECT * FROM `_mtr_emotionen` order by emotion";
     $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
@@ -152,7 +159,7 @@ var Df = new DataForm( {
     id: "#Df", 
     table: "ue_unterrichtseinheit", 
 //    fields: "id,val_varchar,val_dec,val_int,val_select,val_select_multi,val_img,val_checkbox,val_stars",
-    fields: "id,gruppe_id,Beschreibung",
+    fields: "id,datum,gruppe_id,Beschreibung",
     addPraefix: "df1_",
     formType: "html", 
     boundForm: ["Df_3", "Df_2"] ,
@@ -171,6 +178,11 @@ var Df = new DataForm( {
             label: "Id",
             type: "input_text",
 
+        },
+        {
+            field: "datum",
+            label: "Datum",
+            type: "input_date",
         },
         {
             field: "gruppe_id",
@@ -194,6 +206,7 @@ var Df = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
+    //orderBy: " datum desc",
     //filter: "id = '1'",
     orderArray: [],
     searchArray: [
@@ -232,12 +245,12 @@ var Df_2 = new DataForm( {
 
         {
             field: "erfasst_am",
-            label: "erfasst_am",
-            type: "input_date",
+            label: "Datum",
+            type: "input_datetime-local",
         },
         {
             field: "mitarbeit",
-            label: "mitarbeit",
+            label: "Mit.",
             type: "input_number",
             default: 3,
             Comment: "Mitarbeit",
@@ -246,7 +259,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "absprachen",
-            label: "absprachen",
+            label: "Abs.",
             type: "input_number",
             default: 3,
             Comment: "Absprachen",
@@ -255,7 +268,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "selbststaendigkeit",
-            label: "absprachen",
+            label: "Sst.",
             type: "input_number",
             default: 3,
             Comment: "Selbstständigkeit",
@@ -264,7 +277,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "konzentration",
-            label: "absprachen",
+            label: "Kon.",
             type: "input_number",
             default: 3,
             Comment: "Konzentration",
@@ -273,7 +286,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "fleiss",
-            label: "fleiss",
+            label: "Fle.",
             type: "input_number",
             default: 3,
             Comment: "Fleiss",
@@ -282,7 +295,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "lernfortschritt",
-            label: "lernfortschritt",
+            label: "Ler.",
             type: "input_number",
             default: 3,
             Comment: "Lernfortschritt",
@@ -291,7 +304,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "beherrscht_thema",
-            label: "beherrscht_thema",
+            label: "Beh.",
             type: "input_number",
             default: 3,
             Comment: "beherrscht Thema",
@@ -300,7 +313,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "transferdenken",
-            label: "transferdenken",
+            label: "Tra.",
             type: "input_number",
             default: 3,
             Comment: "Transferdenken",
@@ -309,7 +322,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "basiswissen",
-            label: "basiswissen",
+            label: "Bas.",
             type: "input_number",
             default: 3,
             Comment: "Basiswissen",
@@ -318,7 +331,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "vorbereitet",
-            label: "vorbereitet",
+            label: "Vor.",
             type: "input_number",
             default: 3,
             Comment: "vorbereitet",
@@ -327,7 +340,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "themenauswahl",
-            label: "themenauswahl",
+            label: "The.",
             type: "input_number",
             default: 3,
             Comment: "Themenauswahl",
@@ -336,7 +349,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "materialien",
-            label: "materialien",
+            label: "Mat.",
             type: "input_number",
             default: 3,
             Comment: "Materialien",
@@ -345,7 +358,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "individualisierung",
-            label: "individualisierung",
+            label: "Ind.",
             type: "input_number",
             default: 3,
             Comment: "Individualisierung",
@@ -354,7 +367,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "aufforderung",
-            label: "aufforderung",
+            label: "Auf.",
             type: "input_number",
             default: 3,
             Comment: "Aufforderung",
@@ -363,7 +376,7 @@ var Df_2 = new DataForm( {
         },
         {
             field: "emotions",
-            label: "emotions",
+            label: "Gefühl",
             type: "select",
             addAttr: "multiple data-clickable",
             options: list_emotions,
@@ -375,13 +388,13 @@ var Df_2 = new DataForm( {
             type: "input_text",
         },
     ],
-    countPerPage: 0,
+    countPerPage: 5,
     currentPage: 0,
-    hasPagination: false,
+    hasPagination: true,
     countRecords: undefined,
     filter: undefined,
-    afterBuild: function(){/*setTooltipsBewUe()*/},
-    afterSuccessSave: function(){/*setUeTeinehmer()*/},
+    afterBuild: function(){setTooltipsBewUe()},
+    afterSuccessSave: function(){},
 } );
 var Df_3 = new DataForm( { 
     dVar: "Df_3", 
@@ -492,8 +505,8 @@ var Df_4 = new DataForm( {
     table: "ue_zuweisung_teilnehmer",
     fields: "id,ue_zuweisung_lernthema_id,teinehmer_id",
     addPraefix: "df4_",
-    boundForm: ["Df_8"] ,
-    boundFields: [{"from": "id", "to": "ue_zuweisung_teilnehmer_id"},{"from": "teinehmer_id", "to": "teinehmer_id"}],
+    boundForm: ["Df_8", "Df_9"] ,
+    boundFields: [{"from": "id", "to": "ue_zuweisung_teilnehmer_id"},{"from": "id", "to": "ue_zuweisung_teilnehmer_id"}],
     formType: "html",
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
@@ -565,7 +578,7 @@ var Df_8 = new DataForm( {
         },
         {
             field: "teilnehmer_id",
-            label: "teilnehmer_id",
+            label: "Teilnehmer",
             type: "select",
             options: list_teilnehmer,
 
@@ -573,7 +586,7 @@ var Df_8 = new DataForm( {
 
         {
             field: "lernfortschritt",
-            label: "lernfortschritt",
+            label: "Ler.",
 
             type: "input_number",
             default: 3,
@@ -584,40 +597,40 @@ var Df_8 = new DataForm( {
         },
         {
             field: "beherrscht_thema",
-            label: "beherrscht_thema",
+            label: "Beh.",
 
             type: "input_number",
             default: 3,
-            Comment: "beherrscht_thema",
+            Comment: "beherrscht Thema",
             minValue: 1,
             maxValue: 6,
 
         },
         {
             field: "transferdenken",
-            label: "transferdenken",
+            label: "Tra.",
 
             type: "input_number",
             default: 3,
-            Comment: "transferdenken",
+            Comment: "Transferdenken",
             minValue: 1,
             maxValue: 6,
 
         },
         {
             field: "basiswissen",
-            label: "basiswissen",
+            label: "Bas.",
 
             type: "input_number",
             default: 3,
-            Comment: "basiswissen",
+            Comment: "Basiswissen",
             minValue: 1,
             maxValue: 6,
 
         },
         {
             field: "vorbereitet",
-            label: "vorbereitet",
+            label: "vor.",
 
             type: "input_number",
             default: 3,
@@ -628,17 +641,17 @@ var Df_8 = new DataForm( {
         },
         {
             field: "verhaltensbeurteilung_code",
-            label: "verhaltensbeurteilung_code",
+            label: "Verhalten",
 
             type: "input_text",
             Comment: "verhaltensbeurteilung_code",
         },
         {
             field: "reflexionshinweis",
-            label: "reflexionshinweis",
+            label: "Reflexion",
 
             type: "input_text",
-            Comment: "reflexionshinweis",
+            Comment: "Reflexionshinweis",
         },
 
     ],
@@ -647,7 +660,7 @@ var Df_8 = new DataForm( {
     hasPagination: false,
     countRecords: undefined,
     filter: undefined,
-    afterBuild: function(){console.log(this, nj().els('#df8_teilnehmer_id_new'))}
+    afterBuild: function(){setTeilnehmer(this)}
 ,
     afterSuccessSave: function(){},
 } );
@@ -865,6 +878,57 @@ var Df_6 = new DataForm( {
     countRecords: undefined,
     //filter: "id = '1'",
 } );
+var Df_9 = new DataForm( { 
+    dVar: "Df_9", 
+    id: "#Df_9", 
+    table: "mtr_didaktik",
+/*
+        1    id Primärschlüssel    int(11)            Nein    kein(e)        AUTO_INCREMENT    Bearbeiten Bearbeiten    Löschen Löschen    
+    2    ue_zuweisung_teilnehmer_id Index    int(11)            Nein    kein(e)            Bearbeiten Bearbeiten    Löschen Löschen    
+    3    themenauswahl Index    int(1)            Ja    NULL            Bearbeiten Bearbeiten    Löschen Löschen    
+    4    methodenvielfalt Index    int(1)            Ja    NULL            Bearbeiten Bearbeiten    Löschen Löschen    
+    5    individualisierung Index    int(1)            Ja    NULL            Bearbeiten Bearbeiten    Löschen Löschen    
+    6    aufforderung Index    int(1)            Ja    NULL            Bearbeiten Bearbeiten    Löschen Löschen    
+    7    materialien Index    int(1)            Ja    NULL            Bearbeiten Bearbeiten    Löschen Löschen    
+    8    zielgruppen 
+*/
+    fields: "id,ue_zuweisung_teilnehmer_id,themenauswahl",
+    addPraefix: "df9_",
+    formType: "html", 
+    validOnSave: false,
+    classButtonSize: "cButtonMiddle",
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+        },
+        {
+            field: "id",
+            label: "",
+            type: "input_text",
+
+        },
+        {
+            field: "ue_zuweisung_teilnehmer_id",
+            label: "",
+            type: "input_text",
+
+        },
+        {
+            field: "themenauswahl",
+            label: "Themen",
+            type: "input_text",
+        },
+   
+    ],
+    countPerPage: 0,
+    currentPage: 0,
+    hasPagination: false,
+    countRecords: undefined,
+    //filter: "id = '1'",
+} );
 var myDia;
         myDia = new DialogDR({
         dVar: "myDia", 
@@ -887,6 +951,7 @@ var myDia;
     Df_4.init();
     Df_5.init();
     Df_8.init();
+    Df_9.init();
     init();
 })();
 </script>

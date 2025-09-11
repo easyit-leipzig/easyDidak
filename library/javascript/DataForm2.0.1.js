@@ -220,16 +220,18 @@ class DataForm {                    // class for DataForm2.0
                 addClasses: "cDivEditSelect",
                 width: 280,
                 height: 300,
+                onShow: function(){let el = this; console.log( el, Object.keys(el),['variables'] )},
                 buttons: [
                         {
                             title: "Übernehmen",
                             action: function( args ) {
                                 let v = nj( "#" + nj(this).gRO().opt.addPraefix + "TmpSetSelect" ).gSV();
-                                console.log( v )
+                                //console.log( v )
+                                console.log( nj().els( nj(this).Dia().opt.variables.el.opt.id ) );
                                 nj( nj(this).Dia().opt.variables.el.opt.id ).sSV( v, true );
-                                console.log( nj( nj(this).Dia().opt.variables.el.opt.id ).gSV()  );
+                                //console.log( nj( nj(this).Dia().opt.variables.el.opt.id ).gSV()  );
                                 nj(this).Dia().hide();
-                                nj( nj(this).Dia().opt.variables.el.opt.id ).tri( "change" );
+                                //nj( nj(this).Dia().opt.variables.el.opt.id ).tri( "change" );
                             }
                         },
                         {

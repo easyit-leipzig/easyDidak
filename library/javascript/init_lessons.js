@@ -5,9 +5,12 @@ getGermanDate = function(){
 }
 changeSchulform = function( id ){
         data = {};
-        data.id = id;
-        data.value = nj("#" + id).v();
+        data.id = getIdAndName( id ).Id;
+        data.schulformV = nj( "#df3_schulform_id_" + getIdAndName( id ).Id ).v();
+        data.fachV = nj( "#df3_fach_id_" + getIdAndName( id ).Id ).v();
+        data.value = nj("#" + id).v();//df3_schulform_id_new
         data.command = "getLernthema";
+        console.log(data)
         nj().fetchPostNew("library/php/ajax_lesson.php", data, this.evaluateLesson);
 }
 changeLernthema = function( id ){
@@ -16,6 +19,8 @@ changeLernthema = function( id ){
         data.value = nj("#" + id).v();
         let str = id.split("_");
         data.schulform = nj("#df3_schulform_id_" + str.at(-1) ).v();
+        data.tmpId = str.at(-1);
+
         data.command = "getLerninhalt";
         nj().fetchPostNew("library/php/ajax_lesson.php", data, this.evaluateLesson);
 }
@@ -37,26 +42,30 @@ setUeTeinehmer = function(  ) {
             throw "kein JSON-Objekt übergeben";
         }
         console.log( jsonobject );
-        let el;
+        let el, id;
         switch( jsonobject.command ) {
             case "getLernthema":
+                id= jsonobject.id
                 el = nj().cEl("datalist");
-                el.id = "df3_std_lernthema_id_new_list";
+                el.id = "df3_std_lernthema_id_" + id + "_list";
+                if( nj("#df3_std_lernthema_id_" + id + "_list").isE() ) nj("#df3_std_lernthema_id_" + id + "_list").oHt("");
+                nj( )
                 nj(el).htm( jsonobject.lernthema );
 
-                    nj("#df3_std_lernthema_id_new").atr("list", "df3_std_lernthema_id_new_list");
-                    if( !nj("#df3_std_lernthema_id_new_list").isE() ) nj("#df3_std_lernthema_id_new").a(el);
+                    nj("#df3_std_lernthema_id_" + id ).atr("list", "df3_std_lernthema_id_" + id + "_list");
+                    if( !nj("#df3_std_lernthema_id_" + id + "_list").isE() ) nj("#df3_std_lernthema_id_" + id ).a(el);
                     
                 break;
             case "getLerninhalt":
+                if( nj( "#df3_thema_" + jsonobject.id + "_list").isE() ) nj( "#df3_thema_" + jsonobject.id + "_list").oHt("");
                 el = nj().cEl("datalist");
-                el.id = "df3_thema_new_list";
+                el.id = "df3_thema_" + jsonobject.id + "_list";
                 nj(el).htm( '' );
                 nj(el).htm( jsonobject.lerninhalt );
 
-                    nj("#df3_thema_new").atr("list", "df3_thema_new_list");
+                    nj("#df3_thema_" + jsonobject.id + "").atr("list", "df3_thema_" + jsonobject.id + "_list");
 
-                    if( !nj("#df3_thema_new_list").isE()) nj("#df3_thema_new").a(el);;
+                    if( !nj("#df3_thema_" + jsonobject.id + "_list").isE()) nj("#df3_thema_" + jsonobject.id + "").a(el);;
                     
                 break;
             case "setUeTeinehmer":
@@ -94,15 +103,52 @@ setTooltipsBewertung = function() {
 */
 }
 setTooltipsBewUe = function() {
-    try {
-
-      let myTooltip_20 = new Opentip("#df2_erfasst_am_new", "Wie aktiv beteiligst du dich am Unterricht (Fragen stellen, Antworten geben, mitdenken)?", "Mitarbeit");
-
-    } catch (err) {
-
-      return;
-
-    }
+    tippy('input[id^=df2_mitarbeit_]', {
+        content: `<div>Mitarbeit</div><div class="smallerText">test</div>`,
+        allowHTML: true,
+    });
+    tippy('input[id^=df2_absprachen_]', {
+      content: "Absprachen",
+    });
+    tippy('input[id^=df2_selbststaendigkeit_]', {
+      content: "Selbststaendigkeit",
+    });
+    tippy('input[id^=df2_konzentration_]', {
+      content: "Konzentration",
+    });
+    tippy('input[id^=df2_fleiss_]', {
+      content: "Fleiss",
+    });
+    tippy('input[id^=df2_lernfortschritt_]', {
+      content: "Lernfortschritt",
+    });
+    tippy('input[id^=df2_beherrscht_thema_]', {
+      content: "beherrscht Thema",
+    });
+    tippy('input[id^=df2_transferdenken_]', {
+      content: "Transferdenken",
+    });
+    tippy('input[id^=df2_basiswissen_]', {
+      content: "Basiswissen",
+    });
+    tippy('input[id^=df2_vorbereitet_]', {
+      content: "Vorbereitung",
+    });
+    tippy('input[id^=df2_themenauswahl_]', {
+      content: "Themenauswahl",
+    });
+    tippy('input[id^=df2_materialien_]', {
+      content: "Materialien",
+    });
+    tippy('input[id^=df2_individualisierung_]', {
+      content: "Individualisierung",
+    });
+    tippy('input[id^=df2_aufforderung_]', {
+      content: "Aufforderung",
+    });
+    tippy('input[id^=df2_emotions_new]', {
+      content: "Gefühle",
+    });
 }
 setTeilnehmer = function( el ) {
     console.log( el, nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v() );

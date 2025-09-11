@@ -56,7 +56,7 @@ foreach ( $_POST as &$str) {
 switch( $_POST["command"]) {
     // start standard functions
     case "getLernthema":
-                            $query = "SELECT schulform FROM `_std_schulform` where id=" . $_POST["value"] ;
+                            $query = "SELECT schulform FROM `_std_schulform` where id=" . $_POST["schulformV"] ;
                             try {
                                 $stm = $db_pdo -> query( $query );
                                 $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
@@ -72,7 +72,7 @@ switch( $_POST["command"]) {
                                 $i += 1;
                             }
                            
-                            $query = "SELECT * FROM `std_lernthema` where schulform = '" . $schulform . "' or schulform = 'frei';";
+                            $query = "SELECT * FROM `std_lernthema` where schulform = '" . $schulform . "' or schulform = 'frei' AND fach_id=" . $_POST["fachV"];
                                         try {
                                             $stm = $db_pdo -> query( $query );
                                             $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
@@ -88,7 +88,7 @@ switch( $_POST["command"]) {
                                  $lernthema = $lernthema . "<option>" . $result[$i]["lernthema"] . "</option>";
                                 $i += 1;
                             }
-                            
+
                             $return->id = $_POST["id"];
                             $return->schulform = $schulform;
                             $return->lernthema = $lernthema;
@@ -143,6 +143,7 @@ switch( $_POST["command"]) {
                             }
                             //$return->test = $_POST["schulform"];
                             $return->lerninhalt = $lerninhalt;
+                            $return->id = $_POST["tmpId"];
                             //$return->schulform = $schulform;
                             print_r( json_encode( $return ));   
     break;
@@ -164,7 +165,7 @@ switch( $_POST["command"]) {
                             }
                             $teilnehmer_id = explode(",", $teilnehmer_id);
                             $q = "delete from ue_zuweisung_teilnehmer where ue_zuweisung_lernthema_id = " . $_POST["id"];
-                            $db_pdo -> query( $query );
+                            $db_pdo -> query( $q );
                             $l = count( $teilnehmer_id );
                             $i = 0;
                             while( $i < $l ) {
@@ -172,7 +173,8 @@ switch( $_POST["command"]) {
                                 $db_pdo -> query( $query );
                                 $i += 1;
                             }                            
-                            print_r( json_encode( $teilnehmer_id ));   
+                            
+                            print_r( json_encode( $return ));   
                             
     break;
     default:
