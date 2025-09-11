@@ -146,14 +146,36 @@ setTooltipsBewUe = function() {
     tippy('input[id^=df2_aufforderung_]', {
       content: "Aufforderung",
     });
-    tippy('input[id^=df2_emotions_new]', {
+    tippy('input[id^=df2_emotions_]', {
       content: "Gefühle",
     });
 }
-setTeilnehmer = function( el ) {
+
+setMtrDidak = function( el ) {
     console.log( el, nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v() );
     let v = nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v();
     nj("#df8_teilnehmer_id_new" ).v( v );
+    tippy('input[id^=df8_lernfortschritt_]', {
+      content: "Lernfortschritt",
+    });
+    tippy('input[id^=df8_beherrscht_thema_]', {
+      content: "beherrscht Thema",
+    });
+    tippy('input[id^=df8_transferdenken_]', {
+      content: "Transferdenken",
+    });
+    tippy('input[id^=df8_basiswissen_]', {
+      content: "Basiswissen",
+    });
+    tippy('input[id^=df8_vorbereitet_]', {
+      content: "Vorbereitet",
+    });
+    tippy('input[id^=df8_verhaltensbeurteilung_code_]', {
+      content: "Verhaltensbeurteilung",
+    });
+    tippy('input[id^=df8_reflexionshinweis_]', {
+      content: "Reflexionshinweis",
+    });
 }
 init = function() {
     nj( "#std_teilnehmer" ).m( "#myDia")

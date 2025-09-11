@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 10. Sep 2025 um 18:51
+-- Erstellungszeit: 11. Sep 2025 um 18:53
 -- Server-Version: 5.7.25
 -- PHP-Version: 5.6.40
 
@@ -293,7 +293,14 @@ INSERT INTO `mtr_rueckkopplung_teilnehmer` (`id`, `ue_zuweisung_schueler_id`, `g
 (14, 12, 6, '2025-09-10 18:32:50', 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, '', '', NULL),
 (15, 12, 6, '2025-09-10 18:32:51', 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, '', '', NULL),
 (16, 22, 6, '2025-09-10 18:33:32', 2, 2, 2, 1, 2, 3, 4, 3, 3, 2, 1, 1, 1, 1, 1, '5,4,7,25', '', NULL),
-(17, 13, 6, '2025-09-10 18:34:26', 2, 2, 2, 2, 1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, '', '', NULL);
+(17, 13, 6, '2025-09-10 18:34:26', 2, 2, 2, 2, 1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, '', '', NULL),
+(18, 9, 7, '2025-09-11 16:52:16', 2, 1, 1, 2, 2, 1, 2, 2, 2, 3, 2, 2, 1, 2, 2, '5,22,27,1,6,10,23,18,4,9,14,13,7,16,26', '', NULL),
+(19, 15, 7, '2025-09-11 16:56:12', 1, 2, 4, 5, 4, 2, 3, 2, 4, 2, 1, 2, 2, 1, 1, '17,5,22,4,16,25,24,20', '', NULL),
+(20, 10, 7, '2025-09-11 16:56:20', 1, 1, 2, 2, 2, 1, 4, 3, 3, 1, 1, 2, 1, 1, 1, '28,1,6,23,8,13,16,25,2', '', NULL),
+(21, 18, 0, '2025-09-11 18:24:24', 1, 3, 1, 2, 2, 1, 1, 1, 1, 1, 1, 3, 3, 2, 2, '2', '', NULL),
+(22, 10, 0, '2025-09-11 18:25:26', 3, 3, 2, 3, 4, 2, 2, 2, 2, 3, 2, 2, 2, 1, 1, '28', '', NULL),
+(23, 16, 0, '2025-09-11 18:27:38', 1, 1, 4, 2, 2, 2, 4, 2, 4, 1, 1, 1, 1, 1, 1, '27,23,24', '', NULL),
+(24, 17, 0, '2025-09-11 18:30:17', 2, 1, 4, 2, 1, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, '1,6,14,13', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -755,7 +762,8 @@ INSERT INTO `ue_unterrichtseinheit` (`id`, `gruppe_id`, `datum`, `zeit`, `dauer`
 (2, 3, '2025-09-09', '15:35:00', 90, 'Gruppenveranstaltung'),
 (3, 4, '2025-09-09', '17:10:00', 90, 'Gruppenveranstaltung'),
 (4, 5, '2025-09-10', '15:35:00', 90, 'Gruppenveranstaltung'),
-(5, 6, '2025-09-10', '17:10:00', 90, 'Gruppenveranstaltung');
+(5, 6, '2025-09-10', '17:10:00', 90, 'Gruppenveranstaltung'),
+(6, 7, '2025-09-11', '15:35:00', 90, 'Gruppenveranstaltung');
 
 -- --------------------------------------------------------
 
@@ -787,7 +795,8 @@ INSERT INTO `ue_unterrichtseinheit_zw_thema` (`id`, `ue_unterrichtseinheit_id`, 
 (3, 2, 0, 1, 1, 24, '', '', 0, '3', 'Gruppe 3'),
 (4, 3, 0, 1, 1, 24, '', '', 15, '7,9,5,8', 'Gruppe 4'),
 (5, 4, 0, 1, 1, 24, '', '', 0, '11,6', 'Gruppe 5'),
-(6, 5, 0, 1, 1, 24, '', '', 0, '7,14,12,12,22,13', 'Gruppe 6');
+(6, 5, 0, 1, 1, 24, '', '', 0, '7,14,12,12,22,13', 'Gruppe 6'),
+(7, 6, 0, 1, 1, 24, '', '', 0, '10', 'Gruppe 7');
 
 -- --------------------------------------------------------
 
@@ -811,7 +820,10 @@ INSERT INTO `ue_zuweisung_teilnehmer` (`id`, `ue_zuweisung_lernthema_id`, `teine
 (3, 4, 9),
 (4, 4, 7),
 (5, 4, 8),
-(6, 4, 5);
+(6, 4, 5),
+(11, 7, 9),
+(12, 7, 15),
+(13, 7, 10);
 
 -- --------------------------------------------------------
 
@@ -1811,7 +1823,7 @@ ALTER TABLE `mtr_rueckkopplung_lehrkraft_lesson`
 -- AUTO_INCREMENT für Tabelle `mtr_rueckkopplung_teilnehmer`
 --
 ALTER TABLE `mtr_rueckkopplung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT für Tabelle `mtr_sozial`
 --
@@ -1871,17 +1883,17 @@ ALTER TABLE `ue_teilnehmer_zuweisung`
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit`
 --
 ALTER TABLE `ue_unterrichtseinheit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit_zw_thema`
 --
 ALTER TABLE `ue_unterrichtseinheit_zw_thema`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT für Tabelle `ue_zuweisung_teilnehmer`
 --
 ALTER TABLE `ue_zuweisung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT für Tabelle `verhaltens_mapping`
 --
