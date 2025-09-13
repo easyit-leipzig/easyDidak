@@ -3,14 +3,6 @@
     --widthBemerkungen: 94px;
     --marginBemerkungen: -29.8px;
 }
-.tippy-box {
-font-size:20px;
-color: #404040;
-background-color: antiquewhite!important;
-}
-.smallerText {
-    font-size: 10px;   
-}
 
 /* headline ue */
 #df1_hl_id, div[id^="df1_DfRS_"]>input:nth-child(2) {
@@ -39,6 +31,9 @@ div[id^="df5_std_teilnehmerRS_"]>input:nth-child(7) {
 }
 #df5_hl_Nachname {
     margin-left: 125px;
+}
+.tippy-box {
+font-size:22px
 }
 /* form bewertung lehrkraft */
 #df2_TmpSetSelect {

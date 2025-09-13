@@ -5,12 +5,9 @@ getGermanDate = function(){
 }
 changeSchulform = function( id ){
         data = {};
-        data.id = getIdAndName( id ).Id;
-        data.schulformV = nj( "#df3_schulform_id_" + getIdAndName( id ).Id ).v();
-        data.fachV = nj( "#df3_fach_id_" + getIdAndName( id ).Id ).v();
-        data.value = nj("#" + id).v();//df3_schulform_id_new
+        data.id = id;
+        data.value = nj("#" + id).v();
         data.command = "getLernthema";
-        console.log(data)
         nj().fetchPostNew("library/php/ajax_lesson.php", data, this.evaluateLesson);
 }
 changeLernthema = function( id ){
@@ -19,8 +16,6 @@ changeLernthema = function( id ){
         data.value = nj("#" + id).v();
         let str = id.split("_");
         data.schulform = nj("#df3_schulform_id_" + str.at(-1) ).v();
-        data.tmpId = str.at(-1);
-
         data.command = "getLerninhalt";
         nj().fetchPostNew("library/php/ajax_lesson.php", data, this.evaluateLesson);
 }
@@ -42,30 +37,26 @@ setUeTeinehmer = function(  ) {
             throw "kein JSON-Objekt übergeben";
         }
         console.log( jsonobject );
-        let el, id;
+        let el;
         switch( jsonobject.command ) {
             case "getLernthema":
-                id= jsonobject.id
                 el = nj().cEl("datalist");
-                el.id = "df3_std_lernthema_id_" + id + "_list";
-                if( nj("#df3_std_lernthema_id_" + id + "_list").isE() ) nj("#df3_std_lernthema_id_" + id + "_list").oHt("");
-                nj( )
+                el.id = "df3_std_lernthema_id_new_list";
                 nj(el).htm( jsonobject.lernthema );
 
-                    nj("#df3_std_lernthema_id_" + id ).atr("list", "df3_std_lernthema_id_" + id + "_list");
-                    if( !nj("#df3_std_lernthema_id_" + id + "_list").isE() ) nj("#df3_std_lernthema_id_" + id ).a(el);
+                    nj("#df3_std_lernthema_id_new").atr("list", "df3_std_lernthema_id_new_list");
+                    if( !nj("#df3_std_lernthema_id_new_list").isE() ) nj("#df3_std_lernthema_id_new").a(el);
                     
                 break;
             case "getLerninhalt":
-                if( nj( "#df3_thema_" + jsonobject.id + "_list").isE() ) nj( "#df3_thema_" + jsonobject.id + "_list").oHt("");
                 el = nj().cEl("datalist");
-                el.id = "df3_thema_" + jsonobject.id + "_list";
+                el.id = "df3_thema_new_list";
                 nj(el).htm( '' );
                 nj(el).htm( jsonobject.lerninhalt );
 
-                    nj("#df3_thema_" + jsonobject.id + "").atr("list", "df3_thema_" + jsonobject.id + "_list");
+                    nj("#df3_thema_new").atr("list", "df3_thema_new_list");
 
-                    if( !nj("#df3_thema_" + jsonobject.id + "_list").isE()) nj("#df3_thema_" + jsonobject.id + "").a(el);;
+                    if( !nj("#df3_thema_new_list").isE()) nj("#df3_thema_new").a(el);;
                     
                 break;
             case "setUeTeinehmer":
@@ -102,20 +93,7 @@ setTooltipsBewertung = function() {
     let myTooltip_17 = new Opentip("#df2_bemerkungen_new", "Du kannst hier eine Textnachricht hinterlassen.", "Bemerkungen");
 */
 }
-setTooltipsBewUe = function() {
-    tippy('input[id^=df2_mitarbeit_]', {
-      content: `Mitarbeit
-wie war die Mitarbeit`,
-    });
-    tippy('input[id^=df2_absprachen_]', {
-      content: "Absprachen",
-    });
-}
-setTeilnehmer = function( el ) {
-    console.log( el, nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v() );
-    let v = nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v();
-    nj("#df8_teilnehmer_id_new" ).v( v );
-}
+
 init = function() {
     nj( "#std_teilnehmer" ).m( "#myDia")
     nj( "#tln_bewertung" ).m( "#myDia")

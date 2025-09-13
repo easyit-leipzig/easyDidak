@@ -57,6 +57,7 @@ switch( $_POST["command"]) {
     // start standard functions
     case "setGroup":
                             $query = "SELECT ue_zuweisung_schueler_id, erfasst_am FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
+                            $return -> s = $query;
                             try {
                                 $stm = $db_pdo -> query( $query );
                                 $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
@@ -120,7 +121,7 @@ switch( $_POST["command"]) {
                                         $db_pdo -> query( $q );
                                         $newId = $db_pdo -> lastInsertId();
                                         $q = "INSERT INTO `ue_unterrichtseinheit_zw_thema` (`ue_unterrichtseinheit_id`, `schulform_id`, `fach_id`, `zieltyp_id`, `lernmethode_id`, `std_lernthema_id`, `thema`, `dauer`, `teilnehmer_id`, `beschreibung`) 
-                                                VALUES ($newId, '', '1', '1', 24, '', '', '', $tnId, 'Gruppe " . $groupId . "')" ;
+                                                VALUES ($newId, '', '1', '1', 24, '', '', 90, $tnId, 'Gruppe " . $groupId . "')" ;
                                         $db_pdo -> query( $q );
                                         $ueId = $db_pdo -> lastInsertId();
                                     } else {
@@ -163,7 +164,7 @@ switch( $_POST["command"]) {
                                         $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                         return $return;   
                                     }
-                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_zuweisung_lernthema_id`, `teinehmer_id`) VALUES (" . $result[0]["id"] . ", $tnId)";
+                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teinehmer_id`) VALUES (" . $result[0]["id"] . ", $tnId)";
                    $db_pdo -> query( $q );
                             $return -> q = $tnId;
                            $return -> t = $ueId;

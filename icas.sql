@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Erstellungszeit: 10. Sep 2025 um 18:51
--- Server-Version: 5.7.25
--- PHP-Version: 5.6.40
+-- Host: 127.0.0.1
+-- Erstellungszeit: 13. Sep 2025 um 06:40
+-- Server-Version: 10.4.32-MariaDB
+-- PHP-Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,8 +18,74 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `usr_web411_2`
+-- Datenbank: `icas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `emotion_flags`
+--
+
+CREATE TABLE `emotion_flags` (
+  `id` int(11) NOT NULL,
+  `ue_zuweisung_teilnehmer_id` int(11) NOT NULL,
+  `emotions` varchar(100) NOT NULL,
+  `Freude` tinyint(1) NOT NULL DEFAULT 0,
+  `Zufriedenheit` tinyint(1) NOT NULL DEFAULT 0,
+  `Erfüllung` tinyint(1) NOT NULL DEFAULT 0,
+  `Motivation` tinyint(1) NOT NULL DEFAULT 0,
+  `Dankbarkeit` tinyint(1) NOT NULL DEFAULT 0,
+  `Hoffnung` tinyint(1) NOT NULL DEFAULT 0,
+  `Stolz` tinyint(1) NOT NULL DEFAULT 0,
+  `Selbstvertrauen` tinyint(1) NOT NULL DEFAULT 0,
+  `Neugier` tinyint(1) NOT NULL DEFAULT 0,
+  `Inspiration` tinyint(1) NOT NULL DEFAULT 0,
+  `Zugehörigkeit` tinyint(1) NOT NULL DEFAULT 0,
+  `Vertrauen` tinyint(1) NOT NULL DEFAULT 0,
+  `Spaß` tinyint(1) NOT NULL DEFAULT 0,
+  `Sicherheit` tinyint(1) NOT NULL DEFAULT 0,
+  `Frustration` tinyint(1) NOT NULL DEFAULT 0,
+  `Überforderung` tinyint(1) NOT NULL DEFAULT 0,
+  `Angst` tinyint(1) NOT NULL DEFAULT 0,
+  `Langeweile` tinyint(1) NOT NULL DEFAULT 0,
+  `Scham` tinyint(1) NOT NULL DEFAULT 0,
+  `Zweifel` tinyint(1) NOT NULL DEFAULT 0,
+  `Resignation` tinyint(1) NOT NULL DEFAULT 0,
+  `Erschöpfung` tinyint(1) NOT NULL DEFAULT 0,
+  `Interesse` tinyint(1) NOT NULL DEFAULT 0,
+  `Verwirrung` tinyint(1) NOT NULL DEFAULT 0,
+  `Unsicherheit` tinyint(1) NOT NULL DEFAULT 0,
+  `Überraschung` tinyint(1) NOT NULL DEFAULT 0,
+  `Erwartung` tinyint(1) NOT NULL DEFAULT 0,
+  `Erleichterung` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `emotion_flags`
+--
+
+INSERT INTO `emotion_flags` (`id`, `ue_zuweisung_teilnehmer_id`, `emotions`, `Freude`, `Zufriedenheit`, `Erfüllung`, `Motivation`, `Dankbarkeit`, `Hoffnung`, `Stolz`, `Selbstvertrauen`, `Neugier`, `Inspiration`, `Zugehörigkeit`, `Vertrauen`, `Spaß`, `Sicherheit`, `Frustration`, `Überforderung`, `Angst`, `Langeweile`, `Scham`, `Zweifel`, `Resignation`, `Erschöpfung`, `Interesse`, `Verwirrung`, `Unsicherheit`, `Überraschung`, `Erwartung`, `Erleichterung`) VALUES
+(1, 1, '', 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+(2, 2, '', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 3, '', 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0),
+(4, 4, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0),
+(5, 5, '', 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0),
+(6, 6, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+(7, 7, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+(8, 9, '', 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0),
+(9, 10, '', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(10, 11, '', 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+(11, 12, '', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0),
+(12, 13, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0),
+(13, 16, '', 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0),
+(14, 18, '', 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0),
+(15, 19, '', 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0),
+(16, 20, '', 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1),
+(17, 21, '', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(18, 22, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+(19, 23, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0),
+(20, 24, '', 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -38,8 +105,8 @@ CREATE TABLE `frzk_semantische_dichte` (
   `cluster_id` int(11) DEFAULT NULL,
   `stabilitaet_score` float DEFAULT NULL,
   `transitions_marker` varchar(50) DEFAULT NULL,
-  `bemerkung` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `bemerkung` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -52,7 +119,7 @@ CREATE TABLE `map_tmp_ue` (
   `category` varchar(255) NOT NULL,
   `behavior_phrase` varchar(255) NOT NULL,
   `mapped_value` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `map_tmp_ue`
@@ -93,7 +160,7 @@ CREATE TABLE `mtr_didaktik` (
   `aufforderung` int(1) DEFAULT NULL,
   `materialien` int(1) DEFAULT NULL,
   `zielgruppen` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -105,28 +172,28 @@ CREATE TABLE `mtr_emotions` (
   `id` int(11) NOT NULL,
   `ue_zuweisung_teilnehmer_id` int(11) NOT NULL,
   `emotions` varchar(50) NOT NULL,
-  `freude` tinyint(1) DEFAULT '0' COMMENT 'Freude: Ein Zustand des Wohlbefindens und der Zufriedenheit.',
-  `traurigkeit` tinyint(1) DEFAULT '0' COMMENT 'Traurigkeit: Ein Gefühl des Verlusts oder der Enttäuschung.',
-  `wut` tinyint(1) DEFAULT '0' COMMENT 'Wut: Eine starke feindselige Reaktion auf eine Provokation oder Ungerechtigkeit.',
-  `angst` tinyint(1) DEFAULT '0' COMMENT 'Angst: Eine Reaktion auf wahrgenommene Gefahr oder Bedrohung.',
-  `ueberraschung` tinyint(1) DEFAULT '0' COMMENT 'Überraschung: Eine kurze Reaktion auf etwas Unerwartetes.',
-  `verachtung` tinyint(1) DEFAULT '0' COMMENT 'Verachtung: Ein Gefühl der Geringschätzung oder Herablassung.',
-  `interesse` tinyint(1) DEFAULT '0' COMMENT 'Interesse: Eine Haltung der Aufmerksamkeit oder Neugier.',
-  `schuld` tinyint(1) DEFAULT '0' COMMENT 'Schuld: Ein Gefühl der Verantwortung oder des Bedauerns über eine tatsächliche oder eingebildete Verfehlung.',
-  `neid` tinyint(1) DEFAULT '0' COMMENT 'Neid: Ein Gefühl des Grolls oder der Unzufriedenheit, hervorgerufen durch das Bewusstsein eines Vorteils, den andere besitzen.',
-  `stolz` tinyint(1) DEFAULT '0' COMMENT 'Stolz: Ein Gefühl tiefer Zufriedenheit aus den eigenen Leistungen oder denen einer Gruppe.',
-  `erleichterung` tinyint(1) DEFAULT '0' COMMENT 'Erleichterung: Ein Zustand des Friedens, der durch die Beseitigung von Angst oder Schmerz hervorgerufen wird.',
-  `hoffnung` tinyint(1) DEFAULT '0' COMMENT 'Hoffnung: Ein Gefühl der Erwartung und des Wunsches nach positiven Ergebnissen.',
-  `liebe` tinyint(1) DEFAULT '0' COMMENT 'Liebe: Ein intensives Gefühl tiefer Zuneigung.',
-  `eifersucht` tinyint(1) DEFAULT '0' COMMENT 'Eifersucht: Ein komplexes Gefühl, das Angst vor Verlust und Misstrauen umfasst.',
-  `zufriedenheit` tinyint(1) DEFAULT '0',
-  `selbstvertrauen` tinyint(1) DEFAULT '0',
-  `frustration` tinyint(1) DEFAULT '0',
-  `erfuellung` tinyint(1) DEFAULT '0',
-  `motivation` tinyint(1) DEFAULT '0',
-  `dankbarkeit` tinyint(1) DEFAULT '0',
-  `ueberforderung` tinyint(1) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `freude` tinyint(1) DEFAULT 0 COMMENT 'Freude: Ein Zustand des Wohlbefindens und der Zufriedenheit.',
+  `traurigkeit` tinyint(1) DEFAULT 0 COMMENT 'Traurigkeit: Ein Gefühl des Verlusts oder der Enttäuschung.',
+  `wut` tinyint(1) DEFAULT 0 COMMENT 'Wut: Eine starke feindselige Reaktion auf eine Provokation oder Ungerechtigkeit.',
+  `angst` tinyint(1) DEFAULT 0 COMMENT 'Angst: Eine Reaktion auf wahrgenommene Gefahr oder Bedrohung.',
+  `ueberraschung` tinyint(1) DEFAULT 0 COMMENT 'Überraschung: Eine kurze Reaktion auf etwas Unerwartetes.',
+  `verachtung` tinyint(1) DEFAULT 0 COMMENT 'Verachtung: Ein Gefühl der Geringschätzung oder Herablassung.',
+  `interesse` tinyint(1) DEFAULT 0 COMMENT 'Interesse: Eine Haltung der Aufmerksamkeit oder Neugier.',
+  `schuld` tinyint(1) DEFAULT 0 COMMENT 'Schuld: Ein Gefühl der Verantwortung oder des Bedauerns über eine tatsächliche oder eingebildete Verfehlung.',
+  `neid` tinyint(1) DEFAULT 0 COMMENT 'Neid: Ein Gefühl des Grolls oder der Unzufriedenheit, hervorgerufen durch das Bewusstsein eines Vorteils, den andere besitzen.',
+  `stolz` tinyint(1) DEFAULT 0 COMMENT 'Stolz: Ein Gefühl tiefer Zufriedenheit aus den eigenen Leistungen oder denen einer Gruppe.',
+  `erleichterung` tinyint(1) DEFAULT 0 COMMENT 'Erleichterung: Ein Zustand des Friedens, der durch die Beseitigung von Angst oder Schmerz hervorgerufen wird.',
+  `hoffnung` tinyint(1) DEFAULT 0 COMMENT 'Hoffnung: Ein Gefühl der Erwartung und des Wunsches nach positiven Ergebnissen.',
+  `liebe` tinyint(1) DEFAULT 0 COMMENT 'Liebe: Ein intensives Gefühl tiefer Zuneigung.',
+  `eifersucht` tinyint(1) DEFAULT 0 COMMENT 'Eifersucht: Ein komplexes Gefühl, das Angst vor Verlust und Misstrauen umfasst.',
+  `zufriedenheit` tinyint(1) DEFAULT 0,
+  `selbstvertrauen` tinyint(1) DEFAULT 0,
+  `frustration` tinyint(1) DEFAULT 0,
+  `erfuellung` tinyint(1) DEFAULT 0,
+  `motivation` tinyint(1) DEFAULT 0,
+  `dankbarkeit` tinyint(1) DEFAULT 0,
+  `ueberforderung` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -138,14 +205,21 @@ CREATE TABLE `mtr_leistung` (
   `id` int(11) NOT NULL,
   `ue_zuweisung_teilnehmer_id` int(11) NOT NULL,
   `teilnehmer_id` int(11) NOT NULL,
-  `lernfortschritt` int(1) DEFAULT NULL,
-  `beherrscht_thema` int(1) DEFAULT NULL,
-  `transferdenken` int(1) DEFAULT NULL,
-  `basiswissen` int(1) DEFAULT NULL,
-  `vorbereitet` int(1) DEFAULT NULL,
+  `lernfortschritt` int(1) DEFAULT 4,
+  `beherrscht_thema` int(1) DEFAULT 4,
+  `transferdenken` int(1) DEFAULT 4,
+  `basiswissen` int(1) DEFAULT 4,
+  `vorbereitet` int(1) DEFAULT 4,
   `verhaltensbeurteilung_code` varchar(255) DEFAULT NULL COMMENT 'Zusätzlicher Code zur Bewertung z.B. Chips-Auswahl',
-  `reflexionshinweis` text COMMENT 'Freitext für didaktische oder diagnostische Reflexion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `reflexionshinweis` text DEFAULT NULL COMMENT 'Freitext für didaktische oder diagnostische Reflexion'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `mtr_leistung`
+--
+
+INSERT INTO `mtr_leistung` (`id`, `ue_zuweisung_teilnehmer_id`, `teilnehmer_id`, `lernfortschritt`, `beherrscht_thema`, `transferdenken`, `basiswissen`, `vorbereitet`, `verhaltensbeurteilung_code`, `reflexionshinweis`) VALUES
+(1, 19, 3, 4, 4, 3, 4, 3, '', '');
 
 -- --------------------------------------------------------
 
@@ -168,19 +242,19 @@ CREATE TABLE `mtr_persoenlichkeit` (
   `metakognition` int(1) DEFAULT NULL COMMENT 'Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch.\r\nNiedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.',
   `stressbewaeltigung` int(1) DEFAULT NULL COMMENT 'Hohe Ausprägung: Reagiert ängstlich auf Prüfungen oder neue Situationen, ist besorgt über Leistung, zeigt emotionale Labilität.\r\nNiedrige Ausprägung: Bleibt ruhig unter Druck, geht gelassen mit Unsicherheit um.\r\n\r\nKönnte sich in der erhöhten Reaktivität der Akteur-Funktion auf als bedrohlich interpretierte Feldzustände (z.B. Prüfungsdruck) oder in negativen Mustern der Meta-Funktion (z.B. negative Selbstbewertung) äußern [citation: 6, 7, 9, 11].',
   `bedeutungsbildung` int(1) DEFAULT NULL COMMENT 'Hohe Ausprägung: Konstruiert kohärente Bedeutungen aus Lerninhalten, vernetzt Wissen, entwickelt eigene Interpretationen, findet Sinn im Gelernten.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Sinnstiftung, isolierte Wissensfragmente, wenig eigene Interpretationen.\r\n\r\nIntegrale Funktionalität (Kohärenzbildung, Kontextualisierung, Narrativierung, Wertschöpfung) synthetisiert lokale Beobachtungen zu globalen Bedeutungen. Ausprägungen zeigen sich in der Qualität und Struktur der konstruierten semantischen Felder und Narrative [citation: 1, 16, 11].'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Offenheit für Erfahrungen, Gewissenhaftigkeit, Extraversion,';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Offenheit für Erfahrungen, Gewissenhaftigkeit, Extraversion,';
 
 --
 -- Daten für Tabelle `mtr_persoenlichkeit`
 --
 
 INSERT INTO `mtr_persoenlichkeit` (`id`, `teilnehmer_id`, `datum`, `offenheit_erfahrungen`, `gewissenhaftigkeit`, `Extraversion`, `vertraeglichkeit`, `zielorientierung`, `lernfaehigkeit`, `anpassungsfaehigkeit`, `soziale_interaktion`, `metakognition`, `stressbewaeltigung`, `bedeutungsbildung`) VALUES
-(1, 2, '2025-09-08', 2, 3, 3, 3, 2, 2, 3, 3, 3, 3, 3),
-(2, 3, '2025-09-09', 3, 3, 3, 2, 2, 2, 3, 2, 3, NULL, NULL),
+(1, 2, '2025-09-08', 3, 3, 3, 3, 3, 4, 4, 3, 4, 4, 4),
+(2, 3, '2025-09-09', 3, 3, 3, 2, 3, 3, 3, 4, 4, 5, 4),
 (3, 4, '2025-09-09', 4, 4, 3, 3, 4, 4, 4, 4, 4, NULL, NULL),
-(4, 5, '2025-09-09', 2, 2, 2, 2, 2, 3, 3, 2, 3, 3, 0),
-(5, 6, '2025-09-09', 3, 2, 4, 3, 4, 4, 3, 4, 4, NULL, NULL),
-(6, 7, '2025-09-09', 4, 3, 4, 4, 4, 4, 4, 4, 3, NULL, NULL),
+(4, 5, '2025-09-09', 4, 3, 2, 3, 4, 4, 4, 2, 4, 4, 4),
+(5, 6, '2025-09-09', 4, 2, 4, 3, 4, 4, 3, 4, 4, 4, 4),
+(6, 7, '2025-09-09', 5, 5, 4, 4, 5, 5, 4, 4, 5, 5, 5),
 (7, 8, '2025-09-09', 3, 3, 3, 3, 3, 3, 4, 3, 3, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -192,7 +266,7 @@ INSERT INTO `mtr_persoenlichkeit` (`id`, `teilnehmer_id`, `datum`, `offenheit_er
 CREATE TABLE `mtr_rueckkopplung_lehrkraft_lesson` (
   `id` int(11) NOT NULL,
   `ue_unterrichtseinheit_id` int(11) DEFAULT NULL,
-  `erfasst_am` datetime DEFAULT CURRENT_TIMESTAMP,
+  `erfasst_am` datetime DEFAULT current_timestamp(),
   `mitarbeit` int(11) DEFAULT NULL,
   `absprachen` int(11) DEFAULT NULL,
   `selbststaendigkeit` int(11) DEFAULT NULL,
@@ -210,7 +284,7 @@ CREATE TABLE `mtr_rueckkopplung_lehrkraft_lesson` (
   `aufforderung` int(11) DEFAULT NULL,
   `emotions` varchar(100) NOT NULL,
   `bemerkungen` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -220,8 +294,8 @@ CREATE TABLE `mtr_rueckkopplung_lehrkraft_lesson` (
 
 CREATE TABLE `mtr_rueckkopplung_lehrkraft_tn` (
   `id` int(11) NOT NULL,
-  `ue_unterrichtseinheit_id` int(11) DEFAULT NULL,
-  `erfasst_am` datetime DEFAULT CURRENT_TIMESTAMP,
+  `ue_zuweisung_teilnehmer_id` int(11) DEFAULT NULL,
+  `erfasst_am` datetime DEFAULT current_timestamp(),
   `val_mitarbeit` int(11) DEFAULT NULL,
   `val_absprachen` int(11) DEFAULT NULL,
   `val_selbststaendigkeit` int(11) DEFAULT NULL,
@@ -239,7 +313,7 @@ CREATE TABLE `mtr_rueckkopplung_lehrkraft_tn` (
   `val_aufforderung` int(11) DEFAULT NULL,
   `val_emotions` varchar(100) NOT NULL,
   `bemerkungen` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -251,7 +325,7 @@ CREATE TABLE `mtr_rueckkopplung_teilnehmer` (
   `id` int(11) NOT NULL,
   `ue_zuweisung_schueler_id` int(11) DEFAULT NULL,
   `gruppe_id` tinyint(4) NOT NULL,
-  `erfasst_am` datetime DEFAULT CURRENT_TIMESTAMP,
+  `erfasst_am` datetime DEFAULT current_timestamp(),
   `val_mitarbeit` int(11) DEFAULT NULL,
   `val_absprachen` int(11) DEFAULT NULL,
   `val_selbststaendigkeit` int(11) DEFAULT NULL,
@@ -270,7 +344,7 @@ CREATE TABLE `mtr_rueckkopplung_teilnehmer` (
   `val_emotions` varchar(100) NOT NULL,
   `bemerkungen` varchar(255) NOT NULL,
   `val_emotions_new` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `mtr_rueckkopplung_teilnehmer`
@@ -293,7 +367,14 @@ INSERT INTO `mtr_rueckkopplung_teilnehmer` (`id`, `ue_zuweisung_schueler_id`, `g
 (14, 12, 6, '2025-09-10 18:32:50', 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, '', '', NULL),
 (15, 12, 6, '2025-09-10 18:32:51', 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, '', '', NULL),
 (16, 22, 6, '2025-09-10 18:33:32', 2, 2, 2, 1, 2, 3, 4, 3, 3, 2, 1, 1, 1, 1, 1, '5,4,7,25', '', NULL),
-(17, 13, 6, '2025-09-10 18:34:26', 2, 2, 2, 2, 1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, '', '', NULL);
+(17, 13, 6, '2025-09-10 18:34:26', 2, 2, 2, 2, 1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, '', '', NULL),
+(18, 9, 7, '2025-09-11 16:52:16', 2, 1, 1, 2, 2, 1, 2, 2, 2, 3, 2, 2, 1, 2, 2, '5,22,27,1,6,10,23,18,4,9,14,13,7,16,26', '', NULL),
+(19, 15, 7, '2025-09-11 16:56:12', 1, 2, 4, 5, 4, 2, 3, 2, 4, 2, 1, 2, 2, 1, 1, '17,5,22,4,16,25,24,20', '', NULL),
+(20, 10, 7, '2025-09-11 16:56:20', 1, 1, 2, 2, 2, 1, 4, 3, 3, 1, 1, 2, 1, 1, 1, '28,1,6,23,8,13,16,25,2', '', NULL),
+(21, 18, 8, '2025-09-11 18:24:24', 1, 3, 1, 2, 2, 1, 1, 1, 1, 1, 1, 3, 3, 2, 2, '2', '', NULL),
+(22, 10, 8, '2025-09-11 18:25:26', 3, 3, 2, 3, 4, 2, 2, 2, 2, 3, 2, 2, 2, 1, 1, '28', '', NULL),
+(23, 16, 8, '2025-09-11 18:27:38', 1, 1, 4, 2, 2, 2, 4, 2, 4, 1, 1, 1, 1, 1, 1, '27,23,24', '', NULL),
+(24, 17, 8, '2025-09-11 18:30:17', 2, 1, 4, 2, 1, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, '1,6,14,13', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -309,7 +390,20 @@ CREATE TABLE `mtr_sozial` (
   `selbststaendigkeit` int(11) DEFAULT NULL,
   `konzentration` int(11) DEFAULT NULL,
   `fleiss` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `mtr_soziale_beziehungen`
+--
+
+CREATE TABLE `mtr_soziale_beziehungen` (
+  `id` int(11) NOT NULL,
+  `from_tn` int(11) NOT NULL,
+  `to_tn` int(11) NOT NULL,
+  `wert` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -319,7 +413,7 @@ CREATE TABLE `mtr_sozial` (
 
 CREATE TABLE `rooms` (
   `room_id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE latin1_german1_ci NOT NULL
+  `name` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 
 --
@@ -428,11 +522,11 @@ INSERT INTO `session_students` (`session_id`, `student_id`) VALUES
 CREATE TABLE `std_lernthema` (
   `id` int(11) NOT NULL,
   `quelle_id` int(11) NOT NULL,
-  `fach_id` int(11) NOT NULL DEFAULT '1',
+  `fach_id` int(11) NOT NULL DEFAULT 1,
   `klassenstufe` int(11) DEFAULT NULL,
   `schulform` varchar(20) DEFAULT NULL,
   `lernthema` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `std_lernthema`
@@ -509,7 +603,7 @@ INSERT INTO `std_lernthema` (`id`, `quelle_id`, `fach_id`, `klassenstufe`, `schu
 
 CREATE TABLE `std_teilnehmer` (
   `id` int(11) NOT NULL,
-  `teilnehmer_typ` int(1) NOT NULL DEFAULT '1' COMMENT '0 - Lehrkraft / 1 - Teilnehmer',
+  `teilnehmer_typ` int(1) NOT NULL DEFAULT 1 COMMENT '0 - Lehrkraft / 1 - Teilnehmer',
   `Vorname` varchar(255) DEFAULT NULL,
   `Nachname` varchar(255) DEFAULT NULL,
   `geschlecht` char(1) NOT NULL,
@@ -519,7 +613,7 @@ CREATE TABLE `std_teilnehmer` (
   `KlassentypID` int(11) DEFAULT NULL,
   `Bis` date DEFAULT NULL,
   `GruppenID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `std_teilnehmer`
@@ -557,9 +651,9 @@ INSERT INTO `std_teilnehmer` (`id`, `teilnehmer_typ`, `Vorname`, `Nachname`, `ge
 
 CREATE TABLE `students` (
   `student_id` int(11) NOT NULL,
-  `first_name` varchar(50) COLLATE latin1_german1_ci NOT NULL,
-  `last_name` varchar(50) COLLATE latin1_german1_ci NOT NULL,
-  `school_form` varchar(10) COLLATE latin1_german1_ci DEFAULT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `school_form` varchar(10) DEFAULT NULL,
   `grade` int(11) DEFAULT NULL,
   `valid_until` date DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
@@ -610,8 +704,8 @@ INSERT INTO `students` (`student_id`, `first_name`, `last_name`, `school_form`, 
 
 CREATE TABLE `subjects` (
   `subject_id` int(11) NOT NULL,
-  `code` varchar(10) COLLATE latin1_german1_ci NOT NULL,
-  `name` varchar(50) COLLATE latin1_german1_ci DEFAULT NULL
+  `code` varchar(10) NOT NULL,
+  `name` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 
 --
@@ -634,9 +728,9 @@ CREATE TABLE `tmp_teilnehmer` (
   `nachname` varchar(255) DEFAULT NULL,
   `klassenstufe` int(11) DEFAULT NULL,
   `schultyp` varchar(50) DEFAULT NULL,
-  `status` text,
-  `besondere_hinweise` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` text DEFAULT NULL,
+  `besondere_hinweise` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -666,7 +760,7 @@ CREATE TABLE `tmp_unterrichtseinheiten` (
   `beherrscht_thema` int(11) DEFAULT NULL,
   `transferdenken` int(11) DEFAULT NULL,
   `basiswissen` int(11) DEFAULT NULL,
-  `freitext` text,
+  `freitext` text DEFAULT NULL,
   `desinteressiert_gleichgueltig` int(1) DEFAULT NULL,
   `unkonzentriert` int(1) DEFAULT NULL,
   `unverstaendnis` int(1) DEFAULT NULL,
@@ -675,7 +769,7 @@ CREATE TABLE `tmp_unterrichtseinheiten` (
   `absprachen_nicht_einhaltend` int(1) DEFAULT NULL,
   `materialien_fehlen` int(1) DEFAULT NULL,
   `unpuenktlich` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -692,8 +786,8 @@ CREATE TABLE `ue_gruppen` (
   `fach` varchar(10) NOT NULL,
   `raum` varchar(10) DEFAULT NULL,
   `standort` varchar(30) DEFAULT NULL,
-  `kommentar` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `kommentar` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `ue_gruppen`
@@ -707,29 +801,9 @@ INSERT INTO `ue_gruppen` (`id`, `day_number`, `tag`, `uhrzeit_start`, `uhrzeit_e
 (5, 4, 'Mi.', '15:35:00', '17:05:00', 'MAT', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 30.09.25'),
 (6, 4, 'Mi.', '17:10:00', '18:40:00', 'MAT', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 30.09.25'),
 (7, 5, 'Do.', '15:35:00', '17:05:00', 'MAT', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 31.08.25'),
-(8, 6, 'Do.', '17:10:00', '18:40:00', 'PHY', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 30.09.25'),
+(8, 5, 'Do.', '17:10:00', '18:40:00', 'PHY', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 30.09.25'),
 (9, 6, 'Fr.', '15:35:00', '17:05:00', 'MAT', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 29.08.25'),
 (10, 3, '', '07:15:00', '08:50:00', '', 'dummy', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `ue_teilnehmer_zuweisung`
---
-
-CREATE TABLE `ue_teilnehmer_zuweisung` (
-  `id` int(11) NOT NULL,
-  `ue_unterrichtseinheit_thema_id` int(11) NOT NULL,
-  `teilnehmer_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `ue_teilnehmer_zuweisung`
---
-
-INSERT INTO `ue_teilnehmer_zuweisung` (`id`, `ue_unterrichtseinheit_thema_id`, `teilnehmer_id`) VALUES
-(1, 1, 20),
-(2, 2, 20);
 
 -- --------------------------------------------------------
 
@@ -742,9 +816,9 @@ CREATE TABLE `ue_unterrichtseinheit` (
   `gruppe_id` int(11) DEFAULT NULL,
   `datum` date DEFAULT NULL,
   `zeit` time DEFAULT NULL,
-  `dauer` int(2) NOT NULL DEFAULT '90',
-  `beschreibung` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `dauer` int(2) NOT NULL DEFAULT 90,
+  `beschreibung` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `ue_unterrichtseinheit`
@@ -755,7 +829,9 @@ INSERT INTO `ue_unterrichtseinheit` (`id`, `gruppe_id`, `datum`, `zeit`, `dauer`
 (2, 3, '2025-09-09', '15:35:00', 90, 'Gruppenveranstaltung'),
 (3, 4, '2025-09-09', '17:10:00', 90, 'Gruppenveranstaltung'),
 (4, 5, '2025-09-10', '15:35:00', 90, 'Gruppenveranstaltung'),
-(5, 6, '2025-09-10', '17:10:00', 90, 'Gruppenveranstaltung');
+(5, 6, '2025-09-10', '17:10:00', 90, 'Gruppenveranstaltung'),
+(6, 7, '2025-09-11', '15:35:00', 90, 'Gruppenveranstaltung'),
+(7, 8, '2025-09-11', NULL, 90, 'Gruppenveranstaltung');
 
 -- --------------------------------------------------------
 
@@ -767,15 +843,15 @@ CREATE TABLE `ue_unterrichtseinheit_zw_thema` (
   `id` int(11) NOT NULL,
   `ue_unterrichtseinheit_id` int(11) NOT NULL,
   `schulform_id` int(11) NOT NULL,
-  `fach_id` int(11) NOT NULL DEFAULT '1',
+  `fach_id` int(11) NOT NULL DEFAULT 1,
   `zieltyp_id` int(11) NOT NULL,
   `lernmethode_id` int(11) NOT NULL,
   `std_lernthema_id` varchar(100) NOT NULL,
   `thema` varchar(255) NOT NULL,
   `dauer` int(11) NOT NULL,
   `teilnehmer_id` varchar(100) NOT NULL,
-  `beschreibung` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `beschreibung` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `ue_unterrichtseinheit_zw_thema`
@@ -784,10 +860,12 @@ CREATE TABLE `ue_unterrichtseinheit_zw_thema` (
 INSERT INTO `ue_unterrichtseinheit_zw_thema` (`id`, `ue_unterrichtseinheit_id`, `schulform_id`, `fach_id`, `zieltyp_id`, `lernmethode_id`, `std_lernthema_id`, `thema`, `dauer`, `teilnehmer_id`, `beschreibung`) VALUES
 (1, 1, 2, 1, 3, 24, 'Vorbereitung BLF', 'Teil A', 15, '20', ''),
 (2, 1, 2, 1, 3, 24, 'Geometrie', 'Flächenberechnung', 30, '', ''),
-(3, 2, 0, 1, 1, 24, '', '', 0, '3', 'Gruppe 3'),
 (4, 3, 0, 1, 1, 24, '', '', 15, '7,9,5,8', 'Gruppe 4'),
 (5, 4, 0, 1, 1, 24, '', '', 0, '11,6', 'Gruppe 5'),
-(6, 5, 0, 1, 1, 24, '', '', 0, '7,14,12,12,22,13', 'Gruppe 6');
+(6, 5, 0, 1, 1, 24, '', '', 0, '7,14,12,12,22,13', 'Gruppe 6'),
+(7, 6, 0, 1, 1, 24, '', '', 0, '10', 'Gruppe 7'),
+(8, 7, 0, 1, 3, 24, '', '', 90, '16,9,18,17,19', 'Gruppe 8'),
+(9, 2, 2, 1, 14, 24, 'Zahlen und Rechnen', 'Dezimalzahlen', 90, '3', '');
 
 -- --------------------------------------------------------
 
@@ -797,21 +875,29 @@ INSERT INTO `ue_unterrichtseinheit_zw_thema` (`id`, `ue_unterrichtseinheit_id`, 
 
 CREATE TABLE `ue_zuweisung_teilnehmer` (
   `id` int(11) NOT NULL,
-  `ue_zuweisung_lernthema_id` int(11) NOT NULL,
+  `ue_unterrichtseinheit_zw_thema_id` int(11) NOT NULL,
   `teinehmer_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `ue_zuweisung_teilnehmer`
 --
 
-INSERT INTO `ue_zuweisung_teilnehmer` (`id`, `ue_zuweisung_lernthema_id`, `teinehmer_id`) VALUES
+INSERT INTO `ue_zuweisung_teilnehmer` (`id`, `ue_unterrichtseinheit_zw_thema_id`, `teinehmer_id`) VALUES
 (1, 1, 20),
-(2, 3, 3),
 (3, 4, 9),
 (4, 4, 7),
 (5, 4, 8),
-(6, 4, 5);
+(6, 4, 5),
+(11, 7, 9),
+(12, 7, 15),
+(13, 7, 10),
+(14, 8, 16),
+(15, 8, 9),
+(16, 8, 18),
+(17, 8, 17),
+(18, 8, 19),
+(19, 9, 3);
 
 -- --------------------------------------------------------
 
@@ -824,7 +910,7 @@ CREATE TABLE `verhaltens_mapping` (
   `flag_typ` int(11) NOT NULL,
   `flag_text` varchar(255) NOT NULL,
   `spaltenname` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `verhaltens_mapping`
@@ -852,12 +938,12 @@ INSERT INTO `verhaltens_mapping` (`id`, `flag_typ`, `flag_text`, `spaltenname`) 
 
 CREATE TABLE `_mtr_definition_lernmethode` (
   `id` int(11) NOT NULL,
-  `bezeichnung` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `beschreibung` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kategorie` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bezeichnung` varchar(255) NOT NULL,
+  `beschreibung` text NOT NULL,
+  `kategorie` varchar(100) DEFAULT NULL,
   `baut_auf_auf` int(11) DEFAULT NULL,
-  `kurzbezeichnung` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `schwerpunkt` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `kurzbezeichnung` varchar(100) NOT NULL,
+  `schwerpunkt` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -903,11 +989,11 @@ INSERT INTO `_mtr_definition_lernmethode` (`id`, `bezeichnung`, `beschreibung`, 
 
 CREATE TABLE `_mtr_definition_zieltyp` (
   `id` int(11) NOT NULL,
-  `bezeichnung` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `beschreibung` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bezeichnung` varchar(255) NOT NULL,
+  `beschreibung` text NOT NULL,
   `baut_auf_auf` int(11) DEFAULT NULL,
-  `kurzbezeichnung` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ebene` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `kurzbezeichnung` varchar(100) NOT NULL,
+  `ebene` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -955,10 +1041,10 @@ INSERT INTO `_mtr_definition_zieltyp` (`id`, `bezeichnung`, `beschreibung`, `bau
 
 CREATE TABLE `_mtr_emotionen` (
   `id` int(11) NOT NULL,
-  `show_emotion` tinyint(1) NOT NULL DEFAULT '1',
+  `show_emotion` tinyint(1) NOT NULL DEFAULT 1,
   `type_id` tinyint(4) NOT NULL COMMENT '1=positiv, 2=negativ, 3=kognitiv',
   `emotion` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_mtr_emotionen`
@@ -1003,7 +1089,7 @@ INSERT INTO `_mtr_emotionen` (`id`, `show_emotion`, `type_id`, `emotion`) VALUES
 CREATE TABLE `_mtr_emotion_type` (
   `id` int(11) NOT NULL,
   `type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_mtr_emotion_type`
@@ -1024,7 +1110,7 @@ CREATE TABLE `_mtr_leistung_val_basiswissen` (
   `id` int(11) NOT NULL,
   `wert_a` int(11) NOT NULL,
   `wert_b` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1036,7 +1122,7 @@ CREATE TABLE `_mtr_leistung_val_beherrscht_thema` (
   `id` int(11) NOT NULL,
   `wert_a` int(11) NOT NULL,
   `wert_b` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1048,7 +1134,7 @@ CREATE TABLE `_mtr_leistung_val_lernfortschritt` (
   `id` int(11) NOT NULL,
   `wert_a` int(11) NOT NULL,
   `wert_b` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1060,7 +1146,7 @@ CREATE TABLE `_mtr_leistung_val_transferdenken` (
   `id` int(11) NOT NULL,
   `wert_a` int(11) NOT NULL,
   `wert_b` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1072,7 +1158,7 @@ CREATE TABLE `_mtr_leistung_val_vorbereitet` (
   `id` int(11) NOT NULL,
   `wert_a` int(11) NOT NULL,
   `wert_b` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1084,7 +1170,7 @@ CREATE TABLE `_mtr_map_emotions` (
   `id` int(11) NOT NULL,
   `mtr_rk_tn` int(11) NOT NULL,
   `mtr_emotions` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_mtr_map_emotions`
@@ -1114,26 +1200,108 @@ INSERT INTO `_mtr_map_emotions` (`id`, `mtr_rk_tn`, `mtr_emotions`) VALUES
 CREATE TABLE `_mtr_persoenlichkeitsmerkmal_definition` (
   `merkmal_id` int(11) NOT NULL,
   `merkmal_name` varchar(255) NOT NULL,
-  `beschreibung_allgemein` text,
-  `theoretischer_hintergrund` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `beschreibung_allgemein` text DEFAULT NULL,
+  `theoretischer_hintergrund` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_mtr_persoenlichkeitsmerkmal_definition`
 --
 
 INSERT INTO `_mtr_persoenlichkeitsmerkmal_definition` (`merkmal_id`, `merkmal_name`, `beschreibung_allgemein`, `theoretischer_hintergrund`) VALUES
-(1, 'offenheit_erfahrungen', 'Offenheit für neue Erfahrungen, Lerninhalte und Situationen.', 'Könnte sich in der Dynamik der Akteur-Funktion A(Ψ,x,y,z,t) äußern, die exploratives Verhalten in Bezug auf das "Feld" (Ψ) anregt. Verbunden mit der Fähigkeit zur Reflexion (Meta-Funktion) über neue Bedeutungsfelder und der Bereitschaft, etablierte semantische Attraktoren zu verlassen. Kann sich in der Offenheit für die Transformation symbolischer Meta-Strukturen zeigen.'),
-(2, 'gewissenhaftigkeit', 'Gewissenhaftigkeit und Leistungsbereitschaft.', 'Könnte sich in der Dynamik der Akteur-Funktion A(Ψ,x,y,z,t) äußern, die exploratives Verhalten in Bezug auf das "Feld" (Ψ) anregt. Verbunden mit der Fähigkeit zur Reflexion (Meta-Funktion) über neue Bedeutungsfelder und der Bereitschaft, etablierte semantische Attraktoren zu verlassen. Kann sich in der Offenheit für die Transformation symbolischer Meta-Strukturen zeigen. Hohe Ausprägung könnte mit der Stabilität der Akteur-Funktion und der Fähigkeit zur Aufrechterhaltung von Zielen korrelieren.'),
-(3, 'extraversion', 'Extraversion und soziale Interaktion.', 'Könnte sich in der Interaktion der Akteur-Funktion A(Ψ,x,y,z,t) mit sozialen "Feldern" (Ψ) manifestieren. Hohe Ausprägung ist verbunden mit der Fähigkeit, sich in soziale Interaktionen zu begeben und diese aktiv zu gestalten. Könnte auch mit der energetischen Komponente der Meta-Funktion M(A,Ψ,x,y,z,t) zusammenhängen, die die Bereitschaft zur Exploration und Einflussnahme auf die Umgebung fördert.'),
-(4, 'vertraeglichkeit', 'Verträglichkeit und Kooperationsbereitschaft.', 'Zeigt sich in der Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t), sich an gemeinsame "Feldzustände" anzupassen und kooperatives Verhalten zu zeigen. Könnte auch mit der Resonanz der Meta-Funktion M(A,Ψ,x,y,z,t) auf die emotionalen und sozialen Signale anderer Akteure zusammenhängen. Hohe Ausprägung fördert die Bildung stabiler semantischer Attraktoren im sozialen Kontext.'),
-(5, 'zielorientierung', 'Zielorientierung und Fokus.', 'Spiegelt die Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t) wider, spezifische "Feldzustände" als Ziele zu definieren und darauf hinzuarbeiten. Verbunden mit der Kohärenz der Meta-Funktion M(A,Ψ,x,y,z,t) in Bezug auf die Planung und Durchführung von Handlungen. Hohe Ausprägung könnte mit der Stärke der semantischen Attraktoren für bestimmte Ziele zusammenhängen.'),
-(6, 'lernfaehigkeit', 'Lernfähigkeit und Adaptivität.', 'Beschreibt die Plastizität der Akteur-Funktion A(Ψ,x,y,z,t) und ihre Fähigkeit, neue "Feldzustände" und Verhaltensweisen zu internalisieren. Verbunden mit der Agilität der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Neubildung und Transformation von Wissensstrukturen. Hohe Ausprägung ist essentiell für die Anpassung an sich ändernde Umgebungen und die effektive Nutzung neuer Informationen.'),
-(7, 'anpassungsfaehigkeit', 'Anpassungsfähigkeit an neue Situationen und Anforderungen.', 'Zeigt sich in der Flexibilität der Akteur-Funktion A(Ψ,x,y,z,t) und ihrer Fähigkeit, sich an unvorhergesehene "Feldzustände" anzupassen. Könnte auch mit der Robustheit der Meta-Funktion M(A,Ψ,x,y,z,t) unter Stressbedingungen und ihrer Fähigkeit zur Reorganisation von Handlungsplänen zusammenhängen. Hohe Ausprägung ermöglicht die effiziente Navigation in dynamischen Umgebungen.'),
-(8, 'soziale_interaktion', 'Fähigkeit zur sozialen Interaktion und Kommunikation.', 'Betont die bidirektionale Kopplung der Akteur-Funktion A(Ψ,x,y,z,t) mit den sozialen "Feldern" (Ψ) und die Fähigkeit zur gemeinsamen Konstruktion von Bedeutung. Verbunden mit der Kommunikationsfähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t) in der Koordination mit anderen Akteuren. Hohe Ausprägung ist entscheidend für effektive Zusammenarbeit und den Aufbau sozialer Netzwerke.'),
-(9, 'metakognition', 'Metakognitive Fähigkeiten und Selbstreflexion.', 'Beschreibt die Fähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t), die eigene Akteur-Funktion A(Ψ,x,y,z,t) und die Interaktion mit dem "Feld" (Ψ) zu beobachten, zu bewerten und zu regulieren. Dies beinhaltet das Verständnis der eigenen Lernprozesse und der Wirksamkeit der angewandten Strategien. Hohe Ausprägung ermöglicht eine bewusste Steuerung von Lern- und Handlungsprozessen.'),
-(10, 'stressbewaeltigung', 'Stressbewältigungsstrategien und emotionale Regulation.', 'Bezieht sich auf die Resilienz der Akteur-Funktion A(Ψ,x,y,z,t) und ihre Fähigkeit, unter Druck effektive Handlungen aufrechtzuerhalten. Verbunden mit der Regulationsfähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Verarbeitung von emotionalen "Feldzuständen". Hohe Ausprägung ermöglicht es, Herausforderungen konstruktiv zu begegnen und psychische Belastungen zu reduzieren.'),
-(11, 'bedeutungsbildung', 'Bedeutungsbildung und Sinnstiftung.', 'Umfasst die Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t), kohärente "Feldzustände" zu schaffen und diesen eine persönliche oder kollektive Bedeutung zu verleihen. Verbunden mit der integrativen Funktion der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Synthese von Erfahrungen und der Konstruktion von Weltbildern. Hohe Ausprägung ist fundamental für die persönliche Entwicklung und das Gefühl der Kohärenz.');
+(1, 'offenheit_erfahrungen', 'Offenheit für neue Erfahrungen, Lerninhalte und Situationen.', 'Könnte sich in der Dynamik der Akteur-Funktion A(Ψ,x,y,z,t) äußern, die exploratives Verhalten in Bezug auf das \"Feld\" (Ψ) anregt. Verbunden mit der Fähigkeit zur Reflexion (Meta-Funktion) über neue Bedeutungsfelder und der Bereitschaft, etablierte semantische Attraktoren zu verlassen. Kann sich in der Offenheit für die Transformation symbolischer Meta-Strukturen zeigen.'),
+(2, 'gewissenhaftigkeit', 'Gewissenhaftigkeit und Leistungsbereitschaft.', 'Könnte sich in der Dynamik der Akteur-Funktion A(Ψ,x,y,z,t) äußern, die exploratives Verhalten in Bezug auf das \"Feld\" (Ψ) anregt. Verbunden mit der Fähigkeit zur Reflexion (Meta-Funktion) über neue Bedeutungsfelder und der Bereitschaft, etablierte semantische Attraktoren zu verlassen. Kann sich in der Offenheit für die Transformation symbolischer Meta-Strukturen zeigen. Hohe Ausprägung könnte mit der Stabilität der Akteur-Funktion und der Fähigkeit zur Aufrechterhaltung von Zielen korrelieren.'),
+(3, 'extraversion', 'Extraversion und soziale Interaktion.', 'Könnte sich in der Interaktion der Akteur-Funktion A(Ψ,x,y,z,t) mit sozialen \"Feldern\" (Ψ) manifestieren. Hohe Ausprägung ist verbunden mit der Fähigkeit, sich in soziale Interaktionen zu begeben und diese aktiv zu gestalten. Könnte auch mit der energetischen Komponente der Meta-Funktion M(A,Ψ,x,y,z,t) zusammenhängen, die die Bereitschaft zur Exploration und Einflussnahme auf die Umgebung fördert.'),
+(4, 'vertraeglichkeit', 'Verträglichkeit und Kooperationsbereitschaft.', 'Zeigt sich in der Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t), sich an gemeinsame \"Feldzustände\" anzupassen und kooperatives Verhalten zu zeigen. Könnte auch mit der Resonanz der Meta-Funktion M(A,Ψ,x,y,z,t) auf die emotionalen und sozialen Signale anderer Akteure zusammenhängen. Hohe Ausprägung fördert die Bildung stabiler semantischer Attraktoren im sozialen Kontext.'),
+(5, 'zielorientierung', 'Zielorientierung und Fokus.', 'Spiegelt die Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t) wider, spezifische \"Feldzustände\" als Ziele zu definieren und darauf hinzuarbeiten. Verbunden mit der Kohärenz der Meta-Funktion M(A,Ψ,x,y,z,t) in Bezug auf die Planung und Durchführung von Handlungen. Hohe Ausprägung könnte mit der Stärke der semantischen Attraktoren für bestimmte Ziele zusammenhängen.'),
+(6, 'lernfaehigkeit', 'Lernfähigkeit und Adaptivität.', 'Beschreibt die Plastizität der Akteur-Funktion A(Ψ,x,y,z,t) und ihre Fähigkeit, neue \"Feldzustände\" und Verhaltensweisen zu internalisieren. Verbunden mit der Agilität der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Neubildung und Transformation von Wissensstrukturen. Hohe Ausprägung ist essentiell für die Anpassung an sich ändernde Umgebungen und die effektive Nutzung neuer Informationen.'),
+(7, 'anpassungsfaehigkeit', 'Anpassungsfähigkeit an neue Situationen und Anforderungen.', 'Zeigt sich in der Flexibilität der Akteur-Funktion A(Ψ,x,y,z,t) und ihrer Fähigkeit, sich an unvorhergesehene \"Feldzustände\" anzupassen. Könnte auch mit der Robustheit der Meta-Funktion M(A,Ψ,x,y,z,t) unter Stressbedingungen und ihrer Fähigkeit zur Reorganisation von Handlungsplänen zusammenhängen. Hohe Ausprägung ermöglicht die effiziente Navigation in dynamischen Umgebungen.'),
+(8, 'soziale_interaktion', 'Fähigkeit zur sozialen Interaktion und Kommunikation.', 'Betont die bidirektionale Kopplung der Akteur-Funktion A(Ψ,x,y,z,t) mit den sozialen \"Feldern\" (Ψ) und die Fähigkeit zur gemeinsamen Konstruktion von Bedeutung. Verbunden mit der Kommunikationsfähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t) in der Koordination mit anderen Akteuren. Hohe Ausprägung ist entscheidend für effektive Zusammenarbeit und den Aufbau sozialer Netzwerke.'),
+(9, 'metakognition', 'Metakognitive Fähigkeiten und Selbstreflexion.', 'Beschreibt die Fähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t), die eigene Akteur-Funktion A(Ψ,x,y,z,t) und die Interaktion mit dem \"Feld\" (Ψ) zu beobachten, zu bewerten und zu regulieren. Dies beinhaltet das Verständnis der eigenen Lernprozesse und der Wirksamkeit der angewandten Strategien. Hohe Ausprägung ermöglicht eine bewusste Steuerung von Lern- und Handlungsprozessen.'),
+(10, 'stressbewaeltigung', 'Stressbewältigungsstrategien und emotionale Regulation.', 'Bezieht sich auf die Resilienz der Akteur-Funktion A(Ψ,x,y,z,t) und ihre Fähigkeit, unter Druck effektive Handlungen aufrechtzuerhalten. Verbunden mit der Regulationsfähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Verarbeitung von emotionalen \"Feldzuständen\". Hohe Ausprägung ermöglicht es, Herausforderungen konstruktiv zu begegnen und psychische Belastungen zu reduzieren.'),
+(11, 'bedeutungsbildung', 'Bedeutungsbildung und Sinnstiftung.', 'Umfasst die Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t), kohärente \"Feldzustände\" zu schaffen und diesen eine persönliche oder kollektive Bedeutung zu verleihen. Verbunden mit der integrativen Funktion der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Synthese von Erfahrungen und der Konstruktion von Weltbildern. Hohe Ausprägung ist fundamental für die persönliche Entwicklung und das Gefühl der Kohärenz.');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `_mtr_soziale_beziehung_type`
+--
+
+CREATE TABLE `_mtr_soziale_beziehung_type` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `_mtr_soziale_beziehung_type`
+--
+
+INSERT INTO `_mtr_soziale_beziehung_type` (`id`, `name`) VALUES
+(1, 'Persönlich'),
+(2, 'Familiär'),
+(3, 'Beruflich'),
+(4, 'Gesellschaftlich'),
+(5, 'Digital');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `_mtr_soziale_beziehung_werte`
+--
+
+CREATE TABLE `_mtr_soziale_beziehung_werte` (
+  `id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `anzeigen` tinyint(1) NOT NULL,
+  `bezeichnung` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `_mtr_soziale_beziehung_werte`
+--
+
+INSERT INTO `_mtr_soziale_beziehung_werte` (`id`, `type_id`, `anzeigen`, `bezeichnung`) VALUES
+(1, 1, 1, 'Freundschaft'),
+(2, 1, 0, 'Beste Freundschaft'),
+(3, 1, 0, 'Bekanntschaft'),
+(4, 1, 0, 'Liebesbeziehung / Partnerschaft'),
+(5, 1, 0, 'Ehe / Lebensgemeinschaft'),
+(6, 1, 0, 'Ex-Partner/in'),
+(7, 1, 0, 'Affäre'),
+(8, 1, 0, 'Mitbewohner/in'),
+(9, 2, 0, 'Eltern-Kind'),
+(10, 2, 0, 'Geschwister'),
+(11, 2, 0, 'Großeltern-Enkel'),
+(12, 2, 0, 'Tante/Onkel – Nichte/Neffe'),
+(13, 2, 0, 'Cousin/Cousine'),
+(14, 2, 0, 'Schwiegerbeziehungen'),
+(15, 2, 0, 'Pflege-/Adoptivverhältnis'),
+(16, 2, 0, 'Patchwork-Familie'),
+(17, 3, 0, 'Kollege/Kollegin'),
+(18, 3, 0, 'Vorgesetzter'),
+(19, 3, 0, 'Mitarbeiter'),
+(20, 3, 0, 'Geschäftspartner'),
+(21, 3, 0, 'Kunde – Dienstleister'),
+(22, 3, 0, 'Mentor – Mentee'),
+(23, 3, 0, 'Teammitglied'),
+(24, 3, 0, 'Netzwerkkontakt'),
+(25, 3, 0, 'Lehrer – Schüler'),
+(26, 3, 0, 'Erzieher – Kind'),
+(27, 3, 0, 'Trainer – Schützling'),
+(28, 3, 0, 'Mitschüler / Kommilitonen'),
+(29, 4, 0, 'Nachbar'),
+(30, 4, 0, 'Vereinsmitglied'),
+(31, 4, 0, 'Therapeut – Klient'),
+(32, 4, 0, 'Arzt – Patient'),
+(33, 4, 0, 'Seelsorger – Ratsuchender'),
+(34, 4, 0, 'Sozialarbeiter – Klient'),
+(35, 4, 0, 'Polizist – Bürger'),
+(36, 4, 0, 'Beamter – Antragsteller'),
+(37, 5, 0, 'Online-Freund'),
+(38, 5, 0, 'Follower – Influencer'),
+(39, 5, 0, 'Gaming-Bekanntschaft'),
+(40, 5, 0, 'Online-Dating-Kontakt'),
+(41, 5, 0, 'Community-Mitglied');
 
 -- --------------------------------------------------------
 
@@ -1145,7 +1313,7 @@ CREATE TABLE `_std_lernthema_inhalt` (
   `id` int(11) NOT NULL,
   `std_lernthema_id` int(11) DEFAULT NULL,
   `inhalt` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_std_lernthema_inhalt`
@@ -1373,7 +1541,7 @@ INSERT INTO `_std_lernthema_inhalt` (`id`, `std_lernthema_id`, `inhalt`) VALUES
 CREATE TABLE `_std_lernthema_quelle` (
   `id` int(11) NOT NULL,
   `quelle` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_std_lernthema_quelle`
@@ -1394,7 +1562,7 @@ CREATE TABLE `_std_schulform` (
   `id` int(11) NOT NULL,
   `schulform` varchar(20) DEFAULT NULL,
   `beschreibung` varchar(255) DEFAULT NULL COMMENT 'Erweiterte Bezeichnung, z.B. Gymnasium G8, Oberschule mit Teilschwerpunkt etc.'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_std_schulform`
@@ -1420,7 +1588,7 @@ INSERT INTO `_std_schulform` (`id`, `schulform`, `beschreibung`) VALUES
 CREATE TABLE `_ue_fach` (
   `id` int(11) NOT NULL,
   `fach` varchar(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_ue_fach`
@@ -1433,6 +1601,14 @@ INSERT INTO `_ue_fach` (`id`, `fach`) VALUES
 --
 -- Indizes der exportierten Tabellen
 --
+
+--
+-- Indizes für die Tabelle `emotion_flags`
+--
+ALTER TABLE `emotion_flags`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ue_zuweisung_teilnehmer_id_2` (`ue_zuweisung_teilnehmer_id`),
+  ADD KEY `ue_zuweisung_teilnehmer_id` (`ue_zuweisung_teilnehmer_id`);
 
 --
 -- Indizes für die Tabelle `frzk_semantische_dichte`
@@ -1521,7 +1697,7 @@ ALTER TABLE `mtr_rueckkopplung_lehrkraft_lesson`
 --
 ALTER TABLE `mtr_rueckkopplung_lehrkraft_tn`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_ue_zuweisung_schueler_id` (`ue_unterrichtseinheit_id`),
+  ADD KEY `idx_ue_zuweisung_schueler_id` (`ue_zuweisung_teilnehmer_id`),
   ADD KEY `idx_val_mitarbeit` (`val_mitarbeit`),
   ADD KEY `idx_val_absprachen` (`val_absprachen`),
   ADD KEY `idx_val_selbststaendigkeit` (`val_selbststaendigkeit`),
@@ -1566,6 +1742,12 @@ ALTER TABLE `mtr_rueckkopplung_teilnehmer`
 ALTER TABLE `mtr_sozial`
   ADD PRIMARY KEY (`id`),
   ADD KEY `mtr_sozial_ue_teilnehmer_zuweisung_FK` (`ue_zuweisung_teilehmer_id`);
+
+--
+-- Indizes für die Tabelle `mtr_soziale_beziehungen`
+--
+ALTER TABLE `mtr_soziale_beziehungen`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indizes für die Tabelle `rooms`
@@ -1634,14 +1816,6 @@ ALTER TABLE `ue_gruppen`
   ADD KEY `tag` (`tag`);
 
 --
--- Indizes für die Tabelle `ue_teilnehmer_zuweisung`
---
-ALTER TABLE `ue_teilnehmer_zuweisung`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `teilnehmer_id` (`teilnehmer_id`),
-  ADD KEY `ue_unterrichtseinheit_thema_id` (`ue_unterrichtseinheit_thema_id`);
-
---
 -- Indizes für die Tabelle `ue_unterrichtseinheit`
 --
 ALTER TABLE `ue_unterrichtseinheit`
@@ -1663,7 +1837,7 @@ ALTER TABLE `ue_unterrichtseinheit_zw_thema`
 --
 ALTER TABLE `ue_zuweisung_teilnehmer`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ue_zuweisung_lernthema_id` (`ue_zuweisung_lernthema_id`),
+  ADD KEY `ue_zuweisung_lernthema_id` (`ue_unterrichtseinheit_zw_thema_id`),
   ADD KEY `teinehmer_id` (`teinehmer_id`);
 
 --
@@ -1744,6 +1918,19 @@ ALTER TABLE `_mtr_persoenlichkeitsmerkmal_definition`
   ADD UNIQUE KEY `merkmal_name` (`merkmal_name`);
 
 --
+-- Indizes für die Tabelle `_mtr_soziale_beziehung_type`
+--
+ALTER TABLE `_mtr_soziale_beziehung_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `_mtr_soziale_beziehung_werte`
+--
+ALTER TABLE `_mtr_soziale_beziehung_werte`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `type_id` (`type_id`);
+
+--
 -- Indizes für die Tabelle `_std_lernthema_inhalt`
 --
 ALTER TABLE `_std_lernthema_inhalt`
@@ -1773,195 +1960,299 @@ ALTER TABLE `_ue_fach`
 --
 
 --
+-- AUTO_INCREMENT für Tabelle `emotion_flags`
+--
+ALTER TABLE `emotion_flags`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT für Tabelle `frzk_semantische_dichte`
 --
 ALTER TABLE `frzk_semantische_dichte`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `map_tmp_ue`
 --
 ALTER TABLE `map_tmp_ue`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT für Tabelle `mtr_didaktik`
 --
 ALTER TABLE `mtr_didaktik`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `mtr_emotions`
 --
 ALTER TABLE `mtr_emotions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `mtr_leistung`
 --
 ALTER TABLE `mtr_leistung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT für Tabelle `mtr_persoenlichkeit`
 --
 ALTER TABLE `mtr_persoenlichkeit`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT für Tabelle `mtr_rueckkopplung_lehrkraft_lesson`
 --
 ALTER TABLE `mtr_rueckkopplung_lehrkraft_lesson`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `mtr_rueckkopplung_teilnehmer`
 --
 ALTER TABLE `mtr_rueckkopplung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
 --
 -- AUTO_INCREMENT für Tabelle `mtr_sozial`
 --
 ALTER TABLE `mtr_sozial`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `mtr_soziale_beziehungen`
+--
+ALTER TABLE `mtr_soziale_beziehungen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `rooms`
 --
 ALTER TABLE `rooms`
   MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT für Tabelle `sessions`
 --
 ALTER TABLE `sessions`
   MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT für Tabelle `std_lernthema`
 --
 ALTER TABLE `std_lernthema`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
 --
 -- AUTO_INCREMENT für Tabelle `std_teilnehmer`
 --
 ALTER TABLE `std_teilnehmer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
 -- AUTO_INCREMENT für Tabelle `students`
 --
 ALTER TABLE `students`
   MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
 --
 -- AUTO_INCREMENT für Tabelle `subjects`
 --
 ALTER TABLE `subjects`
   MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT für Tabelle `tmp_teilnehmer`
 --
 ALTER TABLE `tmp_teilnehmer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `tmp_unterrichtseinheiten`
 --
 ALTER TABLE `tmp_unterrichtseinheiten`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `ue_gruppen`
 --
 ALTER TABLE `ue_gruppen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT für Tabelle `ue_teilnehmer_zuweisung`
---
-ALTER TABLE `ue_teilnehmer_zuweisung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit`
 --
 ALTER TABLE `ue_unterrichtseinheit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit_zw_thema`
 --
 ALTER TABLE `ue_unterrichtseinheit_zw_thema`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT für Tabelle `ue_zuweisung_teilnehmer`
 --
 ALTER TABLE `ue_zuweisung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
 -- AUTO_INCREMENT für Tabelle `verhaltens_mapping`
 --
 ALTER TABLE `verhaltens_mapping`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_definition_lernmethode`
 --
 ALTER TABLE `_mtr_definition_lernmethode`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_definition_zieltyp`
 --
 ALTER TABLE `_mtr_definition_zieltyp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_emotionen`
 --
 ALTER TABLE `_mtr_emotionen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_emotion_type`
 --
 ALTER TABLE `_mtr_emotion_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_leistung_val_basiswissen`
 --
 ALTER TABLE `_mtr_leistung_val_basiswissen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_leistung_val_beherrscht_thema`
 --
 ALTER TABLE `_mtr_leistung_val_beherrscht_thema`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_leistung_val_lernfortschritt`
 --
 ALTER TABLE `_mtr_leistung_val_lernfortschritt`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_leistung_val_transferdenken`
 --
 ALTER TABLE `_mtr_leistung_val_transferdenken`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_leistung_val_vorbereitet`
 --
 ALTER TABLE `_mtr_leistung_val_vorbereitet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_map_emotions`
 --
 ALTER TABLE `_mtr_map_emotions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT für Tabelle `_mtr_persoenlichkeitsmerkmal_definition`
 --
 ALTER TABLE `_mtr_persoenlichkeitsmerkmal_definition`
   MODIFY `merkmal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT für Tabelle `_mtr_soziale_beziehung_type`
+--
+ALTER TABLE `_mtr_soziale_beziehung_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT für Tabelle `_mtr_soziale_beziehung_werte`
+--
+ALTER TABLE `_mtr_soziale_beziehung_werte`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
 --
 -- AUTO_INCREMENT für Tabelle `_std_lernthema_inhalt`
 --
 ALTER TABLE `_std_lernthema_inhalt`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
+
 --
 -- AUTO_INCREMENT für Tabelle `_std_lernthema_quelle`
 --
 ALTER TABLE `_std_lernthema_quelle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT für Tabelle `_std_schulform`
 --
 ALTER TABLE `_std_schulform`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT für Tabelle `_ue_fach`
 --
 ALTER TABLE `_ue_fach`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints der exportierten Tabellen
+--
+
+--
+-- Constraints der Tabelle `mtr_leistung`
+--
+ALTER TABLE `mtr_leistung`
+  ADD CONSTRAINT `fk_leistung_zuweisung` FOREIGN KEY (`ue_zuweisung_teilnehmer_id`) REFERENCES `ue_zuweisung_teilnehmer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints der Tabelle `mtr_persoenlichkeit`
+--
+ALTER TABLE `mtr_persoenlichkeit`
+  ADD CONSTRAINT `fk_persoenlichkeit_teilnehmer` FOREIGN KEY (`teilnehmer_id`) REFERENCES `std_teilnehmer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints der Tabelle `mtr_rueckkopplung_lehrkraft_lesson`
+--
+ALTER TABLE `mtr_rueckkopplung_lehrkraft_lesson`
+  ADD CONSTRAINT `fk_rkl_unterrichtseinheit` FOREIGN KEY (`ue_unterrichtseinheit_id`) REFERENCES `ue_unterrichtseinheit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints der Tabelle `mtr_rueckkopplung_lehrkraft_tn`
+--
+ALTER TABLE `mtr_rueckkopplung_lehrkraft_tn`
+  ADD CONSTRAINT `fk_rkltn_zuweisung` FOREIGN KEY (`ue_zuweisung_teilnehmer_id`) REFERENCES `ue_zuweisung_teilnehmer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints der Tabelle `ue_unterrichtseinheit_zw_thema`
+--
+ALTER TABLE `ue_unterrichtseinheit_zw_thema`
+  ADD CONSTRAINT `fk_zw_thema_unterrichtseinheit` FOREIGN KEY (`ue_unterrichtseinheit_id`) REFERENCES `ue_unterrichtseinheit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints der Tabelle `ue_zuweisung_teilnehmer`
+--
+ALTER TABLE `ue_zuweisung_teilnehmer`
+  ADD CONSTRAINT `fk_zuweisung_zw_thema` FOREIGN KEY (`ue_unterrichtseinheit_zw_thema_id`) REFERENCES `ue_unterrichtseinheit_zw_thema` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_zuweisung_zw_thema_to_ue_zuweisung_teilnehmer` FOREIGN KEY (`ue_unterrichtseinheit_zw_thema_id`) REFERENCES `ue_unterrichtseinheit_zw_thema` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints der Tabelle `_mtr_soziale_beziehung_werte`
+--
+ALTER TABLE `_mtr_soziale_beziehung_werte`
+  ADD CONSTRAINT `_mtr_soziale_beziehung_werte_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `_mtr_soziale_beziehung_type` (`id`) ON DELETE CASCADE;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
