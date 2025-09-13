@@ -15,25 +15,64 @@
         print_r( json_encode( $return ));
         die;
     }
-    $q = "SELECT id, ue_unterrichtseinheit_id, teilnehmer_id FROM ue_unterrichtseinheit_zw_thema";
-    $s = $db_pdo -> query( $q );
-    $r = $s -> fetchAll( PDO::FETCH_CLASS );
-    $l = count( $r );
-    $i = 0;
-    $option = "";
-    var_dump($r);
-    while ($i < $l ) {
-        // code...
-        $ids = explode( ",", $r[$i]->teilnehmer_id );
-        $k = count( $ids );
-        $j = 0;
-        while ($j < $k ) {
-            $q_result_alt = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_zuweisung_lernthema_id`, `teinehmer_id`) VALUES (" . $r[$i]->id . ", " . $ids[$j] . ")";
-            echo $q_result_alt;      
-            if( $ids[$j] <> "" ) $db_pdo -> query( $q_result_alt );
-           $j += 1;
+$emotions_list = [
+    "Freude", "Zufriedenheit", "Erfüllung", "Motivation", "Dankbarkeit",
+    "Hoffnung", "Stolz", "Selbstvertrauen", "Neugier", "Inspiration",
+    "Zugehörigkeit", "Vertrauen", "Spaß", "Sicherheit", "Frustration",
+    "Überforderung", "Angst", "Langeweile", "Scham", "Zweifel",
+    "Resignation", "Erschöpfung", "Interesse", "Verwirrung", "Unsicherheit",
+    "Überraschung", "Erwartung", "Erleichterung"
+];
+
+// INSERT mit Update bei Unique-Key-Konflikt
+$columns = "ue_zuweisung_teilnehmer_id, emotions, " . implode(", ", $emotions_list);
+$placeholders = ":ueid, :emotions, " . implode(", ", array_map(fn($e) => ":$e", $emotions_list));
+
+$update_parts = [];
+foreach ($emotions_list as $emo) {
+    $update_parts[] = "$emo = VALUES($emo)";
+}
+$update_parts[] = "emotions = VALUES(emotions)"; // den Originalstring ebenfalls aktualisieren
+
+$sqlInsert = "
+    INSERT INTO emotion_flags ($columns)
+    VALUES ($placeholders)
+    ON DUPLICATE KEY UPDATE " . implode(", ", $update_parts);
+
+$insertStmt = $db_pdo->prepare($sqlInsert);
+
+// Alle Rückmeldungen abrufen
+$sql = "SELECT id, ue_zuweisung_teilnehmer_id, val_emotions FROM mtr_rueckkopplung_teilnehmer";
+foreach ($db_pdo->query($sql) as $row) {
+    // Alle Flags = 0 setzen
+    $flags = array_fill_keys($emotions_list, 0);
+
+    // Emotions-String splitten
+    $emotions = array_map('trim', explode(",", $row['val_emotions']));
+    foreach ($emotions as $emo) {
+        if (in_array($emo, $emotions_list)) {
+            $flags[$emo] = 1;
         }
-        $i += 1;
     }
 
+    // Parameter vorbereiten
+    $params = array_merge(
+        [
+            ':ueid'     => (int)$row['ue_zuweisung_teilnehmer_id'],
+            ':emotions' => $row['val_emotions']
+        ],
+        array_combine(
+            array_map(fn($e) => ":$e", array_keys($flags)),
+            array_values($flags)
+        )
+    );
+
+    try {
+        $insertStmt->execute($params);
+    } catch (PDOException $e) {
+        echo "❌ Fehler bei Teilnehmer-ID {$row['ue_zuweisung_teilnehmer_id']}: " . $e->getMessage() . "\n";
+    }
+}
+
+echo "✅ Fertig – emotion_flags mit PDO befüllt/aktualisiert.\n";
 ?>

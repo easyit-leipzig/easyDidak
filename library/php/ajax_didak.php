@@ -56,7 +56,7 @@ foreach ( $_POST as &$str) {
 switch( $_POST["command"]) {
     // start standard functions
     case "setGroup":
-                            $query = "SELECT ue_zuweisung_schueler_id, erfasst_am FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
+                            $query = "SELECT ue_zuweisung_teilnehmer_id, erfasst_am FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
                             $return -> s = $query;
                             try {
                                 $stm = $db_pdo -> query( $query );
@@ -66,7 +66,7 @@ switch( $_POST["command"]) {
                                 $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                 return $return;   
                             }
-                            $tnId =  $result[0]["ue_zuweisung_schueler_id"];
+                            $tnId =  $result[0]["ue_zuweisung_teilnehmer_id"];
                             $date = $result[0]["erfasst_am"];
                             $diff = 30;
                             $a = new DateTime($date);
@@ -162,14 +162,18 @@ switch( $_POST["command"]) {
                                     } catch ( Exception $e ) {
                                         $return -> success = false;
                                         $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
-                                        return $return;   
+                                        return                            print_r( json_encode( $return )); 
+;   
                                     }
                    $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teinehmer_id`) VALUES (" . $result[0]["id"] . ", $tnId)";
                    $db_pdo -> query( $q );
-                            $return -> q = $tnId;
-                           $return -> t = $ueId;
+                            $zwId = $db_pdo -> lastInsertId();
+                            $q = "INSERT INTO `mtr_leistung` (`ue_zuweisung_teilnehmer_id`) VALUES ($zwId)";
+                  $db_pdo -> query( $q );
+                             $return -> q = $q;
+                           $return -> t = $zwId;
  
-                            $return -> s = $result;
+                            $return -> s = $tnId;
                            print_r( json_encode( $return )); 
     break;
     default:

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 13. Sep 2025 um 06:40
+-- Erstellungszeit: 13. Sep 2025 um 13:55
 -- Server-Version: 10.4.32-MariaDB
 -- PHP-Version: 8.2.12
 
@@ -154,12 +154,12 @@ INSERT INTO `map_tmp_ue` (`id`, `category`, `behavior_phrase`, `mapped_value`) V
 CREATE TABLE `mtr_didaktik` (
   `id` int(11) NOT NULL,
   `ue_zuweisung_teilnehmer_id` int(11) NOT NULL,
-  `themenauswahl` int(1) DEFAULT NULL,
-  `methodenvielfalt` int(1) DEFAULT NULL,
-  `individualisierung` int(1) DEFAULT NULL,
-  `aufforderung` int(1) DEFAULT NULL,
-  `materialien` int(1) DEFAULT NULL,
-  `zielgruppen` int(1) DEFAULT NULL
+  `themenauswahl` int(1) DEFAULT 4,
+  `methodenvielfalt` int(1) DEFAULT 4,
+  `individualisierung` int(1) DEFAULT 4,
+  `aufforderung` int(1) DEFAULT 4,
+  `materialien` int(1) DEFAULT 4,
+  `zielgruppen` int(1) DEFAULT 4
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -323,7 +323,7 @@ CREATE TABLE `mtr_rueckkopplung_lehrkraft_tn` (
 
 CREATE TABLE `mtr_rueckkopplung_teilnehmer` (
   `id` int(11) NOT NULL,
-  `ue_zuweisung_schueler_id` int(11) DEFAULT NULL,
+  `ue_zuweisung_teilnehmer_id` int(11) DEFAULT NULL,
   `gruppe_id` tinyint(4) NOT NULL,
   `erfasst_am` datetime DEFAULT current_timestamp(),
   `val_mitarbeit` int(11) DEFAULT NULL,
@@ -350,7 +350,7 @@ CREATE TABLE `mtr_rueckkopplung_teilnehmer` (
 -- Daten für Tabelle `mtr_rueckkopplung_teilnehmer`
 --
 
-INSERT INTO `mtr_rueckkopplung_teilnehmer` (`id`, `ue_zuweisung_schueler_id`, `gruppe_id`, `erfasst_am`, `val_mitarbeit`, `val_absprachen`, `val_selbststaendigkeit`, `val_konzentration`, `val_fleiss`, `val_lernfortschritt`, `val_beherrscht_thema`, `val_transferdenken`, `val_basiswissen`, `val_vorbereitet`, `val_themenauswahl`, `val_materialien`, `val_methodenvielfalt`, `val_individualisierung`, `val_aufforderung`, `val_emotions`, `bemerkungen`, `val_emotions_new`) VALUES
+INSERT INTO `mtr_rueckkopplung_teilnehmer` (`id`, `ue_zuweisung_teilnehmer_id`, `gruppe_id`, `erfasst_am`, `val_mitarbeit`, `val_absprachen`, `val_selbststaendigkeit`, `val_konzentration`, `val_fleiss`, `val_lernfortschritt`, `val_beherrscht_thema`, `val_transferdenken`, `val_basiswissen`, `val_vorbereitet`, `val_themenauswahl`, `val_materialien`, `val_methodenvielfalt`, `val_individualisierung`, `val_aufforderung`, `val_emotions`, `bemerkungen`, `val_emotions_new`) VALUES
 (1, 21, 2, '2025-09-08 18:29:34', 3, 1, 1, 2, 2, 2, 2, 1, 2, 3, 1, 1, 1, 1, 1, '3,28,1', '', NULL),
 (2, 12, 2, '2025-09-08 18:30:22', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '1', '', NULL),
 (3, 20, 2, '2025-09-08 18:32:37', 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, '6,23,2', '', NULL),
@@ -451,7 +451,16 @@ INSERT INTO `sessions` (`session_id`, `session_date`, `start_time`, `end_time`, 
 (6, '2025-09-03', '17:10:00', '18:40:00', 1, 1),
 (7, '2025-09-04', '15:35:00', '17:05:00', 1, 1),
 (8, '2025-09-04', '17:10:00', '18:40:00', 2, 1),
-(9, '2025-09-05', '15:35:00', '17:05:00', 1, 1);
+(9, '2025-09-05', '15:35:00', '17:05:00', 1, 1),
+(1001, '2025-09-08', '15:35:00', '17:05:00', 1, 1),
+(1002, '2025-09-08', '17:10:00', '18:40:00', 1, 1),
+(1003, '2025-09-09', '15:35:00', '17:05:00', 1, 1),
+(1004, '2025-09-09', '17:10:00', '18:40:00', 1, 1),
+(1005, '2025-09-10', '15:35:00', '17:05:00', 1, 1),
+(1006, '2025-09-10', '17:10:00', '18:40:00', 1, 1),
+(1007, '2025-09-11', '15:35:00', '17:05:00', 1, 1),
+(1008, '2025-09-11', '17:10:00', '18:40:00', 2, 1),
+(1009, '2025-09-12', '15:35:00', '17:05:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -511,7 +520,47 @@ INSERT INTO `session_students` (`session_id`, `student_id`) VALUES
 (9, 8),
 (9, 10),
 (9, 16),
-(9, 21);
+(9, 21),
+(1001, 2),
+(1001, 3),
+(1001, 4),
+(1001, 33),
+(1002, 6),
+(1002, 7),
+(1002, 8),
+(1002, 9),
+(1002, 24),
+(1002, 34),
+(1003, 11),
+(1003, 12),
+(1003, 13),
+(1003, 14),
+(1004, 15),
+(1004, 17),
+(1004, 18),
+(1004, 19),
+(1004, 35),
+(1005, 3),
+(1005, 16),
+(1005, 20),
+(1005, 21),
+(1006, 17),
+(1006, 22),
+(1006, 23),
+(1006, 24),
+(1006, 25),
+(1006, 26),
+(1007, 19),
+(1007, 20),
+(1007, 27),
+(1008, 6),
+(1008, 29),
+(1008, 30),
+(1008, 31),
+(1008, 32),
+(1009, 8),
+(1009, 16),
+(1009, 21);
 
 -- --------------------------------------------------------
 
@@ -694,7 +743,10 @@ INSERT INTO `students` (`student_id`, `first_name`, `last_name`, `school_form`, 
 (29, 'Maja', 'Deutlich', 'RS', 7, NULL),
 (30, 'Louis', 'Grobe', 'GYM', 10, NULL),
 (31, 'Pia', 'Ponader', 'GYM', 7, NULL),
-(32, 'Felix', 'Scheithauer', 'GYM', 8, '2025-09-30');
+(32, 'Felix', 'Scheithauer', 'GYM', 8, '2025-09-30'),
+(33, 'Till', 'Herrlitz', 'GR', 5, '2025-09-08'),
+(34, 'Leopold', 'Fleischer', 'GYM', 10, '2025-09-08'),
+(35, 'Pauline', 'Römer', 'GYM', 9, '2025-09-09');
 
 -- --------------------------------------------------------
 
@@ -803,7 +855,7 @@ INSERT INTO `ue_gruppen` (`id`, `day_number`, `tag`, `uhrzeit_start`, `uhrzeit_e
 (7, 5, 'Do.', '15:35:00', '17:05:00', 'MAT', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 31.08.25'),
 (8, 5, 'Do.', '17:10:00', '18:40:00', 'PHY', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 30.09.25'),
 (9, 6, 'Fr.', '15:35:00', '17:05:00', 'MAT', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 29.08.25'),
-(10, 3, '', '07:15:00', '08:50:00', '', 'dummy', NULL, NULL);
+(10, 7, '', '07:15:00', '10:30:00', '', 'dummy', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -817,7 +869,7 @@ CREATE TABLE `ue_unterrichtseinheit` (
   `datum` date DEFAULT NULL,
   `zeit` time DEFAULT NULL,
   `dauer` int(2) NOT NULL DEFAULT 90,
-  `beschreibung` text DEFAULT NULL
+  `beschreibung` text DEFAULT NULL COMMENT 'Beschreibung'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -861,8 +913,8 @@ INSERT INTO `ue_unterrichtseinheit_zw_thema` (`id`, `ue_unterrichtseinheit_id`, 
 (1, 1, 2, 1, 3, 24, 'Vorbereitung BLF', 'Teil A', 15, '20', ''),
 (2, 1, 2, 1, 3, 24, 'Geometrie', 'Flächenberechnung', 30, '', ''),
 (4, 3, 0, 1, 1, 24, '', '', 15, '7,9,5,8', 'Gruppe 4'),
-(5, 4, 0, 1, 1, 24, '', '', 0, '11,6', 'Gruppe 5'),
-(6, 5, 0, 1, 1, 24, '', '', 0, '7,14,12,12,22,13', 'Gruppe 6'),
+(5, 4, 0, 1, 1, 24, '', '', 15, '6,11', 'Gruppe 5'),
+(6, 5, 0, 1, 1, 24, '', '', 15, '7,12,14,13,22', 'Gruppe 6'),
 (7, 6, 0, 1, 1, 24, '', '', 0, '10', 'Gruppe 7'),
 (8, 7, 0, 1, 3, 24, '', '', 90, '16,9,18,17,19', 'Gruppe 8'),
 (9, 2, 2, 1, 14, 24, 'Zahlen und Rechnen', 'Dezimalzahlen', 90, '3', '');
@@ -897,7 +949,14 @@ INSERT INTO `ue_zuweisung_teilnehmer` (`id`, `ue_unterrichtseinheit_zw_thema_id`
 (16, 8, 18),
 (17, 8, 17),
 (18, 8, 19),
-(19, 9, 3);
+(19, 9, 3),
+(24, 5, 6),
+(25, 5, 11),
+(26, 6, 7),
+(27, 6, 12),
+(28, 6, 14),
+(29, 6, 13),
+(30, 6, 22);
 
 -- --------------------------------------------------------
 
@@ -1719,7 +1778,7 @@ ALTER TABLE `mtr_rueckkopplung_lehrkraft_tn`
 --
 ALTER TABLE `mtr_rueckkopplung_teilnehmer`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_ue_zuweisung_schueler_id` (`ue_zuweisung_schueler_id`),
+  ADD KEY `idx_ue_zuweisung_schueler_id` (`ue_zuweisung_teilnehmer_id`),
   ADD KEY `idx_val_mitarbeit` (`val_mitarbeit`),
   ADD KEY `idx_val_absprachen` (`val_absprachen`),
   ADD KEY `idx_val_selbststaendigkeit` (`val_selbststaendigkeit`),
@@ -1747,7 +1806,9 @@ ALTER TABLE `mtr_sozial`
 -- Indizes für die Tabelle `mtr_soziale_beziehungen`
 --
 ALTER TABLE `mtr_soziale_beziehungen`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_mtrsoziale_from` (`from_tn`),
+  ADD KEY `fk_mtrsoziale_to` (`to_tn`);
 
 --
 -- Indizes für die Tabelle `rooms`
@@ -1788,7 +1849,9 @@ ALTER TABLE `std_teilnehmer`
 -- Indizes für die Tabelle `students`
 --
 ALTER TABLE `students`
-  ADD PRIMARY KEY (`student_id`);
+  ADD PRIMARY KEY (`student_id`),
+  ADD UNIQUE KEY `idx_name_students` (`first_name`,`last_name`),
+  ADD KEY `first_name` (`first_name`);
 
 --
 -- Indizes für die Tabelle `subjects`
@@ -1993,7 +2056,7 @@ ALTER TABLE `mtr_emotions`
 -- AUTO_INCREMENT für Tabelle `mtr_leistung`
 --
 ALTER TABLE `mtr_leistung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `mtr_persoenlichkeit`
@@ -2011,7 +2074,7 @@ ALTER TABLE `mtr_rueckkopplung_lehrkraft_lesson`
 -- AUTO_INCREMENT für Tabelle `mtr_rueckkopplung_teilnehmer`
 --
 ALTER TABLE `mtr_rueckkopplung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT für Tabelle `mtr_sozial`
@@ -2035,7 +2098,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT für Tabelle `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1010;
 
 --
 -- AUTO_INCREMENT für Tabelle `std_lernthema`
@@ -2053,7 +2116,7 @@ ALTER TABLE `std_teilnehmer`
 -- AUTO_INCREMENT für Tabelle `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT für Tabelle `subjects`
@@ -2083,19 +2146,19 @@ ALTER TABLE `ue_gruppen`
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit`
 --
 ALTER TABLE `ue_unterrichtseinheit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit_zw_thema`
 --
 ALTER TABLE `ue_unterrichtseinheit_zw_thema`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT für Tabelle `ue_zuweisung_teilnehmer`
 --
 ALTER TABLE `ue_zuweisung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT für Tabelle `verhaltens_mapping`
@@ -2210,6 +2273,12 @@ ALTER TABLE `_ue_fach`
 --
 
 --
+-- Constraints der Tabelle `mtr_didaktik`
+--
+ALTER TABLE `mtr_didaktik`
+  ADD CONSTRAINT `fk_mtr_didaktik_uezt` FOREIGN KEY (`ue_zuweisung_teilnehmer_id`) REFERENCES `ue_zuweisung_teilnehmer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints der Tabelle `mtr_leistung`
 --
 ALTER TABLE `mtr_leistung`
@@ -2225,7 +2294,8 @@ ALTER TABLE `mtr_persoenlichkeit`
 -- Constraints der Tabelle `mtr_rueckkopplung_lehrkraft_lesson`
 --
 ALTER TABLE `mtr_rueckkopplung_lehrkraft_lesson`
-  ADD CONSTRAINT `fk_rkl_unterrichtseinheit` FOREIGN KEY (`ue_unterrichtseinheit_id`) REFERENCES `ue_unterrichtseinheit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_rkl_unterrichtseinheit` FOREIGN KEY (`ue_unterrichtseinheit_id`) REFERENCES `ue_unterrichtseinheit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_rueckkopplung_lesson_ue` FOREIGN KEY (`ue_unterrichtseinheit_id`) REFERENCES `ue_unterrichtseinheit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints der Tabelle `mtr_rueckkopplung_lehrkraft_tn`
@@ -2234,10 +2304,11 @@ ALTER TABLE `mtr_rueckkopplung_lehrkraft_tn`
   ADD CONSTRAINT `fk_rkltn_zuweisung` FOREIGN KEY (`ue_zuweisung_teilnehmer_id`) REFERENCES `ue_zuweisung_teilnehmer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints der Tabelle `ue_unterrichtseinheit_zw_thema`
+-- Constraints der Tabelle `mtr_soziale_beziehungen`
 --
-ALTER TABLE `ue_unterrichtseinheit_zw_thema`
-  ADD CONSTRAINT `fk_zw_thema_unterrichtseinheit` FOREIGN KEY (`ue_unterrichtseinheit_id`) REFERENCES `ue_unterrichtseinheit` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `mtr_soziale_beziehungen`
+  ADD CONSTRAINT `fk_mtrsoziale_from` FOREIGN KEY (`from_tn`) REFERENCES `std_teilnehmer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_mtrsoziale_to` FOREIGN KEY (`to_tn`) REFERENCES `std_teilnehmer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints der Tabelle `ue_zuweisung_teilnehmer`

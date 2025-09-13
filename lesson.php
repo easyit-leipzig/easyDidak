@@ -197,7 +197,7 @@ var Df = new DataForm( {
             label: "Beschreibung",
             type: "input_text",
             valid: ["not empty", "minlength 3"],
-            title: "Bemerkungen",
+            //title: "Bemerkungen",
         },
 
     ],
@@ -404,7 +404,7 @@ var Df_3 = new DataForm( {
     addPraefix: "df3_",
     formType: "html",
     boundForm: ["Df_4"] ,
-    boundFields: [{"from": "id", "to": "ue_zuweisung_lernthema_id"},{"from": "teilnehmer_id", "to": "teilnehmer_id"}],
+    boundFields: [{"from": "id", "to": "ue_unterrichtseinheit_zw_thema_id"},{"from": "teilnehmer_id", "to": "teilnehmer_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: [
@@ -503,7 +503,7 @@ var Df_4 = new DataForm( {
     dVar: "Df_4", 
     id: "#Df_4", 
     table: "ue_zuweisung_teilnehmer",
-    fields: "id,ue_zuweisung_lernthema_id,teinehmer_id",
+    fields: "id,ue_unterrichtseinheit_zw_thema_id,teinehmer_id",
     addPraefix: "df4_",
     boundForm: ["Df_8", "Df_9"] ,
     boundFields: [{"from": "id", "to": "ue_zuweisung_teilnehmer_id"},{"from": "id", "to": "ue_zuweisung_teilnehmer_id"}],
@@ -524,8 +524,8 @@ var Df_4 = new DataForm( {
 
         },
         {
-            field: "ue_zuweisung_lernthema_id",
-            label: "ue_zuweisung_lernthema_id",
+            field: "ue_unterrichtseinheit_zw_thema_id",
+            label: "ue_unterrichtseinheit_zw_thema_id",
             type: "input_text",
 
         },

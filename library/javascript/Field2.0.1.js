@@ -15,6 +15,7 @@ class Field {                    // class for DataForm2.0
             label:              "", // label of field - is id if not set
             title:              "", // tooltip value
             table:              "", // nessecary - source table for field
+            Comment:            "",
             type:               "input_text", /* fieldtype: 
                                                     select
                                                     recordPointer

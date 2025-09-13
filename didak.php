@@ -160,7 +160,7 @@ var Df = new DataForm( {
     addPraefix: "df1_",
     formType: "html", 
     boundForm: ["Df_2"] ,
-    boundFields: [{"from": "id", "to": "ue_zuweisung_schueler_id"}],
+    boundFields: [{"from": "id", "to": "ue_zuweisung_teilnehmer_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: fields,
@@ -193,7 +193,7 @@ var Df_2 = new DataForm( {
     dVar: "Df_2", 
     id: "#Df_2", 
     table: "mtr_rueckkopplung_teilnehmer",
-    fields: "id,ue_zuweisung_schueler_id,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,val_emotions,bemerkungen",
+    fields: "id,ue_zuweisung_teilnehmer_id,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,val_emotions,bemerkungen",
     addPraefix: "df2_",
     formType: "html",
     validOnSave: false, 
@@ -213,7 +213,7 @@ var Df_2 = new DataForm( {
 
         },
         {
-            field: "ue_zuweisung_schueler_id",
+            field: "ue_zuweisung_teilnehmer_id",
             label: "ue_id",
             type: "select",
             addClasses: "cVal_val_select",

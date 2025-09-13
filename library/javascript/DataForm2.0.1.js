@@ -61,6 +61,7 @@ class DataForm {                    // class for DataForm2.0
             hasNew:                             true,
             boundForm:                          [],         // ["form1","form_n"...]
             boundFields:                        [],         // [{from:v,to:t1}...]
+            boundFilter:                        "",         // additional filter after bound form
             addPraefix:                         "",
             addClassFiles:                      "DataForm20.css", // optional - additional class files divide by " "
             widthSave:                          true,
@@ -97,7 +98,6 @@ class DataForm {                    // class for DataForm2.0
             searchWasGreaterThanTwo;
         if( param.addClassFiles !== "" ) param.addClassFiles = this.opt.addClassFiles + " " + param.addClassFiles;
         Object.assign( this.opt, param );
-        console.log( this.opt );
         tmp = this.opt.addClassFiles.split(" ");
         //console.log( tmp );
         let l = tmp.length;
@@ -1063,7 +1063,11 @@ class DataForm {                    // class for DataForm2.0
             while ( i < l ) {
                 field = nj().fOA( window[df.opt.boundForm[i]].opt.fieldDefinitions, "field", df.opt.boundFields[i].to)[0];
                 field.default = nj( "#" + df.opt.addPraefix + df.opt.boundFields[i].from + "_" + cRec ).v();
-                window[df.opt.boundForm[i]].opt.filter = df.opt.boundFields[i].to + " = " + nj( "#" + df.opt.addPraefix + df.opt.boundFields[i].from + "_" + cRec ).v();
+                if( df.opt.boundFilter !== "" ) {
+                    window[df.opt.boundForm[i]].opt.filter = df.opt.boundFilter + " and " + df.opt.boundFields[i].to + " = " + nj( "#" + df.opt.addPraefix + df.opt.boundFields[i].from + "_" + cRec ).v();
+                } else {
+                    window[df.opt.boundForm[i]].opt.filter = df.opt.boundFields[i].to + " = " + nj( "#" + df.opt.addPraefix + df.opt.boundFields[i].from + "_" + cRec ).v();
+                }
                 window[df.opt.boundForm[i]].getSearchString();
                 if( window[df.opt.boundForm[i]].opt.formType !== "html" ) {
                     window[df.opt.boundForm[i]].dDF.show();

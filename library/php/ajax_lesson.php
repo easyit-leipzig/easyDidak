@@ -164,12 +164,12 @@ switch( $_POST["command"]) {
                                 $i += 1;
                             }
                             $teilnehmer_id = explode(",", $teilnehmer_id);
-                            $q = "delete from ue_zuweisung_teilnehmer where ue_zuweisung_lernthema_id = " . $_POST["id"];
+                            $q = "delete from ue_zuweisung_teilnehmer where ue_unterrichtseinheit_zw_thema_id = " . $_POST["id"];
                             $db_pdo -> query( $q );
                             $l = count( $teilnehmer_id );
                             $i = 0;
                             while( $i < $l ) {
-                                $query = "INSERT INTO `ue_zuweisung_teilnehmer` ( `ue_zuweisung_lernthema_id`, `teinehmer_id`) VALUES (" . $_POST["id"] . ", " . $teilnehmer_id[$i] . ")";
+                                $query = "INSERT INTO `ue_zuweisung_teilnehmer` ( `ue_unterrichtseinheit_zw_thema_id`, `teinehmer_id`) VALUES (" . $_POST["id"] . ", " . $teilnehmer_id[$i] . ")";
                                 $db_pdo -> query( $query );
                                 $i += 1;
                             }                            

@@ -112,7 +112,6 @@ wie war die Mitarbeit`,
     });
 }
 setTeilnehmer = function( el ) {
-    console.log( el, nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v() );
     let v = nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v();
     nj("#df8_teilnehmer_id_new" ).v( v );
 }
