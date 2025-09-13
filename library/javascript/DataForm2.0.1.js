@@ -56,7 +56,7 @@ class DataForm {                    // class for DataForm2.0
             hasPagination:                      false,
             orderArray:                         [],
             filter:                             "",         // if "undefined" no values will be required on init
-            searchArray:                        [],
+            searcharray:                        [],
             ownArray:                           [],
             hasNew:                             true,
             boundForm:                          [],         // ["form1","form_n"...]
@@ -151,7 +151,7 @@ class DataForm {                    // class for DataForm2.0
             nj( this.opt.id ).aCh( tmpEl );            
         }
         this.showDfHeadline();
-        if( this.opt.searchArray.length > 0 ) {
+        if( this.opt.searcharray.length > 0 ) {
             this.showSearchHeadline();
         }
         if( this.opt.ownArray.length > 0 ) {
@@ -648,30 +648,31 @@ class DataForm {                    // class for DataForm2.0
      * Shows the search headline.
      */
     showSearchHeadline = function() {
+        console.log("showSearchHeadline")
         let el, field;
         el = nj().cEl( "div" );
         el.id = this.opt.id.substring( 1 ) + "_searchline";
         nj( el ).sDs( "dvar", this.opt.dVar );
         nj( this.opt.id + "_head" ).aCh( el );
-        let l = this.opt.searchArray.length;
+        let l = this.opt.searcharray.length;
         let i = 0;
         while( i < l ) {
             field = new Field( {
-                id: "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field,
-                type: this.opt.searchArray[i].type,
-                addAttr: this.opt.searchArray[i].addAttr + " data-field='" + this.opt.searchArray[i].field + "'",
-                options: this.opt.searchArray[i].options,
-                title: this.opt.searchArray[i].title,
+                id: "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field,
+                type: this.opt.searcharray[i].type,
+                addAttr: this.opt.searcharray[i].addAttr + " data-field='" + this.opt.searcharray[i].field + "'",
+                options: this.opt.searcharray[i].options,
+                title: this.opt.searcharray[i].title,
                 dVar: this.opt.dVar,    
             } );
             nj( this.opt.id + "_searchline" ).aCh( field.getField()[0] );
-            nj( field.opt.id ).v( this.opt.searchArray[i].value );
-            if( this.opt.searchArray[i].type === "select" ) {
+            nj( field.opt.id ).v( this.opt.searcharray[i].value );
+            if( this.opt.searcharray[i].type === "select" ) {
                 nj( field.opt.id ).on( "change", function( args ) {
                     nj( this ).Dia().getSearchString();   
                 } );    
             }
-            if( this.opt.searchArray[i].type === "input_text" ) {
+            if( this.opt.searcharray[i].type === "input_text" ) {
                 nj( field.opt.id ).on( "keyup", function() {
                     if( nj( this ).v().length < 3 && this.searchWasGreaterThanTwo ) {
                         nj( this ).v("");
@@ -686,8 +687,13 @@ class DataForm {                    // class for DataForm2.0
 
                 } );    
             }
+            if( this.opt.searcharray[i].type === "input_date" ) {
+                nj( field.opt.id ).on( "change", function() {
+                        nj( this ).Dia().getSearchString();
+                } );    
+            }
             
-            if( this.opt.searchArray[i].type === "select"&& typeof this.opt.searchArray[i].addAttr !== "undefined" && this.opt.searchArray[i].addAttr.indexOf("multiple") > -1  && this.opt.searchArray[i].addAttr.indexOf("data-clickable") > -1 ) {
+            if( this.opt.searcharray[i].type === "select"&& typeof this.opt.searcharray[i].addAttr !== "undefined" && this.opt.searcharray[i].addAttr.indexOf("multiple") > -1  && this.opt.searcharray[i].addAttr.indexOf("data-clickable") > -1 ) {
                 nj( field.opt.id ).on( "click", function() {
                     let elId, el, tmp;
                                                     event.preventDefault();
@@ -715,7 +721,6 @@ class DataForm {                    // class for DataForm2.0
         let e = new Field( {id: this.opt.id + "_head_ownHeadline", type: "div"} );
         nj( this.opt.id + "_head" ).aCh( e.getField()[0] );
         let f = new Field({id:"test", type:"input_text"});
-        console.log( f.getField() );
         nj(this.opt.id + "_head_ownHeadline").aCh( f.getField()[0] );    
     }
     getSearchString = function() {
@@ -723,31 +728,38 @@ class DataForm {                    // class for DataForm2.0
             nj( this.opt.id + "_pag" ).htm( "" );
             return;   
         }
-        let l = this.opt.searchArray.length;
+        let l = this.opt.searcharray.length;
         let i = 0;
         let searchString = "where ";
         if( this.opt.filter !== "" ) {
             searchString += this.opt.filter + " AND ";
         }
         while ( i < l ) {
-            if( this.opt.searchArray[i].type === "input_text" ) {
-                if( nj( "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field ).v().length > 1 ) {
-                    searchString += this.opt.searchArray[i].field + " like '" + nj( "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field ).v() + "%' AND ";    
+            if( this.opt.searcharray[i].type === "input_text" ) {
+                if( nj( "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field ).v().length > 1 ) {
+                    searchString += this.opt.searcharray[i].field + " like '" + nj( "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field ).v() + "%' AND ";    
                 } else {
                     searchString += "";
                 }
             }
-            if( this.opt.searchArray[i].type === "select" ) {
-                if( nj( "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field ).gSV().join( "," ) !== ">-1" ) {
+            if( this.opt.searcharray[i].type === "input_date" ) {
+                if( nj( "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field ).v().length > 1 ) {
+                    searchString += this.opt.searcharray[i].field + " like '" + nj( "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field ).v() + "%' AND ";    
+                } else {
+                    searchString += "";
+                }
+            }
+            if( this.opt.searcharray[i].type === "select" ) {
+                if( nj( "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field ).gSV().join( "," ) !== ">-1" ) {
                     
-                    if( this.opt.searchArray[i].sel === "value" ) {
-                        searchString += this.opt.searchArray[i].field + " = '" + nj( "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field ).gSV().join( "," ) + "' AND ";
+                    if( this.opt.searcharray[i].sel === "value" ) {
+                        searchString += this.opt.searcharray[i].field + " = '" + nj( "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field ).gSV().join( "," ) + "' AND ";
                     } else {
                         // is area for e.g. date areas (date >= value and date <= [value])
-                        let s = nj( "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field ).gSV().join(",");
+                        let s = nj( "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field ).gSV().join(",");
                         console.log( s, s.substring(s.length-3, s.length) );
                         if( s.substring(s.length-3, s.length)  !== ">-1" ) {
-                            searchString += nj( "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field ).gSV().join( "," ) + " AND ";
+                            searchString += nj( "#" + this.opt.addPraefix + "search_" + this.opt.searcharray[i].field ).gSV().join( "," ) + " AND ";
                         }
                     }
                 } else {

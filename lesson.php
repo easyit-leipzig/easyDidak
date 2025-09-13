@@ -166,6 +166,13 @@ var Df = new DataForm( {
     boundFields: [{"from": "id", "to": "ue_unterrichtseinheit_id"}, {"from": "id", "to": "ue_unterrichtseinheit_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
+    searcharray: [
+            {
+                field: "datum",
+                type: "input_date",
+                value: "",
+            },
+    ],
     fieldDefinitions: [
         {
             type: "recordPointer",
@@ -197,11 +204,11 @@ var Df = new DataForm( {
             label: "Beschreibung",
             type: "input_text",
             valid: ["not empty", "minlength 3"],
-            //title: "Bemerkungen",
+            Comment: undefined,
         },
 
     ],
-    ownArray: [{id:"2",type:"text"}],
+//    ownArray: [{id:"2",type:"text"}],
     countPerPage: 5,
     currentPage: 0,
     hasPagination: true,
