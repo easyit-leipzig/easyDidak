@@ -1,0 +1,71 @@
+:root {
+  --leftBemerkungen: 165px;
+    --widthBemerkungen: 94px;
+    --marginBemerkungen: -29.8px;
+}
+/* tippy */
+.tippy-box {
+    font-size:22px
+}
+.tippy_small {
+    font-size:12px
+}
+/* end tippy */
+/* headline ue */
+#df1_hl_id, div[id^="df1_DfRS_"]>input:nth-child(2) {
+    display: none
+}
+#df3_TmpSetSelect {
+    width: 268px;
+    height: 284px;
+    font-size: 1.2em;
+}
+#std_teilnehmer, #tln_bewertung {
+    width: 1160px;
+}
+div[id^="df5_std_teilnehmerRS_"]>input:nth-child(2), div[id^="df6_tln_bewertungRS_"]>input:nth-child(2), div[id^="df6_tln_bewertungRS_"]>input:nth-child(3) {
+    display: none
+}
+div[id^="df5_std_teilnehmerRS_"]>input:nth-child(7) {
+    width: 50px;
+}
+/* std_teilnehmer */
+#df5_hl_id {
+    display: none
+}
+#df5_hl_Vorname {
+    margin-left: 40px;
+}
+#df5_hl_Nachname {
+    margin-left: 125px;
+}
+/* form bewertung lehrkraft */
+#df2_TmpSetSelect {
+    width: 270px;
+    height: 285px;    
+}
+#df2_hl_id, #df2_hl_ue_unterrichtseinheit_id, input[id^=df2_id_], input[id^=df2_ue_unterrichtseinheit_id_] {
+    display: none;
+} 
+#df2_hl_erfasst_am {
+    margin-left: 39px;
+    margin-right: 60px;
+}
+div[id="Df_2_head_headline"]>div:nth-child(n+3) {
+    left: var(--leftBemerkungen);
+    width: var(--widthBemerkungen);
+    margin-left: var(--marginBemerkungen);
+}
+input[id^=df2_erfasst_am_] {
+    width: 120px !important;
+}
+/* Zuweisung TN */
+
+#df4_hl_id, #df4_hl_ue_zuweisung_lernthema_id, input[id^=df4_id_], input[id^=df4_ue_zuweisung_lernthema_id_] {
+    display: none;
+} 
+/* bewertung TN Leistung */
+
+#df8_hl_id, #df8_hl_ue_zuweisung_teilnehmer_id, input[id^=df8_id_], input[id^=df8_ue_zuweisung_teilnehmer_id_] {
+    display: none;
+} 

@@ -1,0 +1,104 @@
+:root {
+  --leftBemerkungen: 165px;
+  --widthBemerkungen: 170px;
+  --marginBemerkungen: 21.2px;
+}
+body {
+    margin: 0.5em 1em 1em 1em;
+}
+.cNumber {
+    width: 35px;
+}
+input[id="df_id"] {
+    display: none;
+}
+[id^="df1_id_"] {
+    display: none;
+}
+[id^="df2_id_new"] {
+    display: none;
+}
+[id^="df2_hl_id"], [id^="df2_id_"] {
+    display: none;
+}
+[id^="df2_hl_recordPointer"] {
+    width:40px !important;
+}
+
+[id^="df2_hl_ue_zuweisung_schueler_id"], [id^="df2_ue_zuweisung_schueler_id_new"], [id^="df2_ue_zuweisung_schueler_id_"] {
+    width:73px !important;
+}
+#Df_2_head>div {
+    width: 41px
+}
+#Df_2 {
+    position: relative;
+    top: 20px;
+}
+legend {
+    position: relative;
+    top: 60px
+}
+#df2_TmpSetSelect {
+    width: 260px;
+    height: 250px;   
+}
+#df2_hl_val_emotions {
+    width: 130px !important
+}
+[id^="df2_val_emotions_"] {
+    position: relative;
+    /*top: 11px;*/
+}
+[id^="df2_erfasst_am_new"], [id^="df2_hl_erfasst_am"], [id^="df2_erfasst_am_"] {
+    width:100px !important;
+}
+/* headline teilnehmer */
+.dataFormHeadHeadline > div {
+    position: relative;
+}
+#df1_hl_recordPointer, #df1_hl_id {
+    display: none;    
+}
+#df1_hl_teilnehmer_typ {
+    left: 40px;
+}
+#df1_hl_einrichtung_id {
+    left: 120px;
+}
+#df1_hl_Vorname {
+    left: 155px;
+}
+#df1_hl_Nachname {
+    left: 280px;
+}
+#df1_hl_geschlecht {
+    left: 380px;
+}
+#df1_hl_Klassenstufe {
+    left: 400px;
+}
+#df1_hl_KlassentypID {
+    left: 450px;    
+}
+/* end headline teilnehmer */
+/* headline bewertung */
+#df2_hl_ue_zuweisung_schueler_id, #df2_hl_erfasst_am, #df2_hl_recordPointer {
+    display: none;
+}
+div[id="Df_2_head_headline"]>div:nth-child(n+3) {
+    left: var(--leftBemerkungen);
+    width: var(--widthBemerkungen);
+    margin-left: var(--marginBemerkungen);
+}
+#df2_hl_erfasst_am {
+    left: 120px;
+    margin-left: -13px;
+}
+
+#df2_hl_val_mitarbeit {
+    margin-left: -2.5em;
+}
+#df2_hl_val_emotions {
+    margin-right: 50px;
+}

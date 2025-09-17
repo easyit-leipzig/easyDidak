@@ -1,0 +1,25 @@
+/* CSS */
+/* box */
+.dialogBox {
+    border: 2px #0c97e2 solid;
+    border-radius: 4px;
+    box-shadow: 10px 10px 20px #0c97e2, -10px -10px 20px #ffffff;
+    background-color: white;
+}
+/* dialog headline buttons */
+
+.d_CtrlDiv {
+    width: 75px;
+}
+.d_HLIcon, .d_HLMacMenu {
+    display: none !important;
+}
+/* crtl area help dialog */
+div[class*='_helpDiv_CtrlDiv'] {
+    width: 25px;
+}
+/* menu */
+.dialogBox > div:nth-child(2) {
+    background: transparent linear-gradient(90deg, blue 0%, lightblue 50%, blue 100%) 0% 0% no-repeat padding-box;
+    height: 3px;
+}

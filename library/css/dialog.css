@@ -1,0 +1,36 @@
+.dialogBox {
+    background-color: white;
+    width: 90%;
+    border: 2px #0c97e2 solid;
+    border-radius: 4px;
+}
+.dialogContent {
+    width: 98%;
+}
+.dialogMenu {
+    height: 3px;
+    background: transparent linear-gradient(90deg, #E30613 0%, #E84E0F 15%, #FEC700 34%, #BCCF00 49%, #009FE3 65%, #007BC4 80%, #B14191 100%) 0% 0% no-repeat padding-box;
+}
+.dialogFooter {
+    height: 50px;
+}
+.dialogBox > div:first-child > div:first-child {
+    padding-right: 3px;
+} 
+@media screen AND (min-width: 360px ) {
+    .dialogBox {
+        width: 320px;
+    }
+}
+@media screen AND (min-width: 480px ) {
+    .dialogBox {
+        width: 380px;
+    }
+    .dialogBox > div:first-child {
+        height: 35px;
+    } 
+}
+#roles  a {
+    display: block;
+    font-size: 1em;
+}
