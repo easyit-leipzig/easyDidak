@@ -648,7 +648,6 @@ class DataForm {                    // class for DataForm2.0
      * Shows the search headline.
      */
     showSearchHeadline = function() {
-        console.log("showSearchHeadline")
         let el, field;
         el = nj().cEl( "div" );
         el.id = this.opt.id.substring( 1 ) + "_searchline";
@@ -660,7 +659,7 @@ class DataForm {                    // class for DataForm2.0
             field = new Field( {
                 id: "#" + this.opt.addPraefix + "search_" + this.opt.searchArray[i].field,
                 type: this.opt.searchArray[i].type,
-                addAttr: this.opt.searchArray[i].addAttr + " data-field='" + this.opt.searchArray[i].field + "'",
+                addAtr: this.opt.searchArray[i].addAtr + " data-field='" + this.opt.searchArray[i].field + "'",
                 options: this.opt.searchArray[i].options,
                 title: this.opt.searchArray[i].title,
                 dVar: this.opt.dVar,    
@@ -693,7 +692,7 @@ class DataForm {                    // class for DataForm2.0
                 } );    
             }
             
-            if( this.opt.searchArray[i].type === "select"&& typeof this.opt.searchArray[i].addAttr !== "undefined" && this.opt.searchArray[i].addAttr.indexOf("multiple") > -1  && this.opt.searchArray[i].addAttr.indexOf("data-clickable") > -1 ) {
+            if( this.opt.searchArray[i].type === "select"&& typeof this.opt.searchArray[i].addAtr !== "undefined" && this.opt.searchArray[i].addAtr.indexOf("multiple") > -1  && this.opt.searchArray[i].addAtr.indexOf("data-clickable") > -1 ) {
                 nj( field.opt.id ).on( "click", function() {
                     let elId, el, tmp;
                                                     event.preventDefault();
