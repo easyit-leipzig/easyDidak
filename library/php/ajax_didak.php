@@ -25,7 +25,10 @@ foreach($_POST  as $key => $val ){
         }        
     }
 }
-
+/*
+$_POST["command"] = "setGroup";
+$_POST["id"] = "45";
+*/
 $return = new \stdClass();
 $return -> command = $_POST["command"];
 if( isset( $_POST["param"] ) ) {

@@ -169,7 +169,7 @@ switch( $_POST["command"]) {
                             $l = count( $teilnehmer_id );
                             $i = 0;
                             while( $i < $l ) {
-                                $query = "INSERT INTO `ue_zuweisung_teilnehmer` ( `ue_unterrichtseinheit_zw_thema_id`, `teinehmer_id`) VALUES (" . $_POST["id"] . ", " . $teilnehmer_id[$i] . ")";
+                                $query = "INSERT INTO `ue_zuweisung_teilnehmer` ( `ue_unterrichtseinheit_zw_thema_id`, `teilnehmer_id`) VALUES (" . $_POST["id"] . ", " . $teilnehmer_id[$i] . ")";
                                 $db_pdo -> query( $query );
                                 $i += 1;
                             }                            

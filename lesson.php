@@ -510,7 +510,7 @@ var Df_4 = new DataForm( {
     dVar: "Df_4", 
     id: "#Df_4", 
     table: "ue_zuweisung_teilnehmer",
-    fields: "id,ue_unterrichtseinheit_zw_thema_id,teinehmer_id",
+    fields: "id,ue_unterrichtseinheit_zw_thema_id,teilnehmer_id",
     addPraefix: "df4_",
     boundForm: ["Df_8", "Df_9"] ,
     boundFields: [{"from": "id", "to": "ue_zuweisung_teilnehmer_id"},{"from": "id", "to": "ue_zuweisung_teilnehmer_id"}],
@@ -538,8 +538,8 @@ var Df_4 = new DataForm( {
         },
 
         {
-            field: "teinehmer_id",
-            label: "teinehmer_id",
+            field: "teilnehmer_id",
+            label: "teilnehmer_id",
             type: "select",
             options: list_teilnehmer,
 
