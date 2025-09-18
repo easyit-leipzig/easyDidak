@@ -17,10 +17,19 @@
         }
 }
 
+getAVG = function() {
+    data.tn = nj("#selTN").v();
+    data.sDate = nj("#startDate").v();
+    data.eDate = nj("#endDate").v();
+    data.command = "getAVG";
+    nj().fetchPostNew("library/php/ajax_trends.php", data, this.evaluateDidak);
+}
 setGroup = function() {
     data.id = 41;
     data.command = "getAVG";
     nj().fetchPostNew("library/php/ajax_trends.php", data, this.evaluateDidak);
 }
+nj("#selTN").htm( list_teilnehmer );
+nj("#getAVG").on("click", function(){getAVG()})
 nj("#setGroup").on("click", function(){setGroup()})
 //setTooltips()

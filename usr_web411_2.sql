@@ -798,14 +798,14 @@ INSERT INTO `ue_unterrichtseinheit_zw_thema` (`id`, `ue_unterrichtseinheit_id`, 
 CREATE TABLE `ue_zuweisung_teilnehmer` (
   `id` int(11) NOT NULL,
   `ue_zuweisung_lernthema_id` int(11) NOT NULL,
-  `teinehmer_id` int(11) NOT NULL
+  `teilnehmer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `ue_zuweisung_teilnehmer`
 --
 
-INSERT INTO `ue_zuweisung_teilnehmer` (`id`, `ue_zuweisung_lernthema_id`, `teinehmer_id`) VALUES
+INSERT INTO `ue_zuweisung_teilnehmer` (`id`, `ue_zuweisung_lernthema_id`, `teilnehmer_id`) VALUES
 (1, 1, 20),
 (2, 3, 3),
 (3, 4, 9),
@@ -1664,7 +1664,7 @@ ALTER TABLE `ue_unterrichtseinheit_zw_thema`
 ALTER TABLE `ue_zuweisung_teilnehmer`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ue_zuweisung_lernthema_id` (`ue_zuweisung_lernthema_id`),
-  ADD KEY `teinehmer_id` (`teinehmer_id`);
+  ADD KEY `teilnehmer_id` (`teilnehmer_id`);
 
 --
 -- Indizes für die Tabelle `verhaltens_mapping`

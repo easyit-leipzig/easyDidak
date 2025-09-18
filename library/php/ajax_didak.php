@@ -165,7 +165,7 @@ switch( $_POST["command"]) {
                                         return                            print_r( json_encode( $return )); 
 ;   
                                     }
-                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teinehmer_id`) VALUES (" . $result[0]["id"] . ", $tnId)";
+                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teilnehmer_id`) VALUES (" . $result[0]["id"] . ", $tnId)";
                    $db_pdo -> query( $q );
                             $zwId = $db_pdo -> lastInsertId();
                             $q = "INSERT INTO `mtr_leistung` (`ue_zuweisung_teilnehmer_id`) VALUES ($zwId)";

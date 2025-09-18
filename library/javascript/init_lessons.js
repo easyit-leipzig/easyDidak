@@ -113,9 +113,9 @@ setBewTn = function(){
 
 }
 setMtrLeistung = function( el ) {
-    let v = nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v();
+    let v = nj("#df4_teilnehmer_id_" + Df_4.opt.currentRecord).v();
     nj("#df8_teilnehmer_id_new" ).v( v );
-    data.tn = nj("#df4_teinehmer_id_" + Df_4.opt.currentRecord).v();
+    data.tn = nj("#df4_teilnehmer_id_" + Df_4.opt.currentRecord).v();
     let l = Df_8.opt.fieldDefinitions.length;
     let i = 0;
     while( i < l ) {
