@@ -62,6 +62,7 @@ class DataForm {                    // class for DataForm2.0
             boundForm:                          [],         // ["form1","form_n"...]
             boundFields:                        [],         // [{from:v,to:t1}...]
             boundFilter:                        "",         // additional filter after bound form
+            lastRecordPointer:                  undefined,
             addPraefix:                         "",
             addClassFiles:                      "DataForm20.css", // optional - additional class files divide by " "
             widthSave:                          true,
@@ -86,7 +87,12 @@ class DataForm {                    // class for DataForm2.0
             afterDelete:                        undefined,
             afterNew:                           undefined,
             afterSuccessSave:                   undefined,
-            afterbuild:                         function(){},
+            afterbuild:                         function(){
+                console.log( this )
+                if( typeof this.lastRecordPointer === "undefined" ) {
+                    this.lastRecordPointer = this.currentRecord;
+                                                    }
+                                                },
             onsave:                             function(){},
         }
         let tmpId = "",
