@@ -37,8 +37,8 @@ try {
         throw new RuntimeException("Tabelle _mtr_emotionen scheint leer zu sein oder konnte nicht gelesen werden.");
     }
 
-    // 2) Spalten aus emotion_flags ermitteln (nur die emotionalen Flag-Spalten verwenden)
-    $colsStmt = $db_pdo->query("SHOW COLUMNS FROM `emotion_flags`");
+    // 2) Spalten aus mtr_emotions ermitteln (nur die emotionalen Flag-Spalten verwenden)
+    $colsStmt = $db_pdo->query("SHOW COLUMNS FROM `mtr_emotions`");
     $allColumns = $colsStmt->fetchAll();
 
     // Erlaubte Spalten: alle bis auf id, ue_zuweisung_teilnehmer_id, emotions
@@ -52,13 +52,13 @@ try {
     }
 
     if (empty($availableCols)) {
-        throw new RuntimeException("Keine Flag-Spalten in emotion_flags gefunden (außer id / ue_zuweisung_teilnehmer_id / emotions).");
+        throw new RuntimeException("Keine Flag-Spalten in mtr_emotions gefunden (außer id / ue_zuweisung_teilnehmer_id / emotions).");
     }
 
     // 3) Bestimme die Reihenfolge der zu setzenden Emotion-Spalten
     //    Wir nehmen die Emotionsnamen in der Reihenfolge der IDs, aber nur wenn die Spalte in der Tabelle existiert.
     $emotionColumns = [];
-    foreach ($emotionsById as $id => $name) {
+
         if (in_array($name, $availableCols, true)) {
             $emotionColumns[] = $name;
         } else {
@@ -68,7 +68,7 @@ try {
     }
 
     if (empty($emotionColumns)) {
-        throw new RuntimeException("Keine der Emotionsnamen aus _mtr_emotionen passt zu Spalten in emotion_flags.");
+        throw new RuntimeException("Keine der Emotionsnamen aus _mtr_emotionen passt zu Spalten in mtr_emotions.");
     }
 
     // columns for INSERT: ue_zuweisung_teilnehmer_id + emotionColumns
@@ -85,7 +85,7 @@ try {
     }
     $updateSql = implode(', ', $updateParts);
 
-    $sql = "INSERT INTO `emotion_flags` ($colList) VALUES ($placeholders) ON DUPLICATE KEY UPDATE $updateSql";
+    $sql = "INSERT INTO `mtr_emotions` ($colList) VALUES ($placeholders) ON DUPLICATE KEY UPDATE $updateSql";
     $insertStmt = $db_pdo->prepare($sql);
 
     // 4) Alle Rückkopplungen lesen

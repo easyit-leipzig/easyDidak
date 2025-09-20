@@ -394,6 +394,12 @@ var Df_2 = new DataForm( {
             label: "beschreibung",
             type: "input_text",
         },
+        {
+            field: "setAVG",
+            label: "AVG",
+            type: "button",
+            onClick: function(){console.log(this)},
+        },
     ],
     countPerPage: 5,
     currentPage: 0,
