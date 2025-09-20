@@ -83,6 +83,10 @@ switch( $_POST["command"]) {
                             $return -> res = $result;
                                 print_r( json_encode( $return )); 
     break;
+    case "getAVG":
+                            $rows = $db_pdo -> query("select min(datum) as minDate, max(datum) as maxDate, count(id) from mtr_rueckkopplung_teilnehmer where ue_zuweisung_teilnehmer_id = " . $_POST["id"])->fetchAll();
+                            print_r( json_encode( $return )); 
+    break;
     default:
                             print_r( json_encode( $startdiff )); 
     break;

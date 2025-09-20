@@ -46,7 +46,7 @@ require_once("library/php/getOS.php");
         $option .= '<option value="' . $r[$i]->value . '">' . $r[$i]->text . '</option>';
         $i += 1;
     }
-    print_r( "var list_teilnehmer = '" . $option . "';\n" );
+    print_r( "var list_teilnehmer = '<option value='>0'>alle</option>" . $option . "';\n" );
 ?>
 </script>
 <h1>Trends</h1>

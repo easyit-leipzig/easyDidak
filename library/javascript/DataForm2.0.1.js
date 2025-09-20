@@ -87,7 +87,7 @@ class DataForm {                    // class for DataForm2.0
             afterNew:                           undefined,
             afterSuccessSave:                   undefined,
             afterbuild:                         function(){},
-            onsave:                         function(){},
+            onsave:                             function(){},
         }
         let tmpId = "",
             tmpClasses = "",
@@ -1069,6 +1069,7 @@ class DataForm {                    // class for DataForm2.0
             let cRec = getIdAndName( this.id ).Id;
             nj(this).gRO().opt.currentRecord = cRec;
             let l = df.opt.boundForm.length;
+            console.log(df.opt.lastRecordPointer);
             let i = 0;
             let field;
             while ( i < l ) {
@@ -1117,5 +1118,6 @@ class DataForm {                    // class for DataForm2.0
         }
         this.initBehavior();
         this.getFieldDefinitions( this.opt.afterBuild );
+        if( typeof this.opt.onShow === "function") this.opt.onShow();
     }
 }

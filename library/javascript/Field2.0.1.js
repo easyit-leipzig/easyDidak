@@ -71,6 +71,9 @@ class Field {                    // class for DataForm2.0
             uploadPath:         "library/df/",
             onMouseDown:            function( args ) {
             },
+            onFocusOut:         function( args ) {
+
+            },
             onFocus:            function( args ) {
                 if( nj(this).hAt("multiple") && nj(this).hAt("data-clickable") ) {
                     data.selectedValues = nj(this).gSV();    
@@ -95,6 +98,9 @@ class Field {                    // class for DataForm2.0
                         return;
                     }
                 }   
+                if( nj().els( "button[id^=" + nj( this ).gRO().opt.addPraefix + "recordPointer_].cRecPointerSelected" ).length === 1 ) {
+                        nj( this ).gRO().opt.lastRecordPointer = getIdAndName( this.id ).Id;
+                }
             },
             onChange:           function( event ) {                                    
                                         if( nj(this).Dia().opt.addAttr.indexOf( "undefined" === -1 ) ) {
