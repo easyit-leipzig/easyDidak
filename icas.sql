@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 18. Sep 2025 um 21:04
+-- Erstellungszeit: 20. Sep 2025 um 14:24
 -- Server-Version: 10.4.32-MariaDB
 -- PHP-Version: 8.2.12
 
@@ -24,10 +24,131 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `emotion_flags`
+-- Tabellenstruktur für Tabelle `frzk_interdependenz`
 --
 
-CREATE TABLE `emotion_flags` (
+CREATE TABLE `frzk_interdependenz` (
+  `interdependenz_id` int(11) NOT NULL,
+  `zeitpunkt` datetime NOT NULL COMMENT 'Zeitpunkt der Berechnung',
+  `x_kognition` decimal(5,2) DEFAULT NULL COMMENT 'Mittelwert / Messwert kognitive Dimension',
+  `y_sozial` decimal(5,2) DEFAULT NULL COMMENT 'Mittelwert / Messwert soziale Dimension',
+  `z_affektiv` decimal(5,2) DEFAULT NULL COMMENT 'Mittelwert / Messwert affektive Dimension',
+  `h_bedeutung` decimal(5,2) DEFAULT NULL COMMENT 'Dichtewert aus semantischer Funktion',
+  `korrelationsscore` decimal(5,2) DEFAULT NULL COMMENT 'Berechneter Zusammenhang (z. B. Pearson-Korrelation)',
+  `methode` varchar(100) DEFAULT NULL COMMENT 'Angabe der Berechnungsmethode (z. B. Korrelationsanalyse, Regressionsmodell)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `frzk_loops`
+--
+
+CREATE TABLE `frzk_loops` (
+  `loop_id` int(11) NOT NULL,
+  `teilnehmer_id` int(11) NOT NULL COMMENT 'Referenz auf Teilnehmer',
+  `startzeit` datetime NOT NULL COMMENT 'Beginn des Loop-Prozesses',
+  `endzeit` datetime DEFAULT NULL COMMENT 'Ende des Loop-Prozesses (NULL = noch offen)',
+  `verdichtungsgrad` decimal(5,2) DEFAULT NULL COMMENT 'Maß für die semantische Verdichtung in diesem Loop (z. B. aus σ-Werten berechnet)',
+  `pausenmarker` tinyint(1) DEFAULT 0 COMMENT 'Kennzeichnung, ob es sich um eine Pause/Stillstand-Phase handelt',
+  `anmerkung` text DEFAULT NULL COMMENT 'Freitext für Beobachtungen zum Loop (z. B. Wechsel von stabil → instabil)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `frzk_operatoren`
+--
+
+CREATE TABLE `frzk_operatoren` (
+  `operator_id` int(11) NOT NULL,
+  `teilnehmer_id` int(11) NOT NULL COMMENT 'Referenz auf Teilnehmer (Verknüpfung zu ue_zuweisung_teilnehmer)',
+  `zeitpunkt` datetime NOT NULL COMMENT 'Zeitpunkt der Beobachtung / Messung',
+  `sigma_level` decimal(5,2) DEFAULT NULL COMMENT 'Stärke der σ-Operatoren (Semantisierung, Bedeutungserzeugung)',
+  `m_level` decimal(5,2) DEFAULT NULL COMMENT 'Stärke der M-Operatoren (Meta-Reflexion, Abstraktion)',
+  `r_level` decimal(5,2) DEFAULT NULL COMMENT 'Stärke der R-Operatoren (Resonanz, Rückkopplung)',
+  `e_level` decimal(5,2) DEFAULT NULL COMMENT 'Stärke der E-Operatoren (Emergenz, neues Auftreten)',
+  `bemerkung` text DEFAULT NULL COMMENT 'Freitextfeld für qualitative Notizen oder Kodierungen'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `frzk_reflexion`
+--
+
+CREATE TABLE `frzk_reflexion` (
+  `reflexion_id` int(11) NOT NULL,
+  `teilnehmer_id` int(11) DEFAULT NULL,
+  `beobachter_id` int(11) DEFAULT NULL COMMENT 'ID des Beobachters (z. B. Lehrkraft, Forscher)',
+  `ebene` enum('Selbst','Gruppe','Lehrkraft','Forscher') DEFAULT NULL COMMENT 'Ebene der Reflexion',
+  `datum` datetime NOT NULL COMMENT 'Zeitpunkt der Reflexion',
+  `reflexionstext` text DEFAULT NULL COMMENT 'Inhaltliche Reflexion (z. B. Metakommentar, Tagebuch, Lehrkraftprotokoll)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `frzk_semantische_dichte`
+--
+
+CREATE TABLE `frzk_semantische_dichte` (
+  `id` int(11) NOT NULL,
+  `teilnehmer_id` int(11) NOT NULL,
+  `zeitpunkt` datetime NOT NULL,
+  `x_kognition` float NOT NULL,
+  `y_sozial` float NOT NULL,
+  `z_affektiv` float NOT NULL,
+  `h_bedeutung` float NOT NULL,
+  `dh_dt` float DEFAULT NULL,
+  `cluster_id` int(11) DEFAULT NULL,
+  `stabilitaet_score` float DEFAULT NULL,
+  `transitions_marker` varchar(50) DEFAULT NULL,
+  `bemerkung` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `frzk_transitions`
+--
+
+CREATE TABLE `frzk_transitions` (
+  `transition_id` int(11) NOT NULL,
+  `cluster_id` int(11) DEFAULT NULL COMMENT 'Referenz auf semantische Cluster (aus frzk_semantische_dichte)',
+  `teilnehmer_id` int(11) DEFAULT NULL COMMENT 'Beteiligter Akteur',
+  `zeitpunkt` datetime NOT NULL COMMENT 'Zeitpunkt des Übergangs',
+  `typ` varchar(50) DEFAULT NULL COMMENT 'Art des Übergangs: ''Neue Struktur'', ''Stabilisierung'', ''Irritation'', ''Bedeutungswechsel''',
+  `indikator_score` decimal(5,2) DEFAULT NULL COMMENT 'Quantitatives Maß für die Übergangsstärke (z. B. σ-Sprung)',
+  `kommentar` text DEFAULT NULL COMMENT 'Qualitative Notizen zum Kontext'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `mtr_didaktik`
+--
+
+CREATE TABLE `mtr_didaktik` (
+  `id` int(11) NOT NULL,
+  `ue_zuweisung_teilnehmer_id` int(11) NOT NULL,
+  `teilnehmer_id` int(11) NOT NULL,
+  `datum` datetime NOT NULL,
+  `themenauswahl` int(1) DEFAULT 4,
+  `methodenvielfalt` int(1) DEFAULT 4,
+  `individualisierung` int(1) DEFAULT 4,
+  `aufforderung` int(1) DEFAULT 4,
+  `materialien` int(1) DEFAULT 4,
+  `zielgruppen` int(1) DEFAULT 4
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `mtr_emotions`
+--
+
+CREATE TABLE `mtr_emotions` (
   `id` int(11) NOT NULL,
   `ue_zuweisung_teilnehmer_id` int(11) NOT NULL,
   `emotions` varchar(100) NOT NULL,
@@ -62,10 +183,10 @@ CREATE TABLE `emotion_flags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Daten für Tabelle `emotion_flags`
+-- Daten für Tabelle `mtr_emotions`
 --
 
-INSERT INTO `emotion_flags` (`id`, `ue_zuweisung_teilnehmer_id`, `emotions`, `Freude`, `Zufriedenheit`, `Erfüllung`, `Motivation`, `Dankbarkeit`, `Hoffnung`, `Stolz`, `Selbstvertrauen`, `Neugier`, `Inspiration`, `Zugehörigkeit`, `Vertrauen`, `Spaß`, `Sicherheit`, `Frustration`, `Überforderung`, `Angst`, `Langeweile`, `Scham`, `Zweifel`, `Resignation`, `Erschöpfung`, `Interesse`, `Verwirrung`, `Unsicherheit`, `Überraschung`, `Erwartung`, `Erleichterung`) VALUES
+INSERT INTO `mtr_emotions` (`id`, `ue_zuweisung_teilnehmer_id`, `emotions`, `Freude`, `Zufriedenheit`, `Erfüllung`, `Motivation`, `Dankbarkeit`, `Hoffnung`, `Stolz`, `Selbstvertrauen`, `Neugier`, `Inspiration`, `Zugehörigkeit`, `Vertrauen`, `Spaß`, `Sicherheit`, `Frustration`, `Überforderung`, `Angst`, `Langeweile`, `Scham`, `Zweifel`, `Resignation`, `Erschöpfung`, `Interesse`, `Verwirrung`, `Unsicherheit`, `Überraschung`, `Erwartung`, `Erleichterung`) VALUES
 (1, 21, '3,28,1', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
 (2, 12, '1', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (3, 20, '6,23,2', 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0),
@@ -84,45 +205,6 @@ INSERT INTO `emotion_flags` (`id`, `ue_zuweisung_teilnehmer_id`, `emotions`, `Fr
 (20, 17, '1,6,14,13', 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (21, 2, '22,25,12,24,11,20', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0),
 (25, 23, '5,23,13,25,2', 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `frzk_semantische_dichte`
---
-
-CREATE TABLE `frzk_semantische_dichte` (
-  `id` int(11) NOT NULL,
-  `teilnehmer_id` int(11) NOT NULL,
-  `zeitpunkt` datetime NOT NULL,
-  `x_kognition` float NOT NULL,
-  `y_sozial` float NOT NULL,
-  `z_affektiv` float NOT NULL,
-  `h_bedeutung` float NOT NULL,
-  `dh_dt` float DEFAULT NULL,
-  `cluster_id` int(11) DEFAULT NULL,
-  `stabilitaet_score` float DEFAULT NULL,
-  `transitions_marker` varchar(50) DEFAULT NULL,
-  `bemerkung` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `mtr_didaktik`
---
-
-CREATE TABLE `mtr_didaktik` (
-  `id` int(11) NOT NULL,
-  `ue_zuweisung_teilnehmer_id` int(11) NOT NULL,
-  `teilnehmer_id` int(11) NOT NULL,
-  `themenauswahl` int(1) DEFAULT 4,
-  `methodenvielfalt` int(1) DEFAULT 4,
-  `individualisierung` int(1) DEFAULT 4,
-  `aufforderung` int(1) DEFAULT 4,
-  `materialien` int(1) DEFAULT 4,
-  `zielgruppen` int(1) DEFAULT 4
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -163,36 +245,40 @@ CREATE TABLE `mtr_leistung` (
 --
 
 INSERT INTO `mtr_leistung` (`id`, `ue_zuweisung_teilnehmer_id`, `datum`, `teilnehmer_id`, `lernfortschritt`, `beherrscht_thema`, `transferdenken`, `basiswissen`, `vorbereitet`, `note`, `verhaltensbeurteilung_code`, `reflexionshinweis`) VALUES
-(1, 19, '2025-09-17 19:59:40', 3, 4.0, 4.0, 3.0, 4.0, 3.0, 3.8, '', ''),
-(5, 33, '2025-09-17 19:59:40', 2, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 'null', 'null'),
-(6, 34, '2025-09-17 19:59:40', 21, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 'null', 'null'),
-(7, 35, '2025-09-17 19:59:40', 16, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 'null', 'null'),
-(8, 36, '2025-09-17 19:59:40', 20, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 'null', 'null'),
-(9, 37, '2025-09-17 19:59:40', 23, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 'null', 'null'),
-(10, 1, '2025-09-16 19:26:45', 20, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(11, 3, '2025-09-16 19:26:45', 9, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(12, 4, '2025-09-16 19:26:45', 7, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(13, 5, '2025-09-16 19:26:45', 8, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(14, 6, '2025-09-16 19:26:45', 5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(15, 11, '2025-09-16 19:26:45', 9, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(16, 12, '2025-09-16 19:26:45', 15, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(17, 13, '2025-09-16 19:26:45', 10, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(18, 14, '2025-09-16 19:26:45', 16, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(19, 15, '2025-09-16 19:26:45', 9, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(20, 16, '2025-09-16 19:26:45', 18, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(21, 17, '2025-09-16 19:26:45', 17, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(22, 18, '2025-09-16 19:26:45', 19, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(23, 24, '2025-09-16 19:26:45', 6, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(24, 25, '2025-09-16 19:26:45', 11, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(25, 26, '2025-09-16 19:26:45', 7, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(26, 27, '2025-09-16 19:26:45', 12, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(27, 28, '2025-09-16 19:26:45', 14, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(28, 29, '2025-09-16 19:26:45', 13, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(29, 30, '2025-09-16 19:26:45', 22, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(30, 38, '2025-09-17 16:53:46', 10, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(31, 39, '2025-09-17 16:57:01', 2, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(32, 40, '2025-09-17 18:30:55', 12, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', ''),
-(33, 41, '2025-09-17 18:33:20', 14, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', '');
+(1, 3, '2025-09-09 17:10:00', 9, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(2, 4, '2025-09-09 17:10:00', 7, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(3, 5, '2025-09-09 17:10:00', 8, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(4, 6, '2025-09-09 17:10:00', 5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(5, 11, '2025-09-11 15:35:00', 9, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(6, 12, '2025-09-11 15:35:00', 15, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(7, 13, '2025-09-11 15:35:00', 10, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(8, 14, '2025-09-11 17:10:00', 16, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(9, 15, '2025-09-11 17:10:00', 9, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(10, 16, '2025-09-11 17:10:00', 18, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(11, 17, '2025-09-11 17:10:00', 17, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(12, 18, '2025-09-11 17:10:00', 19, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(13, 19, '2025-09-09 15:35:00', 3, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(14, 24, '2025-09-10 15:35:00', 6, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(15, 25, '2025-09-10 15:35:00', 11, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(16, 26, '2025-09-10 17:10:00', 7, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(17, 27, '2025-09-10 17:10:00', 12, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(18, 28, '2025-09-10 17:10:00', 14, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(19, 29, '2025-09-10 17:10:00', 13, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(20, 30, '2025-09-10 17:10:00', 22, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(21, 33, '2025-09-15 15:35:00', 2, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(22, 34, '2025-09-15 17:10:00', 21, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(23, 35, '2025-09-15 17:10:00', 16, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(24, 36, '2025-09-15 17:10:00', 20, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(25, 37, '2025-09-15 17:10:00', 23, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(26, 38, '2025-09-17 15:35:00', 10, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(27, 39, '2025-09-17 15:35:00', 2, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(28, 40, '2025-09-10 17:10:00', 12, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(29, 41, '2025-09-10 17:10:00', 14, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(30, 42, '2025-09-19 15:35:00', 6, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(31, 43, '2025-09-19 15:35:00', 20, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(32, 44, '2025-09-19 15:35:00', 11, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(33, 45, '2025-09-19 15:35:00', 24, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL),
+(34, 46, '2025-09-19 15:35:00', 4, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -204,35 +290,42 @@ CREATE TABLE `mtr_persoenlichkeit` (
   `id` int(11) NOT NULL,
   `teilnehmer_id` int(11) NOT NULL,
   `datum` date NOT NULL,
-  `offenheit_erfahrungen` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Sucht aktiv nach neuen "Feldzuständen" (Lerninhalten, Situationen), experimentiert mit verschiedenen "Akteur-Funktionen" (Lernstrategien, Verhaltensweisen), ist offen für die Transformation symbolischer Meta-Strukturen.\r\nNiedrige Ausprägung: Bevorzugt bekannte "Feldzustände", vermeidet neue Verhaltensmuster, hält an etablierten symbolischen Ordnungen fest.',
-  `gewissenhaftigkeit` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Richtet seine "Akteur-Funktion" auf die systematische Verfolgung definierter Ziele aus, zeigt Ausdauer bei der Bearbeitung von Aufgaben im "Feld", reguliert seine "Meta-Funktion" zur Selbstüberwachung und -korrektur im Lernprozess.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Zielverfolgung, geringe Ausdauer, impulsive oder wenig geplante "Akteur-Funktionen".',
-  `Extraversion` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Zeigt eine starke Tendenz zur Bildung gekoppelter "Akteur-Funktionen" in sozialen Feldern, sucht aktiv soziale "Feldzustände" auf, zeigt eine hohe "Handlungsdichte" im sozialen Kontext.\r\nNiedrige Ausprägung: Geringere Tendenz zu gekoppelten "Akteur-Funktionen", vermeidet soziale "Feldzustände", zeigt weniger "Handlungen" im sozialen Kontext.',
-  `vertraeglichkeit` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Passt seine "Akteur-Funktion" an die der Ko-Akteure in sozialen Feldern an, zeigt Kooperationsbereitschaft, ist empfänglich für die semantischen Attraktoren gemeinsamer sozialer Narrative.\r\nNiedrige Ausprägung: Zeigt weniger Anpassung, ist weniger kooperativ, neigt zu Konflikten in gekoppelten "Akteur-Funktionen".',
-  `zielorientierung` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Setzt sich aktiv Lernziele, verfolgt Aufgaben beharrlich, zeigt Eigeninitiative.\r\nNiedrige Ausprägung: Schwierigkeiten, Ziele zu formulieren oder zu verfolgen, geringe Eigenmotivation.',
-  `lernfaehigkeit` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Passt Lernstrategien an, nutzt Feedback effektiv, lernt aus Fehlern, geht flexibel mit neuen Lerninhalten um.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Anpassung, resistent gegen Feedback, wiederholt Fehler.\r\n\r\nLernprozesse verändern die Struktur der Akteur-Funktionen. Ausprägungen zeigen sich in der Geschwindigkeit und Effizienz dieser funktionalen Anpassungen [citation: 6, 8].',
-  `anpassungsfaehigkeit` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Passt Lernstrategien an, nutzt Feedback effektiv, lernt aus Fehlern, geht flexibel mit neuen Lerninhalten um.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Anpassung, resistent gegen Feedback, wiederholt Fehler.',
-  `soziale_interaktion` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Kooperativ, kommuniziert offen, integriert sich gut in Gruppen, zeigt Empathie.\r\nNiedrige Ausprägung: Schwierigkeiten in der Zusammenarbeit, vermeidet Interaktion, soziale Konflikte.',
-  `metakognition` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch.\r\nNiedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.',
-  `stressbewaeltigung` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Reagiert ängstlich auf Prüfungen oder neue Situationen, ist besorgt über Leistung, zeigt emotionale Labilität.\r\nNiedrige Ausprägung: Bleibt ruhig unter Druck, geht gelassen mit Unsicherheit um.\r\n\r\nKönnte sich in der erhöhten Reaktivität der Akteur-Funktion auf als bedrohlich interpretierte Feldzustände (z.B. Prüfungsdruck) oder in negativen Mustern der Meta-Funktion (z.B. negative Selbstbewertung) äußern [citation: 6, 7, 9, 11].',
-  `bedeutungsbildung` decimal(3,2) DEFAULT NULL COMMENT 'Hohe Ausprägung: Konstruiert kohärente Bedeutungen aus Lerninhalten, vernetzt Wissen, entwickelt eigene Interpretationen, findet Sinn im Gelernten.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Sinnstiftung, isolierte Wissensfragmente, wenig eigene Interpretationen.\r\n\r\nIntegrale Funktionalität (Kohärenzbildung, Kontextualisierung, Narrativierung, Wertschöpfung) synthetisiert lokale Beobachtungen zu globalen Bedeutungen. Ausprägungen zeigen sich in der Qualität und Struktur der konstruierten semantischen Felder und Narrative [citation: 1, 16, 11].',
-  `note` decimal(3,2) NOT NULL DEFAULT 4.00
+  `offenheit_erfahrungen` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Sucht aktiv nach neuen "Feldzuständen" (Lerninhalten, Situationen), experimentiert mit verschiedenen "Akteur-Funktionen" (Lernstrategien, Verhaltensweisen), ist offen für die Transformation symbolischer Meta-Strukturen.\r\nNiedrige Ausprägung: Bevorzugt bekannte "Feldzustände", vermeidet neue Verhaltensmuster, hält an etablierten symbolischen Ordnungen fest.',
+  `gewissenhaftigkeit` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Richtet seine "Akteur-Funktion" auf die systematische Verfolgung definierter Ziele aus, zeigt Ausdauer bei der Bearbeitung von Aufgaben im "Feld", reguliert seine "Meta-Funktion" zur Selbstüberwachung und -korrektur im Lernprozess.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Zielverfolgung, geringe Ausdauer, impulsive oder wenig geplante "Akteur-Funktionen".',
+  `Extraversion` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Zeigt eine starke Tendenz zur Bildung gekoppelter "Akteur-Funktionen" in sozialen Feldern, sucht aktiv soziale "Feldzustände" auf, zeigt eine hohe "Handlungsdichte" im sozialen Kontext.\r\nNiedrige Ausprägung: Geringere Tendenz zu gekoppelten "Akteur-Funktionen", vermeidet soziale "Feldzustände", zeigt weniger "Handlungen" im sozialen Kontext.',
+  `vertraeglichkeit` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Passt seine "Akteur-Funktion" an die der Ko-Akteure in sozialen Feldern an, zeigt Kooperationsbereitschaft, ist empfänglich für die semantischen Attraktoren gemeinsamer sozialer Narrative.\r\nNiedrige Ausprägung: Zeigt weniger Anpassung, ist weniger kooperativ, neigt zu Konflikten in gekoppelten "Akteur-Funktionen".',
+  `zielorientierung` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Setzt sich aktiv Lernziele, verfolgt Aufgaben beharrlich, zeigt Eigeninitiative.\r\nNiedrige Ausprägung: Schwierigkeiten, Ziele zu formulieren oder zu verfolgen, geringe Eigenmotivation.',
+  `lernfaehigkeit` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Passt Lernstrategien an, nutzt Feedback effektiv, lernt aus Fehlern, geht flexibel mit neuen Lerninhalten um.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Anpassung, resistent gegen Feedback, wiederholt Fehler.\r\n\r\nLernprozesse verändern die Struktur der Akteur-Funktionen. Ausprägungen zeigen sich in der Geschwindigkeit und Effizienz dieser funktionalen Anpassungen [citation: 6, 8].',
+  `anpassungsfaehigkeit` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Passt Lernstrategien an, nutzt Feedback effektiv, lernt aus Fehlern, geht flexibel mit neuen Lerninhalten um.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Anpassung, resistent gegen Feedback, wiederholt Fehler.',
+  `soziale_interaktion` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Kooperativ, kommuniziert offen, integriert sich gut in Gruppen, zeigt Empathie.\r\nNiedrige Ausprägung: Schwierigkeiten in der Zusammenarbeit, vermeidet Interaktion, soziale Konflikte.',
+  `metakognition` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch.\r\nNiedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.',
+  `stressbewaeltigung` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Reagiert ängstlich auf Prüfungen oder neue Situationen, ist besorgt über Leistung, zeigt emotionale Labilität.\r\nNiedrige Ausprägung: Bleibt ruhig unter Druck, geht gelassen mit Unsicherheit um.\r\n\r\nKönnte sich in der erhöhten Reaktivität der Akteur-Funktion auf als bedrohlich interpretierte Feldzustände (z.B. Prüfungsdruck) oder in negativen Mustern der Meta-Funktion (z.B. negative Selbstbewertung) äußern [citation: 6, 7, 9, 11].',
+  `bedeutungsbildung` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Hohe Ausprägung: Konstruiert kohärente Bedeutungen aus Lerninhalten, vernetzt Wissen, entwickelt eigene Interpretationen, findet Sinn im Gelernten.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Sinnstiftung, isolierte Wissensfragmente, wenig eigene Interpretationen.\r\n\r\nIntegrale Funktionalität (Kohärenzbildung, Kontextualisierung, Narrativierung, Wertschöpfung) synthetisiert lokale Beobachtungen zu globalen Bedeutungen. Ausprägungen zeigen sich in der Qualität und Struktur der konstruierten semantischen Felder und Narrative [citation: 1, 16, 11].',
+  `belastbarkeit` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Stress- und Drucktoleranz',
+  `problemlösefähigkeit` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Transferleistung, Umgang mit Komplexität',
+  `kreativität_innovation` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Verknüpfung, Entwicklung neuer Ansätze',
+  `ko-kreationsfähigkeit` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Fähigkeit, mit anderen gemeinsam Neues zu schaffen',
+  `resonanzfähigkeit` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Fähigkeit, auf Impulse aus der Umgebung zu antworten und sie produktiv aufzunehmen',
+  `handlungsdichte` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'wie konzentriert und intensiv eine Person in einem bestimmten Zeitraum handelt',
+  `performanz_effizienz` decimal(2,1) NOT NULL DEFAULT 4.0 COMMENT 'Output im Verhältnis zu eingesetztem Aufwand',
+  `note` decimal(2,1) NOT NULL DEFAULT 4.0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Offenheit für Erfahrungen, Gewissenhaftigkeit, Extraversion,';
 
 --
 -- Daten für Tabelle `mtr_persoenlichkeit`
 --
 
-INSERT INTO `mtr_persoenlichkeit` (`id`, `teilnehmer_id`, `datum`, `offenheit_erfahrungen`, `gewissenhaftigkeit`, `Extraversion`, `vertraeglichkeit`, `zielorientierung`, `lernfaehigkeit`, `anpassungsfaehigkeit`, `soziale_interaktion`, `metakognition`, `stressbewaeltigung`, `bedeutungsbildung`, `note`) VALUES
-(1, 2, '2025-09-08', 3.90, 3.00, 4.20, 3.50, 4.50, 4.50, 4.00, 4.50, 4.50, 4.50, 4.50, 4.50),
-(2, 3, '2025-09-09', 3.50, 3.50, 4.00, 3.00, 3.50, 3.50, 4.50, 4.00, 4.00, 5.00, 4.00, 4.00),
-(3, 4, '2025-09-09', 0.90, 4.00, 3.00, 3.00, 4.00, 4.00, 4.00, 4.00, 4.00, NULL, NULL, 4.00),
-(4, 5, '2025-09-09', 4.50, 3.50, 3.50, 3.20, 4.50, 4.50, 4.20, 3.50, 4.50, 5.00, 4.30, 4.30),
-(5, 6, '2025-09-09', 3.80, 3.50, 4.30, 3.50, 4.50, 4.50, 3.90, 4.00, 4.90, 4.40, 4.80, 4.50),
-(6, 7, '2025-09-09', 5.50, 5.50, 4.50, 5.00, 5.50, 5.50, 5.00, 4.50, 5.50, 5.00, 5.00, 4.90),
-(7, 8, '2025-09-09', 3.50, 4.00, 3.50, 3.50, 3.50, 3.50, 4.00, 3.50, 4.00, 5.00, 4.60, 4.00),
-(8, 9, '2025-09-17', 3.50, 3.40, 3.10, 3.00, 3.50, 4.00, 3.50, 3.50, 4.00, 3.70, 4.00, 3.70),
-(9, 11, '2025-09-18', 5.00, 5.50, 4.50, 4.00, 5.00, 5.00, 5.00, 4.00, 4.50, 5.00, 5.00, 5.00),
-(10, 12, '2025-09-18', 3.50, 3.50, 3.00, 3.50, 3.50, 3.50, 3.50, 3.00, 3.50, 3.00, 4.00, 4.00);
+INSERT INTO `mtr_persoenlichkeit` (`id`, `teilnehmer_id`, `datum`, `offenheit_erfahrungen`, `gewissenhaftigkeit`, `Extraversion`, `vertraeglichkeit`, `zielorientierung`, `lernfaehigkeit`, `anpassungsfaehigkeit`, `soziale_interaktion`, `metakognition`, `stressbewaeltigung`, `bedeutungsbildung`, `belastbarkeit`, `problemlösefähigkeit`, `kreativität_innovation`, `ko-kreationsfähigkeit`, `resonanzfähigkeit`, `handlungsdichte`, `performanz_effizienz`, `note`) VALUES
+(1, 2, '2025-09-08', 3.9, 3.0, 4.2, 3.5, 4.5, 4.5, 4.0, 4.5, 4.5, 4.5, 4.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.5),
+(2, 3, '2025-09-09', 3.5, 3.5, 4.0, 3.0, 3.5, 3.5, 4.5, 4.0, 4.0, 5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0),
+(3, 4, '2025-09-09', 0.9, 4.0, 3.0, 3.0, 4.0, 4.0, 4.0, 4.0, 4.0, 0.0, 0.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0),
+(4, 5, '2025-09-09', 4.5, 3.5, 3.5, 3.2, 4.5, 4.5, 4.2, 3.5, 4.5, 5.0, 4.3, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.3),
+(5, 6, '2025-09-09', 3.8, 3.5, 4.3, 3.5, 4.5, 4.5, 3.9, 4.0, 4.9, 4.4, 4.8, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.5),
+(6, 7, '2025-09-09', 5.5, 5.5, 4.5, 5.0, 5.5, 5.5, 5.0, 4.5, 5.5, 5.0, 5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.9),
+(7, 8, '2025-09-09', 3.5, 4.0, 3.5, 3.5, 3.5, 3.5, 4.0, 3.5, 4.0, 5.0, 4.6, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0),
+(8, 9, '2025-09-17', 3.5, 3.4, 3.1, 3.0, 3.5, 4.0, 3.5, 3.5, 4.0, 3.7, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 3.7),
+(9, 11, '2025-09-18', 5.0, 5.5, 4.5, 4.0, 5.0, 5.0, 5.0, 4.0, 4.5, 5.0, 5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 5.0),
+(10, 12, '2025-09-18', 3.5, 3.5, 3.0, 3.5, 3.5, 3.5, 3.5, 3.0, 3.5, 3.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0);
 
 -- --------------------------------------------------------
 
@@ -299,7 +392,7 @@ CREATE TABLE `mtr_rueckkopplung_lehrkraft_tn` (
 --
 
 CREATE TABLE `mtr_rueckkopplung_teilnehmer` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL COMMENT 'neu',
   `ue_zuweisung_teilnehmer_id` int(11) DEFAULT NULL,
   `gruppe_id` tinyint(4) NOT NULL,
   `einrichtung_id` int(11) NOT NULL DEFAULT 1,
@@ -366,7 +459,12 @@ INSERT INTO `mtr_rueckkopplung_teilnehmer` (`id`, `ue_zuweisung_teilnehmer_id`, 
 (42, 15, 7, 1, '2025-09-18 16:47:58', 2, 2, 4, 4, 3, 1, 2, 3, 4, 2, 2, 2, 1, 1, 2, 2, '', ''),
 (43, 10, 7, 1, '2025-09-18 16:51:06', 1, 1, 1, 2, 1, 1, 3, 1, 1, 1, 2, 2, 1, 1, 1, 1, '22,27,1,6,10,23,18,8,14,13,26,25,24,2', ''),
 (44, 17, 8, 1, '2025-09-18 18:29:09', 2, 1, 4, 2, 2, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, '1,6,23,13', ''),
-(45, 19, 8, 1, '2025-09-18 18:32:30', 3, 3, 2, 3, 3, 2, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, '5,28,2', '');
+(45, 19, 8, 1, '2025-09-18 18:32:30', 3, 3, 2, 3, 3, 2, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, '5,28,2', ''),
+(46, 6, 9, 1, '2025-09-19 17:00:32', 3, 3, 2, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, '3,6,10', ''),
+(47, 20, 9, 1, '2025-09-19 17:01:16', 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, '4,2', ''),
+(48, 11, 9, 1, '2025-09-19 17:04:08', 2, 2, 3, 2, 2, 2, 2, 3, 3, 2, 2, 3, 2, 3, 2, 2, '1,23', ''),
+(49, 24, 9, 1, '2025-09-19 17:05:04', 3, 1, 2, 2, 2, 2, 3, 2, 3, 2, 1, 1, 2, 2, 3, 1, '5,28,6,10,23,14', ''),
+(50, 4, 9, 1, '2025-09-19 17:09:25', 3, 3, 4, 3, 3, 3, 4, 4, 4, 2, 2, 1, 2, 3, 4, 3, '17,5,15,6', '');
 
 -- --------------------------------------------------------
 
@@ -452,7 +550,16 @@ INSERT INTO `sessions` (`session_id`, `session_date`, `start_time`, `end_time`, 
 (1006, '2025-09-10', '17:10:00', '18:40:00', 1, 1),
 (1007, '2025-09-11', '15:35:00', '17:05:00', 1, 1),
 (1008, '2025-09-11', '17:10:00', '18:40:00', 2, 1),
-(1009, '2025-09-12', '15:35:00', '17:05:00', 1, 1);
+(1009, '2025-09-12', '15:35:00', '17:05:00', 1, 1),
+(1010, '2025-09-15', '15:35:00', '17:05:00', 1, 1),
+(1011, '2025-09-15', '17:10:00', '18:40:00', 1, 1),
+(1012, '2025-09-16', '15:35:00', '17:05:00', 1, 1),
+(1013, '2025-09-16', '17:10:00', '18:40:00', 1, 1),
+(1014, '2025-09-17', '15:35:00', '17:05:00', 1, 1),
+(1015, '2025-09-17', '17:10:00', '18:40:00', 1, 1),
+(1016, '2025-09-18', '15:35:00', '17:05:00', 1, 1),
+(1017, '2025-09-18', '17:10:00', '18:40:00', 2, 1),
+(1018, '2025-09-19', '15:35:00', '17:05:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -552,7 +659,63 @@ INSERT INTO `session_students` (`session_id`, `student_id`) VALUES
 (1008, 32),
 (1009, 8),
 (1009, 16),
-(1009, 21);
+(1009, 21),
+(1010, 3),
+(1011, 6),
+(1011, 7),
+(1011, 8),
+(1011, 9),
+(1012, 5),
+(1012, 11),
+(1012, 12),
+(1012, 13),
+(1012, 14),
+(1013, 15),
+(1013, 17),
+(1013, 18),
+(1013, 19),
+(1014, 3),
+(1014, 16),
+(1014, 20),
+(1014, 21),
+(1015, 17),
+(1015, 22),
+(1015, 23),
+(1015, 24),
+(1015, 25),
+(1015, 26),
+(1016, 19),
+(1016, 20),
+(1016, 27),
+(1017, 6),
+(1017, 29),
+(1017, 30),
+(1017, 31),
+(1017, 32),
+(1018, 8),
+(1018, 10),
+(1018, 16),
+(1018, 21),
+(1018, 36);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `std_lehrkraft`
+--
+
+CREATE TABLE `std_lehrkraft` (
+  `std_lehrkraft` int(11) NOT NULL,
+  `Vorname` varchar(50) NOT NULL,
+  `Nachname` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `std_lehrkraft`
+--
+
+INSERT INTO `std_lehrkraft` (`std_lehrkraft`, `Vorname`, `Nachname`) VALUES
+(1, 'Olaf', 'Thiele');
 
 -- --------------------------------------------------------
 
@@ -684,7 +847,8 @@ INSERT INTO `std_teilnehmer` (`id`, `einrichtung_id`, `teilnehmer_typ`, `Vorname
 (20, 1, 1, 'Luise', 'Schaff', '2', '0000-00-00', NULL, 10, 2, NULL, NULL),
 (21, 1, 1, 'Gustav', 'Fleischer', '1', '0000-00-00', NULL, 11, 2, NULL, NULL),
 (22, 1, 1, 'Maruschka', 'Gottschlich', '2', '0000-00-00', NULL, 11, 2, NULL, NULL),
-(23, 1, 1, 'Lotte', 'Wicher', '2', '0000-00-00', NULL, 10, 2, NULL, NULL);
+(23, 1, 1, 'Lotte', 'Wicher', '2', '0000-00-00', NULL, 10, 2, NULL, NULL),
+(24, 1, 1, 'Elias', 'Schaller', '1', '0000-00-00', NULL, 11, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -740,7 +904,8 @@ INSERT INTO `students` (`student_id`, `first_name`, `last_name`, `school_form`, 
 (32, 'Felix', 'Scheithauer', 'GYM', 8, '2025-09-30'),
 (33, 'Till', 'Herrlitz', 'GR', 5, '2025-09-08'),
 (34, 'Leopold', 'Fleischer', 'GYM', 10, '2025-09-08'),
-(35, 'Pauline', 'Römer', 'GYM', 9, '2025-09-09');
+(35, 'Pauline', 'Römer', 'GYM', 9, '2025-09-09'),
+(36, 'Elias', 'Schaller', 'GYM', 11, '2025-09-26');
 
 -- --------------------------------------------------------
 
@@ -879,13 +1044,14 @@ INSERT INTO `ue_unterrichtseinheit` (`id`, `gruppe_id`, `einrichtung_id`, `datum
 (4, 5, 1, '2025-09-10', '15:35:00', 90, 'Gruppenveranstaltung'),
 (5, 6, 1, '2025-09-10', '17:10:00', 90, 'Gruppenveranstaltung'),
 (6, 7, 1, '2025-09-11', '15:35:00', 90, 'Gruppenveranstaltung'),
-(7, 8, 1, '2025-09-11', NULL, 90, 'Gruppenveranstaltung'),
+(7, 8, 1, '2025-09-11', '17:10:00', 90, 'Gruppenveranstaltung'),
 (10, 1, 1, '2025-09-15', '15:35:00', 90, 'Gruppenveranstaltung'),
 (11, 2, 1, '2025-09-15', '17:10:00', 90, 'Gruppenveranstaltung'),
 (12, 5, 1, '2025-09-17', '15:35:00', 90, 'Gruppenveranstaltung'),
 (13, 6, 1, '2025-09-17', '17:10:00', 90, 'Gruppenveranstaltung'),
 (14, 7, 1, '2025-09-18', '15:35:00', 90, 'Gruppenveranstaltung'),
-(15, 8, 1, '2025-09-18', '17:10:00', 90, 'Gruppenveranstaltung');
+(15, 8, 1, '2025-09-18', '17:10:00', 90, 'Gruppenveranstaltung'),
+(16, 9, 1, '2025-09-19', '15:35:00', 90, 'Gruppenveranstaltung');
 
 -- --------------------------------------------------------
 
@@ -896,6 +1062,8 @@ INSERT INTO `ue_unterrichtseinheit` (`id`, `gruppe_id`, `einrichtung_id`, `datum
 CREATE TABLE `ue_unterrichtseinheit_zw_thema` (
   `id` int(11) NOT NULL,
   `ue_unterrichtseinheit_id` int(11) NOT NULL,
+  `datum` datetime NOT NULL DEFAULT current_timestamp(),
+  `lehrkraft_id` int(11) NOT NULL DEFAULT 1,
   `schulform_id` int(11) NOT NULL,
   `fach_id` int(11) NOT NULL DEFAULT 1,
   `zieltyp_id` int(11) NOT NULL,
@@ -911,21 +1079,22 @@ CREATE TABLE `ue_unterrichtseinheit_zw_thema` (
 -- Daten für Tabelle `ue_unterrichtseinheit_zw_thema`
 --
 
-INSERT INTO `ue_unterrichtseinheit_zw_thema` (`id`, `ue_unterrichtseinheit_id`, `schulform_id`, `fach_id`, `zieltyp_id`, `lernmethode_id`, `std_lernthema_id`, `thema`, `dauer`, `teilnehmer_id`, `beschreibung`) VALUES
-(1, 1, 2, 1, 3, 24, 'Vorbereitung BLF', 'Teil A', 15, '20', ''),
-(2, 1, 2, 1, 3, 24, 'Geometrie', 'Flächenberechnung', 30, '', ''),
-(4, 3, 0, 1, 1, 24, '', '', 15, '7,9,5,8', 'Gruppe 4'),
-(5, 4, 0, 1, 1, 24, '', '', 15, '6,11', 'Gruppe 5'),
-(6, 5, 0, 1, 1, 24, '', '', 15, '7,12,14,13,22', 'Gruppe 6'),
-(7, 6, 0, 1, 1, 24, '', '', 0, '10', 'Gruppe 7'),
-(8, 7, 0, 1, 3, 24, '', '', 90, '16,9,18,17,19', 'Gruppe 8'),
-(9, 2, 2, 1, 14, 24, 'Zahlen und Rechnen', 'Dezimalzahlen', 90, '3', ''),
-(12, 10, 0, 1, 1, 24, '', '', 90, '2', 'Gruppe 1'),
-(13, 11, 0, 1, 1, 24, '', '', 90, '23', 'Gruppe 2'),
-(14, 12, 0, 1, 1, 24, '', '', 90, '2', 'Gruppe 5'),
-(15, 13, 0, 1, 1, 24, '', '', 90, '14', 'Gruppe 6'),
-(16, 14, 0, 1, 1, 24, '', '', 90, '10', 'Gruppe 7'),
-(17, 15, 0, 1, 1, 24, '', '', 90, '17', 'Gruppe 8');
+INSERT INTO `ue_unterrichtseinheit_zw_thema` (`id`, `ue_unterrichtseinheit_id`, `datum`, `lehrkraft_id`, `schulform_id`, `fach_id`, `zieltyp_id`, `lernmethode_id`, `std_lernthema_id`, `thema`, `dauer`, `teilnehmer_id`, `beschreibung`) VALUES
+(1, 1, '2025-09-19 18:56:24', 1, 2, 1, 3, 24, 'Vorbereitung BLF', 'Teil A', 15, '20', ''),
+(2, 1, '2025-09-09 15:35:00', 1, 2, 1, 3, 24, 'Geometrie', 'Flächenberechnung', 30, '', ''),
+(4, 3, '2025-09-09 17:10:00', 1, 0, 1, 1, 24, '', '', 15, '7,9,5,8', 'Gruppe 4'),
+(5, 4, '2025-09-10 15:35:00', 1, 0, 1, 1, 24, '', '', 15, '6,11', 'Gruppe 5'),
+(6, 5, '2025-09-10 17:10:00', 1, 0, 1, 1, 24, '', '', 15, '7,12,14,13,22', 'Gruppe 6'),
+(7, 6, '2025-09-11 15:35:00', 1, 0, 1, 1, 24, '', '', 0, '10', 'Gruppe 7'),
+(8, 7, '2025-09-11 17:10:00', 1, 0, 1, 3, 24, '', '', 90, '16,9,18,17,19', 'Gruppe 8'),
+(9, 2, '2025-09-09 15:35:00', 1, 2, 1, 14, 24, 'Zahlen und Rechnen', 'Dezimalzahlen', 90, '3', ''),
+(12, 10, '2025-09-15 15:35:00', 1, 0, 1, 1, 24, '', '', 90, '2', 'Gruppe 1'),
+(13, 11, '2025-09-15 17:10:00', 1, 0, 1, 1, 24, '', '', 90, '23', 'Gruppe 2'),
+(14, 12, '2025-09-17 15:35:00', 1, 0, 1, 1, 24, '', '', 90, '2', 'Gruppe 5'),
+(15, 13, '2025-09-19 18:56:24', 1, 0, 1, 1, 24, '', '', 90, '14', 'Gruppe 6'),
+(16, 14, '2025-09-19 17:10:00', 1, 0, 1, 1, 24, '', '', 90, '10', 'Gruppe 7'),
+(17, 15, '2025-09-19 17:10:24', 1, 0, 1, 1, 24, '', '', 90, '17', 'Gruppe 8'),
+(18, 16, '2025-09-19 15:35:00', 1, 0, 1, 1, 24, '', '', 90, '4', 'Gruppe 9');
 
 -- --------------------------------------------------------
 
@@ -946,35 +1115,40 @@ CREATE TABLE `ue_zuweisung_teilnehmer` (
 
 INSERT INTO `ue_zuweisung_teilnehmer` (`id`, `ue_unterrichtseinheit_zw_thema_id`, `datum`, `teilnehmer_id`) VALUES
 (1, 1, '2025-09-16 19:26:45', 20),
-(3, 4, '2025-09-16 19:26:45', 9),
-(4, 4, '2025-09-16 19:26:45', 7),
-(5, 4, '2025-09-16 19:26:45', 8),
-(6, 4, '2025-09-16 19:26:45', 5),
-(11, 7, '2025-09-16 19:26:45', 9),
-(12, 7, '2025-09-16 19:26:45', 15),
-(13, 7, '2025-09-16 19:26:45', 10),
-(14, 8, '2025-09-16 19:26:45', 16),
-(15, 8, '2025-09-16 19:26:45', 9),
-(16, 8, '2025-09-16 19:26:45', 18),
-(17, 8, '2025-09-16 19:26:45', 17),
-(18, 8, '2025-09-16 19:26:45', 19),
-(19, 9, '2025-09-16 19:26:45', 3),
-(24, 5, '2025-09-16 19:26:45', 6),
-(25, 5, '2025-09-16 19:26:45', 11),
-(26, 6, '2025-09-16 19:26:45', 7),
-(27, 6, '2025-09-16 19:26:45', 12),
-(28, 6, '2025-09-16 19:26:45', 14),
-(29, 6, '2025-09-16 19:26:45', 13),
-(30, 6, '2025-09-16 19:26:45', 22),
-(33, 12, '2025-09-16 19:26:45', 2),
-(34, 13, '2025-09-16 19:26:45', 21),
-(35, 13, '2025-09-16 19:26:45', 16),
-(36, 13, '2025-09-16 19:26:45', 20),
-(37, 13, '2025-09-16 19:26:45', 23),
-(38, 14, '2025-09-17 16:53:46', 10),
-(39, 14, '2025-09-17 16:57:01', 2),
-(40, 6, '2025-09-17 18:30:55', 12),
-(41, 6, '2025-09-17 18:33:20', 14);
+(3, 4, '2025-09-09 17:10:00', 9),
+(4, 4, '2025-09-09 17:10:00', 7),
+(5, 4, '2025-09-09 17:10:00', 8),
+(6, 4, '2025-09-09 17:10:00', 5),
+(11, 7, '2025-09-11 15:35:00', 9),
+(12, 7, '2025-09-11 15:35:00', 15),
+(13, 7, '2025-09-11 15:35:00', 10),
+(14, 8, '2025-09-11 17:10:00', 16),
+(15, 8, '2025-09-11 17:10:00', 9),
+(16, 8, '2025-09-11 17:10:00', 18),
+(17, 8, '2025-09-11 17:10:00', 17),
+(18, 8, '2025-09-11 17:10:00', 19),
+(19, 9, '2025-09-09 15:35:00', 3),
+(24, 5, '2025-09-10 15:35:00', 6),
+(25, 5, '2025-09-10 15:35:00', 11),
+(26, 6, '2025-09-10 17:10:00', 7),
+(27, 6, '2025-09-10 17:10:00', 12),
+(28, 6, '2025-09-10 17:10:00', 14),
+(29, 6, '2025-09-10 17:10:00', 13),
+(30, 6, '2025-09-10 17:10:00', 22),
+(33, 12, '2025-09-15 15:35:00', 2),
+(34, 13, '2025-09-15 17:10:00', 21),
+(35, 13, '2025-09-15 17:10:00', 16),
+(36, 13, '2025-09-15 17:10:00', 20),
+(37, 13, '2025-09-15 17:10:00', 23),
+(38, 14, '2025-09-17 15:35:00', 10),
+(39, 14, '2025-09-17 15:35:00', 2),
+(40, 6, '2025-09-10 17:10:00', 12),
+(41, 6, '2025-09-10 17:10:00', 14),
+(42, 18, '2025-09-19 15:35:00', 6),
+(43, 18, '2025-09-19 15:35:00', 20),
+(44, 18, '2025-09-19 15:35:00', 11),
+(45, 18, '2025-09-19 15:35:00', 24),
+(46, 18, '2025-09-19 15:35:00', 4);
 
 -- --------------------------------------------------------
 
@@ -1589,18 +1763,40 @@ INSERT INTO `_ue_fach` (`id`, `fach`) VALUES
 --
 
 --
--- Indizes für die Tabelle `emotion_flags`
+-- Indizes für die Tabelle `frzk_interdependenz`
 --
-ALTER TABLE `emotion_flags`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `ue_zuweisung_teilnehmer_id_2` (`ue_zuweisung_teilnehmer_id`),
-  ADD KEY `ue_zuweisung_teilnehmer_id` (`ue_zuweisung_teilnehmer_id`);
+ALTER TABLE `frzk_interdependenz`
+  ADD PRIMARY KEY (`interdependenz_id`);
+
+--
+-- Indizes für die Tabelle `frzk_loops`
+--
+ALTER TABLE `frzk_loops`
+  ADD PRIMARY KEY (`loop_id`);
+
+--
+-- Indizes für die Tabelle `frzk_operatoren`
+--
+ALTER TABLE `frzk_operatoren`
+  ADD PRIMARY KEY (`operator_id`);
+
+--
+-- Indizes für die Tabelle `frzk_reflexion`
+--
+ALTER TABLE `frzk_reflexion`
+  ADD PRIMARY KEY (`reflexion_id`);
 
 --
 -- Indizes für die Tabelle `frzk_semantische_dichte`
 --
 ALTER TABLE `frzk_semantische_dichte`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `frzk_transitions`
+--
+ALTER TABLE `frzk_transitions`
+  ADD PRIMARY KEY (`transition_id`);
 
 --
 -- Indizes für die Tabelle `mtr_didaktik`
@@ -1614,6 +1810,14 @@ ALTER TABLE `mtr_didaktik`
   ADD KEY `fk_mtr_didaktik_materialien_id` (`materialien`),
   ADD KEY `fk_mtr_didaktik_zielgruppen` (`zielgruppen`),
   ADD KEY `ue_zuweisung_schüler_id` (`ue_zuweisung_teilnehmer_id`);
+
+--
+-- Indizes für die Tabelle `mtr_emotions`
+--
+ALTER TABLE `mtr_emotions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ue_zuweisung_teilnehmer_id_2` (`ue_zuweisung_teilnehmer_id`),
+  ADD KEY `ue_zuweisung_teilnehmer_id` (`ue_zuweisung_teilnehmer_id`);
 
 --
 -- Indizes für die Tabelle `mtr_leistung`
@@ -1747,6 +1951,12 @@ ALTER TABLE `sessions`
 ALTER TABLE `session_students`
   ADD PRIMARY KEY (`session_id`,`student_id`),
   ADD KEY `student_id` (`student_id`);
+
+--
+-- Indizes für die Tabelle `std_lehrkraft`
+--
+ALTER TABLE `std_lehrkraft`
+  ADD PRIMARY KEY (`std_lehrkraft`);
 
 --
 -- Indizes für die Tabelle `std_lernthema`
@@ -1905,10 +2115,28 @@ ALTER TABLE `_ue_fach`
 --
 
 --
--- AUTO_INCREMENT für Tabelle `emotion_flags`
+-- AUTO_INCREMENT für Tabelle `frzk_interdependenz`
 --
-ALTER TABLE `emotion_flags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+ALTER TABLE `frzk_interdependenz`
+  MODIFY `interdependenz_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `frzk_loops`
+--
+ALTER TABLE `frzk_loops`
+  MODIFY `loop_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `frzk_operatoren`
+--
+ALTER TABLE `frzk_operatoren`
+  MODIFY `operator_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `frzk_reflexion`
+--
+ALTER TABLE `frzk_reflexion`
+  MODIFY `reflexion_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `frzk_semantische_dichte`
@@ -1917,16 +2145,28 @@ ALTER TABLE `frzk_semantische_dichte`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `frzk_transitions`
+--
+ALTER TABLE `frzk_transitions`
+  MODIFY `transition_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT für Tabelle `mtr_didaktik`
 --
 ALTER TABLE `mtr_didaktik`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `mtr_emotions`
+--
+ALTER TABLE `mtr_emotions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT für Tabelle `mtr_leistung`
 --
 ALTER TABLE `mtr_leistung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT für Tabelle `mtr_persoenlichkeit`
@@ -1944,7 +2184,7 @@ ALTER TABLE `mtr_rueckkopplung_lehrkraft_lesson`
 -- AUTO_INCREMENT für Tabelle `mtr_rueckkopplung_teilnehmer`
 --
 ALTER TABLE `mtr_rueckkopplung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'neu', AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT für Tabelle `mtr_sozial`
@@ -1968,7 +2208,13 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT für Tabelle `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1010;
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1019;
+
+--
+-- AUTO_INCREMENT für Tabelle `std_lehrkraft`
+--
+ALTER TABLE `std_lehrkraft`
+  MODIFY `std_lehrkraft` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `std_lernthema`
@@ -1980,13 +2226,13 @@ ALTER TABLE `std_lernthema`
 -- AUTO_INCREMENT für Tabelle `std_teilnehmer`
 --
 ALTER TABLE `std_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT für Tabelle `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT für Tabelle `subjects`
@@ -2016,19 +2262,19 @@ ALTER TABLE `ue_gruppen`
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit`
 --
 ALTER TABLE `ue_unterrichtseinheit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit_zw_thema`
 --
 ALTER TABLE `ue_unterrichtseinheit_zw_thema`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT für Tabelle `ue_zuweisung_teilnehmer`
 --
 ALTER TABLE `ue_zuweisung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT für Tabelle `verhaltens_mapping`
