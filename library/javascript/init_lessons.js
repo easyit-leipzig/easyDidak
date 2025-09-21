@@ -128,6 +128,12 @@ setMtrLeistung = function( el ) {
         i += 1;
     }
 }
+getAVG = function( el ) {
+    data.id = el.id;
+    data.command = "getAVG";
+    nj().fetchPostNew("library/php/ajax_lesson.php", data, this.evaluateLesson);
+
+} 
 init = function() {
     nj( "#std_teilnehmer" ).m( "#myDia")
     nj( "#tln_bewertung" ).m( "#myDia")

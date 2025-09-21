@@ -224,7 +224,7 @@ var Df_2 = new DataForm( {
     dVar: "Df_2", 
     id: "#Df_2", 
     table: "mtr_rueckkopplung_lehrkraft_lesson",    
-    fields: "id,ue_unterrichtseinheit_id,erfasst_am,mitarbeit,absprachen,selbststaendigkeit,konzentration,fleiss,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,themenauswahl,materialien,individualisierung,aufforderung,emotions,bemerkungen",
+    fields: "id,ue_unterrichtseinheit_id,erfasst_am,mitarbeit,absprachen,selbststaendigkeit,konzentration,fleiss,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,themenauswahl,materialien,individualisierung,aufforderung,zielgruppen,note,emotions,bemerkungen",
     addPraefix: "df2_",
     formType: "html",
     validOnSave: false, 
@@ -263,6 +263,7 @@ var Df_2 = new DataForm( {
             Comment: "Mitarbeit",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "absprachen",
@@ -272,6 +273,7 @@ var Df_2 = new DataForm( {
             Comment: "Absprachen",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "selbststaendigkeit",
@@ -281,6 +283,7 @@ var Df_2 = new DataForm( {
             Comment: "Selbstständigkeit",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "konzentration",
@@ -290,6 +293,7 @@ var Df_2 = new DataForm( {
             Comment: "Konzentration",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "fleiss",
@@ -299,6 +303,7 @@ var Df_2 = new DataForm( {
             Comment: "Fleiss",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "lernfortschritt",
@@ -308,6 +313,7 @@ var Df_2 = new DataForm( {
             Comment: "Lernfortschritt",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "beherrscht_thema",
@@ -317,6 +323,7 @@ var Df_2 = new DataForm( {
             Comment: "beherrscht Thema",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "transferdenken",
@@ -326,6 +333,7 @@ var Df_2 = new DataForm( {
             Comment: "Transferdenken",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "basiswissen",
@@ -335,6 +343,7 @@ var Df_2 = new DataForm( {
             Comment: "Basiswissen",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "vorbereitet",
@@ -344,6 +353,7 @@ var Df_2 = new DataForm( {
             Comment: "vorbereitet",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "themenauswahl",
@@ -353,6 +363,7 @@ var Df_2 = new DataForm( {
             Comment: "Themenauswahl",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "materialien",
@@ -362,6 +373,7 @@ var Df_2 = new DataForm( {
             Comment: "Materialien",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "individualisierung",
@@ -371,6 +383,7 @@ var Df_2 = new DataForm( {
             Comment: "Individualisierung",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "aufforderung",
@@ -380,6 +393,27 @@ var Df_2 = new DataForm( {
             Comment: "Aufforderung",
             minValue: 1,
             maxValue: 6,
+            addAtr: "step='0.1'"
+        },
+        {
+            field: "zielgruppen",
+            label: "Auf.",
+            type: "input_number",
+            default: 3,
+            Comment: "Aufforderung",
+            minValue: 1,
+            maxValue: 6,
+            addAtr: "step='0.1'"
+        },
+        {
+            field: "note",
+            label: "Auf.",
+            type: "input_number",
+            default: 3,
+            Comment: "Aufforderung",
+            minValue: 1,
+            maxValue: 6,
+            addAtr: "step='0.1'"
         },
         {
             field: "emotions",
@@ -395,10 +429,10 @@ var Df_2 = new DataForm( {
             type: "input_text",
         },
         {
-            field: "setAVG",
+            field: "getAVG",
             label: "AVG",
             type: "button",
-            onClick: function(){console.log(this)},
+            onClick: function(){getAVG()},
         },
     ],
     countPerPage: 5,
