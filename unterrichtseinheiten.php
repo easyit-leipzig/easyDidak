@@ -125,7 +125,7 @@ let fields = [
             label: "val_select_multi",
             type: "select",
             addClasses: "cVal_val_select_multi",
-            addAttr: "multiple",
+            addAtr: "multiple",
             options: optRole,
         },
         {
@@ -307,7 +307,7 @@ return germanDate;
                 field: "val_select_multi",
                 type: "select",
                 options: "<option value='>-1'>alle</option>" + optRole,
-                addAttr: "multiple",
+                addAtr: "multiple",
                 value: ">-1",
                 sel: "value",
             },

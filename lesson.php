@@ -385,7 +385,7 @@ var Df_2 = new DataForm( {
             field: "emotions",
             label: "Gefühl",
             type: "select",
-            addAttr: "multiple data-clickable",
+            addAtr: "multiple data-clickable",
             options: list_emotions,
             Comment: "Gefühle",
         },
@@ -495,7 +495,7 @@ var Df_3 = new DataForm( {
             field: "teilnehmer_id",
             label: "Teilnehmer",
             type: "select",
-            addAttr: "multiple data-clickable",
+            addAtr: "multiple data-clickable",
             options: list_teilnehmer,
         },
         {

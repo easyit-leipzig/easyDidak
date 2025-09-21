@@ -430,7 +430,7 @@ class DataFormNew {
         }        
         return $return;                            
     }
-    public function setFieldAddAttr( $attr = "" ) {
+    public function setFieldaddAtr( $attr = "" ) {
         $this -> addFieldAttr = $attr;
     }
     /**
@@ -454,12 +454,12 @@ class DataFormNew {
             if( !isset( $dFieldDefs[$i] ) || is_null( $dFieldDefs[$i] ) || $dFieldDefs[$i] === ""  ) $dFieldDefs[$i] = "input_text";
             $i += 1; 
         }
-        $dFieldAddAttr = explode( ";", $this -> addFieldAttr );
+        $dFieldaddAtr = explode( ";", $this -> addFieldAttr );
         $l = count( $this -> structure -> data );
         $i = 0;
         while( $i < $l ) {
             //var_dump( $dFieldDefs[$i] );
-            if( !isset( $dFieldAddAttr[$i] ) || is_null( $dFieldAddAttr[$i] ) ) $dFieldAddAttr[$i] = "";
+            if( !isset( $dFieldaddAtr[$i] ) || is_null( $dFieldaddAtr[$i] ) ) $dFieldaddAtr[$i] = "";
             $i += 1; 
         }
         
@@ -473,7 +473,7 @@ class DataFormNew {
             }
             $v = $data[ $this->structure->data[$i]["Field"]]; // value
             $t = $dFieldDefs[$i];                             // type
-            $a = $dFieldAddAttr[$i];                          // additional attributes
+            $a = $dFieldaddAtr[$i];                          // additional attributes
             $lab = $this -> labelDef[$i];                     // label        
             if( substr( $t, 0, 6 ) == "select" || substr( $t, 0, 7 ) == "<option"|| substr( $t, 0, 4 ) == "list" ) {
                 if( substr( $t, 0, 4 ) == "list" ) {
@@ -696,12 +696,12 @@ class DataFormNew {
             if( !isset( $dFieldDefs[$i] ) || is_null( $dFieldDefs[$i] ) || $dFieldDefs[$i] === ""  ) $dFieldDefs[$i] = "input_text";
             $i += 1; 
         }
-        $dFieldAddAttr = explode( ";", $this -> addFieldAttr );
+        $dFieldaddAtr = explode( ";", $this -> addFieldAttr );
         $l = count( $this -> structure -> data );
         $i = 0;
         while( $i < $l ) {
             //var_dump( $dFieldDefs[$i] );
-            if( !isset( $dFieldAddAttr[$i] ) || is_null( $dFieldAddAttr[$i] ) ) $dFieldAddAttr[$i] = "";
+            if( !isset( $dFieldaddAtr[$i] ) || is_null( $dFieldaddAtr[$i] ) ) $dFieldaddAtr[$i] = "";
             $i += 1; 
         }
         
@@ -713,7 +713,7 @@ class DataFormNew {
         while( $i < $l ) {
             $v = $d[$i]; // value
             $t = $dFieldDefs[$i];                             // type
-            $a = $dFieldAddAttr[$i];
+            $a = $dFieldaddAtr[$i];
             if( $this -> labelDef === [] ) {                  // label
                 $lab = $this->structure->data[$i]["Field"];    
             } else {
@@ -1071,11 +1071,11 @@ class DataFormNew {
         }
         return $fieldStr;                            
     }
-    private function getListSelect( $id, $value, $class, $source, $addAttr = "", $listVar = "" ) {
+    private function getListSelect( $id, $value, $class, $source, $addAtr = "", $listVar = "" ) {
         $return = new \stdClass();
         try{
             $tmpHtml = $this -> getSelectField( $source, $value );
-            $return -> html = '<select id="' . $id . '" class="' . $class . '" ' . $addAttr . ' data-value="' . $value . '" data-list="' . $listVar . '"></select>';
+            $return -> html = '<select id="' . $id . '" class="' . $class . '" ' . $addAtr . ' data-value="' . $value . '" data-list="' . $listVar . '"></select>';
             $return -> success = true;
             $return -> message = "Das Select-Feld wurde erfolgreich erstellt.";
         } catch( Exception $e ) {
@@ -1084,11 +1084,11 @@ class DataFormNew {
         }        
         return $return;                            
     }
-    private function getHTMLSelect( $id, $value, $class, $source, $addAttr = "", $prevOption = "", $afterOption = "" ) {
+    private function getHTMLSelect( $id, $value, $class, $source, $addAtr = "", $prevOption = "", $afterOption = "" ) {
         $return = new \stdClass();
         try{
             $tmpHtml = $this -> getSelectField( $source, $value );
-            $return -> html = '<select id="' . $id . '" class="' . $class . '" ' . $addAttr . '>' . "\n" . $prevOption . $tmpHtml . $afterOption . "\n</select>";
+            $return -> html = '<select id="' . $id . '" class="' . $class . '" ' . $addAtr . '>' . "\n" . $prevOption . $tmpHtml . $afterOption . "\n</select>";
             $return -> success = true;
             $return -> message = "Das Select-Feld wurde erfolgreich erstellt.";
         } catch( Exception $e ) {

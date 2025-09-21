@@ -44,7 +44,7 @@ class Field {                    // class for DataForm2.0
                                                     bckg
                                                 */
             addPraefix:         "", // praefix for recordsets and fields; e.g. "Df_", "df"
-            addAttr:            "", // additional attributes for html e.g.: 'target = "_blank" placeholder="[placeholder]"; ...' / combinitions are possible
+            addAtr:            "", // additional attributes for html e.g.: 'target = "_blank" placeholder="[placeholder]"; ...' / combinitions are possible
             baseClass:          "cField",
             addClasses:         "", // additional classes for field; e.g. "cUsusal cLabel ..."
             classButtonSize:    "", // additional classes for button size; e.g. "cButtonMin", "cButtonSmall" .. 
@@ -92,7 +92,7 @@ class Field {                    // class for DataForm2.0
                 }   
             },
             onChange:           function( event ) {                                    
-                                        if( nj(this).Dia().opt.addAttr.indexOf( "undefined" === -1 ) ) {
+                                        if( nj(this).Dia().opt.addAtr.indexOf( "undefined" === -1 ) ) {
                                             switch( nj(this).Dia().opt.type ) {
                                                 case "number":
                                                     console.log( typeof nj(this).Dia().getValue())
@@ -111,7 +111,7 @@ class Field {                    // class for DataForm2.0
                                     console.log( this );
 
                                     let elId, el, tmp;
-                                    if( nj(this).Dia().opt.addAttr.indexOf( "undefined" === -1 ) ) {
+                                    if( nj(this).Dia().opt.addAtr.indexOf( "undefined" === -1 ) ) {
                                         switch( nj(this).Dia().opt.type ) {
                                             case "stars":
                                                 var rect = nj().els(this).getBoundingClientRect(); 
@@ -374,20 +374,20 @@ class Field {                    // class for DataForm2.0
             case "select":
                 if( typeof this.opt.index !== "undefined" ) {
                     if( this.opt.addPraefix === "" ) {
-                        fieldHTML += '<select id="' + this.opt.id.substring( 1 ) + '_' + this.opt.index + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAttr + " ";    
+                        fieldHTML += '<select id="' + this.opt.id.substring( 1 ) + '_' + this.opt.index + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAtr + " ";    
                     } else {
-                        fieldHTML += '<select id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '_' + this.opt.index + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAttr + " ";
+                        fieldHTML += '<select id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '_' + this.opt.index + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAtr + " ";
                     }                    
                 } else {
                     if( this.opt.addPraefix === "" ) {
-                        fieldHTML += '<select id="' + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAttr + " ";
+                        fieldHTML += '<select id="' + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAtr + " ";
                     } else {
-                        fieldHTML += '<select id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAttr + " ";
+                        fieldHTML += '<select id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ' + this.opt.addAtr + " ";
                     }
                 }
                 fieldHTML += ' class="cSelect ' + this.opt.addClasses + '" ';
                 if( typeof this.opt.title !== "undefined" ) fieldHTML += 'title="' + this.opt.title +'" ';
-                fieldHTML += this.opt.addAttr + '>' + this.opt.options + '</select>';
+                fieldHTML += this.opt.addAtr + '>' + this.opt.options + '</select>';
                 this.tmpEl = htmlToElement( fieldHTML );
                 if( typeof this.opt.value !== "undefined" && this.opt.value != null ) {
                     this.tmpValueArry = ( "" + this.opt.value ).split( "," );
@@ -435,7 +435,7 @@ class Field {                    // class for DataForm2.0
                 if( typeof this.opt.title !== "undefined" ) {
                     fieldHTML += ' title="' + this.opt.title + '"';
                 }
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '" type="' + this.opt.type + '" value="' + this.opt.value + '" title="' + this.opt.title + '">';
                 this.tmpEl = htmlToElement( fieldHTML );
                 if( typeof this.opt.options !== "undefined" && this.opt.type === "text" ) {
@@ -466,7 +466,7 @@ class Field {                    // class for DataForm2.0
                         fieldHTML += '<input id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ';
                     }
                 }
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '" type="button" value="' + this.opt.value + '">';
                 this.tmpEl = htmlToElement( fieldHTML );
                 fieldElements.push( this.tmpEl  );
@@ -485,7 +485,7 @@ class Field {                    // class for DataForm2.0
                         fieldHTML += '<a id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ';
                     }
                 }
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '" ';
                 tmpValueArry = this.opt.value.split( "|" );
                 if( tmpValueArry.length === 3 ) {
@@ -510,7 +510,7 @@ class Field {                    // class for DataForm2.0
                         fieldHTML += '<a id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ';
                     }
                 }
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '" ';
                 tmpValueArry = this.opt.value.split( "|" );
                 if( tmpValueArry.length === 3 ) {
@@ -535,7 +535,7 @@ class Field {                    // class for DataForm2.0
                         fieldHTML += '<input id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ';
                     }
                 }
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 if( this.opt.value == true ) {
                     fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '" type="checkbox" checked ' + 'title="' + this.opt.title + '">';
                 } else {
@@ -559,7 +559,7 @@ class Field {                    // class for DataForm2.0
                     }
                 }
                 if( typeof this.opt.value === "undefined" ) this.opt.value = "";
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '">' + this.opt.value + '</button>';
                 this.tmpEl = htmlToElement( fieldHTML );
                 //this.setActions( this.tmpEl );
@@ -580,7 +580,7 @@ class Field {                    // class for DataForm2.0
                     }
                 }
                 if( typeof this.opt.value === "undefined" ) this.opt.value = "";
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' tabindex=0 class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '">' + this.opt.value + '</div>';
                 this.tmpEl = htmlToElement( fieldHTML );
                 //this.setActions( this.tmpEl );
@@ -604,7 +604,7 @@ class Field {                    // class for DataForm2.0
                 if( typeof this.opt.maxLength !== "undefined" ) {
                     fieldHTML += ' maxlength="' + this.opt.maxLength + '"';
                 }
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '">' + this.opt.value + '</textarea>';
                 this.tmpEl = htmlToElement( fieldHTML );
                 //this.setActions( this.tmpEl );
@@ -661,7 +661,7 @@ class Field {                    // class for DataForm2.0
                     }
                 }
                 fieldHTML += " " + w + " " + h + " ";
-                fieldHTML += " " + this.opt.addAttr;
+                fieldHTML += " " + this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '" src="' + this.opt.value + '">';
                 this.tmpEl = htmlToElement( fieldHTML );
                 //this.setActions( this.tmpEl );
@@ -681,7 +681,7 @@ class Field {                    // class for DataForm2.0
                         fieldHTML += '<button id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ';
                     }
                 }
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '">' + this.opt.value + '</button>';
                 this.tmpEl = htmlToElement( fieldHTML );
                 //this.setActions( this.tmpEl );
@@ -701,7 +701,7 @@ class Field {                    // class for DataForm2.0
                         fieldHTML += '<div id="' + this.opt.addPraefix + "_" + this.opt.id.substring( 1 ) + '" data-dvar="' + this.opt.dVar + '" ';
                     }
                 }
-                fieldHTML += this.opt.addAttr;
+                fieldHTML += this.opt.addAtr;
                 fieldHTML += ' class="c' + uppercaseWords( this.opt.type ) + ' ' + this.opt.addClasses + '">';
                 fieldHTML += '<img src="library/css/icons/star_bar.png" width="100" style="position: relative;z-index: 1">';
                 fieldHTML += '<img src="library/css/icons/background_yellow.png" width="' + parseFloat(this.opt.value) * 20 + '" height="20" style="position: relative; top: -25px; z-index: 0">';

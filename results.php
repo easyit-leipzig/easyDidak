@@ -315,7 +315,7 @@ var Df_3 = new DataForm( {
             field: "teilnehmer_id",
             label: "Teilnehmer",
             type: "select",
-            addAttr: "multiple data-clickable",
+            addAtr: "multiple data-clickable",
             options: list_teilnehmer,
         },
         {

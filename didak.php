@@ -385,7 +385,7 @@ var Df_2 = new DataForm( {
             label: "Gefühle",
             type: "select",
             addClasses: "cselect_multi",
-            addAttr: "multiple data-clickable", // clickable opens the select dialog
+            addAtr: "multiple data-clickable", // clickable opens the select dialog
             options: list_emotionen,
             Comment: "",
         },
@@ -424,7 +424,7 @@ var Df_2 = new DataForm( {
                 field: "val_select_multi",
                 type: "select",
                 options: "<option value='>-1'>alle</option>" + optRole,
-                addAttr: "multiple",
+                addAtr: "multiple",
                 value: ">-1",
                 sel: "value",
             },
