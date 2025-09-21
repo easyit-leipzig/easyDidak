@@ -52,10 +52,42 @@ catch( \PDOException $e ) {
     die;
 }
 require_once("functions.php"); 
-require_once("migration_emotions.php"); 
 foreach ( $_POST as &$str) {
     //var_dump($str);
     $str = replaceUnwantetChars($str);
+}
+function sanitize_column_name($str) {
+    $str = str_replace(
+        ['Ä', 'Ö', 'Ü', 'ä', 'ö', 'ü', 'ß'],
+        ['Ae', 'Oe', 'Ue', 'ae', 'oe', 'ue', 'ss'],
+        $str
+    );
+    // Nur Buchstaben, Zahlen und Unterstrich erlauben
+    return preg_replace('/[^A-Za-z0-9_]/', '', $str);
+}
+function setEmotions($db_pdo,$tmpTN,$zwId,$datum, $tmpEmotions){
+    try {
+        // 1) Emotions-Mapping laden
+        $stmt = $db_pdo->query("SELECT id, map_field FROM _mtr_emotionen where id in ($tmpEmotions) ORDER BY id")->fetchAll();
+        $l = count( $stmt );
+        $i = 0;
+        $str_fields = "";
+        $str_values = "";
+        while( $i < $l ) {
+            $str_fields .= $stmt[$i]["map_field"] . ",";
+            $str_values.= "1,";
+            $i += 1;
+        }
+        $db_pdo->query( "insert into mtr_emotions ($str_fields teilnehmer_id, datum,     ue_zuweisung_teilnehmer_id ) values($str_values$tmpTN,'$datum',$zwId)");
+        return;
+    } catch (Exception $e) {
+        if (isset($db_pdo) && $db_pdo->inTransaction()) {
+            $db_pdo->rollBack();
+        }
+        echo "Fehler: " . $e->getMessage() . "\n";
+        exit(1);
+    }
+
 }
 switch( $_POST["command"]) {
     // start standard functions
@@ -75,7 +107,7 @@ switch( $_POST["command"]) {
                             $diff = 30;
                             $a = new DateTime($date);
                             $b = new DateTime($date);
-                            $tmpTN = $_POST["id"];
+                            $tmpTN = $result[0]["teilnehmer_id"];
                             $tmpEmotions = $result[0]["emotions"];
                             $return -> startdiff = $a->sub(new DateInterval('PT' . $diff . 'M'));
                             $return -> enddiff = $b->add(new DateInterval('PT' . $diff . 'M'));
