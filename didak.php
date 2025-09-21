@@ -160,7 +160,7 @@ var Df = new DataForm( {
     addPraefix: "df1_",
     formType: "html", 
     boundForm: ["Df_2"] ,
-    boundFields: [{"from": "id", "to": "ue_zuweisung_teilnehmer_id"}],
+    boundFields: [{"from": "id", "to": "teilnehmer_id"}],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: fields,
@@ -193,7 +193,7 @@ var Df_2 = new DataForm( {
     dVar: "Df_2", 
     id: "#Df_2", 
     table: "mtr_rueckkopplung_teilnehmer",
-    fields: "id,ue_zuweisung_teilnehmer_id,val_mitarbeit,val_absprachen,val_selbststaendigkeit,val_konzentration,val_fleiss,val_lernfortschritt,val_beherrscht_thema,val_transferdenken,val_basiswissen,val_vorbereitet,val_themenauswahl,val_materialien,val_methodenvielfalt,val_individualisierung,val_aufforderung,val_zielgruppen,val_emotions,bemerkungen",
+    fields: "id,teilnehmer_id,mitarbeit,absprachen,selbststaendigkeit,konzentration,fleiss,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,themenauswahl,materialien,methodenvielfalt,individualisierung,aufforderung,zielgruppen,emotions,bemerkungen",
     addPraefix: "df2_",
     formType: "html",
     validOnSave: false, 
@@ -213,14 +213,14 @@ var Df_2 = new DataForm( {
 
         },
         {
-            field: "ue_zuweisung_teilnehmer_id",
-            label: "ue_id",
+            field: "teilnehmer_id",
+            label: "tn_id",
             type: "select",
-            addClasses: "cVal_val_select",
+            addClasses: "cselect",
             options: list_teilnehmer,
         },
         {
-            field: "val_mitarbeit",
+            field: "mitarbeit",
             label: "MA  ",
             type: "input_number",
             //default: 3,
@@ -230,7 +230,7 @@ var Df_2 = new DataForm( {
             addClasses: "elBew"
         },
         {
-            field: "val_absprachen",
+            field: "absprachen",
             label: "AB  ",
             type: "input_number",
             default: "",
@@ -240,7 +240,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
          },
         {
-            field: "val_selbststaendigkeit",
+            field: "selbststaendigkeit",
             label: "St  ",
             type: "input_number",
 //            default: 3,
@@ -251,7 +251,7 @@ var Df_2 = new DataForm( {
  
         },
         {
-            field: "val_konzentration",
+            field: "konzentration",
             label: "Ko  ",
             type: "input_number",
 //            default: 3,
@@ -261,7 +261,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_fleiss",
+            field: "fleiss",
             label: "Fl",
             type: "input_number",
 //            default: 3,
@@ -271,7 +271,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_lernfortschritt",
+            field: "lernfortschritt",
             label: "LF",
             type: "input_number",
 //            default: 3,
@@ -281,7 +281,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_beherrscht_thema",
+            field: "beherrscht_thema",
             label: "BT",
             type: "input_number",
 //            default: 3,
@@ -291,7 +291,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_transferdenken",
+            field: "transferdenken",
             label: "Tr",
             type: "input_number",
 //            default: 3,
@@ -301,7 +301,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_basiswissen",
+            field: "basiswissen",
             label: "BW",
             type: "input_number",
 //            default: 3,
@@ -311,7 +311,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_vorbereitet",
+            field: "vorbereitet",
             label: "Vo",
             type: "input_number",
 //            default: 3,
@@ -321,7 +321,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_themenauswahl",
+            field: "themenauswahl",
             label: "Th",
             type: "input_number",
 //            default: 3,
@@ -331,7 +331,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_materialien",
+            field: "materialien",
             label: "Ma",
             type: "input_number",
 //            default: 3,
@@ -341,7 +341,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_methodenvielfalt",
+            field: "methodenvielfalt",
             label: "MV",
             type: "input_number",
 //            default: 3,
@@ -351,7 +351,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },            
         {
-            field: "val_individualisierung",
+            field: "individualisierung",
             label: "In",
             type: "input_number",
 //            default: 3,
@@ -361,7 +361,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_aufforderung",
+            field: "aufforderung",
             label: "Af",
             type: "input_number",
 //            default: 3,
@@ -371,7 +371,7 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_zielgruppen",
+            field: "zielgruppen",
             label: "ZG",
             type: "input_number",
 //            default: 3,
@@ -381,10 +381,10 @@ var Df_2 = new DataForm( {
             maxValue: 6,
         },
         {
-            field: "val_emotions",
+            field: "emotions",
             label: "Gefühle",
             type: "select",
-            addClasses: "cVal_val_select_multi",
+            addClasses: "cselect_multi",
             addAttr: "multiple data-clickable", // clickable opens the select dialog
             options: list_emotionen,
             Comment: "",

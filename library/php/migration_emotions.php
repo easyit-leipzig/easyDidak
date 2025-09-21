@@ -1,48 +1,52 @@
 <?php
-    $settings = parse_ini_file('../../ini/settings.ini', TRUE);
-    $dns = $settings['database']['type'] . 
-                ':host=' . $settings['database']['host'] . 
-                ((!empty($settings['database']['port'])) ? (';port=' . $settings['database']['port']) : '') . 
-                ';dbname='. $settings['database']['schema'];
-    try {
-        $db_pdo = new \PDO( $dns, $settings['database']['username'], $settings['database']['password'], array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8') );
-        $db_pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $db_pdo -> setAttribute( PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false );
-    }
-    catch( \PDOException $e ) {
-        $return -> command = "connect_error";
-        $return -> message = $e->getMessage();
-        print_r( json_encode( $return ));
-        die;
-    }
-$emotions_list = [
-    "Freude", "Zufriedenheit", "Erfüllung", "Motivation", "Dankbarkeit",
-    "Hoffnung", "Stolz", "Selbstvertrauen", "Neugier", "Inspiration",
-    "Zugehörigkeit", "Vertrauen", "Spaß", "Sicherheit", "Frustration",
-    "Überforderung", "Angst", "Langeweile", "Scham", "Zweifel",
-    "Resignation", "Erschöpfung", "Interesse", "Verwirrung", "Unsicherheit",
-    "Überraschung", "Erwartung", "Erleichterung"
-];
+$settings = parse_ini_file('../../ini/settings.ini', TRUE);
+$dns = $settings['database']['type'] .
+        ':host=' . $settings['database']['host'] .
+        ((!empty($settings['database']['port'])) ? (';port=' . $settings['database']['port']) : '') .
+        ';dbname=' . $settings['database']['schema'];
 
 try {
+    $db_pdo = new \PDO($dns, $settings['database']['username'], $settings['database']['password'], array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db_pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+} catch (\PDOException $e) {
+    $return = new stdClass();
+    $return->command = "connect_error";
+    $return->message = $e->getMessage();
+    print_r(json_encode($return));
+    die;
+}
 
-    // 1) Mapping laden: id -> emotion (z.B. 1 => "Freude")
+// Funktion zur Umwandlung von Umlauten und Sonderzeichen
+function sanitize_column_name($str) {
+    $str = str_replace(
+        ['Ä', 'Ö', 'Ü', 'ä', 'ö', 'ü', 'ß'],
+        ['Ae', 'Oe', 'Ue', 'ae', 'oe', 'ue', 'ss'],
+        $str
+    );
+    // Nur Buchstaben, Zahlen und Unterstrich erlauben
+    return preg_replace('/[^A-Za-z0-9_]/', '', $str);
+}
+
+try {
+    // 1) Emotions-Mapping laden
     $stmt = $db_pdo->query("SELECT id, emotion FROM _mtr_emotionen ORDER BY id");
     $emotionsById = [];
     while ($r = $stmt->fetch()) {
-        $emotionsById[(int)$r['id']] = $r['emotion'];
+        $original = $r['emotion'];
+        $sanitized = sanitize_column_name($original);
+        $emotionsById[(int)$r['id']] = $sanitized;
     }
 
     if (empty($emotionsById)) {
         throw new RuntimeException("Tabelle _mtr_emotionen scheint leer zu sein oder konnte nicht gelesen werden.");
     }
 
-    // 2) Spalten aus mtr_emotions ermitteln (nur die emotionalen Flag-Spalten verwenden)
+    // 2) Spalten aus mtr_emotions laden
     $colsStmt = $db_pdo->query("SHOW COLUMNS FROM `mtr_emotions`");
     $allColumns = $colsStmt->fetchAll();
 
-    // Erlaubte Spalten: alle bis auf id, ue_zuweisung_teilnehmer_id, emotions
-    $excluded = ['id', 'ue_zuweisung_teilnehmer_id', 'emotions'];
+    $excluded = ['id', 'ue_zuweisung_teilnehmer_id', 'emotions', 'datum', 'teilnehmer_id'];
     $availableCols = [];
     foreach ($allColumns as $c) {
         $field = $c['Field'];
@@ -52,33 +56,32 @@ try {
     }
 
     if (empty($availableCols)) {
-        throw new RuntimeException("Keine Flag-Spalten in mtr_emotions gefunden (außer id / ue_zuweisung_teilnehmer_id / emotions).");
+        throw new RuntimeException("Keine gültigen Spalten in mtr_emotions gefunden.");
     }
 
-    // 3) Bestimme die Reihenfolge der zu setzenden Emotion-Spalten
-    //    Wir nehmen die Emotionsnamen in der Reihenfolge der IDs, aber nur wenn die Spalte in der Tabelle existiert.
+    // 3) Nur Spalten übernehmen, die in der Tabelle auch wirklich existieren
     $emotionColumns = [];
-
+    foreach ($emotionsById as $id => $name) {
         if (in_array($name, $availableCols, true)) {
             $emotionColumns[] = $name;
         } else {
-            // Spalte existiert nicht -> überspringen (kann passieren wenn name nicht exakt übereinstimmt)
-            // optional: Log hier
+            // Optional: Logging bei fehlenden Spalten
+            // echo "Spalte '$name' fehlt in mtr_emotions.\n";
         }
     }
 
     if (empty($emotionColumns)) {
-        throw new RuntimeException("Keine der Emotionsnamen aus _mtr_emotionen passt zu Spalten in mtr_emotions.");
+        throw new RuntimeException("Keine passenden Emotionsspalten in mtr_emotions gefunden.");
     }
 
-    // columns for INSERT: ue_zuweisung_teilnehmer_id + emotionColumns
-    $insertColumns = array_merge(['ue_zuweisung_teilnehmer_id'], $emotionColumns);
+    // 4) SQL vorbereiten
+    $insertColumns = array_merge(['teilnehmer_id'], $emotionColumns);
 
-    // prepare insert SQL (once)
-    $colList = implode(', ', array_map(function($c){ return "`$c`"; }, $insertColumns));
+    $colList = implode(', ', array_map(function ($c) {
+        return "`$c`";
+    }, $insertColumns));
     $placeholders = implode(', ', array_fill(0, count($insertColumns), '?'));
 
-    // ON DUPLICATE KEY UPDATE ... (setze alle Flag-Spalten auf die neuen Werte)
     $updateParts = [];
     foreach ($emotionColumns as $col) {
         $updateParts[] = "`$col` = VALUES(`$col`)";
@@ -88,46 +91,44 @@ try {
     $sql = "INSERT INTO `mtr_emotions` ($colList) VALUES ($placeholders) ON DUPLICATE KEY UPDATE $updateSql";
     $insertStmt = $db_pdo->prepare($sql);
 
-    // 4) Alle Rückkopplungen lesen
-    $rows = $db_pdo->query("SELECT id, ue_zuweisung_teilnehmer_id, val_emotions FROM mtr_rueckkopplung_teilnehmer")->fetchAll();
+    // 5) Rückkopplungsdaten laden
+    $rows = $db_pdo->query("SELECT id, teilnehmer_id, emotions FROM mtr_rueckkopplung_teilnehmer")->fetchAll();
 
     if (empty($rows)) {
-        echo "Keine rows in mtr_rueckkopplung_teilnehmer gefunden. Nichts zu tun.\n";
+        echo "Keine Rückkopplungsdaten gefunden.\n";
         exit;
     }
 
-    // 5) Transaction starten und verarbeiten
+    // 6) Daten verarbeiten
     $db_pdo->beginTransaction();
     $count = 0;
     foreach ($rows as $row) {
-        $ueId = $row['ue_zuweisung_teilnehmer_id'];
-        $valEm = $row['val_emotions'];
+        $ueId = $row['teilnehmer_id'];
+        $valEm = $row['emotions'];
 
-        // Basisflags alle 0
+        // Initial: alle Flags auf 0
         $flags = array_fill_keys($emotionColumns, 0);
 
         if ($valEm !== null && trim($valEm) !== '') {
-            // sichere Aufteilung: "3, 28,1" -> [3,28,1]
             $parts = preg_split('/\s*,\s*/', trim($valEm));
-            $parts = array_filter($parts, function($v){ return $v !== '' && is_numeric($v); });
+            $parts = array_filter($parts, function ($v) {
+                return $v !== '' && is_numeric($v);
+            });
             $parts = array_map('intval', $parts);
             $parts = array_unique($parts);
+
             foreach ($parts as $id) {
                 if (isset($emotionsById[$id])) {
                     $emotionName = $emotionsById[$id];
-                    // nur setzen, wenn emotionName als Spalte existiert (sonst ignorieren)
                     if (in_array($emotionName, $emotionColumns, true)) {
                         $flags[$emotionName] = 1;
                     }
                 }
-                // unbekannte IDs werden stillschweigend ignoriert
             }
         }
 
-        // Parameter zusammenstellen: ue_zuweisung_teilnehmer_id + flags in korrekter Reihenfolge
+        // Daten für Insert vorbereiten
         $params = array_merge([$ueId], array_values($flags));
-
-        // Insert / Update ausführen
         $insertStmt->execute($params);
         $count++;
     }
@@ -136,10 +137,11 @@ try {
     echo "Fertig. $count Datensätze verarbeitet.\n";
 
 } catch (Exception $e) {
-    if (isset($pdo) && $pdo->inTransaction()) {
-        $pdo->rollBack();
+    if (isset($db_pdo) && $db_pdo->inTransaction()) {
+        $db_pdo->rollBack();
     }
     echo "Fehler: " . $e->getMessage() . "\n";
     exit(1);
 }
+
 echo "Übertragung abgeschlossen.\n";

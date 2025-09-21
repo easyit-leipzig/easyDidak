@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 20. Sep 2025 um 14:24
+-- Erstellungszeit: 21. Sep 2025 um 06:07
 -- Server-Version: 10.4.32-MariaDB
 -- PHP-Version: 8.2.12
 
@@ -397,23 +397,23 @@ CREATE TABLE `mtr_rueckkopplung_teilnehmer` (
   `gruppe_id` tinyint(4) NOT NULL,
   `einrichtung_id` int(11) NOT NULL DEFAULT 1,
   `erfasst_am` datetime DEFAULT current_timestamp(),
-  `val_mitarbeit` int(1) DEFAULT NULL,
-  `val_absprachen` int(1) DEFAULT NULL,
-  `val_selbststaendigkeit` int(1) DEFAULT NULL,
-  `val_konzentration` int(1) DEFAULT NULL,
-  `val_fleiss` int(1) DEFAULT NULL,
-  `val_lernfortschritt` int(1) DEFAULT NULL,
-  `val_beherrscht_thema` int(1) DEFAULT NULL,
-  `val_transferdenken` int(1) DEFAULT NULL,
-  `val_basiswissen` int(1) DEFAULT NULL,
-  `val_vorbereitet` int(1) DEFAULT NULL,
-  `val_themenauswahl` int(1) DEFAULT NULL,
-  `val_materialien` int(1) DEFAULT NULL,
-  `val_methodenvielfalt` int(1) DEFAULT NULL,
-  `val_individualisierung` int(1) DEFAULT NULL,
-  `val_aufforderung` int(1) DEFAULT NULL,
-  `val_zielgruppen` int(1) NOT NULL,
-  `val_emotions` varchar(100) NOT NULL,
+  `mitarbeit` int(1) DEFAULT NULL,
+  `absprachen` int(1) DEFAULT NULL,
+  `selbststaendigkeit` int(1) DEFAULT NULL,
+  `konzentration` int(1) DEFAULT NULL,
+  `fleiss` int(1) DEFAULT NULL,
+  `lernfortschritt` int(1) DEFAULT NULL,
+  `beherrscht_thema` int(1) DEFAULT NULL,
+  `transferdenken` int(1) DEFAULT NULL,
+  `basiswissen` int(1) DEFAULT NULL,
+  `vorbereitet` int(1) DEFAULT NULL,
+  `themenauswahl` int(1) DEFAULT NULL,
+  `materialien` int(1) DEFAULT NULL,
+  `methodenvielfalt` int(1) DEFAULT NULL,
+  `individualisierung` int(1) DEFAULT NULL,
+  `aufforderung` int(1) DEFAULT NULL,
+  `zielgruppen` int(1) NOT NULL,
+  `emotions` varchar(100) NOT NULL,
   `bemerkungen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -421,7 +421,7 @@ CREATE TABLE `mtr_rueckkopplung_teilnehmer` (
 -- Daten für Tabelle `mtr_rueckkopplung_teilnehmer`
 --
 
-INSERT INTO `mtr_rueckkopplung_teilnehmer` (`id`, `ue_zuweisung_teilnehmer_id`, `gruppe_id`, `einrichtung_id`, `erfasst_am`, `val_mitarbeit`, `val_absprachen`, `val_selbststaendigkeit`, `val_konzentration`, `val_fleiss`, `val_lernfortschritt`, `val_beherrscht_thema`, `val_transferdenken`, `val_basiswissen`, `val_vorbereitet`, `val_themenauswahl`, `val_materialien`, `val_methodenvielfalt`, `val_individualisierung`, `val_aufforderung`, `val_zielgruppen`, `val_emotions`, `bemerkungen`) VALUES
+INSERT INTO `mtr_rueckkopplung_teilnehmer` (`id`, `ue_zuweisung_teilnehmer_id`, `gruppe_id`, `einrichtung_id`, `erfasst_am`, `mitarbeit`, `absprachen`, `selbststaendigkeit`, `konzentration`, `fleiss`, `lernfortschritt`, `beherrscht_thema`, `transferdenken`, `basiswissen`, `vorbereitet`, `themenauswahl`, `materialien`, `methodenvielfalt`, `individualisierung`, `aufforderung`, `zielgruppen`, `emotions`, `bemerkungen`) VALUES
 (1, 21, 2, 1, '2025-09-08 18:29:34', 3, 1, 1, 2, 2, 2, 2, 1, 2, 3, 1, 1, 1, 1, 1, 0, '3,28,1', ''),
 (2, 12, 2, 1, '2025-09-08 18:30:22', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, '1', ''),
 (3, 20, 2, 1, '2025-09-08 18:32:37', 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 0, '6,23,2', ''),
@@ -1314,42 +1314,43 @@ CREATE TABLE `_mtr_emotionen` (
   `type_name` varchar(50) DEFAULT NULL,
   `fine_label` varchar(100) DEFAULT NULL,
   `show_emotion` tinyint(1) NOT NULL DEFAULT 1,
-  `emotion` varchar(50) NOT NULL
+  `emotion` varchar(50) NOT NULL,
+  `map_field` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `_mtr_emotionen`
 --
 
-INSERT INTO `_mtr_emotionen` (`id`, `type_name`, `fine_label`, `show_emotion`, `emotion`) VALUES
-(1, 'positiv', 'Glücksgefühl', 1, 'Freude'),
-(2, 'positiv', 'Glücksgefühl', 1, 'Zufriedenheit'),
-(3, 'positiv', 'Glücksgefühl', 1, 'Erfüllung'),
-(4, 'positiv', 'Aktivierendes positives Gefühl', 1, 'Motivation'),
-(5, 'positiv', 'Soziales positives Gefühl', 1, 'Dankbarkeit'),
-(6, 'positiv', 'Zukunftsorientiertes positives Gefühl', 1, 'Hoffnung'),
-(7, 'positiv', 'Soziales positives Gefühl', 1, 'Stolz'),
-(8, 'positiv', 'Soziales positives Gefühl', 1, 'Selbstvertrauen'),
-(9, 'positiv', 'Aktivierendes positives Gefühl', 1, 'Neugier'),
-(10, 'positiv', 'Aktivierendes positives Gefühl', 1, 'Inspiration'),
-(11, 'positiv', 'Soziales positives Gefühl', 1, 'Zugehörigkeit'),
-(12, 'positiv', 'Soziales positives Gefühl', 1, 'Vertrauen'),
-(13, 'positiv', 'Glücksgefühl', 1, 'Spaß'),
-(14, 'positiv', 'Soziales positives Gefühl', 1, 'Sicherheit'),
-(15, 'negativ', 'Stress-/Überforderungsgefühl', 1, 'Frustration'),
-(16, 'negativ', 'Stress-/Überforderungsgefühl', 1, 'Überforderung'),
-(17, 'negativ', 'Ängstlich-vermeidendes Gefühl', 1, 'Angst'),
-(18, 'negativ', 'Niedergeschlagenheit/Rückzug', 1, 'Langeweile'),
-(19, 'negativ', 'Niedergeschlagenheit/Rückzug', 1, 'Scham'),
-(20, 'negativ', 'Ängstlich-vermeidendes Gefühl', 1, 'Zweifel'),
-(21, 'negativ', 'Niedergeschlagenheit/Rückzug', 1, 'Resignation'),
-(22, 'negativ', 'Stress-/Überforderungsgefühl', 1, 'Erschöpfung'),
-(23, 'kognitiv', 'Erkenntnis-/Bewertungsgefühl', 1, 'Interesse'),
-(24, 'kognitiv', 'Erkenntnis-/Bewertungsgefühl', 1, 'Verwirrung'),
-(25, 'kognitiv', 'Ängstlich-vermeidendes Gefühl', 1, 'Unsicherheit'),
-(26, 'kognitiv', 'Erwartungsbezogenes Gefühl', 1, 'Überraschung'),
-(27, 'kognitiv', 'Erwartungsbezogenes Gefühl', 1, 'Erwartung'),
-(28, 'kognitiv', 'Erwartungsbezogenes Gefühl', 1, 'Erleichterung');
+INSERT INTO `_mtr_emotionen` (`id`, `type_name`, `fine_label`, `show_emotion`, `emotion`, `map_field`) VALUES
+(1, 'positiv', 'Glücksgefühl', 1, 'Freude', 'Freude'),
+(2, 'positiv', 'Glücksgefühl', 1, 'Zufriedenheit', 'Zufriedenheit'),
+(3, 'positiv', 'Glücksgefühl', 1, 'Erfüllung', 'Erfuellung'),
+(4, 'positiv', 'Aktivierendes positives Gefühl', 1, 'Motivation', 'Motivation'),
+(5, 'positiv', 'Soziales positives Gefühl', 1, 'Dankbarkeit', 'Dankbarkeit'),
+(6, 'positiv', 'Zukunftsorientiertes positives Gefühl', 1, 'Hoffnung', 'Hoffnung'),
+(7, 'positiv', 'Soziales positives Gefühl', 1, 'Stolz', 'Stolz'),
+(8, 'positiv', 'Soziales positives Gefühl', 1, 'Selbstvertrauen', 'Selbstvertrauen'),
+(9, 'positiv', 'Aktivierendes positives Gefühl', 1, 'Neugier', 'Neugier'),
+(10, 'positiv', 'Aktivierendes positives Gefühl', 1, 'Inspiration', 'Inspiration'),
+(11, 'positiv', 'Soziales positives Gefühl', 1, 'Zugehörigkeit', 'Zugehoerigkeit'),
+(12, 'positiv', 'Soziales positives Gefühl', 1, 'Vertrauen', 'Vertrauen'),
+(13, 'positiv', 'Glücksgefühl', 1, 'Spaß', 'Spass'),
+(14, 'positiv', 'Soziales positives Gefühl', 1, 'Sicherheit', 'Sicherheit'),
+(15, 'negativ', 'Stress-/Überforderungsgefühl', 1, 'Frustration', 'Frustration'),
+(16, 'negativ', 'Stress-/Überforderungsgefühl', 1, 'Überforderung', 'Ueberforderung'),
+(17, 'negativ', 'Ängstlich-vermeidendes Gefühl', 1, 'Angst', 'Angst'),
+(18, 'negativ', 'Niedergeschlagenheit/Rückzug', 1, 'Langeweile', 'Langeweile'),
+(19, 'negativ', 'Niedergeschlagenheit/Rückzug', 1, 'Scham', 'Scham'),
+(20, 'negativ', 'Ängstlich-vermeidendes Gefühl', 1, 'Zweifel', 'Zweifel'),
+(21, 'negativ', 'Niedergeschlagenheit/Rückzug', 1, 'Resignation', 'Resignation'),
+(22, 'negativ', 'Stress-/Überforderungsgefühl', 1, 'Erschöpfung', 'Erschoepfung'),
+(23, 'kognitiv', 'Erkenntnis-/Bewertungsgefühl', 1, 'Interesse', 'Interesse'),
+(24, 'kognitiv', 'Erkenntnis-/Bewertungsgefühl', 1, 'Verwirrung', 'Verwirrung'),
+(25, 'kognitiv', 'Ängstlich-vermeidendes Gefühl', 1, 'Unsicherheit', 'Unsicherheit'),
+(26, 'kognitiv', 'Erwartungsbezogenes Gefühl', 1, 'Überraschung', 'Überraschung'),
+(27, 'kognitiv', 'Erwartungsbezogenes Gefühl', 1, 'Erwartung', 'Erwartung'),
+(28, 'kognitiv', 'Erwartungsbezogenes Gefühl', 1, 'Erleichterung', 'Erleichterung');
 
 -- --------------------------------------------------------
 
@@ -1898,21 +1899,21 @@ ALTER TABLE `mtr_rueckkopplung_lehrkraft_tn`
 ALTER TABLE `mtr_rueckkopplung_teilnehmer`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_ue_zuweisung_schueler_id` (`ue_zuweisung_teilnehmer_id`),
-  ADD KEY `idx_val_mitarbeit` (`val_mitarbeit`),
-  ADD KEY `idx_val_absprachen` (`val_absprachen`),
-  ADD KEY `idx_val_selbststaendigkeit` (`val_selbststaendigkeit`),
-  ADD KEY `idx_val_konzentration` (`val_konzentration`),
-  ADD KEY `idx_val_fleiss` (`val_fleiss`),
-  ADD KEY `idx_val_lernfortschritt` (`val_lernfortschritt`),
-  ADD KEY `idx_val_beherrscht_thema` (`val_beherrscht_thema`),
-  ADD KEY `idx_val_transferdenken` (`val_transferdenken`),
-  ADD KEY `idx_val_basiswissen` (`val_basiswissen`),
-  ADD KEY `idx_val_vorbereitet` (`val_vorbereitet`),
-  ADD KEY `idx_val_themenauswahl` (`val_themenauswahl`),
-  ADD KEY `idx_val_materialien` (`val_materialien`),
-  ADD KEY `idx_val_methodenvielfalt` (`val_methodenvielfalt`),
-  ADD KEY `idx_val_individualisierung` (`val_individualisierung`),
-  ADD KEY `idx_val_aufforderung` (`val_aufforderung`),
+  ADD KEY `idx_mitarbeit` (`mitarbeit`),
+  ADD KEY `idx_absprachen` (`absprachen`),
+  ADD KEY `idx_selbststaendigkeit` (`selbststaendigkeit`),
+  ADD KEY `idx_konzentration` (`konzentration`),
+  ADD KEY `idx_fleiss` (`fleiss`),
+  ADD KEY `idx_lernfortschritt` (`lernfortschritt`),
+  ADD KEY `idx_beherrscht_thema` (`beherrscht_thema`),
+  ADD KEY `idx_transferdenken` (`transferdenken`),
+  ADD KEY `idx_basiswissen` (`basiswissen`),
+  ADD KEY `idx_vorbereitet` (`vorbereitet`),
+  ADD KEY `idx_themenauswahl` (`themenauswahl`),
+  ADD KEY `idx_materialien` (`materialien`),
+  ADD KEY `idx_methodenvielfalt` (`methodenvielfalt`),
+  ADD KEY `idx_individualisierung` (`individualisierung`),
+  ADD KEY `idx_aufforderung` (`aufforderung`),
   ADD KEY `gruppe_id` (`gruppe_id`),
   ADD KEY `einrichtung_id` (`einrichtung_id`);
 
@@ -2063,7 +2064,9 @@ ALTER TABLE `_mtr_einrichtung`
 -- Indizes für die Tabelle `_mtr_emotionen`
 --
 ALTER TABLE `_mtr_emotionen`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `emotion` (`emotion`),
+  ADD KEY `idx_map_field` (`map_field`);
 
 --
 -- Indizes für die Tabelle `_mtr_persoenlichkeitsmerkmal_definition`

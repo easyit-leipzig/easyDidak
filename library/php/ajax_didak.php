@@ -51,6 +51,15 @@ catch( \PDOException $e ) {
     print_r( json_encode( $return ));
     die;
 }
+function sanitize_column_name($str) {
+    $str = str_replace(
+        ['Ä', 'Ö', 'Ü', 'ä', 'ö', 'ü', 'ß'],
+        ['Ae', 'Oe', 'Ue', 'ae', 'oe', 'ue', 'ss'],
+        $str
+    );
+    // Nur Buchstaben, Zahlen und Unterstrich erlauben
+    return preg_replace('/[^A-Za-z0-9_]/', '', $str);
+}
 require_once("functions.php"); 
 foreach ( $_POST as &$str) {
     //var_dump($str);
@@ -59,7 +68,7 @@ foreach ( $_POST as &$str) {
 switch( $_POST["command"]) {
     // start standard functions
     case "setGroup":
-                            $query = "SELECT ue_zuweisung_teilnehmer_id, erfasst_am FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
+                            $query = "SELECT teilnehmer_id, erfasst_am FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
                             $return -> s = $query;
                             try {
                                 $stm = $db_pdo -> query( $query );
@@ -69,7 +78,7 @@ switch( $_POST["command"]) {
                                 $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                 return $return;   
                             }
-                            $tnId =  $result[0]["ue_zuweisung_teilnehmer_id"];
+                            $tnId =  $result[0]["teilnehmer_id"];
                             $date = $result[0]["erfasst_am"];
                             $diff = 30;
                             $a = new DateTime($date);
@@ -168,7 +177,7 @@ switch( $_POST["command"]) {
                                         return                            print_r( json_encode( $return )); 
 ;   
                                     }
-                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teilnehmer_id`) VALUES (" . $result[0]["id"] . ", $tnId)";
+                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teilnehmer_id`, datum) VALUES (" . $result[0]["id"] . ", $tnId, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "')";
                    $db_pdo -> query( $q );
                             $zwId = $db_pdo -> lastInsertId();
                             $q = "INSERT INTO `mtr_leistung` (`ue_zuweisung_teilnehmer_id`) VALUES ($zwId)";
