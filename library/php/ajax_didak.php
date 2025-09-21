@@ -51,16 +51,8 @@ catch( \PDOException $e ) {
     print_r( json_encode( $return ));
     die;
 }
-function sanitize_column_name($str) {
-    $str = str_replace(
-        ['Ä', 'Ö', 'Ü', 'ä', 'ö', 'ü', 'ß'],
-        ['Ae', 'Oe', 'Ue', 'ae', 'oe', 'ue', 'ss'],
-        $str
-    );
-    // Nur Buchstaben, Zahlen und Unterstrich erlauben
-    return preg_replace('/[^A-Za-z0-9_]/', '', $str);
-}
 require_once("functions.php"); 
+require_once("migration_emotions.php"); 
 foreach ( $_POST as &$str) {
     //var_dump($str);
     $str = replaceUnwantetChars($str);
@@ -68,7 +60,7 @@ foreach ( $_POST as &$str) {
 switch( $_POST["command"]) {
     // start standard functions
     case "setGroup":
-                            $query = "SELECT teilnehmer_id, erfasst_am FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
+                            $query = "SELECT teilnehmer_id, erfasst_am, emotions FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
                             $return -> s = $query;
                             try {
                                 $stm = $db_pdo -> query( $query );
@@ -83,7 +75,8 @@ switch( $_POST["command"]) {
                             $diff = 30;
                             $a = new DateTime($date);
                             $b = new DateTime($date);
-                            
+                            $tmpTN = $_POST["id"];
+                            $tmpEmotions = $result[0]["emotions"];
                             $return -> startdiff = $a->sub(new DateInterval('PT' . $diff . 'M'));
                             $return -> enddiff = $b->add(new DateInterval('PT' . $diff . 'M'));
                             $return -> currentDate = new DateTime();
@@ -180,11 +173,15 @@ switch( $_POST["command"]) {
                    $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teilnehmer_id`, datum) VALUES (" . $result[0]["id"] . ", $tnId, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "')";
                    $db_pdo -> query( $q );
                             $zwId = $db_pdo -> lastInsertId();
-                            $q = "INSERT INTO `mtr_leistung` (`ue_zuweisung_teilnehmer_id`) VALUES ($zwId)";
-                  $db_pdo -> query( $q );
-                             $return -> q = $q;
-                           $return -> t = $zwId;
- 
+                            $r =  $db_pdo -> query( "select lernfortschritt, beherrscht_thema, transferdenken, vorbereitet from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
+                            $rtn = $db_pdo -> query( "select basiswissen,belastbarkeit, note from mtr_persoenlichkeit where teilnehmer_id = $tnId" )->fetchAll();
+                            $q="insert into mtr_leistung (ue_zuweisung_teilnehmer_id,datum,teilnehmer_id,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,belastbarkeit,note) VALUES 
+                                                            ($zwId, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "',$tnId," . $r[0]["lernfortschritt"] . ", " . $r[0]["beherrscht_thema"] . "," . $r[0]["transferdenken"] . "," . $rtn[0]["basiswissen"] . "," . $r[0]["vorbereitet"] . 
+                                                            "," . $rtn[0]["belastbarkeit"] . "," . $rtn[0]["note"] ." )";
+                            $db_pdo -> query( $q );
+                            setEmotions( $db_pdo,$tmpTN,$zwId,$return -> currentDate->format('Y-m-d') . " " . $a, $tmpEmotions );
+                             //$return -> q = $test;
+                           $return -> t = $zwId;     
                             $return -> s = $tnId;
                            print_r( json_encode( $return )); 
     break;
