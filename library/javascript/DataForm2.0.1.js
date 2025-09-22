@@ -969,7 +969,7 @@ class DataForm {                    // class for DataForm2.0
             this.opt.recordsets[i].getRecord();
             i += 1;
         }
-        if( typeof this.opt.afterbuild === "function" ) this.opt.afterbuild()
+        if( typeof this.opt.afterBuild === "function" ) this.opt.afterBuild()
     }
     initPagination = function() {
         this.opt.countRecords = parseInt( this.opt.countRecords )

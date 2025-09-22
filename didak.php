@@ -400,7 +400,7 @@ var Df_2 = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
-    afterbuild: function(){setTooltips()},
+    afterBuild: function(){setTooltips()},
     afterNew: function(){setGroup()},
     filter: "id=0",
 /*

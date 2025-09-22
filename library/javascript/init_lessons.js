@@ -75,6 +75,13 @@ setUeTeinehmer = function(  ) {
                     nj( "#df2_" + Object.keys( jsonobject.tn[0] )[i] + "_new").v( jsonobject.tn[0][Object.keys( jsonobject.tn[0] )[i]] );
                     i += 1;
                 }
+                l = Object.keys( jsonobject.resBasisNote[0] ).length;
+                i = 0;
+                while( i < l ) {
+                    nj( "#df2_" + Object.keys( jsonobject.resBasisNote[0] )[i] + "_new").v( jsonobject.resBasisNote[0][Object.keys( jsonobject.resBasisNote[0] )[i]] );
+                    i += 1;
+                }
+
             break;
         }
 }

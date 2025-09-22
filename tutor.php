@@ -395,7 +395,7 @@ var Df_2 = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
-    afterbuild: function(){setTooltips()},
+    afterBuild: function(){setTooltips()},
     filter: "id=0",
 /*
     orderArray: ["val_varchar", "val_int"],
