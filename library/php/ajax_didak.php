@@ -68,17 +68,21 @@ function sanitize_column_name($str) {
 function setEmotions($db_pdo,$tmpTN,$zwId,$datum, $tmpEmotions){
     try {
         // 1) Emotions-Mapping laden
-        $stmt = $db_pdo->query("SELECT id, map_field FROM _mtr_emotionen where id in ($tmpEmotions) ORDER BY id")->fetchAll();
-        $l = count( $stmt );
-        $i = 0;
-        $str_fields = "";
-        $str_values = "";
-        while( $i < $l ) {
-            $str_fields .= $stmt[$i]["map_field"] . ",";
-            $str_values.= "1,";
-            $i += 1;
+        if( $tmpEmotions === "") {
+                $db_pdo->query( "insert into mtr_emotions (teilnehmer_id, datum,     ue_zuweisung_teilnehmer_id ) values ($tmpTN,'$datum',$zwId)");
+            } else {
+            $stmt = $db_pdo->query("SELECT id, map_field FROM _mtr_emotionen where id in ($tmpEmotions) ORDER BY id")->fetchAll();
+            $l = count( $stmt );
+            $i = 0;
+            $str_fields = "";
+            $str_values = "";
+            while( $i < $l ) {
+                $str_fields .= $stmt[$i]["map_field"] . ",";
+                $str_values.= "1,";
+                $i += 1;
+            }
+            $db_pdo->query( "insert into mtr_emotions ($str_fields teilnehmer_id, datum,     ue_zuweisung_teilnehmer_id ) values($str_values$tmpTN,'$datum',$zwId)");
         }
-        $db_pdo->query( "insert into mtr_emotions ($str_fields teilnehmer_id, datum,     ue_zuweisung_teilnehmer_id ) values($str_values$tmpTN,'$datum',$zwId)");
         return;
     } catch (Exception $e) {
         if (isset($db_pdo) && $db_pdo->inTransaction()) {
@@ -207,14 +211,19 @@ switch( $_POST["command"]) {
                             $zwId = $db_pdo -> lastInsertId();
                             $r =  $db_pdo -> query( "select lernfortschritt, beherrscht_thema, transferdenken, vorbereitet from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
                             $rtn = $db_pdo -> query( "select basiswissen,belastbarkeit, note from mtr_persoenlichkeit where teilnehmer_id = $tnId" )->fetchAll();
+                            
                             $q="insert into mtr_leistung (ue_zuweisung_teilnehmer_id,datum,teilnehmer_id,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,belastbarkeit,note) VALUES 
                                                             ($zwId, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "',$tnId," . $r[0]["lernfortschritt"] . ", " . $r[0]["beherrscht_thema"] . "," . $r[0]["transferdenken"] . "," . $rtn[0]["basiswissen"] . "," . $r[0]["vorbereitet"] . 
                                                             "," . $rtn[0]["belastbarkeit"] . "," . $rtn[0]["note"] ." )";
                             $db_pdo -> query( $q );
+                            $db_pdo -> query( "update mtr_rueckkopplung_teilnehmer set ue_zuweisung_teilnehmer_id=$zwId where id=" . $_POST["id"] );
                             setEmotions( $db_pdo,$tmpTN,$zwId,$return -> currentDate->format('Y-m-d') . " " . $a, $tmpEmotions );
+                            
                              //$return -> q = $test;
                            $return -> t = $zwId;     
                             $return -> s = $tnId;
+                            $return -> r = $r;
+                            $return -> rtn = $rtn;
                            print_r( json_encode( $return )); 
     break;
     default:

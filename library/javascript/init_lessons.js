@@ -25,7 +25,6 @@ changeLernthema = function( id ){
         nj().fetchPostNew("library/php/ajax_lesson.php", data, this.evaluateLesson);
 }
 setUeTeinehmer = function(  ) {
-    console.log( data );
     data.id = data.primaryKeyValue;
     data.command = "setUeTeinehmer";
     nj().fetchPostNew("library/php/ajax_lesson.php", data, this.evaluateLesson);
@@ -68,7 +67,14 @@ setUeTeinehmer = function(  ) {
                     if( !nj("#df3_thema_" + jsonobject.id + "_list").isE()) nj("#df3_thema_" + jsonobject.id + "").a(el);;
                     
                 break;
-            case "setUeTeinehmer":
+            case "getAVG":
+                l = Object.keys( jsonobject.tn[0] ).length;
+                i = 0;
+                nj( "#df2_erfasst_am_new" ).v( jsonobject.datum );
+                while( i < l ) {
+                    nj( "#df2_" + Object.keys( jsonobject.tn[0] )[i] + "_new").v( jsonobject.tn[0][Object.keys( jsonobject.tn[0] )[i]] );
+                    i += 1;
+                }
             break;
         }
 }
@@ -129,7 +135,9 @@ setMtrLeistung = function( el ) {
     }
 }
 getAVG = function( el ) {
-    data.id = el.id;
+    console.log(Df.opt.currentRecord);
+    data.id = Df.opt.currentRecord;
+    data.datum = nj( "#df1_datum_" + Df.opt.currentRecord ).v();
     data.command = "getAVG";
     nj().fetchPostNew("library/php/ajax_lesson.php", data, this.evaluateLesson);
 

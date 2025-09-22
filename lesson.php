@@ -19,7 +19,6 @@
 <h1>Unterrichtseinheiten</h1>
 <h2>Einheiten</h2>
 <div id="Df"></div>
-<h2>Bewertung Lehrkraft</h2>
 <div id="Df_2"></div>
 <h2>Zuweisung Themen</h2>
 <div id="Df_3"></div>
@@ -226,8 +225,11 @@ var Df_2 = new DataForm( {
     table: "mtr_rueckkopplung_lehrkraft_lesson",    
     fields: "id,ue_unterrichtseinheit_id,erfasst_am,mitarbeit,absprachen,selbststaendigkeit,konzentration,fleiss,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,themenauswahl,materialien,individualisierung,aufforderung,zielgruppen,note,emotions,bemerkungen",
     addPraefix: "df2_",
-    formType: "html",
-    validOnSave: false, 
+    formType: "list",
+    validOnSave: false,
+    formWidth: 800,
+    formHeight: 300,
+    autoOpen: false,
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: [
         {
@@ -254,6 +256,7 @@ var Df_2 = new DataForm( {
             field: "erfasst_am",
             label: "Datum",
             type: "input_datetime-local",
+            default: new Date().toJSON(),
         },
         {
             field: "mitarbeit",
@@ -336,16 +339,6 @@ var Df_2 = new DataForm( {
             addAtr: "step='0.1'"
         },
         {
-            field: "basiswissen",
-            label: "Bas.",
-            type: "input_number",
-            default: 3,
-            Comment: "Basiswissen",
-            minValue: 1,
-            maxValue: 6,
-            addAtr: "step='0.1'"
-        },
-        {
             field: "vorbereitet",
             label: "Vor.",
             type: "input_number",
@@ -400,7 +393,17 @@ var Df_2 = new DataForm( {
             label: "Auf.",
             type: "input_number",
             default: 3,
-            Comment: "Aufforderung",
+            Comment: "Zielgruppen",
+            minValue: 1,
+            maxValue: 6,
+            addAtr: "step='0.1'"
+        },
+        {
+            field: "basiswissen",
+            label: "Bas.",
+            type: "input_number",
+            default: 3,
+            Comment: "Basiswissen",
             minValue: 1,
             maxValue: 6,
             addAtr: "step='0.1'"
@@ -410,7 +413,7 @@ var Df_2 = new DataForm( {
             label: "Auf.",
             type: "input_number",
             default: 3,
-            Comment: "Aufforderung",
+            Comment: "Note",
             minValue: 1,
             maxValue: 6,
             addAtr: "step='0.1'"
@@ -432,7 +435,7 @@ var Df_2 = new DataForm( {
             field: "getAVG",
             label: "AVG",
             type: "button",
-            onClick: function(){getAVG()},
+            onClick: function(){},
         },
     ],
     countPerPage: 5,
@@ -440,7 +443,7 @@ var Df_2 = new DataForm( {
     hasPagination: true,
     countRecords: undefined,
     filter: undefined,
-    afterBuild: function(){setTooltipsBewUe()},
+    afterBuild: function(){setTooltipsBewUe();getAVG()},
     afterSuccessSave: function(){},
 } );
 var Df_3 = new DataForm( { 

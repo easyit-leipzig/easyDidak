@@ -35,14 +35,14 @@ foreach ($emotions_list as $emo) {
 $update_parts[] = "emotions = VALUES(emotions)"; // den Originalstring ebenfalls aktualisieren
 
 $sqlInsert = "
-    INSERT INTO emotion_flags ($columns)
+    INSERT INTO mtr_emotions ($columns)
     VALUES ($placeholders)
     ON DUPLICATE KEY UPDATE " . implode(", ", $update_parts);
 
 $insertStmt = $db_pdo->prepare($sqlInsert);
 
 // Alle Rückmeldungen abrufen
-$sql = "SELECT id, ue_zuweisung_teilnehmer_id, val_emotions FROM mtr_rueckkopplung_teilnehmer";
+$sql = "SELECT id, ue_zuweisung_teilnehmer_id, emotions FROM mtr_rueckkopplung_teilnehmer";
 foreach ($db_pdo->query($sql) as $row) {
     // Alle Flags = 0 setzen
     $flags = array_fill_keys($emotions_list, 0);
@@ -59,7 +59,7 @@ foreach ($db_pdo->query($sql) as $row) {
     $params = array_merge(
         [
             ':ueid'     => (int)$row['ue_zuweisung_teilnehmer_id'],
-            ':emotions' => $row['val_emotions']
+            ':emotions' => $row['emotions']
         ],
         array_combine(
             array_map(fn($e) => ":$e", array_keys($flags)),

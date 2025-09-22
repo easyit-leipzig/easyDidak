@@ -87,10 +87,12 @@ class DataForm {                    // class for DataForm2.0
             afterDelete:                        undefined,
             afterNew:                           undefined,
             afterSuccessSave:                   undefined,
-            afterbuild:                         function(){
-                                                    if( typeof this.lastRecordPointer === "undefined" ) {
-                                                        this.lastRecordPointer = this.currentRecord;
-                                                    }
+            afterBuild:                         function(){
+                                                    try{
+                                                        if( typeof this.opt.lastRecordPointer === "undefined" ) {
+                                                        this.opt.lastRecordPointer = this.currentRecord;
+                                                        }
+                                                    } catch {}
                                                 },
             onsave:                             function(){},
         }
@@ -110,7 +112,8 @@ class DataForm {                    // class for DataForm2.0
         while ( i < l ) {
             if( tmp[i] !== "undefined" ) loadCSS( PATH_TO_CSS + tmp[i] );
             i += 1;
-        } 
+        }
+        console.log( this.opt.autoOpen );
         //this.opt.id = "#" + this.opt.addPraefix + this.opt.id.substring( 1 );
         if( this.opt.formType === "html") {            
             if( !nj( this.opt.id ).isE() ) {
