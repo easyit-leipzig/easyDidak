@@ -47,7 +47,7 @@ const getDVar = function( el ) {
 }
 /* end dialog helper */
 /* TODO: extract all not nessacary setup vars to intern vars */ 
-class DialogDR {                    // dialog drag and resize
+class Dialog {                    // dialog drag and resize
       constructor( param ) {
         this.opt = {
             id:                 "", // necessary - id of dialog; if the element does not exists a new element will be created with this id
@@ -316,7 +316,7 @@ class DialogDR {                    // dialog drag and resize
             el_he.id = this.boxId + "_help";
             nj( el_he ).aCl( CLASS_DIALOG_HELP );
             document.body.appendChild( el_he );
-            this.opt.divHelp = new DialogDR( { dVar: this.opt.dVar + ".opt.divHelp", id: "#" + el_he.id, title: "Hilfe", modal: true, autoOpen: false, center: false, cascade: false, canResize: this.opt.helpCanResize } );
+            this.opt.divHelp = new Dialog( { dVar: this.opt.dVar + ".opt.divHelp", id: "#" + el_he.id, title: "Hilfe", modal: true, autoOpen: false, center: false, cascade: false, canResize: this.opt.helpCanResize } );
         }
         if( this.opt.hasInfo ) {
             let el_i = nj().cEl( "div" );
@@ -324,7 +324,7 @@ class DialogDR {                    // dialog drag and resize
             el_i.id = this.boxId + "_info";
             nj( el_i ).aCl( CLASS_DIALOG_INFO );
             document.body.appendChild( el_i );
-            this.opt.divInfo = new DialogDR( { dVar: this.opt.dVar + ".opt.divInfo", id: "#" + el_i.id, title: "Information", modal: true, autoOpen: false, center: false, cascade: false })
+            this.opt.divInfo = new Dialog( { dVar: this.opt.dVar + ".opt.divInfo", id: "#" + el_i.id, title: "Information", modal: true, autoOpen: false, center: false, cascade: false })
         }
         nj( this.opt.target ).aCh( box );
         if( this.opt.canResize ) {

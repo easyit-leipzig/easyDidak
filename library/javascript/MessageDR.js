@@ -32,7 +32,7 @@ class Message {
         }
         Object.assign( this.opt, param );
         loadCSS( PATH_TO_MESSAGE_CSS );
-        this.opt.divMess = new DialogDR( { dVar: this.opt.dVar + ".opt.divMess", 
+        this.opt.divMess = new Dialog( { dVar: this.opt.dVar + ".opt.divMess", 
             id: this.opt.id, 
             title: this.opt.title,
             addClasses: this.opt.addClasses,

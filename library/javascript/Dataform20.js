@@ -112,7 +112,7 @@ class DataForm {                    // class for DataForm2.0
             }
             
         } else {
-            this.dDF = new DialogDR( {
+            this.dDF = new Dialog( {
                 dVar: this.opt.dVar + ".dDF", 
                 id: this.opt.id, 
                 title: this.opt.title, 
@@ -151,13 +151,13 @@ class DataForm {                    // class for DataForm2.0
         if( this.opt.searchArray.length > 0 ) {
             this.showSearchHeadline();
         }
-        this.divUpload = new DialogDR( { 
+        this.divUpload = new Dialog( { 
             dVar: param.dVar + ".divUpload", 
             title: "Datei laden", 
             innerHTML: DIV_UPLOAD_HTML.replaceAll( "[dVar]", this.opt.dVar ),
             addClasses: "cDivUpload", 
         } );
-        this.divEditLink = new DialogDR( { 
+        this.divEditLink = new Dialog( { 
             dVar: param.dVar + ".divEditLink", 
             title: "Link bearbeiten", 
             innerHTML: DIV_LINK_HTML.replaceAll( "[dVar]", this.opt.dVar ),
@@ -202,7 +202,7 @@ class DataForm {                    // class for DataForm2.0
                 this.opt.afterBuild()  
             } 
         } );
-        this.divEditSelect = new DialogDR( {
+        this.divEditSelect = new Dialog( {
                 dVar: param.dVar + ".divEditSelect", 
                 title: "Auswahl", 
                 innerHTML: DIV_EDIT_SELECT.replaceAll( "[dVar]", this.opt.dVar ),
@@ -230,7 +230,7 @@ class DataForm {                    // class for DataForm2.0
                     ]            
             }   
         );
-        this.divEditTextarea = new DialogDR( {
+        this.divEditTextarea = new Dialog( {
                 dVar: param.dVar + ".divEditTextarea", 
                 title: "Texteingabe", 
                 innerHTML: DIV_EDIT_TEXTAREA.replaceAll( "[dVar]", this.opt.dVar ),

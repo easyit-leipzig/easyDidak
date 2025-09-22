@@ -458,7 +458,7 @@ var Df_6 = new DataForm( {
     //filter: "id = '1'",
 } );
 var myDia;
-        myDia = new DialogDR({
+        myDia = new Dialog({
         dVar: "myDia", 
         width: 800,
         height: 600,
