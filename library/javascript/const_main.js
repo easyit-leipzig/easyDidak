@@ -105,21 +105,6 @@ window.addEventListener("load", function() {
     window.dispatchEvent(new Event('scroll'));
 })
 /* end register resize/scroll */
-/* pos nav */
-var getPosNav = function() {
-    let pos = nj( "nav" ).gRe();
-    let navBottom = pos.y + pos.height;
-    if( nj( "#header_big" ).gRe().height > navBottom ) {
-        document.documentElement.style.setProperty('--nav-top', nj( "#header_big" ).gRe().height + "px");
-
-    }else{
-        document.documentElement.style.setProperty('--nav-top', navBottom + "px");
-
-    }
-    document.documentElement.style.setProperty('--nav-width', pos.width);
-}
-registerOnResize( getPosNav );
-/* end pos nav */
 /* dim wrapper */
 var getDimWrapper = function() {
     let wW = +( document.documentElement.style.getPropertyValue('--document-width') ) - ( +( document.documentElement.style.getPropertyValue('--scrollbar-width') ) );
