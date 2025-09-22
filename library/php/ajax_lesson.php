@@ -199,6 +199,7 @@ switch( $_POST["command"]) {
                                 $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                 return $return;   
                             }
+                            $return -> resBasisNote = $db_pdo -> query( "SELECT avg(basiswissen) as basiswissen, avg(note) as note FROM `mtr_persoenlichkeit` where teilnehmer_id in ($str)" )->fetchAll();                            
                             $l = count( $return -> tn );
                             $i = 0;
                             while( $i < $l ) {
@@ -206,7 +207,8 @@ switch( $_POST["command"]) {
                                 $m = count( $return -> keys );
                                 $j = 0;
                                 while( $j < $m ) {
-                                    $zufallszahl = (rand() / getrandmax()) - 0.5;  // Normalisiert auf den Bereich -0.5 bis +0.5
+                                    $zufallszahl = 1 + (rand() / getrandmax()) - 0.5;  // Normalisiert auf den Bereich -0.5 bis +0.5
+                                    if( $zufallszahl > 6 ) $zufallszahl = 6;
                                     $return -> tn[$i][$return -> keys[$j]] = $return -> tn[$i][$return -> keys[$j]] + $zufallszahl;
                                     $j += 1;
                                 }
