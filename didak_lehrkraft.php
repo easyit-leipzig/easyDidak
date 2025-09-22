@@ -20,7 +20,7 @@
 <script src="library/javascript/easyit_helper_neu.js"></script>
 <script src="library/javascript/main.js"></script>
 <script src="library/javascript/DropResize.js"></script>
-<script src="library/javascript/DialogDR.js"></script>
+<script src="library/javascript/Dialog2.0.1.js"></script>
 <script src="library/javascript/Field2.0.1.js"></script>
 <script src="library/javascript/RecordSet2.0.1.js"></script>
 <script src="library/javascript/DataForm2.0.1.js"></script>
