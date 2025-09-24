@@ -46,7 +46,7 @@ require_once("library/php/getOS.php");
         print_r( json_encode( $return ));
         die;
     }
-    $q = "SELECT id as value, Nachname as text from std_teilnehmer order by Nachname asc";
+    $q = "SELECT id as value, Nachname as text from std_teilnehmer where show_tn=1 order by Nachname asc";
     $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
@@ -82,7 +82,7 @@ require_once("library/php/getOS.php");
         $i += 1;
     }
     print_r( "var list_schulform = '" . $option . "';\n" );
-    $q = "SELECT * FROM `std_teilnehmer` order by Vorname";
+    $q = "SELECT * FROM `std_teilnehmer` where show_tn=1 order by Vorname";
     $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
@@ -168,8 +168,9 @@ var Df = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
-    //filter: "id = '1'",
-    orderArray: ["val_varchar", "val_int"],
+    filter: "show_tn=1",
+    //whereClausel: "show_tn=1",
+    //orderArray: ["val_varchar", "val_int"],
     searchArray: [
  
             {

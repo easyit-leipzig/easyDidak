@@ -48,7 +48,7 @@ foreach ($db_pdo->query($sql) as $row) {
     $flags = array_fill_keys($emotions_list, 0);
 
     // Emotions-String splitten
-    $emotions = array_map('trim', explode(",", $row['val_emotions']));
+    $emotions = array_map('trim', explode(",", $row['emotions']));
     foreach ($emotions as $emo) {
         if (in_array($emo, $emotions_list)) {
             $flags[$emo] = 1;

@@ -187,9 +187,20 @@ foreach ($rows as $row) {
         ":z"             => $z,
         ":h"             => $h
     ]);
-}
+        // JSON-Datensatz anhängen
+    $jsonData[] = [
+        "teilnehmer_id" => $row["teilnehmer_id"],
+        "zeitpunkt"     => date("c"), // ISO-Format
+        "x_kognition"   => $x,
+        "y_sozial"      => $y,
+        "z_affektiv"    => $z,
+        "h_bedeutung"   => $h
+    ];
 
-echo "Tabelle frzk_semantische_dichte erfolgreich befüllt (mit Emotionen-Gewichtung).\n";
+}
+file_put_contents(__DIR__ . "/frzk_semantische_dichte.json", json_encode($jsonData, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
+
+echo "Tabelle frzk_semantische_dichte erfolgreich befüllt UND als JSON gespeichert.\n";
 /*
 🔹 Vorteile
 

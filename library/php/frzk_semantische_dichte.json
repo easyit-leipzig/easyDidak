@@ -1,0 +1,394 @@
+[
+    {
+        "teilnehmer_id": 21,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.2,
+        "y_sozial": 1,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.7272727272727273
+    },
+    {
+        "teilnehmer_id": 12,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1,
+        "y_sozial": 1,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1
+    },
+    {
+        "teilnehmer_id": 20,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.8,
+        "y_sozial": 1.5,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.6363636363636365
+    },
+    {
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.4,
+        "y_sozial": 1.25,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.8181818181818181
+    },
+    {
+        "teilnehmer_id": 3,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.6,
+        "y_sozial": 1,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.2727272727272727
+    },
+    {
+        "teilnehmer_id": 9,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.8,
+        "y_sozial": 2,
+        "z_affektiv": 2,
+        "h_bedeutung": 2.272727272727273
+    },
+    {
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.8,
+        "y_sozial": 2,
+        "z_affektiv": 1,
+        "h_bedeutung": 2.3636363636363638
+    },
+    {
+        "teilnehmer_id": 8,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.8,
+        "y_sozial": 2.5,
+        "z_affektiv": 1.5,
+        "h_bedeutung": 2.727272727272727
+    },
+    {
+        "teilnehmer_id": 5,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.2,
+        "y_sozial": 1.5,
+        "z_affektiv": 1.25,
+        "h_bedeutung": 2
+    },
+    {
+        "teilnehmer_id": 11,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.8,
+        "y_sozial": 1.75,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.7272727272727273
+    },
+    {
+        "teilnehmer_id": 6,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 2.25,
+        "z_affektiv": 1,
+        "h_bedeutung": 2.090909090909091
+    },
+    {
+        "teilnehmer_id": 7,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.6,
+        "y_sozial": 1.5,
+        "z_affektiv": 1,
+        "h_bedeutung": 2.090909090909091
+    },
+    {
+        "teilnehmer_id": 14,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.6,
+        "y_sozial": 1.5,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.4545454545454546
+    },
+    {
+        "teilnehmer_id": 12,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.4,
+        "y_sozial": 1,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.1818181818181819
+    },
+    {
+        "teilnehmer_id": 12,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.4,
+        "y_sozial": 1,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.1818181818181819
+    },
+    {
+        "teilnehmer_id": 22,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 1.5,
+        "z_affektiv": 1.25,
+        "h_bedeutung": 1.9090909090909092
+    },
+    {
+        "teilnehmer_id": 13,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 2.25,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 2
+    },
+    {
+        "teilnehmer_id": 9,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 1.75,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.8181818181818181
+    },
+    {
+        "teilnehmer_id": 15,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 3.2,
+        "y_sozial": 1.5,
+        "z_affektiv": 1.5,
+        "h_bedeutung": 2.5454545454545454
+    },
+    {
+        "teilnehmer_id": 10,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.8,
+        "y_sozial": 1,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.4545454545454546
+    },
+    {
+        "teilnehmer_id": 18,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.2,
+        "y_sozial": 2,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.5454545454545454
+    },
+    {
+        "teilnehmer_id": 10,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.6,
+        "y_sozial": 2,
+        "z_affektiv": 1.5,
+        "h_bedeutung": 2.4545454545454546
+    },
+    {
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.4,
+        "y_sozial": 1,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.8181818181818181
+    },
+    {
+        "teilnehmer_id": 17,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.4,
+        "y_sozial": 1,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.6363636363636365
+    },
+    {
+        "teilnehmer_id": 2,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 3,
+        "y_sozial": 2.25,
+        "z_affektiv": 1.25,
+        "h_bedeutung": 2.6363636363636362
+    },
+    {
+        "teilnehmer_id": 21,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 1,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.6363636363636365
+    },
+    {
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.6,
+        "y_sozial": 1.5,
+        "z_affektiv": 1,
+        "h_bedeutung": 2.090909090909091
+    },
+    {
+        "teilnehmer_id": 20,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 1.25,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.7272727272727273
+    },
+    {
+        "teilnehmer_id": 23,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.4,
+        "y_sozial": 1.5,
+        "z_affektiv": 1,
+        "h_bedeutung": 2
+    },
+    {
+        "teilnehmer_id": 10,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.6,
+        "y_sozial": 1,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.2727272727272727
+    },
+    {
+        "teilnehmer_id": 2,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.2,
+        "y_sozial": 2,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.5454545454545454
+    },
+    {
+        "teilnehmer_id": 12,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1,
+        "y_sozial": 1.25,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.0909090909090908
+    },
+    {
+        "teilnehmer_id": 14,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.4,
+        "y_sozial": 1.75,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.4545454545454546
+    },
+    {
+        "teilnehmer_id": 9,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.4,
+        "y_sozial": 1,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.3636363636363635
+    },
+    {
+        "teilnehmer_id": 15,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 3.2,
+        "y_sozial": 1.75,
+        "z_affektiv": 1,
+        "h_bedeutung": 2.4545454545454546
+    },
+    {
+        "teilnehmer_id": 10,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.2,
+        "y_sozial": 1.25,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.1818181818181819
+    },
+    {
+        "teilnehmer_id": 17,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.4,
+        "y_sozial": 1,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.7272727272727273
+    },
+    {
+        "teilnehmer_id": 19,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.6,
+        "y_sozial": 2.25,
+        "z_affektiv": 1.25,
+        "h_bedeutung": 2.4545454545454546
+    },
+    {
+        "teilnehmer_id": 6,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.8,
+        "y_sozial": 3,
+        "z_affektiv": 1.25,
+        "h_bedeutung": 2.8181818181818183
+    },
+    {
+        "teilnehmer_id": 20,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.8,
+        "y_sozial": 1.25,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.6363636363636365
+    },
+    {
+        "teilnehmer_id": 11,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.4,
+        "y_sozial": 2.25,
+        "z_affektiv": 1,
+        "h_bedeutung": 2.272727272727273
+    },
+    {
+        "teilnehmer_id": 24,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.4,
+        "y_sozial": 1.25,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.9090909090909092
+    },
+    {
+        "teilnehmer_id": 4,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 3.2,
+        "y_sozial": 2.75,
+        "z_affektiv": 1.5,
+        "h_bedeutung": 3
+    },
+    {
+        "teilnehmer_id": 2,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2.2,
+        "y_sozial": 1.75,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.9090909090909092
+    },
+    {
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 1.25,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.7272727272727273
+    },
+    {
+        "teilnehmer_id": 13,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.2,
+        "y_sozial": 1.75,
+        "z_affektiv": 0.75,
+        "h_bedeutung": 1.4545454545454546
+    },
+    {
+        "teilnehmer_id": 21,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 1.6,
+        "y_sozial": 1.25,
+        "z_affektiv": 0.5,
+        "h_bedeutung": 1.3636363636363635
+    },
+    {
+        "teilnehmer_id": 20,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 1.25,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.7272727272727273
+    },
+    {
+        "teilnehmer_id": 23,
+        "zeitpunkt": "2025-09-23T12:08:25+00:00",
+        "x_kognition": 2,
+        "y_sozial": 1.75,
+        "z_affektiv": 1,
+        "h_bedeutung": 1.9090909090909092
+    }
+]

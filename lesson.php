@@ -115,7 +115,7 @@
         $i += 1;
     }
     print_r( "var list_schulform = '" . $option . "';\n" );
-    $q = "SELECT * FROM `std_teilnehmer` order by Vorname";
+    $q = "SELECT * FROM `std_teilnehmer` where show_tn=1 order by Vorname";
     $s = $db_pdo -> query( $q );
     $r = $s -> fetchAll( PDO::FETCH_CLASS );
     $l = count( $r );
@@ -612,7 +612,7 @@ var Df_8 = new DataForm( {
             value: "&nbsp;",
             field: "recordPointer",
             baseClass: "cButtonMiddle",
-            onClick: function(){setTeilnehmer( this )},
+            //onClick: function(){setTeilnehmer( this )},
         },
         {
             field: "id",
@@ -773,7 +773,7 @@ var Df_9 = new DataForm( {
     currentPage: 0,
     hasPagination: false,
     countRecords: undefined,
-    //filter: "id = '1'",
+    filter: "id = '0'",
 } );
 var Df_5 = new DataForm( { 
     dVar: "Df_5", 

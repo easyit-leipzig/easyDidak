@@ -2,7 +2,7 @@
 // orientation_loss.php
 //Hier wird aus density_map.php die Gradientengröße berechnet und normalisiert → 
 header('Content-Type: application/json; charset=utf-8');
-$data = json_decode(file_get_contents('density_map.json'), true);
+$data = json_decode(file_get_contents('frzk_semantische_dichte.json'), true);
 
 $h = $data['h'];
 $ny = count($data['y_labels']);
