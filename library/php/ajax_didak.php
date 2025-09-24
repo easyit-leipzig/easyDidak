@@ -216,7 +216,7 @@ switch( $_POST["command"]) {
                                                             ($zwId, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "',$tnId," . $r[0]["lernfortschritt"] . ", " . $r[0]["beherrscht_thema"] . "," . $r[0]["transferdenken"] . "," . $rtn[0]["basiswissen"] . "," . $r[0]["vorbereitet"] . 
                                                             "," . $rtn[0]["belastbarkeit"] . "," . $rtn[0]["note"] ." )";
                             $db_pdo -> query( $q );
-                            $db_pdo -> query( "update mtr_rueckkopplung_teilnehmer set ue_zuweisung_teilnehmer_id=$zwId where id=" . $_POST["id"] );
+                            $db_pdo -> query( "update mtr_rueckkopplung_teilnehmer set ue_zuweisung_teilnehmer_id=$zwId, datum='" . $return -> currentDate->format('Y-m-d') . " " . $a . "' where id=" . $_POST["id"] );
                             setEmotions( $db_pdo,$tmpTN,$zwId,$return -> currentDate->format('Y-m-d') . " " . $a, $tmpEmotions );
                             $r =  $db_pdo -> query( "select ue_zuweisung_teilnehmer_id, teilnehmer_id, erfasst_am, themenauswahl, methodenvielfalt,individualisierung, aufforderung, materialien, zielgruppen from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
                             $return -> t = "INSERT INTO `mtr_didaktik` (`ue_zuweisung_teilnehmer_id`, `teilnehmer_id`, `datum`, `themenauswahl`, `methodenvielfalt`, `individualisierung`, `aufforderung`, `materialien`, `zielgruppen`) VALUES (" 
@@ -227,7 +227,6 @@ switch( $_POST["command"]) {
                             . $r[0]["ue_zuweisung_teilnehmer_id"] . ", " . $r[0]["teilnehmer_id"] . ", '" .  $return -> currentDate->format('Y-m-d') . " " . $a . "', " . $r[0]["themenauswahl"] . ", " . $r[0]["methodenvielfalt"] . ", "  . $r[0]["individualisierung"] . ", "
                             . $r[0]["aufforderung"] . ", " . $r[0]["materialien"] . ", "  . $r[0]["materialien"] . ")");
                              //$return -> q = $test;
-                           
                             $return -> s = $tnId;
                             $return -> r = $r;
                             $return -> rtn = $rtn;

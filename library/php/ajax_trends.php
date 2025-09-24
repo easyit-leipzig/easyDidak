@@ -71,7 +71,6 @@ switch( $_POST["command"]) {
     */
                             $query = "SELECT avg(lernfortschritt) as lernfortschritt, avg(beherrscht_thema) as beherrscht_thema, avg(transferdenken) as transferdenken, avg(basiswissen) as basiswissen, 
                                         avg(lernfortschritt) as lernfortschritt, avg(vorbereitet) as vorbereitet, avg(note) as note FROM `mtr_leistung`  where   teilnehmer_id=" . $_POST["tn"];
-                            $return -> s = $_POST;
                             try {
                                 $stm = $db_pdo -> query( $query );
                                 $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
@@ -80,6 +79,7 @@ switch( $_POST["command"]) {
                                 $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                 return $return;   
                             }
+                            $return->dates = $db_pdo -> query( "select min(datum) as minDate, max(datum) as maxDate, count(id) as anz  FROM `mtr_leistung`  where   teilnehmer_id=" . $_POST["tn"] )->fetchAll();
                             $return -> res = $result;
                                 print_r( json_encode( $return )); 
     break;
