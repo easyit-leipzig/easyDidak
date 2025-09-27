@@ -77,6 +77,9 @@ class RecordSet {                    // class for DataForm2.0
                     if( typeof nj(elField[j]).Dia().opt.onMouseOver === "function" ) {
                        nj(elField[j]).on( "mouseover", nj(elField[j]).Dia().opt.onMouseOver ); 
                     }
+                    if( typeof nj(elField[j]).Dia().opt.onMouseOut === "function" ) {
+                       nj(elField[j]).on( "mouseout", nj(elField[j]).Dia().opt.onMouseOut ); 
+                    }
                     if( typeof nj(elField[j]).Dia().opt.onMouseDown === "function" ) {
                        nj(elField[j]).on( "mousedown", nj(elField[j]).Dia().opt.onMouseOver ); 
                     }

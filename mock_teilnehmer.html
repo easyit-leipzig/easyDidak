@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback GUI mit vollständigen Gewichtungen</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    .field-group {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .slider-row {
+      display: flex;
+      align-items: center;
+      margin: 0.3rem 0;
+    }
+    .slider-row label {
+      flex: 1;
+    }
+    .slider-row input[type=range] {
+      flex: 2;
+      margin: 0 0.5rem;
+    }
+    .slider-row span {
+      width: 2.5rem;
+      text-align: right;
+    }
+    .response {
+      background: #f6f6f6;
+      padding: 1rem;
+      margin-top: 2rem;
+      white-space: pre-wrap;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+    }
+    h2 {
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎛 Feedback Generator (alle Gewichtungen)</h1>
+
+<form id="feedbackForm">
+  <label>Teilnehmer-ID:
+    <input type="number" name="teilnehmer_id" required>
+  </label><br><br>
+
+  <label>UE-Zuweisung Teilnehmer-ID:
+    <input type="number" name="ue_zuweisung_teilnehmer_id" required>
+  </label><br><br>
+
+  <label>Gruppe-ID:
+    <input type="number" name="gruppe_id" required>
+  </label>
+
+  <h2>🎯 Gewichtungen (je Zielwert)</h2>
+  <div id="weightingsContainer"></div>
+
+  <button type="submit">Absenden</button>
+</form>
+
+<div class="response" id="responseBox"></div>
+
+<script>
+const profileFields = [
+  "offenheit_erfahrungen", "gewissenhaftigkeit", "extraversion", "vertraeglichkeit",
+  "zielorientierung", "lernfaehigkeit", "anpassungsfaehigkeit", "soziale_interaktion",
+  "metakognition", "stressbewaeltigung", "bedeutungsbildung", "belastbarkeit",
+  "problemlösefähigkeit", "kreativität_innovation", "ko-kreationsfähigkeit",
+  "resonanzfähigkeit", "handlungsdichte", "performanz_effizienz", "basiswissen", "note"
+];
+
+// Vordefinierte Zielbereiche (wie in deinem PHP-Skript)
+const targetFields = {
+  mitarbeit: ["extraversion", "gewissenhaftigkeit", "handlungsdichte"],
+  konzentration: ["lernfaehigkeit", "gewissenhaftigkeit", "belastbarkeit"],
+  selbststaendigkeit: ["metakognition", "zielorientierung"],
+  fleiss: ["gewissenhaftigkeit", "performanz_effizienz"],
+  lernfortschritt: ["basiswissen", "problemlösefähigkeit", "kreativität_innovation"],
+  beherrscht_thema: ["basiswissen", "performanz_effizienz"],
+  transferdenken: ["problemlösefähigkeit", "kreativität_innovation"],
+  vorbereitet: ["gewissenhaftigkeit", "zielorientierung"],
+  themenauswahl: ["resonanzfähigkeit", "anpassungsfaehigkeit"],
+  materialien: ["resonanzfähigkeit", "kreativität_innovation"],
+  methodenvielfalt: ["offenheit_erfahrungen", "ko-kreationsfähigkeit"],
+  individualisierung: ["soziale_interaktion", "metakognition"],
+  aufforderung: ["resonanzfähigkeit", "extraversion"]
+};
+
+function createSliders() {
+  const container = document.getElementById('weightingsContainer');
+  Object.entries(targetFields).forEach(([target, factors]) => {
+    const group = document.createElement('div');
+    group.className = 'field-group';
+    group.innerHTML = `<strong>${target}</strong>`;
+    
+    factors.forEach(field => {
+      const row = document.createElement('div');
+      row.className = 'slider-row';
+      row.innerHTML = `
+        <label for="${target}_${field}">${field}</label>
+        <input type="range" min="0" max="10" value="5" id="${target}_${field}">
+        <span id="${target}_${field}_val">5</span>
+      `;
+      group.appendChild(row);
+    });
+
+    container.appendChild(group);
+  });
+}
+
+function collectCustomWeights() {
+  const result = {};
+  Object.entries(targetFields).forEach(([target, factors]) => {
+    const weights = factors.map(f => {
+      const val = parseInt(document.getElementById(`${target}_${f}`).value, 10);
+      return [f, val];
+    });
+
+    const total = weights.reduce((sum, [_, val]) => sum + val, 0) || 1;
+
+    result[target] = weights.map(([field, val]) => [field, +(val / total).toFixed(2)]);
+  });
+  return result;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  createSliders();
+
+  document.querySelectorAll('input[type="range"]').forEach(slider => {
+    slider.addEventListener('input', () => {
+      document.getElementById(slider.id + "_val").textContent = slider.value;
+    });
+  });
+
+  document.getElementById('feedbackForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const payload = {
+      teilnehmer_id: parseInt(form.teilnehmer_id.value, 10),
+      ue_zuweisung_teilnehmer_id: parseInt(form.ue_zuweisung_teilnehmer_id.value, 10),
+      gruppe_id: parseInt(form.gruppe_id.value, 10),
+      custom_weights: collectCustomWeights()
+    };
+
+    try {
+      const res = await fetch("library/php/mock_mtr_rueckkopplung_teilnehmer_from_mtr_persoenlichkeit_verbessert.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await res.json();
+      document.getElementById('responseBox').textContent = JSON.stringify(result, null, 2);
+    } catch (err) {
+      document.getElementById('responseBox').textContent = "❌ Fehler:\n" + err.message;
+    }
+  });
+});
+</script>
+
+</body>
+</html>

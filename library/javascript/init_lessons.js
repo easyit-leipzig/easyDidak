@@ -123,7 +123,13 @@ setBewTn = function(){
         nj("input[id^=df6_" + Df_2.opt.fieldDefinitions[i].field + "]").rAt( "title" );
         i += 1;
     }
-
+    let el = nj().cEl("div");
+    el.id = "setBewTn";
+    el.innerHTML = "test";
+    if( !nj("#setBewTn").isE()) nj("#myDia").aCh(el);
+}
+setBewTnBeschr = function( el ) {
+    console.log( el );
 }
 setMtrLeistung = function( el ) {
     let v = nj("#df4_teilnehmer_id_" + Df_4.opt.currentRecord).v();

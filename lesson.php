@@ -24,6 +24,7 @@
 <div id="Df_3"></div>
 <h2>Zuweisung Teinehmer</h2>
 <div id="Df_4"></div>
+<div id="Df_6"><div id=test>test</div></div>
 <h2>Bewertung Teilnehmer</h2>
 <div id="Df_8"></div>
 <h2>Bewertung Didaktik</h2>
@@ -212,9 +213,7 @@ var Df = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
-    //orderBy: " datum desc",
-    //filter: "id = '1'",
-    orderArray: [],
+    orderArray: ['datum', 'gruppe'],
     searchArray: [
         ],
 } );
@@ -889,6 +888,8 @@ var Df_6 = new DataForm( {
             Comment: "Offenheit für Erfahrungen&#10;Hohe Ausprägung: Sucht aktiv nach neuen 'Feldzuständen' (Lerninhalten, Situationen), experimentiert mit verschiedenen 'Akteur-Funktionen' (Lernstrategien, Verhaltensweisen), ist offen für die Transformation symbolischer Meta-Strukturen. Niedrige Ausprägung: Bevorzugt bekannte 'Feldzustände', vermeidet neue Verhaltensmuster, hält an etablierten symbolischen Ordnungen fest.",
             minValue: 1,
             maxValue: 6,
+            onMouseOver: function(){setBewTnBeschr(this)},
+            onMouseOut: function(){nj("#setBewTn").htm("")},
 
         },
         {
@@ -997,6 +998,7 @@ var Df_6 = new DataForm( {
     hasPagination: true,
     countRecords: undefined,
     filter: "id = '0'",
+    afterBuild: function(){ setBewTn()}
 } );
 var myDia;
         myDia = new Dialog({

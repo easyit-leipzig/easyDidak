@@ -1088,9 +1088,8 @@ class DataForm {                    // class for DataForm2.0
                 } else {
                     window[df.opt.boundForm[i]].opt.filter = df.opt.boundFields[i].to + " = " + nj( "#" + df.opt.addPraefix + df.opt.boundFields[i].from + "_" + cRec ).v();
                 }
-                console.log( window[df.opt.boundForm[i]].opt.filter );
                 window[df.opt.boundForm[i]].getSearchString();
-                if( window[df.opt.boundForm[i]].opt.formType !== "html" ) {
+                if( window[df.opt.boundForm[i]].opt.formType === "list" && window[df.opt.boundForm[i]].opt.autoOpen ) {
                     window[df.opt.boundForm[i]].dDF.show();
                 }
                 i += 1;
