@@ -211,12 +211,11 @@ switch( $_POST["command"]) {
                             $zwId = $db_pdo -> lastInsertId();
                             $r =  $db_pdo -> query( "select lernfortschritt, beherrscht_thema, transferdenken, vorbereitet from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
                             $rtn = $db_pdo -> query( "select basiswissen,belastbarkeit, note from mtr_persoenlichkeit where teilnehmer_id = $tnId" )->fetchAll();
-                            
                             $q="insert into mtr_leistung (ue_zuweisung_teilnehmer_id,datum,teilnehmer_id,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,belastbarkeit,note) VALUES 
                                                             ($zwId, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "',$tnId," . $r[0]["lernfortschritt"] . ", " . $r[0]["beherrscht_thema"] . "," . $r[0]["transferdenken"] . "," . $rtn[0]["basiswissen"] . "," . $r[0]["vorbereitet"] . 
                                                             "," . $rtn[0]["belastbarkeit"] . "," . $rtn[0]["note"] ." )";
                             $db_pdo -> query( $q );
-                            $db_pdo -> query( "update mtr_rueckkopplung_teilnehmer set ue_zuweisung_teilnehmer_id=$zwId, datum='" . $return -> currentDate->format('Y-m-d') . " " . $a . "' where id=" . $_POST["id"] );
+                            $db_pdo -> query( "update mtr_rueckkopplung_teilnehmer set ue_zuweisung_teilnehmer_id=$zwId, erfasst_am='" . $return -> currentDate->format('Y-m-d') . " " . $a . "' where id=" . $_POST["id"] );
                             setEmotions( $db_pdo,$tmpTN,$zwId,$return -> currentDate->format('Y-m-d') . " " . $a, $tmpEmotions );
                             $r =  $db_pdo -> query( "select ue_zuweisung_teilnehmer_id, teilnehmer_id, erfasst_am, themenauswahl, methodenvielfalt,individualisierung, aufforderung, materialien, zielgruppen from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
                             $return -> t = "INSERT INTO `mtr_didaktik` (`ue_zuweisung_teilnehmer_id`, `teilnehmer_id`, `datum`, `themenauswahl`, `methodenvielfalt`, `individualisierung`, `aufforderung`, `materialien`, `zielgruppen`) VALUES (" 
@@ -229,6 +228,7 @@ switch( $_POST["command"]) {
                              //$return -> q = $test;
                             $return -> s = $tnId;
                             $return -> r = $r;
+                            $return -> q = $q;
                             $return -> rtn = $rtn;
                            print_r( json_encode( $return )); 
     break;
