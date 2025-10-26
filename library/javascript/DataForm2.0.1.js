@@ -64,7 +64,7 @@ class DataForm {                    // class for DataForm2.0
             boundFilter:                        "",         // additional filter after bound form
             lastRecordPointer:                  undefined,
             addPraefix:                         "",
-            addClassFiles:                      "DataForm20.css", // optional - additional class files divide by " "
+            addClassFiles:                      "Dataform20.css", // optional - additional class files divide by " "
             widthSave:                          true,
             widthDelete:                        true,
             dfHasLabel:                         true,

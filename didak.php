@@ -443,6 +443,7 @@ var Df_2 = new DataForm( {
 (function() {
     Df.init();
     Df_2.init();
+    nj("#df1_search_id").on("change", function(){ let v = nj("#df1_search_id").v();    nj("#df2_teilnehmer_id_new").v( v)})
 })();
 </script>
 <legend>

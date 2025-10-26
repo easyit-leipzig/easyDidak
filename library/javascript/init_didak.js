@@ -18,8 +18,7 @@
 }
 
 setTooltips = function() {
-    console.log("hier");
-    nj( "#df2_einrichtung_id_new").v( nj("#df1_search_einrichtung_id" ).v() );
+   nj( "#df2_einrichtung_id_new").v( nj("#df1_search_einrichtung_id" ).v() );
     try {
 
   let myTooltip_1 = new Opentip("#df2_mitarbeit_new", "Wie aktiv beteiligst du dich am Unterricht (Fragen stellen, Antworten geben, mitdenken)?", "Mitarbeit");
@@ -53,4 +52,6 @@ setGroup = function() {
     data.command = "setGroup";
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 }
+nj("#df1_search_id").on("change", function(){ console.log(nj("#df1_search_id").v());    nj("#df2_teilnehmer_id_new").v( nj( "#df1_search_id").v())})
+
 //setTooltips()
