@@ -23,6 +23,7 @@
 <script src="library/javascript/DropResize.js"></script>
 <script src="library/javascript/Dialog2.0.1.js"></script>
 <script src="library/javascript/Field2.0.1.js"></script>
+<script src="library/javascript/MessageDR.js"></script>
 <script src="library/javascript/RecordSet2.0.1.js"></script>
 <script src="library/javascript/DataForm2.0.1.js"></script>
 <script src="library/javascript/OpenTip_native.js"></script>

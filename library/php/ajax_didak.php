@@ -206,7 +206,7 @@ switch( $_POST["command"]) {
                                         return                            print_r( json_encode( $return )); 
 ;   
                                     }
-                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teilnehmer_id`, datum) VALUES (" . $result[0]["id"] . ", $tnId, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "')";
+                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teilnehmer_id`, gruppe_id, datum) VALUES (" . $result[0]["id"] . ", $tnId, $group_id, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "')";
                    $db_pdo -> query( $q );
                             $zwId = $db_pdo -> lastInsertId();
                             $r =  $db_pdo -> query( "select lernfortschritt, beherrscht_thema, transferdenken, vorbereitet from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
@@ -226,11 +226,21 @@ switch( $_POST["command"]) {
                             . $r[0]["ue_zuweisung_teilnehmer_id"] . ", " . $r[0]["teilnehmer_id"] . ", '" .  $return -> currentDate->format('Y-m-d') . " " . $a . "', " . $r[0]["themenauswahl"] . ", " . $r[0]["methodenvielfalt"] . ", "  . $r[0]["individualisierung"] . ", "
                             . $r[0]["aufforderung"] . ", " . $r[0]["materialien"] . ", "  . $r[0]["materialien"] . ")");
                              //$return -> q = $test;
-                            $return -> s = $tnId;
-                            $return -> r = $r;
-                            $return -> q = $q;
-                            $return -> rtn = $rtn;
-                           print_r( json_encode( $return )); 
+                   $emotionen = [];
+                    $res = $pdo->query("SELECT id AS code, valenz, aktivierung FROM _mtr_emotionen");
+                    foreach ($res as $r) {
+                        $emotionen[strtolower($r['code'])] = [
+                            'v' => (float)$r['valenz'],
+                            'a' => (float)$r['aktivierung']
+                        ];
+                    }
+
+                    $return -> s = $tnId;
+                    $return -> r = $r;
+                    $return -> q = $q;
+                    $return -> rtn = $rtn;
+                    $return -> emotionen = $emotionen;
+                    print_r( json_encode( $return )); 
     break;
     default:
                             print_r( json_encode( $startdiff )); 

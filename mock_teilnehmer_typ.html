@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>10 Schüler-Persönlichkeitstypen & Leistungsstärken</title>
+  <style>
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:#f6f8fb;color:#0f172a}
+    header{padding:20px 24px;border-bottom:1px solid #e6edf3;background:linear-gradient(90deg,rgba(43,108,176,0.08),transparent)}
+    .wrap{max-width:1100px;margin:28px auto;padding:0 20px}
+    h1{margin:0 0 6px;font-size:20px}
+    p.lead{margin:0;color:#6b7280}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+    .card{background:#fff;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);cursor:pointer;border:1px solid transparent;transition:transform .12s,box-shadow .12s,border-color .12s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(15,23,42,0.08)}
+    .card.active{border-color:#2b6cb0;box-shadow:0 14px 40px rgba(43,108,176,0.08)}
+    .card h3{margin:0;font-size:15px}
+    .card p{margin:6px 0 0;color:#6b7280;font-size:13px}
+    .layout{display:flex;flex-direction:column;gap:18px}
+    @media(min-width:1000px){.layout{flex-direction:row}}
+    .list{flex:0 0 520px}
+    .detail{flex:1;background:#fff;padding:20px;border-radius:12px;box-shadow:0 8px 24px rgba(15,23,42,0.06);min-height:240px}
+    .detail h2{margin:0 0 8px}
+    .meta{color:#6b7280;margin-bottom:12px}
+    .traits,.strengths{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .tag{background:#eef6ff;color:#2b6cb0;padding:6px 10px;border-radius:999px;font-size:13px;cursor:pointer;transition:background .2s}
+    .tag:hover{background:#dbeafe}
+    .strengths .tag{background:#fef3c7;color:#92400e}
+    .strengths .tag:hover{background:#fde68a}
+    .actions{margin-top:16px;display:flex;gap:10px}
+    button.btn{border:0;padding:10px 12px;border-radius:8px;cursor:pointer}
+    button.primary{background:#2b6cb0;color:white}
+    button.ghost{background:#f3f4f6;color:#0f172a;border:1px solid #e6edf3}
+    footer{padding:18px 24px;margin-top:30px;color:#6b7280;font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>10 Schüler-Persönlichkeitstypen (Klasse 4–12) mit Leistungsstärken</h1>
+      <p class="lead">Klicke auf einen Typ, um Beschreibung, Lernweise und typische Leistungsstärken zu entdecken.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="layout">
+      <div class="list">
+        <div class="grid" id="typeGrid"></div>
+      </div>
+
+      <aside class="detail" id="detailPane" aria-live="polite">
+        <h2 id="d_title">Wähle einen Schüler-Typ</h2>
+        <div class="meta" id="d_tagline">Klicke links auf einen Typ — hier erscheinen Beschreibung & Lernhinweise.</div>
+        <p id="d_desc">Keine Auswahl getroffen. Die Übersicht zeigt typische Schüler-Persönlichkeiten von Klasse 4 bis 12, um Lernverhalten, Förderung und Leistungsstärken besser zu verstehen.</p>
+        <div class="traits" id="d_traits"></div>
+        <h3 id="strengths_title" style="margin-top:20px;display:none;">Typische Leistungsstärken</h3>
+        <div class="strengths" id="d_strengths"></div>
+        <div class="actions">
+          <button class="btn primary" id="btnCopy">Beschreibung kopieren</button>
+          <button class="btn ghost" id="btnReset">Zurücksetzen</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    Pädagogische Orientierungshilfe für Klassen 4–12 — interaktive Ansicht.
+  </footer>
+
+  <script>
+    const types=[
+      {id:'t1',title:'Der Entdecker',tagline:'Neugierig, aktiv, liebt Experimente',desc:'Entdecker-Kinder probieren aus, lernen durch Tun und fragen ständig „Warum?“. Sie brauchen Freiraum, Bewegung und handlungsorientierte Aufgaben.',traits:['experimentierfreudig','fragend','selbstständig'],strengths:['Naturwissenschaft','Forschen','Projektlernen','Experimentieren','Neugier fördern','Bewegung im Lernen','Kreativität','Entdeckergeist','Selbstlernen','Teamarbeit in Forschergruppen']},
+      {id:'t2',title:'Der Denker',tagline:'Ruhig, reflektiert, liebt logische Strukturen',desc:'Denker analysieren Zusammenhänge und mögen klare Regeln. Sie lernen gern durch Nachdenken, strukturierte Aufgaben und Zeit zum Verstehen.',traits:['logisch','geduldig','detailorientiert'],strengths:['Mathematik','Logikrätsel','Strukturierte Aufgaben','Faktenlernen','Analytisches Denken','Programmieren','Begriffsbildung','Schriftliche Arbeit','Systemverständnis','Selbstorganisation']},
+      {id:'t3',title:'Der Kreative',tagline:'Ideenreich, fantasievoll, spontan',desc:'Kreative Schüler bringen neue Perspektiven ein, malen, musizieren oder erfinden Geschichten. Sie brauchen Offenheit und flexible Aufgaben.',traits:['künstlerisch','unkonventionell','imaginativ'],strengths:['Kunst','Musik','Gestaltung','Geschichten schreiben','Improvisation','Ideenentwicklung','Visuelles Denken','Präsentation','Projekte initiieren','Emotionale Ausdruckskraft']},
+      {id:'t4',title:'Der Teamspieler',tagline:'Hilfsbereit, sozial, kommunikativ',desc:'Teamspieler fühlen sich im Miteinander wohl. Sie lernen am besten in Gruppen, helfen anderen und sorgen für gutes Klassenklima.',traits:['empathisch','kooperativ','freundlich'],strengths:['Gruppenarbeit','Moderation','Soziales Lernen','Kommunikation','Empathie','Hilfsbereitschaft','Verantwortung','Klassensprecher','Kooperationsspiele','Feedback geben']},
+      {id:'t5',title:'Der Leistungsträger',tagline:'Zielstrebig, ehrgeizig, organisiert',desc:'Leistungsträger setzen sich hohe Ziele und lernen diszipliniert. Sie profitieren von klaren Feedbacks, aber auch von Entlastung bei Druck.',traits:['ehrgeizig','diszipliniert','verantwortlich'],strengths:['Wettbewerb','Selbstdisziplin','Planung','Hausaufgabenroutine','Motivation','Verantwortungsgefühl','Ergebnisorientierung','Zielverfolgung','Konzentration','Selbstbewusstsein']},
+      {id:'t6',title:'Der Träumer',tagline:'Sensibel, ruhig, braucht Inspiration',desc:'Träumer sind oft kreativ, aber leicht ablenkbar. Sie lernen gut in ruhiger Umgebung und mit persönlichen, emotionalen Bezügen.',traits:['sensibel','nachdenklich','imaginativ'],strengths:['Kreatives Schreiben','Musik','Bildgestaltung','Fantasie','Selbstreflexion','Emotionale Wahrnehmung','Geduld','Gestaltungsfreude','Achtsamkeit','Künstlerische Projekte']},
+      {id:'t7',title:'Der Praktiker',tagline:'Handlungsorientiert, lösungsfokussiert',desc:'Praktiker wollen verstehen, wie Dinge funktionieren. Sie lernen über reale Beispiele, Experimente oder Technik-Projekte.',traits:['handlungsorientiert','technisch','lösungsstark'],strengths:['Technik','Werkunterricht','Tüfteln','Fehleranalyse','Projektarbeit','Teamarbeit','Experimentelles Lernen','Anwendung von Wissen','Problemlösen','Innovation']},
+      {id:'t8',title:'Der Anführer',tagline:'Selbstbewusst, entscheidungsfreudig, organisiert',desc:'Anführer übernehmen Verantwortung, leiten Gruppen und brauchen Raum für Mitgestaltung. Sie lernen gut, wenn sie Verantwortung übernehmen dürfen.',traits:['verantwortungsbewusst','führungsstark','motiviert'],strengths:['Projektleitung','Organisation','Delegieren','Motivation anderer','Teamführung','Moderation','Verantwortung übernehmen','Zielorientierung','Präsentation','Kritikfähigkeit']},
+      {id:'t9',title:'Der Beobachter',tagline:'Still, aufmerksam, detailtreu',desc:'Beobachter nehmen viel wahr und denken bevor sie handeln. Sie lernen am besten über sorgfältige Beobachtung und schriftliche Aufgaben.',traits:['aufmerksam','ruhig','präzise'],strengths:['Beobachtung','Dokumentation','Forschung','Protokolle','Analysen','Aufmerksamkeit','Lesekompetenz','Sorgfalt','Geduld','Detailarbeit']},
+      {id:'t10',title:'Der Netzwerker',tagline:'Offen, kontaktfreudig, kommunikativ',desc:'Netzwerker lieben Austausch, Gruppenarbeit und Diskussion. Sie lernen am besten durch Kommunikation und gemeinsame Projekte.',traits:['kommunikativ','offen','beziehungsstark'],strengths:['Diskussion','Präsentation','Kommunikation','Teamprojekte','Konfliktlösung','Soziale Medien verstehen','Austausch fördern','Vernetzen','Sprachliche Stärke','Gruppendynamik']}
+    ];
+
+    const grid=document.getElementById('typeGrid');
+    const detailTitle=document.getElementById('d_title');
+    const detailTagline=document.getElementById('d_tagline');
+    const detailDesc=document.getElementById('d_desc');
+    const detailTraits=document.getElementById('d_traits');
+    const strengthsTitle=document.getElementById('strengths_title');
+    const detailStrengths=document.getElementById('d_strengths');
+    const btnCopy=document.getElementById('btnCopy');
+    const btnReset=document.getElementById('btnReset');
+    let activeId=null;
+
+    function renderGrid(){
+      grid.innerHTML='';
+      types.forEach(t=>{
+        const el=document.createElement('button');
+        el.className='card';el.setAttribute('data-id',t.id);
+        el.innerHTML=`<h3>${t.title}</h3><p>${t.tagline}</p>`;
+        el.addEventListener('click',()=>selectType(t.id));
+        grid.appendChild(el);
+      });
+    }
+
+    function selectType(id){
+      activeId=id;
+      const t=types.find(x=>x.id===id);
+      Array.from(grid.children).forEach(c=>{c.classList.toggle('active',c.getAttribute('data-id')===id)});
+      detailTitle.textContent=t.title;
+      detailTagline.textContent=t.tagline;
+      detailDesc.textContent=t.desc;
+      detailTraits.innerHTML='';
+      t.traits.forEach(tr=>{const s=document.createElement('div');s.className='tag';s.textContent=tr;detailTraits.appendChild(s)});
+      strengthsTitle.style.display='block';
+      detailStrengths.innerHTML='';
+      t.strengths.forEach(st=>{const s=document.createElement('div');s.className='tag';s.textContent=st;detailStrengths.appendChild(s)});
+    }
+
+    btnCopy.addEventListener('click',()=>{
+      if(!activeId)return alert('Bitte wähle zuerst einen Typ aus.');
+      const t=types.find(x=>x.id===activeId);
+      const text=`${t.title} - ${t.tagline}\n\n${t.desc}\n\nMerkmale: ${t.traits.join(', ')}\n\nLeistungsstärken: ${t.strengths.join(', ')}`;
+      navigator.clipboard.writeText(text).then(()=>alert('Beschreibung kopiert.'));
+    });
+
+    btnReset.addEventListener('click',()=>{
+      activeId=null;Array.from(grid.children).forEach(c=>c.classList.remove('active'));
+      detailTitle.textContent='Wähle einen Schüler-Typ';
+      detailTagline.textContent='Klicke links auf einen Typ — hier erscheinen Beschreibung & Lernhinweise.';
+      detailDesc.textContent='Keine Auswahl getroffen. Die Übersicht zeigt typische Schüler-Persönlichkeiten von Klasse 4 bis 12, um Lernverhalten, Förderung und Leistungsstärken besser zu verstehen.';
+      detailTraits.innerHTML='';
+      strengthsTitle.style.display='none';
+      detailStrengths.innerHTML='';
+    });
+
+    renderGrid();
+  </script>
+</body>
+</html>
