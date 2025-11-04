@@ -9,6 +9,13 @@ header('Content-Type: text/plain; charset=utf-8');
 $pdo = new PDO("mysql:host=localhost;dbname=icas;charset=utf8mb4", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+// truncate tables
+$pdo->query("truncate frzk_interdependenz")->execute();
+$pdo->query("truncate frzk_loops")->execute();
+$pdo->query("truncate frzk_operatoren")->execute();
+$pdo->query("truncate frzk_reflexion")->execute();
+$pdo->query("truncate frzk_semantische_dichte")->execute();
+$pdo->query("truncate frzk_transitions")->execute();
 
 // --- Gewichtungen für Emotionstypen ---
 $weights = [
@@ -210,4 +217,8 @@ file_put_contents(__DIR__ . "/frzk_semantische_dichte.json",
 
 echo "✅ FRZK-Semantische Dichte erfolgreich befüllt (dynamisch inkl. Emotionen) und JSON erzeugt.\n";
 require_once("fill_frzk_interdependenz.php");
+require_once("fill_frzk_loops.php");
+require_once("fill_frzk_operatoren.php");
+require_once("fill_frzk_reflexion.php");
+require_once("fill_frzk_transitions.php");
 ?>
