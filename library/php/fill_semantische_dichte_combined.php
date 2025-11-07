@@ -177,9 +177,69 @@ foreach ($rows as $row) {
     else $cluster = 3;
 
     // --- Transition Marker ---
-    if (abs($dh_dt) > 0.5) $marker = "Sprung";
-    elseif (abs($dh_dt) > 0.2) $marker = "Übergang";
-    else $marker = "Stabil";
+// --- Transition Marker (granular nach Kapitel 3 FRZK) ---
+/*
+
+
+🧭 Ergebnisbeispiele
+Δh (dh_dt)    Stabilität    transitions_marker-Ausgabe
+0.01    0.9    ⚖️ Homöostatisch (resilient)
+0.10    0.7    🌱 Adaptiv
+0.25    0.6    🔄 Koordinativ
+0.45    0.4    🌊 Transformativ
+0.65    0.2    ⚡ Perturbativ (instabil)
+0.95    0.1    💥 Kollapsiv (instabil)
+🧠 Theoretischer Bezug (Kapitel 3)
+
+Diese Klassifikation bildet die funktionale Dynamik der Bedeutungs-Änderungsrate (dh/dt) ab und entspricht der dortigen
+Differenzierung der Transitionsebenen:
+
+Homöostatisch / Adaptiv = Binnenkohärenz-Erhalt
+
+Koordinativ / Transformativ = Funktionswechsel, emergente Umstrukturierung
+
+Perturbativ / Kollapsiv = Systembruch oder Neuanfang
+
+Damit kannst du in der späteren frzk_transitions-Analyse z. B. auch Aggregationen nach Marker-Typ durchführen (etwa: Anteil transformativ vs. adaptiv).
+
+
+
+*/
+$absDh = abs($dh_dt);
+$marker = "Stabil";
+
+if ($absDh < 0.05) {
+    $marker = "Homöostatisch"; // nahezu keine Änderung – Gleichgewicht
+} elseif ($absDh < 0.15) {
+    $marker = "Adaptiv"; // leichte Anpassung
+} elseif ($absDh < 0.30) {
+    $marker = "Koordinativ"; // mittlere dynamische Anpassung
+} elseif ($absDh < 0.50) {
+    $marker = "Transformativ"; // deutliche Neuorientierung
+} elseif ($absDh < 0.80) {
+    $marker = "Perturbativ"; // starker Sprung, Instabilität
+} else {
+    $marker = "Kollapsiv"; // vollständiger Bedeutungsumbruch
+}
+
+// Erweiterung durch Stabilitätsbewertung
+if ($stabilitaet < 0.3 && $absDh > 0.3) {
+    $marker .= " (instabil)";
+} elseif ($stabilitaet > 0.8 && $absDh < 0.1) {
+    $marker .= " (resilient)";
+}
+
+// Optional: symbolische Marker (z. B. für Visualisierung)
+$markerSymbol = match (true) {
+    str_contains($marker, "Homöostatisch") => "⚖️",
+    str_contains($marker, "Adaptiv") => "🌱",
+    str_contains($marker, "Koordinativ") => "🔄",
+    str_contains($marker, "Transformativ") => "🌊",
+    str_contains($marker, "Perturbativ") => "⚡",
+    str_contains($marker, "Kollapsiv") => "💥",
+    default => "•",
+};
+$marker = "{$markerSymbol} {$marker}";
 
     // --- Bemerkung + Emotionen ---
     $bem = sprintf("K:%.2f S:%.2f A:%.2f h:%.2f Δh:%.2f", $x, $y, $z, $h, $dh_dt);

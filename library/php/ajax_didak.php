@@ -161,6 +161,7 @@ switch( $_POST["command"]) {
                                         $q = "INSERT INTO `ue_unterrichtseinheit` (`gruppe_id`, `datum`, `zeit`, `beschreibung`) VALUES (" . $group_id . ", '" . $return -> currentDate->format('Y-m-d') . "', '" . $return -> currentDate->format('H:i:s') . "',  'Gruppenveranstaltung')";
                                         $db_pdo -> query( $q );
                                         $newId = $db_pdo -> lastInsertId();
+                                        $db_pdo->exec("update mtr_rueckkopplung_teilnehmer set ue_id=" . $newId . " where id=". $_POST["id"]);
                                         $q = "INSERT INTO `ue_unterrichtseinheit_zw_thema` (`ue_unterrichtseinheit_id`, `schulform_id`, `fach_id`, `zieltyp_id`, `lernmethode_id`, `std_lernthema_id`, `thema`, `dauer`, `teilnehmer_id`, `beschreibung`) 
                                                 VALUES ($newId, '', '1', '1', 24, '', '', 90, $tnId, 'Gruppe " . $groupId . "')" ;
                                         $db_pdo -> query( $q );
@@ -211,10 +212,13 @@ switch( $_POST["command"]) {
                             $zwId = $db_pdo -> lastInsertId();
                             $r =  $db_pdo -> query( "select lernfortschritt, beherrscht_thema, transferdenken, vorbereitet from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
                             $rtn = $db_pdo -> query( "select basiswissen,belastbarkeit, note from mtr_persoenlichkeit where teilnehmer_id = $tnId" )->fetchAll();
+/*
                             $q="insert into mtr_leistung (ue_zuweisung_teilnehmer_id,datum,teilnehmer_id,lernfortschritt,beherrscht_thema,transferdenken,basiswissen,vorbereitet,belastbarkeit,note) VALUES 
                                                             ($zwId, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "',$tnId," . $r[0]["lernfortschritt"] . ", " . $r[0]["beherrscht_thema"] . "," . $r[0]["transferdenken"] . "," . $rtn[0]["basiswissen"] . "," . $r[0]["vorbereitet"] . 
                                                             "," . $rtn[0]["belastbarkeit"] . "," . $rtn[0]["note"] ." )";
+
                             $db_pdo -> query( $q );
+*/
                             $db_pdo -> query( "update mtr_rueckkopplung_teilnehmer set ue_zuweisung_teilnehmer_id=$zwId, erfasst_am='" . $return -> currentDate->format('Y-m-d') . " " . $a . "' where id=" . $_POST["id"] );
                             setEmotions( $db_pdo,$tmpTN,$zwId,$return -> currentDate->format('Y-m-d') . " " . $a, $tmpEmotions );
                             $r =  $db_pdo -> query( "select ue_zuweisung_teilnehmer_id, teilnehmer_id, erfasst_am, themenauswahl, methodenvielfalt,individualisierung, aufforderung, materialien, zielgruppen from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
@@ -227,7 +231,7 @@ switch( $_POST["command"]) {
                             . $r[0]["aufforderung"] . ", " . $r[0]["materialien"] . ", "  . $r[0]["materialien"] . ")");
                              //$return -> q = $test;
                    $emotionen = [];
-                    $res = $pdo->query("SELECT id AS code, valenz, aktivierung FROM _mtr_emotionen");
+                    $res = $db_pdo->query("SELECT id AS code, valenz, aktivierung FROM _mtr_emotionen");
                     foreach ($res as $r) {
                         $emotionen[strtolower($r['code'])] = [
                             'v' => (float)$r['valenz'],
@@ -236,10 +240,13 @@ switch( $_POST["command"]) {
                     }
 
                     $return -> s = $tnId;
-                    $return -> r = $r;
+  
+                    $return -> r = $rtn;
+  /*
                     $return -> q = $q;
                     $return -> rtn = $rtn;
                     $return -> emotionen = $emotionen;
+  */
                     print_r( json_encode( $return )); 
     break;
     default:

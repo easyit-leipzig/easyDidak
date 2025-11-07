@@ -677,6 +677,19 @@
     },
     {
         "id": 53,
+        "teilnehmer_id": 9,
+        "zeitpunkt": "2025-11-06 15:35:00",
+        "x_kognition": "1.80",
+        "y_sozial": "1.75",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "1.73",
+        "korrelationsscore": 2.825,
+        "kohärenz_index": 0.933333,
+        "varianz_xyz": 0.0172222,
+        "bemerkung": "x=1.80 y=1.75 z=1.50 h=1.73 | Corr=2.825 Koh=0.933 Var=0.017"
+    },
+    {
+        "id": 54,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-11 15:35:00",
         "x_kognition": "1.80",
@@ -689,7 +702,7 @@
         "bemerkung": "x=1.80 y=1.00 z=1.50 h=1.45 | Corr=2.000 Koh=0.822 Var=0.109"
     },
     {
-        "id": 54,
+        "id": 55,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-11 17:10:00",
         "x_kognition": "2.60",
@@ -702,7 +715,7 @@
         "bemerkung": "x=2.60 y=2.00 z=3.00 h=2.45 | Corr=6.333 Koh=0.778 Var=0.169"
     },
     {
-        "id": 55,
+        "id": 56,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-17 15:35:00",
         "x_kognition": "1.60",
@@ -715,7 +728,7 @@
         "bemerkung": "x=1.60 y=1.00 z=1.00 h=1.27 | Corr=1.400 Koh=0.867 Var=0.080"
     },
     {
-        "id": 56,
+        "id": 57,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-18 15:35:00",
         "x_kognition": "1.20",
@@ -728,7 +741,7 @@
         "bemerkung": "x=1.20 y=1.25 z=1.00 h=1.18 | Corr=1.317 Koh=0.944 Var=0.012"
     },
     {
-        "id": 57,
+        "id": 58,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-24 15:35:00",
         "x_kognition": "1.00",
@@ -741,22 +754,9 @@
         "bemerkung": "x=1.00 y=1.00 z=1.50 h=1.09 | Corr=1.333 Koh=0.889 Var=0.056"
     },
     {
-        "id": 58,
-        "teilnehmer_id": 10,
-        "zeitpunkt": "2025-09-25 15:35:00",
-        "x_kognition": "1.40",
-        "y_sozial": "1.00",
-        "z_affektiv": "1.00",
-        "h_bedeutung": "1.18",
-        "korrelationsscore": 1.26667,
-        "kohärenz_index": 0.911111,
-        "varianz_xyz": 0.0355556,
-        "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
-    },
-    {
         "id": 59,
         "teilnehmer_id": 10,
-        "zeitpunkt": "2025-10-01 16:53:43",
+        "zeitpunkt": "2025-09-25 15:35:00",
         "x_kognition": "1.40",
         "y_sozial": "1.00",
         "z_affektiv": "1.00",
@@ -769,6 +769,19 @@
     {
         "id": 60,
         "teilnehmer_id": 10,
+        "zeitpunkt": "2025-10-01 16:53:43",
+        "x_kognition": "1.40",
+        "y_sozial": "1.00",
+        "z_affektiv": "1.00",
+        "h_bedeutung": "1.18",
+        "korrelationsscore": 1.26667,
+        "kohärenz_index": 0.911111,
+        "varianz_xyz": 0.0355556,
+        "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
+    },
+    {
+        "id": 61,
+        "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-02 16:53:16",
         "x_kognition": "2.40",
         "y_sozial": "1.00",
@@ -780,7 +793,7 @@
         "bemerkung": "x=2.40 y=1.00 z=1.00 h=1.64 | Corr=1.933 Koh=0.689 Var=0.436"
     },
     {
-        "id": 61,
+        "id": 62,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-23 15:31:28",
         "x_kognition": "1.40",
@@ -793,7 +806,7 @@
         "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
     },
     {
-        "id": 62,
+        "id": 63,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-29 16:53:35",
         "x_kognition": "1.60",
@@ -806,7 +819,7 @@
         "bemerkung": "x=1.60 y=1.00 z=1.00 h=1.27 | Corr=1.400 Koh=0.867 Var=0.080"
     },
     {
-        "id": 63,
+        "id": 64,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-30 16:55:47",
         "x_kognition": "1.00",
@@ -819,7 +832,33 @@
         "bemerkung": "x=1.00 y=1.00 z=1.00 h=1.00 | Corr=1.000 Koh=1.000 Var=0.000"
     },
     {
-        "id": 64,
+        "id": 65,
+        "teilnehmer_id": 10,
+        "zeitpunkt": "2025-11-06 15:34:11",
+        "x_kognition": "1.40",
+        "y_sozial": "1.00",
+        "z_affektiv": "1.00",
+        "h_bedeutung": "1.18",
+        "korrelationsscore": 1.26667,
+        "kohärenz_index": 0.911111,
+        "varianz_xyz": 0.0355556,
+        "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
+    },
+    {
+        "id": 66,
+        "teilnehmer_id": 10,
+        "zeitpunkt": "2025-11-06 16:51:46",
+        "x_kognition": "1.40",
+        "y_sozial": "1.00",
+        "z_affektiv": "1.00",
+        "h_bedeutung": "1.18",
+        "korrelationsscore": 1.26667,
+        "kohärenz_index": 0.911111,
+        "varianz_xyz": 0.0355556,
+        "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
+    },
+    {
+        "id": 67,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-09-10 15:35:00",
         "x_kognition": "1.80",
@@ -832,7 +871,7 @@
         "bemerkung": "x=1.80 y=1.75 z=1.50 h=1.73 | Corr=2.825 Koh=0.933 Var=0.017"
     },
     {
-        "id": 65,
+        "id": 68,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-09-19 15:35:00",
         "x_kognition": "2.40",
@@ -845,7 +884,7 @@
         "bemerkung": "x=2.40 y=2.25 z=2.00 h=2.27 | Corr=4.900 Koh=0.911 Var=0.027"
     },
     {
-        "id": 66,
+        "id": 69,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-10-01 15:35:00",
         "x_kognition": "1.60",
@@ -858,7 +897,7 @@
         "bemerkung": "x=1.60 y=2.25 z=1.00 h=1.73 | Corr=2.483 Koh=0.722 Var=0.261"
     },
     {
-        "id": 67,
+        "id": 70,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-10-29 15:35:00",
         "x_kognition": "2.60",
@@ -871,7 +910,7 @@
         "bemerkung": "x=2.60 y=2.25 z=2.50 h=2.45 | Corr=5.992 Koh=0.922 Var=0.022"
     },
     {
-        "id": 68,
+        "id": 71,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-08 17:10:00",
         "x_kognition": "1.00",
@@ -884,7 +923,7 @@
         "bemerkung": "x=1.00 y=1.00 z=1.00 h=1.00 | Corr=1.000 Koh=1.000 Var=0.000"
     },
     {
-        "id": 69,
+        "id": 72,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "1.40",
@@ -897,7 +936,7 @@
         "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
     },
     {
-        "id": 70,
+        "id": 73,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "1.40",
@@ -910,7 +949,7 @@
         "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
     },
     {
-        "id": 71,
+        "id": 74,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-17 17:10:00",
         "x_kognition": "1.00",
@@ -923,7 +962,7 @@
         "bemerkung": "x=1.00 y=1.25 z=1.00 h=1.09 | Corr=1.167 Koh=0.944 Var=0.014"
     },
     {
-        "id": 72,
+        "id": 75,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-10-01 17:10:00",
         "x_kognition": "1.00",
@@ -936,7 +975,7 @@
         "bemerkung": "x=1.00 y=1.25 z=1.00 h=1.09 | Corr=1.167 Koh=0.944 Var=0.014"
     },
     {
-        "id": 73,
+        "id": 76,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "2.00",
@@ -949,7 +988,7 @@
         "bemerkung": "x=2.00 y=2.25 z=1.50 h=2.00 | Corr=3.625 Koh=0.833 Var=0.097"
     },
     {
-        "id": 74,
+        "id": 77,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "1.20",
@@ -962,7 +1001,7 @@
         "bemerkung": "x=1.20 y=1.75 z=1.50 h=1.45 | Corr=2.175 Koh=0.878 Var=0.051"
     },
     {
-        "id": 75,
+        "id": 78,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-09-24 17:10:00",
         "x_kognition": "2.00",
@@ -975,7 +1014,7 @@
         "bemerkung": "x=2.00 y=2.00 z=1.50 h=1.91 | Corr=3.333 Koh=0.889 Var=0.056"
     },
     {
-        "id": 76,
+        "id": 79,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-10-07 17:10:00",
         "x_kognition": "1.20",
@@ -988,7 +1027,7 @@
         "bemerkung": "x=1.20 y=1.75 z=1.00 h=1.36 | Corr=1.683 Koh=0.833 Var=0.101"
     },
     {
-        "id": 77,
+        "id": 80,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "1.60",
@@ -1001,7 +1040,7 @@
         "bemerkung": "x=1.60 y=1.50 z=1.00 h=1.45 | Corr=1.833 Koh=0.867 Var=0.069"
     },
     {
-        "id": 78,
+        "id": 81,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-09-17 17:10:00",
         "x_kognition": "1.40",
@@ -1014,7 +1053,7 @@
         "bemerkung": "x=1.40 y=1.75 z=1.00 h=1.45 | Corr=1.867 Koh=0.833 Var=0.094"
     },
     {
-        "id": 79,
+        "id": 82,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-09-24 17:10:00",
         "x_kognition": "1.40",
@@ -1027,7 +1066,7 @@
         "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
     },
     {
-        "id": 80,
+        "id": 83,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-01 17:10:00",
         "x_kognition": "1.40",
@@ -1040,7 +1079,7 @@
         "bemerkung": "x=1.40 y=1.00 z=1.50 h=1.27 | Corr=1.667 Koh=0.889 Var=0.047"
     },
     {
-        "id": 81,
+        "id": 84,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-22 17:10:00",
         "x_kognition": "2.60",
@@ -1053,7 +1092,7 @@
         "bemerkung": "x=2.60 y=1.75 z=2.50 h=2.27 | Corr=5.142 Koh=0.811 Var=0.144"
     },
     {
-        "id": 82,
+        "id": 85,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-29 17:10:00",
         "x_kognition": "1.20",
@@ -1066,7 +1105,7 @@
         "bemerkung": "x=1.20 y=1.00 z=1.50 h=1.18 | Corr=1.500 Koh=0.889 Var=0.042"
     },
     {
-        "id": 83,
+        "id": 86,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-09-11 15:35:00",
         "x_kognition": "3.20",
@@ -1079,7 +1118,7 @@
         "bemerkung": "x=3.20 y=1.50 z=3.00 h=2.55 | Corr=6.300 Koh=0.622 Var=0.576"
     },
     {
-        "id": 84,
+        "id": 87,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-09-18 15:35:00",
         "x_kognition": "3.20",
@@ -1092,7 +1131,7 @@
         "bemerkung": "x=3.20 y=1.75 z=2.00 h=2.45 | Corr=5.167 Koh=0.678 Var=0.401"
     },
     {
-        "id": 85,
+        "id": 88,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-09-25 15:35:00",
         "x_kognition": "2.40",
@@ -1105,7 +1144,7 @@
         "bemerkung": "x=2.40 y=1.00 z=1.50 h=1.73 | Corr=2.500 Koh=0.689 Var=0.336"
     },
     {
-        "id": 86,
+        "id": 89,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-10-23 15:35:00",
         "x_kognition": "2.00",
@@ -1118,7 +1157,33 @@
         "bemerkung": "x=2.00 y=3.00 z=2.50 h=2.45 | Corr=6.167 Koh=0.778 Var=0.167"
     },
     {
-        "id": 87,
+        "id": 90,
+        "teilnehmer_id": 15,
+        "zeitpunkt": "2025-11-06 15:34:29",
+        "x_kognition": "2.60",
+        "y_sozial": "2.25",
+        "z_affektiv": "3.00",
+        "h_bedeutung": "2.55",
+        "korrelationsscore": 6.8,
+        "kohärenz_index": 0.833333,
+        "varianz_xyz": 0.0938889,
+        "bemerkung": "x=2.60 y=2.25 z=3.00 h=2.55 | Corr=6.800 Koh=0.833 Var=0.094"
+    },
+    {
+        "id": 91,
+        "teilnehmer_id": 15,
+        "zeitpunkt": "2025-11-06 15:35:00",
+        "x_kognition": "3.60",
+        "y_sozial": "1.50",
+        "z_affektiv": "2.50",
+        "h_bedeutung": "2.64",
+        "korrelationsscore": 6.05,
+        "kohärenz_index": 0.533333,
+        "varianz_xyz": 0.735556,
+        "bemerkung": "x=3.60 y=1.50 z=2.50 h=2.64 | Corr=6.050 Koh=0.533 Var=0.736"
+    },
+    {
+        "id": 92,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-08 17:10:00",
         "x_kognition": "2.40",
@@ -1131,7 +1196,7 @@
         "bemerkung": "x=2.40 y=1.25 z=1.50 h=1.82 | Corr=2.825 Koh=0.744 Var=0.244"
     },
     {
-        "id": 88,
+        "id": 93,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-09 17:10:00",
         "x_kognition": "2.80",
@@ -1144,7 +1209,7 @@
         "bemerkung": "x=2.80 y=2.00 z=2.00 h=2.36 | Corr=5.067 Koh=0.822 Var=0.142"
     },
     {
-        "id": 89,
+        "id": 94,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-11 17:10:00",
         "x_kognition": "2.40",
@@ -1157,7 +1222,7 @@
         "bemerkung": "x=2.40 y=1.00 z=2.00 h=1.82 | Corr=3.067 Koh=0.689 Var=0.347"
     },
     {
-        "id": 90,
+        "id": 95,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-15 17:10:00",
         "x_kognition": "2.60",
@@ -1170,7 +1235,7 @@
         "bemerkung": "x=2.60 y=1.50 z=2.00 h=2.09 | Corr=4.033 Koh=0.756 Var=0.202"
     },
     {
-        "id": 91,
+        "id": 96,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "2.00",
@@ -1183,7 +1248,7 @@
         "bemerkung": "x=2.00 y=1.25 z=2.00 h=1.73 | Corr=3.000 Koh=0.833 Var=0.125"
     },
     {
-        "id": 92,
+        "id": 97,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-23 15:35:00",
         "x_kognition": "1.00",
@@ -1196,7 +1261,7 @@
         "bemerkung": "x=1.00 y=1.00 z=1.00 h=1.00 | Corr=1.000 Koh=1.000 Var=0.000"
     },
     {
-        "id": 93,
+        "id": 98,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-25 17:10:00",
         "x_kognition": "1.40",
@@ -1209,7 +1274,7 @@
         "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
     },
     {
-        "id": 94,
+        "id": 99,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-29 17:10:00",
         "x_kognition": "1.40",
@@ -1222,7 +1287,7 @@
         "bemerkung": "x=1.40 y=1.00 z=1.00 h=1.18 | Corr=1.267 Koh=0.911 Var=0.036"
     },
     {
-        "id": 95,
+        "id": 100,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-02 17:10:00",
         "x_kognition": "2.20",
@@ -1235,7 +1300,7 @@
         "bemerkung": "x=2.20 y=1.00 z=2.00 h=1.73 | Corr=2.867 Koh=0.733 Var=0.276"
     },
     {
-        "id": 96,
+        "id": 101,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-23 15:35:00",
         "x_kognition": "1.60",
@@ -1248,7 +1313,7 @@
         "bemerkung": "x=1.60 y=1.00 z=1.00 h=1.27 | Corr=1.400 Koh=0.867 Var=0.080"
     },
     {
-        "id": 97,
+        "id": 102,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-23 17:10:00",
         "x_kognition": "2.80",
@@ -1261,7 +1326,7 @@
         "bemerkung": "x=2.80 y=1.25 z=2.50 h=2.18 | Corr=4.542 Koh=0.656 Var=0.451"
     },
     {
-        "id": 98,
+        "id": 103,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-27 17:10:00",
         "x_kognition": "2.40",
@@ -1274,7 +1339,7 @@
         "bemerkung": "x=2.40 y=1.00 z=2.00 h=1.82 | Corr=3.067 Koh=0.689 Var=0.347"
     },
     {
-        "id": 99,
+        "id": 104,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-30 17:10:00",
         "x_kognition": "1.80",
@@ -1287,7 +1352,7 @@
         "bemerkung": "x=1.80 y=1.00 z=1.50 h=1.45 | Corr=2.000 Koh=0.822 Var=0.109"
     },
     {
-        "id": 100,
+        "id": 105,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.20",
@@ -1300,7 +1365,20 @@
         "bemerkung": "x=2.20 y=1.00 z=2.50 h=1.82 | Corr=3.400 Koh=0.667 Var=0.420"
     },
     {
-        "id": 101,
+        "id": 106,
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "x_kognition": "1.20",
+        "y_sozial": "1.00",
+        "z_affektiv": "1.00",
+        "h_bedeutung": "1.09",
+        "korrelationsscore": 1.13333,
+        "kohärenz_index": 0.955556,
+        "varianz_xyz": 0.00888889,
+        "bemerkung": "x=1.20 y=1.00 z=1.00 h=1.09 | Corr=1.133 Koh=0.956 Var=0.009"
+    },
+    {
+        "id": 107,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-09-11 17:10:00",
         "x_kognition": "2.40",
@@ -1313,7 +1391,7 @@
         "bemerkung": "x=2.40 y=1.00 z=1.00 h=1.64 | Corr=1.933 Koh=0.689 Var=0.436"
     },
     {
-        "id": 102,
+        "id": 108,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-09-18 17:10:00",
         "x_kognition": "2.40",
@@ -1326,7 +1404,7 @@
         "bemerkung": "x=2.40 y=1.00 z=1.50 h=1.73 | Corr=2.500 Koh=0.689 Var=0.336"
     },
     {
-        "id": 103,
+        "id": 109,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-09-25 17:10:00",
         "x_kognition": "3.20",
@@ -1339,7 +1417,7 @@
         "bemerkung": "x=3.20 y=1.50 z=3.00 h=2.55 | Corr=6.300 Koh=0.622 Var=0.576"
     },
     {
-        "id": 104,
+        "id": 110,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-02 17:10:00",
         "x_kognition": "2.80",
@@ -1352,7 +1430,7 @@
         "bemerkung": "x=2.80 y=1.25 z=2.50 h=2.18 | Corr=4.542 Koh=0.656 Var=0.451"
     },
     {
-        "id": 105,
+        "id": 111,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-23 17:10:00",
         "x_kognition": "2.80",
@@ -1365,7 +1443,7 @@
         "bemerkung": "x=2.80 y=1.50 z=1.50 h=2.09 | Corr=3.550 Koh=0.711 Var=0.376"
     },
     {
-        "id": 106,
+        "id": 112,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-30 17:10:00",
         "x_kognition": "2.80",
@@ -1378,7 +1456,20 @@
         "bemerkung": "x=2.80 y=1.25 z=3.00 h=2.27 | Corr=5.217 Koh=0.611 Var=0.612"
     },
     {
-        "id": 107,
+        "id": 113,
+        "teilnehmer_id": 17,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "x_kognition": "2.40",
+        "y_sozial": "1.75",
+        "z_affektiv": "2.50",
+        "h_bedeutung": "2.18",
+        "korrelationsscore": 4.85833,
+        "kohärenz_index": 0.833333,
+        "varianz_xyz": 0.110556,
+        "bemerkung": "x=2.40 y=1.75 z=2.50 h=2.18 | Corr=4.858 Koh=0.833 Var=0.111"
+    },
+    {
+        "id": 114,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-09-11 17:10:00",
         "x_kognition": "1.20",
@@ -1391,7 +1482,7 @@
         "bemerkung": "x=1.20 y=2.00 z=1.50 h=1.55 | Corr=2.400 Koh=0.822 Var=0.109"
     },
     {
-        "id": 108,
+        "id": 115,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-09-25 17:10:00",
         "x_kognition": "1.20",
@@ -1404,7 +1495,7 @@
         "bemerkung": "x=1.20 y=1.75 z=1.50 h=1.45 | Corr=2.175 Koh=0.878 Var=0.051"
     },
     {
-        "id": 109,
+        "id": 116,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-02 17:10:00",
         "x_kognition": "1.40",
@@ -1417,7 +1508,7 @@
         "bemerkung": "x=1.40 y=1.75 z=2.00 h=1.64 | Corr=2.917 Koh=0.867 Var=0.061"
     },
     {
-        "id": 110,
+        "id": 117,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-23 15:35:00",
         "x_kognition": "1.80",
@@ -1430,7 +1521,7 @@
         "bemerkung": "x=1.80 y=1.50 z=2.00 h=1.73 | Corr=3.100 Koh=0.889 Var=0.042"
     },
     {
-        "id": 111,
+        "id": 118,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-23 17:10:00",
         "x_kognition": "3.00",
@@ -1443,7 +1534,7 @@
         "bemerkung": "x=3.00 y=1.50 z=3.00 h=2.45 | Corr=6.000 Koh=0.667 Var=0.500"
     },
     {
-        "id": 112,
+        "id": 119,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-30 17:10:00",
         "x_kognition": "2.80",
@@ -1456,7 +1547,20 @@
         "bemerkung": "x=2.80 y=2.25 z=3.00 h=2.64 | Corr=7.150 Koh=0.833 Var=0.101"
     },
     {
-        "id": 113,
+        "id": 120,
+        "teilnehmer_id": 18,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "x_kognition": "2.80",
+        "y_sozial": "3.25",
+        "z_affektiv": "3.50",
+        "h_bedeutung": "3.09",
+        "korrelationsscore": 10.0917,
+        "kohärenz_index": 0.844444,
+        "varianz_xyz": 0.0838889,
+        "bemerkung": "x=2.80 y=3.25 z=3.50 h=3.09 | Corr=10.092 Koh=0.844 Var=0.084"
+    },
+    {
+        "id": 121,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-09-18 17:10:00",
         "x_kognition": "2.60",
@@ -1469,7 +1573,7 @@
         "bemerkung": "x=2.60 y=2.25 z=2.50 h=2.45 | Corr=5.992 Koh=0.922 Var=0.022"
     },
     {
-        "id": 114,
+        "id": 122,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-09-25 17:10:00",
         "x_kognition": "1.80",
@@ -1482,7 +1586,7 @@
         "bemerkung": "x=1.80 y=2.00 z=1.50 h=1.82 | Corr=3.100 Koh=0.889 Var=0.042"
     },
     {
-        "id": 115,
+        "id": 123,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-10-02 17:10:00",
         "x_kognition": "2.20",
@@ -1495,7 +1599,7 @@
         "bemerkung": "x=2.20 y=1.75 z=2.00 h=2.00 | Corr=3.917 Koh=0.900 Var=0.034"
     },
     {
-        "id": 116,
+        "id": 124,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-10-30 17:10:00",
         "x_kognition": "2.80",
@@ -1508,7 +1612,20 @@
         "bemerkung": "x=2.80 y=2.25 z=3.00 h=2.64 | Corr=7.150 Koh=0.833 Var=0.101"
     },
     {
-        "id": 117,
+        "id": 125,
+        "teilnehmer_id": 19,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "x_kognition": "2.20",
+        "y_sozial": "1.75",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "1.91",
+        "korrelationsscore": 3.25833,
+        "kohärenz_index": 0.844444,
+        "varianz_xyz": 0.0838889,
+        "bemerkung": "x=2.20 y=1.75 z=1.50 h=1.91 | Corr=3.258 Koh=0.844 Var=0.084"
+    },
+    {
+        "id": 126,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-08 17:10:00",
         "x_kognition": "1.80",
@@ -1521,7 +1638,7 @@
         "bemerkung": "x=1.80 y=1.50 z=1.50 h=1.64 | Corr=2.550 Koh=0.933 Var=0.020"
     },
     {
-        "id": 118,
+        "id": 127,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-15 17:10:00",
         "x_kognition": "2.00",
@@ -1534,7 +1651,7 @@
         "bemerkung": "x=2.00 y=1.25 z=2.00 h=1.73 | Corr=3.000 Koh=0.833 Var=0.125"
     },
     {
-        "id": 119,
+        "id": 128,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-19 15:35:00",
         "x_kognition": "1.80",
@@ -1547,7 +1664,7 @@
         "bemerkung": "x=1.80 y=1.25 z=2.00 h=1.64 | Corr=2.783 Koh=0.833 Var=0.101"
     },
     {
-        "id": 120,
+        "id": 129,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "2.00",
@@ -1560,7 +1677,7 @@
         "bemerkung": "x=2.00 y=1.25 z=2.00 h=1.73 | Corr=3.000 Koh=0.833 Var=0.125"
     },
     {
-        "id": 121,
+        "id": 130,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-26 15:35:00",
         "x_kognition": "1.80",
@@ -1573,7 +1690,7 @@
         "bemerkung": "x=1.80 y=1.25 z=2.00 h=1.64 | Corr=2.783 Koh=0.833 Var=0.101"
     },
     {
-        "id": 122,
+        "id": 131,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-29 17:10:00",
         "x_kognition": "1.80",
@@ -1586,7 +1703,7 @@
         "bemerkung": "x=1.80 y=1.25 z=2.00 h=1.64 | Corr=2.783 Koh=0.833 Var=0.101"
     },
     {
-        "id": 123,
+        "id": 132,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-20 17:10:00",
         "x_kognition": "2.00",
@@ -1599,7 +1716,7 @@
         "bemerkung": "x=2.00 y=1.25 z=1.50 h=1.64 | Corr=2.458 Koh=0.833 Var=0.097"
     },
     {
-        "id": 124,
+        "id": 133,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-24 15:35:00",
         "x_kognition": "2.00",
@@ -1612,7 +1729,7 @@
         "bemerkung": "x=2.00 y=1.25 z=2.00 h=1.73 | Corr=3.000 Koh=0.833 Var=0.125"
     },
     {
-        "id": 125,
+        "id": 134,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-27 17:10:00",
         "x_kognition": "2.00",
@@ -1625,7 +1742,7 @@
         "bemerkung": "x=2.00 y=1.25 z=2.00 h=1.73 | Corr=3.000 Koh=0.833 Var=0.125"
     },
     {
-        "id": 126,
+        "id": 135,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.00",
@@ -1638,7 +1755,7 @@
         "bemerkung": "x=2.00 y=1.25 z=2.00 h=1.73 | Corr=3.000 Koh=0.833 Var=0.125"
     },
     {
-        "id": 127,
+        "id": 136,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-08 17:10:00",
         "x_kognition": "2.20",
@@ -1651,7 +1768,7 @@
         "bemerkung": "x=2.20 y=1.00 z=2.00 h=1.73 | Corr=2.867 Koh=0.733 Var=0.276"
     },
     {
-        "id": 128,
+        "id": 137,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-15 17:10:00",
         "x_kognition": "2.00",
@@ -1664,7 +1781,7 @@
         "bemerkung": "x=2.00 y=1.00 z=2.00 h=1.64 | Corr=2.667 Koh=0.778 Var=0.222"
     },
     {
-        "id": 129,
+        "id": 138,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "1.60",
@@ -1677,7 +1794,7 @@
         "bemerkung": "x=1.60 y=1.25 z=1.00 h=1.36 | Corr=1.617 Koh=0.867 Var=0.061"
     },
     {
-        "id": 130,
+        "id": 139,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-29 17:10:00",
         "x_kognition": "1.80",
@@ -1690,7 +1807,7 @@
         "bemerkung": "x=1.80 y=1.25 z=1.50 h=1.55 | Corr=2.275 Koh=0.878 Var=0.051"
     },
     {
-        "id": 131,
+        "id": 140,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-20 17:10:00",
         "x_kognition": "2.60",
@@ -1703,7 +1820,7 @@
         "bemerkung": "x=2.60 y=1.50 z=3.00 h=2.27 | Corr=5.400 Koh=0.667 Var=0.402"
     },
     {
-        "id": 132,
+        "id": 141,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-20 17:10:00",
         "x_kognition": "2.60",
@@ -1716,7 +1833,7 @@
         "bemerkung": "x=2.60 y=1.50 z=3.00 h=2.27 | Corr=5.400 Koh=0.667 Var=0.402"
     },
     {
-        "id": 133,
+        "id": 142,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-27 17:10:00",
         "x_kognition": "1.20",
@@ -1729,7 +1846,7 @@
         "bemerkung": "x=1.20 y=1.25 z=1.50 h=1.27 | Corr=1.725 Koh=0.933 Var=0.017"
     },
     {
-        "id": 134,
+        "id": 143,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.40",
@@ -1742,7 +1859,7 @@
         "bemerkung": "x=2.40 y=1.25 z=2.50 h=2.00 | Corr=4.042 Koh=0.722 Var=0.322"
     },
     {
-        "id": 135,
+        "id": 144,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.40",
@@ -1755,7 +1872,7 @@
         "bemerkung": "x=2.40 y=1.25 z=2.50 h=2.00 | Corr=4.042 Koh=0.722 Var=0.322"
     },
     {
-        "id": 136,
+        "id": 145,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "2.00",
@@ -1768,7 +1885,7 @@
         "bemerkung": "x=2.00 y=1.50 z=2.50 h=1.91 | Corr=3.917 Koh=0.778 Var=0.167"
     },
     {
-        "id": 137,
+        "id": 146,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-09-24 17:10:00",
         "x_kognition": "2.80",
@@ -1781,7 +1898,7 @@
         "bemerkung": "x=2.80 y=1.50 z=3.00 h=2.36 | Corr=5.700 Koh=0.667 Var=0.442"
     },
     {
-        "id": 138,
+        "id": 147,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-01 17:10:00",
         "x_kognition": "2.60",
@@ -1794,7 +1911,7 @@
         "bemerkung": "x=2.60 y=1.25 z=2.00 h=2.00 | Corr=3.650 Koh=0.700 Var=0.305"
     },
     {
-        "id": 139,
+        "id": 148,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-07 17:10:00",
         "x_kognition": "2.20",
@@ -1807,7 +1924,7 @@
         "bemerkung": "x=2.20 y=1.25 z=2.00 h=1.82 | Corr=3.217 Koh=0.789 Var=0.167"
     },
     {
-        "id": 140,
+        "id": 149,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-22 17:10:00",
         "x_kognition": "1.60",
@@ -1820,7 +1937,7 @@
         "bemerkung": "x=1.60 y=1.25 z=2.00 h=1.55 | Corr=2.567 Koh=0.833 Var=0.094"
     },
     {
-        "id": 141,
+        "id": 150,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-29 17:10:00",
         "x_kognition": "2.80",
@@ -1833,7 +1950,20 @@
         "bemerkung": "x=2.80 y=1.25 z=2.50 h=2.18 | Corr=4.542 Koh=0.656 Var=0.451"
     },
     {
-        "id": 142,
+        "id": 151,
+        "teilnehmer_id": 22,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "x_kognition": "1.80",
+        "y_sozial": "1.00",
+        "z_affektiv": "2.00",
+        "h_bedeutung": "1.55",
+        "korrelationsscore": 2.46667,
+        "kohärenz_index": 0.777778,
+        "varianz_xyz": 0.186667,
+        "bemerkung": "x=1.80 y=1.00 z=2.00 h=1.55 | Corr=2.467 Koh=0.778 Var=0.187"
+    },
+    {
+        "id": 152,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-09-15 17:10:00",
         "x_kognition": "2.40",
@@ -1846,7 +1976,7 @@
         "bemerkung": "x=2.40 y=1.50 z=2.00 h=2.00 | Corr=3.800 Koh=0.800 Var=0.136"
     },
     {
-        "id": 143,
+        "id": 153,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "2.00",
@@ -1859,7 +1989,7 @@
         "bemerkung": "x=2.00 y=1.75 z=2.00 h=1.91 | Corr=3.667 Koh=0.944 Var=0.014"
     },
     {
-        "id": 144,
+        "id": 154,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-09-29 17:10:00",
         "x_kognition": "2.00",
@@ -1872,7 +2002,7 @@
         "bemerkung": "x=2.00 y=2.00 z=2.50 h=2.09 | Corr=4.667 Koh=0.889 Var=0.056"
     },
     {
-        "id": 145,
+        "id": 155,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-10-20 17:10:00",
         "x_kognition": "2.00",
@@ -1885,7 +2015,7 @@
         "bemerkung": "x=2.00 y=1.75 z=2.00 h=1.91 | Corr=3.667 Koh=0.944 Var=0.014"
     },
     {
-        "id": 146,
+        "id": 156,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-10-27 17:10:00",
         "x_kognition": "2.20",
@@ -1898,7 +2028,7 @@
         "bemerkung": "x=2.20 y=2.00 z=2.00 h=2.09 | Corr=4.267 Koh=0.956 Var=0.009"
     },
     {
-        "id": 147,
+        "id": 157,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.00",
@@ -1911,7 +2041,7 @@
         "bemerkung": "x=2.00 y=1.75 z=1.50 h=1.82 | Corr=3.042 Koh=0.889 Var=0.042"
     },
     {
-        "id": 148,
+        "id": 158,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-19 15:35:00",
         "x_kognition": "2.40",
@@ -1924,7 +2054,7 @@
         "bemerkung": "x=2.40 y=1.25 z=2.00 h=1.91 | Corr=3.433 Koh=0.744 Var=0.227"
     },
     {
-        "id": 149,
+        "id": 159,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-23 17:10:00",
         "x_kognition": "1.80",
@@ -1937,7 +2067,7 @@
         "bemerkung": "x=1.80 y=1.25 z=1.50 h=1.55 | Corr=2.275 Koh=0.878 Var=0.051"
     },
     {
-        "id": 150,
+        "id": 160,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-26 17:30:26",
         "x_kognition": "1.40",
@@ -1950,7 +2080,7 @@
         "bemerkung": "x=1.40 y=1.50 z=1.50 h=1.45 | Corr=2.150 Koh=0.978 Var=0.002"
     },
     {
-        "id": 151,
+        "id": 161,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-30 17:10:00",
         "x_kognition": "1.80",
@@ -1963,7 +2093,7 @@
         "bemerkung": "x=1.80 y=1.75 z=1.50 h=1.73 | Corr=2.825 Koh=0.933 Var=0.017"
     },
     {
-        "id": 152,
+        "id": 162,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-10-20 16:43:26",
         "x_kognition": "1.50",
@@ -1976,7 +2106,7 @@
         "bemerkung": "x=1.50 y=2.00 z=2.50 h=1.89 | Corr=3.917 Koh=0.778 Var=0.167"
     },
     {
-        "id": 153,
+        "id": 163,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-10-27 16:46:37",
         "x_kognition": "2.60",
@@ -1989,7 +2119,7 @@
         "bemerkung": "x=2.60 y=2.00 z=2.00 h=2.27 | Corr=4.800 Koh=0.867 Var=0.080"
     },
     {
-        "id": 154,
+        "id": 164,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-11-03 16:56:05",
         "x_kognition": "1.60",
@@ -2002,7 +2132,7 @@
         "bemerkung": "x=1.60 y=2.75 z=1.00 h=1.91 | Corr=2.917 Koh=0.611 Var=0.527"
     },
     {
-        "id": 155,
+        "id": 165,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-11-03 16:56:09",
         "x_kognition": "1.60",
@@ -2015,7 +2145,20 @@
         "bemerkung": "x=1.60 y=2.75 z=1.00 h=1.91 | Corr=2.917 Koh=0.611 Var=0.527"
     },
     {
-        "id": 156,
+        "id": 166,
+        "teilnehmer_id": 42,
+        "zeitpunkt": "2025-11-06 16:53:01",
+        "x_kognition": "0.00",
+        "y_sozial": "0.00",
+        "z_affektiv": "0.00",
+        "h_bedeutung": "0.00",
+        "korrelationsscore": 0,
+        "kohärenz_index": 1,
+        "varianz_xyz": 0,
+        "bemerkung": "x=0.00 y=0.00 z=0.00 h=0.00 | Corr=0.000 Koh=1.000 Var=0.000"
+    },
+    {
+        "id": 167,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-11-03 16:55:09",
         "x_kognition": "2.40",

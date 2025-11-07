@@ -72,22 +72,22 @@
     {
         "id": 8,
         "teilnehmer_id": 9,
-        "zeitpunkt": "2025-11-04 17:10:00",
-        "reflexionsgrad": 0.42793,
-        "meta_kohärenz": 0.592433,
+        "zeitpunkt": "2025-11-06 15:35:00",
+        "reflexionsgrad": 0.442633,
+        "meta_kohärenz": 0.62413,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.43 | Meta-Kohärenz: 0.59 | Selbstbezug: 0.00 | Stabilität: 0.71"
+        "bemerkung": "Reflexionsgrad: 0.44 | Meta-Kohärenz: 0.62 | Selbstbezug: 0.00 | Stabilität: 0.74"
     },
     {
         "id": 9,
         "teilnehmer_id": 10,
-        "zeitpunkt": "2025-10-30 16:55:47",
-        "reflexionsgrad": 0.542879,
-        "meta_kohärenz": 0.736493,
+        "zeitpunkt": "2025-11-06 16:51:46",
+        "reflexionsgrad": 0.548384,
+        "meta_kohärenz": 0.773485,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.54 | Meta-Kohärenz: 0.74 | Selbstbezug: 0.00 | Stabilität: 0.90"
+        "bemerkung": "Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.77 | Selbstbezug: 0.00 | Stabilität: 0.91"
     },
     {
         "id": 10,
@@ -132,52 +132,52 @@
     {
         "id": 14,
         "teilnehmer_id": 15,
-        "zeitpunkt": "2025-10-23 15:35:00",
-        "reflexionsgrad": 0.37825,
-        "meta_kohärenz": 0.733987,
+        "zeitpunkt": "2025-11-06 15:35:00",
+        "reflexionsgrad": 0.369222,
+        "meta_kohärenz": 0.819789,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.38 | Meta-Kohärenz: 0.73 | Selbstbezug: 0.00 | Stabilität: 0.63"
+        "bemerkung": "Reflexionsgrad: 0.37 | Meta-Kohärenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.62"
     },
     {
         "id": 15,
         "teilnehmer_id": 16,
-        "zeitpunkt": "2025-11-03 17:10:00",
-        "reflexionsgrad": 0.479452,
-        "meta_kohärenz": 0.779221,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "reflexionsgrad": 0.487133,
+        "meta_kohärenz": 0.761028,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.48 | Meta-Kohärenz: 0.78 | Selbstbezug: 0.00 | Stabilität: 0.80"
+        "bemerkung": "Reflexionsgrad: 0.49 | Meta-Kohärenz: 0.76 | Selbstbezug: 0.00 | Stabilität: 0.81"
     },
     {
         "id": 16,
         "teilnehmer_id": 17,
-        "zeitpunkt": "2025-10-30 17:10:00",
-        "reflexionsgrad": 0.321555,
-        "meta_kohärenz": 0.869376,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "reflexionsgrad": 0.351857,
+        "meta_kohärenz": 0.883286,
         "selbstbezug_index": 0,
-        "reflexions_marker": "niedrig",
-        "bemerkung": "Reflexionsgrad: 0.32 | Meta-Kohärenz: 0.87 | Selbstbezug: 0.00 | Stabilität: 0.54"
+        "reflexions_marker": "mittel",
+        "bemerkung": "Reflexionsgrad: 0.35 | Meta-Kohärenz: 0.88 | Selbstbezug: 0.00 | Stabilität: 0.59"
     },
     {
         "id": 17,
         "teilnehmer_id": 18,
-        "zeitpunkt": "2025-10-30 17:10:00",
-        "reflexionsgrad": 0.513722,
-        "meta_kohärenz": 0.931129,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "reflexionsgrad": 0.518857,
+        "meta_kohärenz": 0.93186,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.51 | Meta-Kohärenz: 0.93 | Selbstbezug: 0.00 | Stabilität: 0.86"
+        "bemerkung": "Reflexionsgrad: 0.52 | Meta-Kohärenz: 0.93 | Selbstbezug: 0.00 | Stabilität: 0.86"
     },
     {
         "id": 18,
         "teilnehmer_id": 19,
-        "zeitpunkt": "2025-10-30 17:10:00",
-        "reflexionsgrad": 0.57025,
-        "meta_kohärenz": 0.791322,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "reflexionsgrad": 0.566133,
+        "meta_kohärenz": 0.73752,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.57 | Meta-Kohärenz: 0.79 | Selbstbezug: 0.00 | Stabilität: 0.95"
+        "bemerkung": "Reflexionsgrad: 0.57 | Meta-Kohärenz: 0.74 | Selbstbezug: 0.00 | Stabilität: 0.94"
     },
     {
         "id": 19,
@@ -202,12 +202,12 @@
     {
         "id": 21,
         "teilnehmer_id": 22,
-        "zeitpunkt": "2025-10-29 17:10:00",
-        "reflexionsgrad": 0.437444,
-        "meta_kohärenz": 0.860193,
+        "zeitpunkt": "2025-11-06 17:10:00",
+        "reflexionsgrad": 0.444667,
+        "meta_kohärenz": 0.823242,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.44 | Meta-Kohärenz: 0.86 | Selbstbezug: 0.00 | Stabilität: 0.73"
+        "bemerkung": "Reflexionsgrad: 0.44 | Meta-Kohärenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.74"
     },
     {
         "id": 22,
@@ -241,6 +241,16 @@
     },
     {
         "id": 25,
+        "teilnehmer_id": 42,
+        "zeitpunkt": "2025-11-06 16:53:01",
+        "reflexionsgrad": 0.6,
+        "meta_kohärenz": 1,
+        "selbstbezug_index": 0,
+        "reflexions_marker": "mittel",
+        "bemerkung": "Reflexionsgrad: 0.60 | Meta-Kohärenz: 1.00 | Selbstbezug: 0.00 | Stabilität: 1.00"
+    },
+    {
+        "id": 26,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-11-03 16:55:09",
         "reflexionsgrad": 0.578666,

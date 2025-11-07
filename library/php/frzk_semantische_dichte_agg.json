@@ -1,0 +1,4653 @@
+{
+    "2": {
+        "unterrichtseinheit_id": 2,
+        "gruppen": {
+            "3": {
+                "gruppe_id": 3,
+                "tage": {
+                    "2025-09-09": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.6,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.273,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.92
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            25,
+                            24,
+                            2
+                        ]
+                    },
+                    "2025-09-23": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1,
+                            "dh_dt": -0.727,
+                            "stabilitaet_score": 1
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            23,
+                            4,
+                            9,
+                            14
+                        ]
+                    },
+                    "2025-09-30": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.25,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": 0.455,
+                            "stabilitaet_score": 0.875
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            15,
+                            21,
+                            16,
+                            20,
+                            6
+                        ]
+                    },
+                    "2025-10-21": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.091,
+                            "dh_dt": -0.636,
+                            "stabilitaet_score": 0.991
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            28,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-11-04": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.25,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0.455,
+                            "stabilitaet_score": 0.949
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            15,
+                            21,
+                            13,
+                            11
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "3": {
+        "unterrichtseinheit_id": 3,
+        "gruppen": {
+            "4": {
+                "gruppe_id": 4,
+                "tage": {
+                    "2025-09-09": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 2.125,
+                            "z_affektiv": 2.875,
+                            "h_bedeutung": 2.391,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.697
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            6,
+                            23,
+                            4
+                        ]
+                    },
+                    "2025-09-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.467,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 2.667,
+                            "h_bedeutung": 2.242,
+                            "dh_dt": 0.242,
+                            "stabilitaet_score": 0.794
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            22,
+                            18,
+                            28,
+                            10
+                        ]
+                    },
+                    "2025-09-30": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 2.47,
+                            "y_sozial": 2,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 2.246,
+                            "dh_dt": 0.067,
+                            "stabilitaet_score": 0.782
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            22,
+                            23,
+                            4,
+                            13
+                        ]
+                    },
+                    "2025-10-07": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.6,
+                            "y_sozial": 1.583,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.606,
+                            "dh_dt": -0.576,
+                            "stabilitaet_score": 0.891
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            5,
+                            7,
+                            2,
+                            14
+                        ]
+                    },
+                    "2025-10-21": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.917,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.024,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.892
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            4,
+                            22,
+                            23,
+                            25,
+                            1
+                        ]
+                    },
+                    "2025-10-28": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.05,
+                            "y_sozial": 2,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.056,
+                            "dh_dt": 0.093,
+                            "stabilitaet_score": 0.91
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            6,
+                            5,
+                            15
+                        ]
+                    },
+                    "2025-11-04": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.733,
+                            "y_sozial": 2.333,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.949,
+                            "dh_dt": 0.257,
+                            "stabilitaet_score": 0.866
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            18,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "4": {
+        "unterrichtseinheit_id": 4,
+        "gruppen": {
+            "5": {
+                "gruppe_id": 5,
+                "tage": {
+                    "2025-09-10": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.9,
+                            "y_sozial": 2,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.909,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.984
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            13,
+                            2,
+                            23,
+                            3
+                        ]
+                    },
+                    "2025-09-17": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.4,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 1.25,
+                            "h_bedeutung": 1.409,
+                            "dh_dt": -1.136,
+                            "stabilitaet_score": 0.906
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            8,
+                            25
+                        ]
+                    },
+                    "2025-09-24": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.879,
+                            "dh_dt": -0.455,
+                            "stabilitaet_score": 0.852
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            1,
+                            6,
+                            10,
+                            4
+                        ]
+                    },
+                    "2025-10-01": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.7,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 1.375,
+                            "h_bedeutung": 1.659,
+                            "dh_dt": -0.25,
+                            "stabilitaet_score": 0.922
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            23,
+                            2,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-10-22": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 3,
+                            "y_sozial": 2,
+                            "z_affektiv": 3,
+                            "h_bedeutung": 2.636,
+                            "dh_dt": 0.636,
+                            "stabilitaet_score": 0.778
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            16,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-10-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.813,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.977,
+                            "dh_dt": 0.273,
+                            "stabilitaet_score": 0.948
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            24,
+                            1,
+                            3,
+                            28,
+                            23
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "5": {
+        "unterrichtseinheit_id": 5,
+        "gruppen": {
+            "2": {
+                "gruppe_id": 2,
+                "tage": {
+                    "2025-09-08": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.85,
+                            "y_sozial": 1.188,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.865
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-09-15": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.25,
+                            "y_sozial": 1.313,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.829
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.76,
+                            "y_sozial": 1.45,
+                            "z_affektiv": 1.7,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.236,
+                            "stabilitaet_score": 0.925
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            23,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.75,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.614,
+                            "dh_dt": 0.091,
+                            "stabilitaet_score": 0.939
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            2,
+                            14,
+                            4
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 2.375,
+                            "h_bedeutung": 2.023,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.771
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": -0.295,
+                            "stabilitaet_score": 0.876
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            4,
+                            2,
+                            25
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.3,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 1.873,
+                            "dh_dt": 0.164,
+                            "stabilitaet_score": 0.754
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            },
+            "6": {
+                "gruppe_id": 6,
+                "tage": {
+                    "2025-09-10": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.833,
+                            "y_sozial": 1.458,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": 0.03,
+                            "stabilitaet_score": 0.899
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            25,
+                            1,
+                            2,
+                            4
+                        ]
+                    },
+                    "2025-09-17": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.273,
+                            "dh_dt": -0.045,
+                            "stabilitaet_score": 0.946
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            8,
+                            13,
+                            2,
+                            15
+                        ]
+                    },
+                    "2025-09-24": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.05,
+                            "y_sozial": 1.625,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.867
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            4,
+                            25,
+                            8,
+                            5,
+                            1
+                        ]
+                    },
+                    "2025-10-01": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.667,
+                            "y_sozial": 1.167,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.455,
+                            "dh_dt": -0.091,
+                            "stabilitaet_score": 0.878
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            4,
+                            8,
+                            2,
+                            5
+                        ]
+                    },
+                    "2025-10-22": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2.167,
+                            "h_bedeutung": 1.818,
+                            "dh_dt": 0.182,
+                            "stabilitaet_score": 0.887
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            25,
+                            22,
+                            23,
+                            8,
+                            13
+                        ]
+                    },
+                    "2025-10-29": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.733,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.667,
+                            "dh_dt": -0.152,
+                            "stabilitaet_score": 0.788
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            4,
+                            25,
+                            5,
+                            23
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "6": {
+        "unterrichtseinheit_id": 6,
+        "gruppen": {
+            "7": {
+                "gruppe_id": 7,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.333,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.939,
+                            "dh_dt": -0.152,
+                            "stabilitaet_score": 0.758
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.933,
+                            "y_sozial": 1.333,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.667,
+                            "dh_dt": -0.212,
+                            "stabilitaet_score": 0.806
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.222,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.747,
+                            "dh_dt": -0.192,
+                            "stabilitaet_score": 0.801
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            16,
+                            25
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.273,
+                            "stabilitaet_score": 0.732
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            22,
+                            27,
+                            1,
+                            10
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.833,
+                            "h_bedeutung": 1.818,
+                            "dh_dt": 0.121,
+                            "stabilitaet_score": 0.904
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            14,
+                            2,
+                            22,
+                            4,
+                            16
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.136,
+                            "dh_dt": -0.682,
+                            "stabilitaet_score": 0.986
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    }
+                }
+            },
+            "8": {
+                "gruppe_id": 8,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.15,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.114,
+                            "stabilitaet_score": 0.735
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            14,
+                            13,
+                            23
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.5,
+                            "y_sozial": 1.625,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 2.091,
+                            "dh_dt": 0.045,
+                            "stabilitaet_score": 0.821
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            13,
+                            14
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.9,
+                            "y_sozial": 1.563,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.75,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.824
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            5,
+                            6,
+                            10,
+                            23
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.15,
+                            "y_sozial": 1.438,
+                            "z_affektiv": 2.125,
+                            "h_bedeutung": 1.886,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.795
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            9,
+                            14,
+                            13
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.867,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.242,
+                            "dh_dt": 0.515,
+                            "stabilitaet_score": 0.558
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            13,
+                            14,
+                            23
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.55,
+                            "y_sozial": 1.688,
+                            "z_affektiv": 2.625,
+                            "h_bedeutung": 2.25,
+                            "dh_dt": 0.159,
+                            "stabilitaet_score": 0.77
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            10,
+                            9,
+                            13
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "7": {
+        "unterrichtseinheit_id": 7,
+        "gruppen": {
+            "2": {
+                "gruppe_id": 2,
+                "tage": {
+                    "2025-09-08": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.85,
+                            "y_sozial": 1.188,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.865
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-09-15": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.25,
+                            "y_sozial": 1.313,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.829
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.76,
+                            "y_sozial": 1.45,
+                            "z_affektiv": 1.7,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.236,
+                            "stabilitaet_score": 0.925
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            23,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.75,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.614,
+                            "dh_dt": 0.091,
+                            "stabilitaet_score": 0.939
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            2,
+                            14,
+                            4
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 2.375,
+                            "h_bedeutung": 2.023,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.771
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": -0.295,
+                            "stabilitaet_score": 0.876
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            4,
+                            2,
+                            25
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.3,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 1.873,
+                            "dh_dt": 0.164,
+                            "stabilitaet_score": 0.754
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            },
+            "4": {
+                "gruppe_id": 4,
+                "tage": {
+                    "2025-09-09": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 2.125,
+                            "z_affektiv": 2.875,
+                            "h_bedeutung": 2.391,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.697
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            6,
+                            23,
+                            4
+                        ]
+                    },
+                    "2025-09-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.467,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 2.667,
+                            "h_bedeutung": 2.242,
+                            "dh_dt": 0.242,
+                            "stabilitaet_score": 0.794
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            22,
+                            18,
+                            28,
+                            10
+                        ]
+                    },
+                    "2025-09-30": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 2.47,
+                            "y_sozial": 2,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 2.246,
+                            "dh_dt": 0.067,
+                            "stabilitaet_score": 0.782
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            22,
+                            23,
+                            4,
+                            13
+                        ]
+                    },
+                    "2025-10-07": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.6,
+                            "y_sozial": 1.583,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.606,
+                            "dh_dt": -0.576,
+                            "stabilitaet_score": 0.891
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            5,
+                            7,
+                            2,
+                            14
+                        ]
+                    },
+                    "2025-10-21": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.917,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.024,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.892
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            4,
+                            22,
+                            23,
+                            25,
+                            1
+                        ]
+                    },
+                    "2025-10-28": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.05,
+                            "y_sozial": 2,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.056,
+                            "dh_dt": 0.093,
+                            "stabilitaet_score": 0.91
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            6,
+                            5,
+                            15
+                        ]
+                    },
+                    "2025-11-04": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.733,
+                            "y_sozial": 2.333,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.949,
+                            "dh_dt": 0.257,
+                            "stabilitaet_score": 0.866
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            18,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            },
+            "7": {
+                "gruppe_id": 7,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.333,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.939,
+                            "dh_dt": -0.152,
+                            "stabilitaet_score": 0.758
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.933,
+                            "y_sozial": 1.333,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.667,
+                            "dh_dt": -0.212,
+                            "stabilitaet_score": 0.806
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.222,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.747,
+                            "dh_dt": -0.192,
+                            "stabilitaet_score": 0.801
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            16,
+                            25
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.273,
+                            "stabilitaet_score": 0.732
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            22,
+                            27,
+                            1,
+                            10
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.833,
+                            "h_bedeutung": 1.818,
+                            "dh_dt": 0.121,
+                            "stabilitaet_score": 0.904
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            14,
+                            2,
+                            22,
+                            4,
+                            16
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.136,
+                            "dh_dt": -0.682,
+                            "stabilitaet_score": 0.986
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    }
+                }
+            },
+            "8": {
+                "gruppe_id": 8,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.15,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.114,
+                            "stabilitaet_score": 0.735
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            14,
+                            13,
+                            23
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.5,
+                            "y_sozial": 1.625,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 2.091,
+                            "dh_dt": 0.045,
+                            "stabilitaet_score": 0.821
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            13,
+                            14
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.9,
+                            "y_sozial": 1.563,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.75,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.824
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            5,
+                            6,
+                            10,
+                            23
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.15,
+                            "y_sozial": 1.438,
+                            "z_affektiv": 2.125,
+                            "h_bedeutung": 1.886,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.795
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            9,
+                            14,
+                            13
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.867,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.242,
+                            "dh_dt": 0.515,
+                            "stabilitaet_score": 0.558
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            13,
+                            14,
+                            23
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.55,
+                            "y_sozial": 1.688,
+                            "z_affektiv": 2.625,
+                            "h_bedeutung": 2.25,
+                            "dh_dt": 0.159,
+                            "stabilitaet_score": 0.77
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            10,
+                            9,
+                            13
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "10": {
+        "unterrichtseinheit_id": 10,
+        "gruppen": {
+            "1": {
+                "gruppe_id": 1,
+                "tage": {
+                    "2025-09-15": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 3,
+                            "y_sozial": 2.25,
+                            "z_affektiv": 2.5,
+                            "h_bedeutung": 2.636,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.903
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            25,
+                            12,
+                            24,
+                            11
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.909,
+                            "dh_dt": 0.364,
+                            "stabilitaet_score": 0.916
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            3,
+                            28,
+                            1,
+                            23,
+                            4
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 2,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 2.182,
+                            "dh_dt": 0.273,
+                            "stabilitaet_score": 0.964
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            9,
+                            24,
+                            22,
+                            25,
+                            12
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.65,
+                            "y_sozial": 1.875,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.808,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.908
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            11,
+                            23,
+                            22,
+                            9,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 2.125,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 2.182,
+                            "dh_dt": -0.126,
+                            "stabilitaet_score": 0.953
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            15,
+                            23,
+                            14,
+                            25,
+                            11
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 2.25,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.977,
+                            "dh_dt": -0.023,
+                            "stabilitaet_score": 0.706
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            11,
+                            24,
+                            17,
+                            16,
+                            23
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "11": {
+        "unterrichtseinheit_id": 11,
+        "gruppen": {
+            "2": {
+                "gruppe_id": 2,
+                "tage": {
+                    "2025-09-08": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.85,
+                            "y_sozial": 1.188,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.865
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-09-15": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.25,
+                            "y_sozial": 1.313,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.829
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.76,
+                            "y_sozial": 1.45,
+                            "z_affektiv": 1.7,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.236,
+                            "stabilitaet_score": 0.925
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            23,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.75,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.614,
+                            "dh_dt": 0.091,
+                            "stabilitaet_score": 0.939
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            2,
+                            14,
+                            4
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 2.375,
+                            "h_bedeutung": 2.023,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.771
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": -0.295,
+                            "stabilitaet_score": 0.876
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            4,
+                            2,
+                            25
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.3,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 1.873,
+                            "dh_dt": 0.164,
+                            "stabilitaet_score": 0.754
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "12": {
+        "unterrichtseinheit_id": 12,
+        "gruppen": {
+            "5": {
+                "gruppe_id": 5,
+                "tage": {
+                    "2025-09-10": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.9,
+                            "y_sozial": 2,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.909,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.984
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            13,
+                            2,
+                            23,
+                            3
+                        ]
+                    },
+                    "2025-09-17": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.4,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 1.25,
+                            "h_bedeutung": 1.409,
+                            "dh_dt": -1.136,
+                            "stabilitaet_score": 0.906
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            8,
+                            25
+                        ]
+                    },
+                    "2025-09-24": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.879,
+                            "dh_dt": -0.455,
+                            "stabilitaet_score": 0.852
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            1,
+                            6,
+                            10,
+                            4
+                        ]
+                    },
+                    "2025-10-01": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.7,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 1.375,
+                            "h_bedeutung": 1.659,
+                            "dh_dt": -0.25,
+                            "stabilitaet_score": 0.922
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            23,
+                            2,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-10-22": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 3,
+                            "y_sozial": 2,
+                            "z_affektiv": 3,
+                            "h_bedeutung": 2.636,
+                            "dh_dt": 0.636,
+                            "stabilitaet_score": 0.778
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            16,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-10-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.813,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.977,
+                            "dh_dt": 0.273,
+                            "stabilitaet_score": 0.948
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            24,
+                            1,
+                            3,
+                            28,
+                            23
+                        ]
+                    }
+                }
+            },
+            "7": {
+                "gruppe_id": 7,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.333,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.939,
+                            "dh_dt": -0.152,
+                            "stabilitaet_score": 0.758
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.933,
+                            "y_sozial": 1.333,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.667,
+                            "dh_dt": -0.212,
+                            "stabilitaet_score": 0.806
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.222,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.747,
+                            "dh_dt": -0.192,
+                            "stabilitaet_score": 0.801
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            16,
+                            25
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.273,
+                            "stabilitaet_score": 0.732
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            22,
+                            27,
+                            1,
+                            10
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.833,
+                            "h_bedeutung": 1.818,
+                            "dh_dt": 0.121,
+                            "stabilitaet_score": 0.904
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            14,
+                            2,
+                            22,
+                            4,
+                            16
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.136,
+                            "dh_dt": -0.682,
+                            "stabilitaet_score": 0.986
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "16": {
+        "unterrichtseinheit_id": 16,
+        "gruppen": {
+            "9": {
+                "gruppe_id": 9,
+                "tage": {
+                    "2025-09-19": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 2.52,
+                            "y_sozial": 2.1,
+                            "z_affektiv": 2.3,
+                            "h_bedeutung": 2.327,
+                            "dh_dt": 0.236,
+                            "stabilitaet_score": 0.914
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            1,
+                            23,
+                            2,
+                            5
+                        ]
+                    },
+                    "2025-09-26": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.909,
+                            "dh_dt": -0.03,
+                            "stabilitaet_score": 0.959
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            23,
+                            2,
+                            4,
+                            5
+                        ]
+                    },
+                    "2025-10-24": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 1.917,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.212,
+                            "dh_dt": -0.091,
+                            "stabilitaet_score": 0.932
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            28,
+                            3,
+                            10,
+                            1
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "18": {
+        "unterrichtseinheit_id": 18,
+        "gruppen": {
+            "2": {
+                "gruppe_id": 2,
+                "tage": {
+                    "2025-09-08": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.85,
+                            "y_sozial": 1.188,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.865
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-09-15": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.25,
+                            "y_sozial": 1.313,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.829
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.76,
+                            "y_sozial": 1.45,
+                            "z_affektiv": 1.7,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.236,
+                            "stabilitaet_score": 0.925
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            23,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.75,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.614,
+                            "dh_dt": 0.091,
+                            "stabilitaet_score": 0.939
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            2,
+                            14,
+                            4
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 2.375,
+                            "h_bedeutung": 2.023,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.771
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": -0.295,
+                            "stabilitaet_score": 0.876
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            4,
+                            2,
+                            25
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.3,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 1.873,
+                            "dh_dt": 0.164,
+                            "stabilitaet_score": 0.754
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "19": {
+        "unterrichtseinheit_id": 19,
+        "gruppen": {
+            "3": {
+                "gruppe_id": 3,
+                "tage": {
+                    "2025-09-09": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.6,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.273,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.92
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            25,
+                            24,
+                            2
+                        ]
+                    },
+                    "2025-09-23": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1,
+                            "dh_dt": -0.727,
+                            "stabilitaet_score": 1
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            23,
+                            4,
+                            9,
+                            14
+                        ]
+                    },
+                    "2025-09-30": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.25,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": 0.455,
+                            "stabilitaet_score": 0.875
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            15,
+                            21,
+                            16,
+                            20,
+                            6
+                        ]
+                    },
+                    "2025-10-21": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.091,
+                            "dh_dt": -0.636,
+                            "stabilitaet_score": 0.991
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            28,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-11-04": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.25,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0.455,
+                            "stabilitaet_score": 0.949
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            15,
+                            21,
+                            13,
+                            11
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "20": {
+        "unterrichtseinheit_id": 20,
+        "gruppen": {
+            "4": {
+                "gruppe_id": 4,
+                "tage": {
+                    "2025-09-09": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 2.125,
+                            "z_affektiv": 2.875,
+                            "h_bedeutung": 2.391,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.697
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            6,
+                            23,
+                            4
+                        ]
+                    },
+                    "2025-09-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.467,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 2.667,
+                            "h_bedeutung": 2.242,
+                            "dh_dt": 0.242,
+                            "stabilitaet_score": 0.794
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            22,
+                            18,
+                            28,
+                            10
+                        ]
+                    },
+                    "2025-09-30": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 2.47,
+                            "y_sozial": 2,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 2.246,
+                            "dh_dt": 0.067,
+                            "stabilitaet_score": 0.782
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            22,
+                            23,
+                            4,
+                            13
+                        ]
+                    },
+                    "2025-10-07": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.6,
+                            "y_sozial": 1.583,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.606,
+                            "dh_dt": -0.576,
+                            "stabilitaet_score": 0.891
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            5,
+                            7,
+                            2,
+                            14
+                        ]
+                    },
+                    "2025-10-21": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.917,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.024,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.892
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            4,
+                            22,
+                            23,
+                            25,
+                            1
+                        ]
+                    },
+                    "2025-10-28": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.05,
+                            "y_sozial": 2,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.056,
+                            "dh_dt": 0.093,
+                            "stabilitaet_score": 0.91
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            6,
+                            5,
+                            15
+                        ]
+                    },
+                    "2025-11-04": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.733,
+                            "y_sozial": 2.333,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.949,
+                            "dh_dt": 0.257,
+                            "stabilitaet_score": 0.866
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            18,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "21": {
+        "unterrichtseinheit_id": 21,
+        "gruppen": {
+            "5": {
+                "gruppe_id": 5,
+                "tage": {
+                    "2025-09-10": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.9,
+                            "y_sozial": 2,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.909,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.984
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            13,
+                            2,
+                            23,
+                            3
+                        ]
+                    },
+                    "2025-09-17": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.4,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 1.25,
+                            "h_bedeutung": 1.409,
+                            "dh_dt": -1.136,
+                            "stabilitaet_score": 0.906
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            8,
+                            25
+                        ]
+                    },
+                    "2025-09-24": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.879,
+                            "dh_dt": -0.455,
+                            "stabilitaet_score": 0.852
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            1,
+                            6,
+                            10,
+                            4
+                        ]
+                    },
+                    "2025-10-01": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.7,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 1.375,
+                            "h_bedeutung": 1.659,
+                            "dh_dt": -0.25,
+                            "stabilitaet_score": 0.922
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            23,
+                            2,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-10-22": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 3,
+                            "y_sozial": 2,
+                            "z_affektiv": 3,
+                            "h_bedeutung": 2.636,
+                            "dh_dt": 0.636,
+                            "stabilitaet_score": 0.778
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            16,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-10-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.813,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.977,
+                            "dh_dt": 0.273,
+                            "stabilitaet_score": 0.948
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            24,
+                            1,
+                            3,
+                            28,
+                            23
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "23": {
+        "unterrichtseinheit_id": 23,
+        "gruppen": {
+            "7": {
+                "gruppe_id": 7,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.333,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.939,
+                            "dh_dt": -0.152,
+                            "stabilitaet_score": 0.758
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.933,
+                            "y_sozial": 1.333,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.667,
+                            "dh_dt": -0.212,
+                            "stabilitaet_score": 0.806
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.222,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.747,
+                            "dh_dt": -0.192,
+                            "stabilitaet_score": 0.801
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            16,
+                            25
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.273,
+                            "stabilitaet_score": 0.732
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            22,
+                            27,
+                            1,
+                            10
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.833,
+                            "h_bedeutung": 1.818,
+                            "dh_dt": 0.121,
+                            "stabilitaet_score": 0.904
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            14,
+                            2,
+                            22,
+                            4,
+                            16
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.136,
+                            "dh_dt": -0.682,
+                            "stabilitaet_score": 0.986
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "25": {
+        "unterrichtseinheit_id": 25,
+        "gruppen": {
+            "9": {
+                "gruppe_id": 9,
+                "tage": {
+                    "2025-09-19": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 2.52,
+                            "y_sozial": 2.1,
+                            "z_affektiv": 2.3,
+                            "h_bedeutung": 2.327,
+                            "dh_dt": 0.236,
+                            "stabilitaet_score": 0.914
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            1,
+                            23,
+                            2,
+                            5
+                        ]
+                    },
+                    "2025-09-26": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.909,
+                            "dh_dt": -0.03,
+                            "stabilitaet_score": 0.959
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            23,
+                            2,
+                            4,
+                            5
+                        ]
+                    },
+                    "2025-10-24": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 1.917,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.212,
+                            "dh_dt": -0.091,
+                            "stabilitaet_score": 0.932
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            28,
+                            3,
+                            10,
+                            1
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "27": {
+        "unterrichtseinheit_id": 27,
+        "gruppen": {
+            "2": {
+                "gruppe_id": 2,
+                "tage": {
+                    "2025-09-08": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.85,
+                            "y_sozial": 1.188,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.865
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-09-15": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.25,
+                            "y_sozial": 1.313,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.829
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.76,
+                            "y_sozial": 1.45,
+                            "z_affektiv": 1.7,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.236,
+                            "stabilitaet_score": 0.925
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            23,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.75,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.614,
+                            "dh_dt": 0.091,
+                            "stabilitaet_score": 0.939
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            2,
+                            14,
+                            4
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 2.375,
+                            "h_bedeutung": 2.023,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.771
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": -0.295,
+                            "stabilitaet_score": 0.876
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            4,
+                            2,
+                            25
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.3,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 1.873,
+                            "dh_dt": 0.164,
+                            "stabilitaet_score": 0.754
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "28": {
+        "unterrichtseinheit_id": 28,
+        "gruppen": {
+            "3": {
+                "gruppe_id": 3,
+                "tage": {
+                    "2025-09-09": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.6,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.273,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.92
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            25,
+                            24,
+                            2
+                        ]
+                    },
+                    "2025-09-23": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1,
+                            "dh_dt": -0.727,
+                            "stabilitaet_score": 1
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            23,
+                            4,
+                            9,
+                            14
+                        ]
+                    },
+                    "2025-09-30": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.25,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": 0.455,
+                            "stabilitaet_score": 0.875
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            15,
+                            21,
+                            16,
+                            20,
+                            6
+                        ]
+                    },
+                    "2025-10-21": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.091,
+                            "dh_dt": -0.636,
+                            "stabilitaet_score": 0.991
+                        },
+                        "transitions_marker": [
+                            "Sprung"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            28,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-11-04": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.25,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0.455,
+                            "stabilitaet_score": 0.949
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            15,
+                            21,
+                            13,
+                            11
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "32": {
+        "unterrichtseinheit_id": 32,
+        "gruppen": {
+            "7": {
+                "gruppe_id": 7,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.333,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.939,
+                            "dh_dt": -0.152,
+                            "stabilitaet_score": 0.758
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.933,
+                            "y_sozial": 1.333,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.667,
+                            "dh_dt": -0.212,
+                            "stabilitaet_score": 0.806
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.222,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.747,
+                            "dh_dt": -0.192,
+                            "stabilitaet_score": 0.801
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            16,
+                            25
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.273,
+                            "stabilitaet_score": 0.732
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            22,
+                            27,
+                            1,
+                            10
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.833,
+                            "h_bedeutung": 1.818,
+                            "dh_dt": 0.121,
+                            "stabilitaet_score": 0.904
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            14,
+                            2,
+                            22,
+                            4,
+                            16
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.136,
+                            "dh_dt": -0.682,
+                            "stabilitaet_score": 0.986
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "34": {
+        "unterrichtseinheit_id": 34,
+        "gruppen": {
+            "4": {
+                "gruppe_id": 4,
+                "tage": {
+                    "2025-09-09": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 2.125,
+                            "z_affektiv": 2.875,
+                            "h_bedeutung": 2.391,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.697
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            6,
+                            23,
+                            4
+                        ]
+                    },
+                    "2025-09-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.467,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 2.667,
+                            "h_bedeutung": 2.242,
+                            "dh_dt": 0.242,
+                            "stabilitaet_score": 0.794
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            22,
+                            18,
+                            28,
+                            10
+                        ]
+                    },
+                    "2025-09-30": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 2.47,
+                            "y_sozial": 2,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 2.246,
+                            "dh_dt": 0.067,
+                            "stabilitaet_score": 0.782
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            22,
+                            23,
+                            4,
+                            13
+                        ]
+                    },
+                    "2025-10-07": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.6,
+                            "y_sozial": 1.583,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.606,
+                            "dh_dt": -0.576,
+                            "stabilitaet_score": 0.891
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            5,
+                            7,
+                            2,
+                            14
+                        ]
+                    },
+                    "2025-10-21": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.917,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.024,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.892
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            4,
+                            22,
+                            23,
+                            25,
+                            1
+                        ]
+                    },
+                    "2025-10-28": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.05,
+                            "y_sozial": 2,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.056,
+                            "dh_dt": 0.093,
+                            "stabilitaet_score": 0.91
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            6,
+                            5,
+                            15
+                        ]
+                    },
+                    "2025-11-04": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.733,
+                            "y_sozial": 2.333,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.949,
+                            "dh_dt": 0.257,
+                            "stabilitaet_score": 0.866
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            1,
+                            18,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "36": {
+        "unterrichtseinheit_id": 36,
+        "gruppen": {
+            "2": {
+                "gruppe_id": 2,
+                "tage": {
+                    "2025-09-08": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.85,
+                            "y_sozial": 1.188,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.865
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-09-15": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.25,
+                            "y_sozial": 1.313,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.829
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.76,
+                            "y_sozial": 1.45,
+                            "z_affektiv": 1.7,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.236,
+                            "stabilitaet_score": 0.925
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            23,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.75,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.614,
+                            "dh_dt": 0.091,
+                            "stabilitaet_score": 0.939
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            2,
+                            14,
+                            4
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 2.375,
+                            "h_bedeutung": 2.023,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.771
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": -0.295,
+                            "stabilitaet_score": 0.876
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            4,
+                            2,
+                            25
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.3,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 1.873,
+                            "dh_dt": 0.164,
+                            "stabilitaet_score": 0.754
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "41": {
+        "unterrichtseinheit_id": 41,
+        "gruppen": {
+            "7": {
+                "gruppe_id": 7,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.333,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.939,
+                            "dh_dt": -0.152,
+                            "stabilitaet_score": 0.758
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.933,
+                            "y_sozial": 1.333,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.667,
+                            "dh_dt": -0.212,
+                            "stabilitaet_score": 0.806
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.222,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.747,
+                            "dh_dt": -0.192,
+                            "stabilitaet_score": 0.801
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            16,
+                            25
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.273,
+                            "stabilitaet_score": 0.732
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            22,
+                            27,
+                            1,
+                            10
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.833,
+                            "h_bedeutung": 1.818,
+                            "dh_dt": 0.121,
+                            "stabilitaet_score": 0.904
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            14,
+                            2,
+                            22,
+                            4,
+                            16
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.136,
+                            "dh_dt": -0.682,
+                            "stabilitaet_score": 0.986
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "43": {
+        "unterrichtseinheit_id": 43,
+        "gruppen": {
+            "9": {
+                "gruppe_id": 9,
+                "tage": {
+                    "2025-09-19": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 2.52,
+                            "y_sozial": 2.1,
+                            "z_affektiv": 2.3,
+                            "h_bedeutung": 2.327,
+                            "dh_dt": 0.236,
+                            "stabilitaet_score": 0.914
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            1,
+                            23,
+                            2,
+                            5
+                        ]
+                    },
+                    "2025-09-26": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.909,
+                            "dh_dt": -0.03,
+                            "stabilitaet_score": 0.959
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            23,
+                            2,
+                            4,
+                            5
+                        ]
+                    },
+                    "2025-10-24": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 1.917,
+                            "z_affektiv": 2.333,
+                            "h_bedeutung": 2.212,
+                            "dh_dt": -0.091,
+                            "stabilitaet_score": 0.932
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            6,
+                            28,
+                            3,
+                            10,
+                            1
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "44": {
+        "unterrichtseinheit_id": 44,
+        "gruppen": {
+            "1": {
+                "gruppe_id": 1,
+                "tage": {
+                    "2025-09-15": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 3,
+                            "y_sozial": 2.25,
+                            "z_affektiv": 2.5,
+                            "h_bedeutung": 2.636,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.903
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            25,
+                            12,
+                            24,
+                            11
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.75,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.909,
+                            "dh_dt": 0.364,
+                            "stabilitaet_score": 0.916
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            3,
+                            28,
+                            1,
+                            23,
+                            4
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 1,
+                        "mittelwerte": {
+                            "x_kognition": 2.4,
+                            "y_sozial": 2,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 2.182,
+                            "dh_dt": 0.273,
+                            "stabilitaet_score": 0.964
+                        },
+                        "transitions_marker": [
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            9,
+                            24,
+                            22,
+                            25,
+                            12
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.65,
+                            "y_sozial": 1.875,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.808,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.908
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            11,
+                            23,
+                            22,
+                            9,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 2.125,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 2.182,
+                            "dh_dt": -0.126,
+                            "stabilitaet_score": 0.953
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            15,
+                            23,
+                            14,
+                            25,
+                            11
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 2.25,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.977,
+                            "dh_dt": -0.023,
+                            "stabilitaet_score": 0.706
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            11,
+                            24,
+                            17,
+                            16,
+                            23
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "45": {
+        "unterrichtseinheit_id": 45,
+        "gruppen": {
+            "2": {
+                "gruppe_id": 2,
+                "tage": {
+                    "2025-09-08": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.85,
+                            "y_sozial": 1.188,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.865
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-09-15": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.25,
+                            "y_sozial": 1.313,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.829
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.76,
+                            "y_sozial": 1.45,
+                            "z_affektiv": 1.7,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.236,
+                            "stabilitaet_score": 0.925
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            23,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.75,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.614,
+                            "dh_dt": 0.091,
+                            "stabilitaet_score": 0.939
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            2,
+                            14,
+                            4
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 2.375,
+                            "h_bedeutung": 2.023,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.771
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": -0.295,
+                            "stabilitaet_score": 0.876
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            4,
+                            2,
+                            25
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.3,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 1.873,
+                            "dh_dt": 0.164,
+                            "stabilitaet_score": 0.754
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "49": {
+        "unterrichtseinheit_id": 49,
+        "gruppen": {
+            "7": {
+                "gruppe_id": 7,
+                "tage": {
+                    "2025-09-11": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.333,
+                            "y_sozial": 1.417,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.939,
+                            "dh_dt": -0.152,
+                            "stabilitaet_score": 0.758
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-18": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.933,
+                            "y_sozial": 1.333,
+                            "z_affektiv": 1.667,
+                            "h_bedeutung": 1.667,
+                            "dh_dt": -0.212,
+                            "stabilitaet_score": 0.806
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            22,
+                            16,
+                            5,
+                            4,
+                            25
+                        ]
+                    },
+                    "2025-09-25": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.222,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.747,
+                            "dh_dt": -0.192,
+                            "stabilitaet_score": 0.801
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            28,
+                            22,
+                            23,
+                            16,
+                            25
+                        ]
+                    },
+                    "2025-10-02": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 2.1,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.273,
+                            "stabilitaet_score": 0.732
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            22,
+                            27,
+                            1,
+                            10
+                        ]
+                    },
+                    "2025-10-23": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 1.8,
+                            "y_sozial": 1.833,
+                            "z_affektiv": 1.833,
+                            "h_bedeutung": 1.818,
+                            "dh_dt": 0.121,
+                            "stabilitaet_score": 0.904
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            14,
+                            2,
+                            22,
+                            4,
+                            16
+                        ]
+                    },
+                    "2025-10-30": {
+                        "teilnehmer": 2,
+                        "mittelwerte": {
+                            "x_kognition": 1.2,
+                            "y_sozial": 1.125,
+                            "z_affektiv": 1,
+                            "h_bedeutung": 1.136,
+                            "dh_dt": -0.682,
+                            "stabilitaet_score": 0.986
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            5,
+                            3,
+                            28,
+                            1,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "52": {
+        "unterrichtseinheit_id": 52,
+        "gruppen": {
+            "2": {
+                "gruppe_id": 2,
+                "tage": {
+                    "2025-09-08": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.85,
+                            "y_sozial": 1.188,
+                            "z_affektiv": 1.5,
+                            "h_bedeutung": 1.545,
+                            "dh_dt": 0,
+                            "stabilitaet_score": 0.865
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            1,
+                            6,
+                            23,
+                            3,
+                            28
+                        ]
+                    },
+                    "2025-09-15": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.25,
+                            "y_sozial": 1.313,
+                            "z_affektiv": 2,
+                            "h_bedeutung": 1.864,
+                            "dh_dt": 0.068,
+                            "stabilitaet_score": 0.829
+                        },
+                        "transitions_marker": [
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-22": {
+                        "teilnehmer": 5,
+                        "mittelwerte": {
+                            "x_kognition": 1.76,
+                            "y_sozial": 1.45,
+                            "z_affektiv": 1.7,
+                            "h_bedeutung": 1.636,
+                            "dh_dt": -0.236,
+                            "stabilitaet_score": 0.925
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            2,
+                            23,
+                            4,
+                            1,
+                            6
+                        ]
+                    },
+                    "2025-09-29": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.75,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.75,
+                            "h_bedeutung": 1.614,
+                            "dh_dt": 0.091,
+                            "stabilitaet_score": 0.939
+                        },
+                        "transitions_marker": [
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            2,
+                            14,
+                            4
+                        ]
+                    },
+                    "2025-10-20": {
+                        "teilnehmer": 3,
+                        "mittelwerte": {
+                            "x_kognition": 2.3,
+                            "y_sozial": 1.5,
+                            "z_affektiv": 2.375,
+                            "h_bedeutung": 2.023,
+                            "dh_dt": 0.136,
+                            "stabilitaet_score": 0.771
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            1,
+                            4,
+                            8
+                        ]
+                    },
+                    "2025-10-27": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 1.95,
+                            "y_sozial": 1.375,
+                            "z_affektiv": 1.875,
+                            "h_bedeutung": 1.727,
+                            "dh_dt": -0.295,
+                            "stabilitaet_score": 0.876
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            1,
+                            4,
+                            2,
+                            25
+                        ]
+                    },
+                    "2025-11-03": {
+                        "teilnehmer": 4,
+                        "mittelwerte": {
+                            "x_kognition": 2.2,
+                            "y_sozial": 1.3,
+                            "z_affektiv": 2.2,
+                            "h_bedeutung": 1.873,
+                            "dh_dt": 0.164,
+                            "stabilitaet_score": 0.754
+                        },
+                        "transitions_marker": [
+                            "Sprung",
+                            "Stabil",
+                            "Übergang"
+                        ],
+                        "marker_emotionen": [
+                            23,
+                            2,
+                            4,
+                            5,
+                            6
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
