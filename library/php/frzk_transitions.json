@@ -313,6 +313,19 @@
     },
     {
         "id": 25,
+        "teilnehmer_id": 6,
+        "zeitpunkt": "2025-11-07 15:35:00",
+        "von_cluster": 3,
+        "nach_cluster": 2,
+        "delta_h": -0.54545,
+        "delta_stabilitaet": 0.093889,
+        "transition_typ": "Rückkopplung",
+        "transition_intensitaet": 0.31967,
+        "marker": "🔄",
+        "bemerkung": "Δh: -0.545 | Δstab: 0.094 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.32"
+    },
+    {
+        "id": 26,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-09-24 17:10:00",
         "von_cluster": 2,
@@ -325,7 +338,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.202 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.15"
     },
     {
-        "id": 26,
+        "id": 27,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-09-30 17:10:00",
         "von_cluster": 2,
@@ -338,7 +351,7 @@
         "bemerkung": "Δh: 0.455 | Δstab: -0.301 | Cluster: 2→3 | Typ: Rückkopplung | Intensität: 0.38"
     },
     {
-        "id": 27,
+        "id": 28,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-10-21 17:10:00",
         "von_cluster": 3,
@@ -351,7 +364,7 @@
         "bemerkung": "Δh: -0.636 | Δstab: 0.125 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.38"
     },
     {
-        "id": 28,
+        "id": 29,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-10-22 17:10:00",
         "von_cluster": 2,
@@ -364,7 +377,7 @@
         "bemerkung": "Δh: -0.182 | Δstab: 0.075 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.13"
     },
     {
-        "id": 29,
+        "id": 30,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-10-29 17:10:00",
         "von_cluster": 2,
@@ -377,7 +390,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: -0.042 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.02"
     },
     {
-        "id": 30,
+        "id": 31,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-09-23 17:10:00",
         "von_cluster": 3,
@@ -390,7 +403,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: -0.124 | Cluster: 3→3 | Typ: Rückkopplung | Intensität: 0.15"
     },
     {
-        "id": 31,
+        "id": 32,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-09-30 17:10:00",
         "von_cluster": 3,
@@ -403,7 +416,7 @@
         "bemerkung": "Δh: -0.273 | Δstab: 0.106 | Cluster: 3→3 | Typ: Rückkopplung | Intensität: 0.19"
     },
     {
-        "id": 32,
+        "id": 33,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-10-07 17:10:00",
         "von_cluster": 3,
@@ -416,7 +429,7 @@
         "bemerkung": "Δh: -1.000 | Δstab: 0.000 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.50"
     },
     {
-        "id": 33,
+        "id": 34,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-10-21 17:10:00",
         "von_cluster": 2,
@@ -429,7 +442,7 @@
         "bemerkung": "Δh: 0.818 | Δstab: -0.044 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.43"
     },
     {
-        "id": 34,
+        "id": 35,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-10-28 17:10:00",
         "von_cluster": 3,
@@ -442,7 +455,7 @@
         "bemerkung": "Δh: -0.364 | Δstab: 0.010 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.19"
     },
     {
-        "id": 35,
+        "id": 36,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-11-04 17:10:00",
         "von_cluster": 2,
@@ -455,7 +468,7 @@
         "bemerkung": "Δh: 0.545 | Δstab: 0.048 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.30"
     },
     {
-        "id": 36,
+        "id": 37,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-11 15:35:00",
         "von_cluster": 3,
@@ -468,7 +481,7 @@
         "bemerkung": "Δh: -0.455 | Δstab: 0.945 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.70"
     },
     {
-        "id": 37,
+        "id": 38,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-18 15:35:00",
         "von_cluster": 2,
@@ -481,7 +494,7 @@
         "bemerkung": "Δh: -0.455 | Δstab: -0.127 | Cluster: 2→1 | Typ: Destabilisierung | Intensität: 0.29"
     },
     {
-        "id": 38,
+        "id": 39,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-23 17:10:00",
         "von_cluster": 1,
@@ -494,7 +507,7 @@
         "bemerkung": "Δh: 0.909 | Δstab: -0.233 | Cluster: 1→3 | Typ: Sprung | Intensität: 0.57"
     },
     {
-        "id": 39,
+        "id": 40,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-25 15:35:00",
         "von_cluster": 3,
@@ -507,7 +520,7 @@
         "bemerkung": "Δh: 0.061 | Δstab: 0.176 | Cluster: 3→3 | Typ: Rückkopplung | Intensität: 0.12"
     },
     {
-        "id": 40,
+        "id": 41,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-30 17:10:00",
         "von_cluster": 3,
@@ -520,7 +533,7 @@
         "bemerkung": "Δh: 0.303 | Δstab: -0.445 | Cluster: 3→3 | Typ: Rückkopplung | Intensität: 0.37"
     },
     {
-        "id": 41,
+        "id": 42,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-10-02 15:35:00",
         "von_cluster": 3,
@@ -533,7 +546,7 @@
         "bemerkung": "Δh: -1.000 | Δstab: 0.571 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.79"
     },
     {
-        "id": 42,
+        "id": 43,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-10-28 17:10:00",
         "von_cluster": 2,
@@ -546,7 +559,7 @@
         "bemerkung": "Δh: 0.727 | Δstab: -0.033 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.38"
     },
     {
-        "id": 43,
+        "id": 44,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-10-30 15:35:00",
         "von_cluster": 3,
@@ -559,7 +572,7 @@
         "bemerkung": "Δh: -1.091 | Δstab: 0.107 | Cluster: 3→1 | Typ: Rückkopplung | Intensität: 0.60"
     },
     {
-        "id": 44,
+        "id": 45,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-11-04 17:10:00",
         "von_cluster": 1,
@@ -572,7 +585,7 @@
         "bemerkung": "Δh: 0.273 | Δstab: -0.082 | Cluster: 1→2 | Typ: Rückkopplung | Intensität: 0.18"
     },
     {
-        "id": 45,
+        "id": 46,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-11-06 15:35:00",
         "von_cluster": 2,
@@ -585,7 +598,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: 0.092 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.14"
     },
     {
-        "id": 46,
+        "id": 47,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-11 17:10:00",
         "von_cluster": 1,
@@ -598,7 +611,7 @@
         "bemerkung": "Δh: 1.000 | Δstab: -0.060 | Cluster: 1→3 | Typ: Sprung | Intensität: 0.53"
     },
     {
-        "id": 47,
+        "id": 48,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-17 15:35:00",
         "von_cluster": 3,
@@ -611,7 +624,7 @@
         "bemerkung": "Δh: -1.182 | Δstab: 0.089 | Cluster: 3→1 | Typ: Rückkopplung | Intensität: 0.64"
     },
     {
-        "id": 48,
+        "id": 49,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-18 15:35:00",
         "von_cluster": 1,
@@ -624,7 +637,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.068 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.08"
     },
     {
-        "id": 49,
+        "id": 50,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-24 15:35:00",
         "von_cluster": 1,
@@ -637,7 +650,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: -0.044 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.07"
     },
     {
-        "id": 50,
+        "id": 51,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-25 15:35:00",
         "von_cluster": 1,
@@ -650,7 +663,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: 0.020 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.06"
     },
     {
-        "id": 51,
+        "id": 52,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-01 16:53:43",
         "von_cluster": 1,
@@ -663,7 +676,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 52,
+        "id": 53,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-02 16:53:16",
         "von_cluster": 1,
@@ -676,7 +689,7 @@
         "bemerkung": "Δh: 0.455 | Δstab: -0.400 | Cluster: 1→2 | Typ: Rückkopplung | Intensität: 0.43"
     },
     {
-        "id": 53,
+        "id": 54,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-23 15:31:28",
         "von_cluster": 2,
@@ -689,7 +702,7 @@
         "bemerkung": "Δh: -0.455 | Δstab: 0.400 | Cluster: 2→1 | Typ: Rückkopplung | Intensität: 0.43"
     },
     {
-        "id": 54,
+        "id": 55,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-29 16:53:35",
         "von_cluster": 1,
@@ -702,7 +715,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: -0.044 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.07"
     },
     {
-        "id": 55,
+        "id": 56,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-30 16:55:47",
         "von_cluster": 1,
@@ -715,7 +728,7 @@
         "bemerkung": "Δh: -0.273 | Δstab: 0.080 | Cluster: 1→1 | Typ: Rückkopplung | Intensität: 0.18"
     },
     {
-        "id": 56,
+        "id": 57,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-11-06 15:34:11",
         "von_cluster": 1,
@@ -728,7 +741,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: -0.036 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.11"
     },
     {
-        "id": 57,
+        "id": 58,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-11-06 16:51:46",
         "von_cluster": 1,
@@ -741,7 +754,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 58,
+        "id": 59,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-09-19 15:35:00",
         "von_cluster": 2,
@@ -754,7 +767,7 @@
         "bemerkung": "Δh: 0.545 | Δstab: -0.010 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.28"
     },
     {
-        "id": 59,
+        "id": 60,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-10-01 15:35:00",
         "von_cluster": 3,
@@ -767,7 +780,7 @@
         "bemerkung": "Δh: -0.545 | Δstab: -0.233 | Cluster: 3→2 | Typ: Destabilisierung | Intensität: 0.39"
     },
     {
-        "id": 60,
+        "id": 61,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-10-29 15:35:00",
         "von_cluster": 2,
@@ -780,7 +793,20 @@
         "bemerkung": "Δh: 0.727 | Δstab: 0.239 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.48"
     },
     {
-        "id": 61,
+        "id": 62,
+        "teilnehmer_id": 11,
+        "zeitpunkt": "2025-11-07 15:35:00",
+        "von_cluster": 3,
+        "nach_cluster": 1,
+        "delta_h": -1,
+        "delta_stabilitaet": 0,
+        "transition_typ": "Rückkopplung",
+        "transition_intensitaet": 0.5,
+        "marker": "🔄",
+        "bemerkung": "Δh: -1.000 | Δstab: 0.000 | Cluster: 3→1 | Typ: Rückkopplung | Intensität: 0.50"
+    },
+    {
+        "id": 63,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-10 17:10:00",
         "von_cluster": 1,
@@ -793,7 +819,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: -0.036 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.11"
     },
     {
-        "id": 62,
+        "id": 64,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-10 17:10:00",
         "von_cluster": 1,
@@ -806,7 +832,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 63,
+        "id": 65,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-17 17:10:00",
         "von_cluster": 1,
@@ -819,7 +845,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.022 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.06"
     },
     {
-        "id": 64,
+        "id": 66,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-10-01 17:10:00",
         "von_cluster": 1,
@@ -832,7 +858,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 65,
+        "id": 67,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-09-22 17:10:00",
         "von_cluster": 2,
@@ -845,7 +871,7 @@
         "bemerkung": "Δh: -0.545 | Δstab: 0.047 | Cluster: 2→1 | Typ: Rückkopplung | Intensität: 0.30"
     },
     {
-        "id": 66,
+        "id": 68,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-09-24 17:10:00",
         "von_cluster": 1,
@@ -858,7 +884,7 @@
         "bemerkung": "Δh: 0.455 | Δstab: -0.005 | Cluster: 1→2 | Typ: Rückkopplung | Intensität: 0.23"
     },
     {
-        "id": 67,
+        "id": 69,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-10-07 17:10:00",
         "von_cluster": 2,
@@ -871,7 +897,7 @@
         "bemerkung": "Δh: -0.545 | Δstab: -0.045 | Cluster: 2→1 | Typ: Destabilisierung | Intensität: 0.30"
     },
     {
-        "id": 68,
+        "id": 70,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-09-17 17:10:00",
         "von_cluster": 1,
@@ -884,7 +910,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: -0.025 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.01"
     },
     {
-        "id": 69,
+        "id": 71,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-09-24 17:10:00",
         "von_cluster": 1,
@@ -897,7 +923,7 @@
         "bemerkung": "Δh: -0.273 | Δstab: 0.058 | Cluster: 1→1 | Typ: Rückkopplung | Intensität: 0.17"
     },
     {
-        "id": 70,
+        "id": 72,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-01 17:10:00",
         "von_cluster": 1,
@@ -910,7 +936,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: -0.011 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.05"
     },
     {
-        "id": 71,
+        "id": 73,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-22 17:10:00",
         "von_cluster": 1,
@@ -923,7 +949,7 @@
         "bemerkung": "Δh: 1.000 | Δstab: -0.097 | Cluster: 1→3 | Typ: Sprung | Intensität: 0.55"
     },
     {
-        "id": 72,
+        "id": 74,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-29 17:10:00",
         "von_cluster": 3,
@@ -936,7 +962,7 @@
         "bemerkung": "Δh: -1.091 | Δstab: 0.102 | Cluster: 3→1 | Typ: Rückkopplung | Intensität: 0.60"
     },
     {
-        "id": 73,
+        "id": 75,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-09-18 15:35:00",
         "von_cluster": 3,
@@ -949,7 +975,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.175 | Cluster: 3→3 | Typ: Rückkopplung | Intensität: 0.13"
     },
     {
-        "id": 74,
+        "id": 76,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-09-25 15:35:00",
         "von_cluster": 3,
@@ -962,7 +988,7 @@
         "bemerkung": "Δh: -0.727 | Δstab: 0.065 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.40"
     },
     {
-        "id": 75,
+        "id": 77,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-10-23 15:35:00",
         "von_cluster": 2,
@@ -975,7 +1001,7 @@
         "bemerkung": "Δh: 0.727 | Δstab: 0.169 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.45"
     },
     {
-        "id": 76,
+        "id": 78,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-11-06 15:34:29",
         "von_cluster": 3,
@@ -988,7 +1014,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: 0.073 | Cluster: 3→3 | Typ: Neutral | Intensität: 0.08"
     },
     {
-        "id": 77,
+        "id": 79,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-11-06 15:35:00",
         "von_cluster": 3,
@@ -1001,7 +1027,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: -0.642 | Cluster: 3→3 | Typ: Rückkopplung | Intensität: 0.37"
     },
     {
-        "id": 78,
+        "id": 80,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-09 17:10:00",
         "von_cluster": 2,
@@ -1014,7 +1040,7 @@
         "bemerkung": "Δh: 0.545 | Δstab: 0.102 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.32"
     },
     {
-        "id": 79,
+        "id": 81,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-11 17:10:00",
         "von_cluster": 3,
@@ -1027,7 +1053,7 @@
         "bemerkung": "Δh: -0.545 | Δstab: -0.204 | Cluster: 3→2 | Typ: Destabilisierung | Intensität: 0.37"
     },
     {
-        "id": 80,
+        "id": 82,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-15 17:10:00",
         "von_cluster": 2,
@@ -1040,7 +1066,7 @@
         "bemerkung": "Δh: 0.273 | Δstab: 0.144 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.21"
     },
     {
-        "id": 81,
+        "id": 83,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-22 17:10:00",
         "von_cluster": 2,
@@ -1053,7 +1079,7 @@
         "bemerkung": "Δh: -0.364 | Δstab: 0.077 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.22"
     },
     {
-        "id": 82,
+        "id": 84,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-23 15:35:00",
         "von_cluster": 2,
@@ -1066,7 +1092,7 @@
         "bemerkung": "Δh: -0.727 | Δstab: 0.125 | Cluster: 2→1 | Typ: Rückkopplung | Intensität: 0.43"
     },
     {
-        "id": 83,
+        "id": 85,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-25 17:10:00",
         "von_cluster": 1,
@@ -1079,7 +1105,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: -0.036 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.11"
     },
     {
-        "id": 84,
+        "id": 86,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-29 17:10:00",
         "von_cluster": 1,
@@ -1092,7 +1118,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 1→1 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 85,
+        "id": 87,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-02 17:10:00",
         "von_cluster": 1,
@@ -1105,7 +1131,7 @@
         "bemerkung": "Δh: 0.545 | Δstab: -0.240 | Cluster: 1→2 | Typ: Sprung | Intensität: 0.39"
     },
     {
-        "id": 86,
+        "id": 88,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-23 15:35:00",
         "von_cluster": 2,
@@ -1118,7 +1144,7 @@
         "bemerkung": "Δh: -0.455 | Δstab: 0.196 | Cluster: 2→1 | Typ: Rückkopplung | Intensität: 0.33"
     },
     {
-        "id": 87,
+        "id": 89,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-23 17:10:00",
         "von_cluster": 1,
@@ -1131,7 +1157,7 @@
         "bemerkung": "Δh: 0.909 | Δstab: -0.371 | Cluster: 1→2 | Typ: Sprung | Intensität: 0.64"
     },
     {
-        "id": 88,
+        "id": 90,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-27 17:10:00",
         "von_cluster": 2,
@@ -1144,7 +1170,7 @@
         "bemerkung": "Δh: -0.364 | Δstab: 0.104 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.23"
     },
     {
-        "id": 89,
+        "id": 91,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-30 17:10:00",
         "von_cluster": 2,
@@ -1157,7 +1183,7 @@
         "bemerkung": "Δh: -0.364 | Δstab: 0.238 | Cluster: 2→1 | Typ: Rückkopplung | Intensität: 0.30"
     },
     {
-        "id": 90,
+        "id": 92,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-03 17:10:00",
         "von_cluster": 1,
@@ -1170,7 +1196,7 @@
         "bemerkung": "Δh: 0.364 | Δstab: -0.311 | Cluster: 1→2 | Typ: Rückkopplung | Intensität: 0.34"
     },
     {
-        "id": 91,
+        "id": 93,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-06 17:10:00",
         "von_cluster": 2,
@@ -1183,7 +1209,7 @@
         "bemerkung": "Δh: -0.727 | Δstab: 0.411 | Cluster: 2→1 | Typ: Rückkopplung | Intensität: 0.57"
     },
     {
-        "id": 92,
+        "id": 94,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-09-18 17:10:00",
         "von_cluster": 2,
@@ -1196,7 +1222,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: 0.100 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.10"
     },
     {
-        "id": 93,
+        "id": 95,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-09-25 17:10:00",
         "von_cluster": 2,
@@ -1209,7 +1235,7 @@
         "bemerkung": "Δh: 0.818 | Δstab: -0.240 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.53"
     },
     {
-        "id": 94,
+        "id": 96,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-02 17:10:00",
         "von_cluster": 3,
@@ -1222,7 +1248,7 @@
         "bemerkung": "Δh: -0.364 | Δstab: 0.125 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.24"
     },
     {
-        "id": 95,
+        "id": 97,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-23 17:10:00",
         "von_cluster": 2,
@@ -1235,7 +1261,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.075 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.08"
     },
     {
-        "id": 96,
+        "id": 98,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-30 17:10:00",
         "von_cluster": 2,
@@ -1248,7 +1274,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: -0.236 | Cluster: 2→3 | Typ: Rückkopplung | Intensität: 0.21"
     },
     {
-        "id": 97,
+        "id": 99,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-11-06 17:10:00",
         "von_cluster": 3,
@@ -1261,7 +1287,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.501 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.30"
     },
     {
-        "id": 98,
+        "id": 100,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-09-25 17:10:00",
         "von_cluster": 2,
@@ -1274,7 +1300,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.058 | Cluster: 2→1 | Typ: Neutral | Intensität: 0.07"
     },
     {
-        "id": 99,
+        "id": 101,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-02 17:10:00",
         "von_cluster": 1,
@@ -1287,7 +1313,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: -0.010 | Cluster: 1→2 | Typ: Neutral | Intensität: 0.10"
     },
     {
-        "id": 100,
+        "id": 102,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-23 15:35:00",
         "von_cluster": 2,
@@ -1300,7 +1326,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: 0.018 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.05"
     },
     {
-        "id": 101,
+        "id": 103,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-23 17:10:00",
         "von_cluster": 2,
@@ -1313,7 +1339,7 @@
         "bemerkung": "Δh: 0.727 | Δstab: -0.458 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.59"
     },
     {
-        "id": 102,
+        "id": 104,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-30 17:10:00",
         "von_cluster": 3,
@@ -1326,7 +1352,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: 0.399 | Cluster: 3→3 | Typ: Rückkopplung | Intensität: 0.29"
     },
     {
-        "id": 103,
+        "id": 105,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-11-06 17:10:00",
         "von_cluster": 3,
@@ -1339,7 +1365,7 @@
         "bemerkung": "Δh: 0.455 | Δstab: 0.017 | Cluster: 3→3 | Typ: Stabilisierung | Intensität: 0.24"
     },
     {
-        "id": 104,
+        "id": 106,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-09-25 17:10:00",
         "von_cluster": 3,
@@ -1352,7 +1378,7 @@
         "bemerkung": "Δh: -0.636 | Δstab: -0.021 | Cluster: 3→2 | Typ: Destabilisierung | Intensität: 0.33"
     },
     {
-        "id": 105,
+        "id": 107,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-10-02 17:10:00",
         "von_cluster": 2,
@@ -1365,7 +1391,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: 0.008 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.10"
     },
     {
-        "id": 106,
+        "id": 108,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-10-30 17:10:00",
         "von_cluster": 2,
@@ -1378,7 +1404,7 @@
         "bemerkung": "Δh: 0.636 | Δstab: -0.067 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.35"
     },
     {
-        "id": 107,
+        "id": 109,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-11-06 17:10:00",
         "von_cluster": 3,
@@ -1391,7 +1417,7 @@
         "bemerkung": "Δh: -0.727 | Δstab: 0.017 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.37"
     },
     {
-        "id": 108,
+        "id": 110,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-15 17:10:00",
         "von_cluster": 2,
@@ -1404,7 +1430,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: -0.105 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.10"
     },
     {
-        "id": 109,
+        "id": 111,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-19 15:35:00",
         "von_cluster": 2,
@@ -1417,7 +1443,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.024 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.06"
     },
     {
-        "id": 110,
+        "id": 112,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-22 17:10:00",
         "von_cluster": 2,
@@ -1430,7 +1456,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: -0.024 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.06"
     },
     {
-        "id": 111,
+        "id": 113,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-26 15:35:00",
         "von_cluster": 2,
@@ -1443,7 +1469,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.024 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.06"
     },
     {
-        "id": 112,
+        "id": 114,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-29 17:10:00",
         "von_cluster": 2,
@@ -1456,7 +1482,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 113,
+        "id": 115,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-20 17:10:00",
         "von_cluster": 2,
@@ -1469,7 +1495,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.003 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 114,
+        "id": 116,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-24 15:35:00",
         "von_cluster": 2,
@@ -1482,7 +1508,7 @@
         "bemerkung": "Δh: 0.091 | Δstab: -0.028 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.06"
     },
     {
-        "id": 115,
+        "id": 117,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-27 17:10:00",
         "von_cluster": 2,
@@ -1495,7 +1521,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 116,
+        "id": 118,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-11-03 17:10:00",
         "von_cluster": 2,
@@ -1508,7 +1534,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 117,
+        "id": 119,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-15 17:10:00",
         "von_cluster": 2,
@@ -1521,7 +1547,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.053 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.07"
     },
     {
-        "id": 118,
+        "id": 120,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-22 17:10:00",
         "von_cluster": 2,
@@ -1534,7 +1560,7 @@
         "bemerkung": "Δh: -0.273 | Δstab: 0.162 | Cluster: 2→1 | Typ: Rückkopplung | Intensität: 0.22"
     },
     {
-        "id": 119,
+        "id": 121,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-29 17:10:00",
         "von_cluster": 1,
@@ -1547,7 +1573,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: 0.010 | Cluster: 1→2 | Typ: Neutral | Intensität: 0.10"
     },
     {
-        "id": 120,
+        "id": 122,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-20 17:10:00",
         "von_cluster": 2,
@@ -1560,7 +1586,7 @@
         "bemerkung": "Δh: 0.727 | Δstab: -0.352 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.54"
     },
     {
-        "id": 121,
+        "id": 123,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-20 17:10:00",
         "von_cluster": 3,
@@ -1573,7 +1599,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 3→3 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 122,
+        "id": 124,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-27 17:10:00",
         "von_cluster": 3,
@@ -1586,7 +1612,7 @@
         "bemerkung": "Δh: -1.000 | Δstab: 0.385 | Cluster: 3→1 | Typ: Rückkopplung | Intensität: 0.69"
     },
     {
-        "id": 123,
+        "id": 125,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-03 17:10:00",
         "von_cluster": 1,
@@ -1599,7 +1625,7 @@
         "bemerkung": "Δh: 0.727 | Δstab: -0.304 | Cluster: 1→2 | Typ: Sprung | Intensität: 0.52"
     },
     {
-        "id": 124,
+        "id": 126,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-03 17:10:00",
         "von_cluster": 2,
@@ -1612,7 +1638,7 @@
         "bemerkung": "Δh: 0.000 | Δstab: 0.000 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.00"
     },
     {
-        "id": 125,
+        "id": 127,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-09-24 17:10:00",
         "von_cluster": 2,
@@ -1625,7 +1651,7 @@
         "bemerkung": "Δh: 0.455 | Δstab: -0.276 | Cluster: 2→3 | Typ: Rückkopplung | Intensität: 0.37"
     },
     {
-        "id": 126,
+        "id": 128,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-01 17:10:00",
         "von_cluster": 3,
@@ -1638,7 +1664,7 @@
         "bemerkung": "Δh: -0.364 | Δstab: 0.137 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.25"
     },
     {
-        "id": 127,
+        "id": 129,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-07 17:10:00",
         "von_cluster": 2,
@@ -1651,7 +1677,7 @@
         "bemerkung": "Δh: -0.182 | Δstab: 0.138 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.16"
     },
     {
-        "id": 128,
+        "id": 130,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-22 17:10:00",
         "von_cluster": 2,
@@ -1664,7 +1690,7 @@
         "bemerkung": "Δh: -0.273 | Δstab: 0.073 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.17"
     },
     {
-        "id": 129,
+        "id": 131,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-29 17:10:00",
         "von_cluster": 2,
@@ -1677,7 +1703,7 @@
         "bemerkung": "Δh: 0.636 | Δstab: -0.357 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.50"
     },
     {
-        "id": 130,
+        "id": 132,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-11-06 17:10:00",
         "von_cluster": 2,
@@ -1690,7 +1716,7 @@
         "bemerkung": "Δh: -0.636 | Δstab: 0.264 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.45"
     },
     {
-        "id": 131,
+        "id": 133,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-09-22 17:10:00",
         "von_cluster": 2,
@@ -1703,7 +1729,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.122 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.11"
     },
     {
-        "id": 132,
+        "id": 134,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-09-29 17:10:00",
         "von_cluster": 2,
@@ -1716,7 +1742,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: -0.042 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.11"
     },
     {
-        "id": 133,
+        "id": 135,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-10-20 17:10:00",
         "von_cluster": 2,
@@ -1729,7 +1755,7 @@
         "bemerkung": "Δh: -0.182 | Δstab: 0.042 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.11"
     },
     {
-        "id": 134,
+        "id": 136,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-10-27 17:10:00",
         "von_cluster": 2,
@@ -1742,7 +1768,7 @@
         "bemerkung": "Δh: 0.182 | Δstab: 0.005 | Cluster: 2→2 | Typ: Neutral | Intensität: 0.09"
     },
     {
-        "id": 135,
+        "id": 137,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-11-03 17:10:00",
         "von_cluster": 2,
@@ -1755,7 +1781,7 @@
         "bemerkung": "Δh: -0.273 | Δstab: -0.033 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.15"
     },
     {
-        "id": 136,
+        "id": 138,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-23 17:10:00",
         "von_cluster": 2,
@@ -1768,7 +1794,7 @@
         "bemerkung": "Δh: -0.364 | Δstab: 0.177 | Cluster: 2→2 | Typ: Rückkopplung | Intensität: 0.27"
     },
     {
-        "id": 137,
+        "id": 139,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-26 17:30:26",
         "von_cluster": 2,
@@ -1781,7 +1807,7 @@
         "bemerkung": "Δh: -0.091 | Δstab: 0.048 | Cluster: 2→1 | Typ: Neutral | Intensität: 0.07"
     },
     {
-        "id": 138,
+        "id": 140,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-30 17:10:00",
         "von_cluster": 1,
@@ -1794,7 +1820,20 @@
         "bemerkung": "Δh: 0.273 | Δstab: -0.015 | Cluster: 1→2 | Typ: Rückkopplung | Intensität: 0.14"
     },
     {
-        "id": 139,
+        "id": 141,
+        "teilnehmer_id": 24,
+        "zeitpunkt": "2025-11-07 15:35:00",
+        "von_cluster": 2,
+        "nach_cluster": 3,
+        "delta_h": 0.63637,
+        "delta_stabilitaet": -0.151667,
+        "transition_typ": "Sprung",
+        "transition_intensitaet": 0.394019,
+        "marker": "🚀",
+        "bemerkung": "Δh: 0.636 | Δstab: -0.152 | Cluster: 2→3 | Typ: Sprung | Intensität: 0.39"
+    },
+    {
+        "id": 142,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-10-27 16:46:37",
         "von_cluster": 2,
@@ -1807,7 +1846,7 @@
         "bemerkung": "Δh: 0.384 | Δstab: 0.087 | Cluster: 2→3 | Typ: Rückkopplung | Intensität: 0.24"
     },
     {
-        "id": 140,
+        "id": 143,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-11-03 16:56:05",
         "von_cluster": 3,
@@ -1820,7 +1859,7 @@
         "bemerkung": "Δh: -0.364 | Δstab: -0.447 | Cluster: 3→2 | Typ: Rückkopplung | Intensität: 0.41"
     },
     {
-        "id": 141,
+        "id": 144,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-11-03 16:56:09",
         "von_cluster": 2,

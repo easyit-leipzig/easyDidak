@@ -822,9 +822,9 @@ $tables = [
   "frzk_operatoren",
   "frzk_reflexion",
   "frzk_transitions",
-  "frzk_gruppen_semantische_dichte",
-  "frzk_gruppen_reflexion",
-  "frzk_gruppen_transitions"
+  "frzk_group_semantische_dichte",
+  "frzk_group_reflexion",
+  "frzk_group_transitions"
 ];
 
 foreach ($tables as $t) {

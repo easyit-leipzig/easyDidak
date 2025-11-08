@@ -1,6 +1,6 @@
 <?php
 // ==========================================================================
-// fill_frzk_tmp_group_semantische_dichte.php
+// fill_frzk_group_semantische_dichte.php
 // Aggregation der FRZK-Werte auf Gruppenebene
 // + Transitions (frzk_group_transitions)
 // + Reflexion (frzk_group_reflexion)
@@ -20,9 +20,9 @@ echo "🚀 Starte Aggregation: Gruppen-Semantik, Transitions, Reflexion & Loops\
 // --------------------------------------------------------------------------
 // 1️⃣ Basisstruktur
 // --------------------------------------------------------------------------
-$pdo->exec("TRUNCATE frzk_tmp_group_semantische_dichte");
+$pdo->exec("TRUNCATE frzk_group_semantische_dichte");
 $pdo->exec("
-INSERT INTO frzk_tmp_group_semantische_dichte (ue_id, gruppe_id, zeitpunkt)
+INSERT INTO frzk_group_semantische_dichte (ue_id, gruppe_id, zeitpunkt)
 SELECT id, gruppe_id, CONCAT(datum, ' ', zeit)
 FROM ue_unterrichtseinheit
 WHERE datum IS NOT NULL AND zeit IS NOT NULL
@@ -32,7 +32,7 @@ echo "✅ Basisstruktur erzeugt.\n";
 // --------------------------------------------------------------------------
 // 2️⃣ Gruppen-Semantik
 // --------------------------------------------------------------------------
-$rows = $pdo->query("SELECT * FROM frzk_tmp_group_semantische_dichte ORDER BY id")->fetchAll();
+$rows = $pdo->query("SELECT * FROM frzk_group_semantische_dichte ORDER BY id")->fetchAll();
 foreach ($rows as $r) {
     $gid = (int)$r["gruppe_id"];
     $zeit = $r["zeitpunkt"];
@@ -50,7 +50,7 @@ foreach ($rows as $r) {
     $z = array_sum(array_column($vals,"z_affektiv"))/$n;
     $h = ($x+$y+$z)/3;
 
-    $prev = $pdo->prepare("SELECT h_bedeutung FROM frzk_tmp_group_semantische_dichte
+    $prev = $pdo->prepare("SELECT h_bedeutung FROM frzk_group_semantische_dichte
                             WHERE gruppe_id=:g AND zeitpunkt<:t
                             ORDER BY zeitpunkt DESC LIMIT 1");
     $prev->execute([":g"=>$gid,":t"=>$zeit]);
@@ -76,7 +76,7 @@ foreach ($rows as $r) {
     elseif($stab>0.8&&$a<0.1)$mark.=" (resilient)";
 
     $pdo->prepare("
-        UPDATE frzk_tmp_group_semantische_dichte
+        UPDATE frzk_group_semantische_dichte
         SET anz_tn=:n,x_kognition=:x,y_sozial=:y,z_affektiv=:z,
             h_bedeutung=:h,dh_dt=:dh,stabilitaet_score=:s,
             cluster_id=:c,transitions_marker=:m
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS frzk_group_transitions (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ");
 
-$rows = $pdo->query("SELECT * FROM frzk_tmp_group_semantische_dichte ORDER BY gruppe_id, zeitpunkt")->fetchAll();
+$rows = $pdo->query("SELECT * FROM frzk_group_semantische_dichte ORDER BY gruppe_id, zeitpunkt")->fetchAll();
 $groups=[];
 foreach($rows as $r)$groups[$r["gruppe_id"]][]=$r;
 
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS frzk_group_reflexion (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ");
 
-$rows=$pdo->query("SELECT * FROM frzk_tmp_group_semantische_dichte ORDER BY gruppe_id, zeitpunkt")->fetchAll();
+$rows=$pdo->query("SELECT * FROM frzk_group_semantische_dichte ORDER BY gruppe_id, zeitpunkt")->fetchAll();
 $groups=[];
 foreach($rows as $r)$groups[$r["gruppe_id"]][]=$r;
 
@@ -202,7 +202,7 @@ CREATE TABLE IF NOT EXISTS frzk_group_loops (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ");
 
-$data=$pdo->query("SELECT * FROM frzk_tmp_group_semantische_dichte ORDER BY gruppe_id, zeitpunkt")->fetchAll();
+$data=$pdo->query("SELECT * FROM frzk_group_semantische_dichte ORDER BY gruppe_id, zeitpunkt")->fetchAll();
 $groups=[];
 foreach($data as $d)$groups[$d["gruppe_id"]][]=$d;
 
@@ -246,7 +246,7 @@ echo "✅ Group Loops berechnet ($cL Einträge)\n";
 // --------------------------------------------------------------------------
 // 6️⃣ JSON Exporte
 // --------------------------------------------------------------------------
-foreach(["frzk_tmp_group_semantische_dichte","frzk_group_transitions",
+foreach(["frzk_group_semantische_dichte","frzk_group_transitions",
          "frzk_group_reflexion","frzk_group_loops"] as $t){
  $rows=$pdo->query("SELECT * FROM $t")->fetchAll(PDO::FETCH_ASSOC);
  file_put_contents(__DIR__."/$t.json",json_encode($rows,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
@@ -276,7 +276,7 @@ CREATE TABLE IF NOT EXISTS frzk_group_interdependenz (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ");
 
-$data = $pdo->query("SELECT * FROM frzk_tmp_group_semantische_dichte ORDER BY gruppe_id, zeitpunkt")->fetchAll();
+$data = $pdo->query("SELECT * FROM frzk_group_semantische_dichte ORDER BY gruppe_id, zeitpunkt")->fetchAll();
 $groups = [];
 foreach ($data as $r) $groups[$r["gruppe_id"]][] = $r;
 
@@ -348,7 +348,7 @@ while ($row = $stmt->fetch()) {
 $rows = $pdo->query("
     SELECT gruppe_id, zeitpunkt, x_kognition AS x, y_sozial AS y, z_affektiv AS z,
            h_bedeutung AS h, dh_dt, stabilitaet_score, emotions
-    FROM frzk_tmp_group_semantische_dichte
+    FROM frzk_group_semantische_dichte
     ORDER BY gruppe_id, zeitpunkt
 ")->fetchAll();
 

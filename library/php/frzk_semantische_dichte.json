@@ -2577,22 +2577,6 @@
     },
     {
         "id": 162,
-        "teilnehmer_id": 42,
-        "gruppe_id": 7,
-        "zeitpunkt": "2025-11-06 16:53:01",
-        "x_kognition": 0,
-        "y_sozial": 0,
-        "z_affektiv": 0,
-        "h_bedeutung": 0,
-        "dh_dt": 0,
-        "cluster_id": 1,
-        "stabilitaet_score": 1,
-        "transitions_marker": "⚖️ Homöostatisch (resilient)",
-        "emotions": "",
-        "bemerkung": "K:0.00 S:0.00 A:0.00 h:0.00 Δh:0.00"
-    },
-    {
-        "id": 163,
         "teilnehmer_id": 18,
         "gruppe_id": 8,
         "zeitpunkt": "2025-11-06 17:10:00",
@@ -2608,7 +2592,7 @@
         "bemerkung": "K:2.80 S:3.25 A:3.50 h:3.09 Δh:0.45"
     },
     {
-        "id": 164,
+        "id": 163,
         "teilnehmer_id": 16,
         "gruppe_id": 8,
         "zeitpunkt": "2025-11-06 17:10:00",
@@ -2624,7 +2608,7 @@
         "bemerkung": "K:1.20 S:1.00 A:1.00 h:1.09 Δh:-0.73"
     },
     {
-        "id": 165,
+        "id": 164,
         "teilnehmer_id": 19,
         "gruppe_id": 8,
         "zeitpunkt": "2025-11-06 17:10:00",
@@ -2640,7 +2624,7 @@
         "bemerkung": "K:2.20 S:1.75 A:1.50 h:1.91 Δh:-0.73"
     },
     {
-        "id": 166,
+        "id": 165,
         "teilnehmer_id": 17,
         "gruppe_id": 8,
         "zeitpunkt": "2025-11-06 17:10:00",
@@ -2656,7 +2640,7 @@
         "bemerkung": "K:2.40 S:1.75 A:2.50 h:2.18 Δh:-0.09"
     },
     {
-        "id": 167,
+        "id": 166,
         "teilnehmer_id": 22,
         "gruppe_id": 8,
         "zeitpunkt": "2025-11-06 17:10:00",
@@ -2670,5 +2654,53 @@
         "transitions_marker": "⚡ Perturbativ",
         "emotions": "1, 23, 8, 7, 2, 5, 4, 25",
         "bemerkung": "K:1.80 S:1.00 A:2.00 h:1.55 Δh:-0.64"
+    },
+    {
+        "id": 167,
+        "teilnehmer_id": 6,
+        "gruppe_id": 9,
+        "zeitpunkt": "2025-11-07 15:35:00",
+        "x_kognition": 2,
+        "y_sozial": 2,
+        "z_affektiv": 2,
+        "h_bedeutung": 2,
+        "dh_dt": -0.545455,
+        "cluster_id": 2,
+        "stabilitaet_score": 1,
+        "transitions_marker": "⚡ Perturbativ",
+        "emotions": "3, 10, 8, 14, 13, 7, 28, 1, 6",
+        "bemerkung": "K:2.00 S:2.00 A:2.00 h:2.00 Δh:-0.55"
+    },
+    {
+        "id": 168,
+        "teilnehmer_id": 11,
+        "gruppe_id": 9,
+        "zeitpunkt": "2025-11-07 15:35:00",
+        "x_kognition": 1.6,
+        "y_sozial": 1.25,
+        "z_affektiv": 1.5,
+        "h_bedeutung": 1.45455,
+        "dh_dt": -1,
+        "cluster_id": 1,
+        "stabilitaet_score": 0.978333,
+        "transitions_marker": "💥 Kollapsiv",
+        "emotions": "13, 1, 2, 23",
+        "bemerkung": "K:1.60 S:1.25 A:1.50 h:1.45 Δh:-1.00"
+    },
+    {
+        "id": 169,
+        "teilnehmer_id": 24,
+        "gruppe_id": 9,
+        "zeitpunkt": "2025-11-07 15:35:00",
+        "x_kognition": 2.4,
+        "y_sozial": 2,
+        "z_affektiv": 3,
+        "h_bedeutung": 2.36364,
+        "dh_dt": 0.636364,
+        "cluster_id": 3,
+        "stabilitaet_score": 0.831111,
+        "transitions_marker": "⚡ Perturbativ",
+        "emotions": "3, 4, 2, 5, 28, 6, 10, 23, 14, 1",
+        "bemerkung": "K:2.40 S:2.00 A:3.00 h:2.36 Δh:0.64"
     }
 ]
