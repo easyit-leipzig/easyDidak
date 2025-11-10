@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 10. Nov 2025 um 09:44
+-- Erstellungszeit: 10. Nov 2025 um 10:25
 -- Server-Version: 10.4.32-MariaDB
 -- PHP-Version: 8.2.12
 
@@ -5682,7 +5682,8 @@ INSERT INTO `std_teilnehmer` (`id`, `einrichtung_id`, `teilnehmer_typ`, `show_tn
 (39, 1, 1, 0, 'Anna', 'Bauer', '2', '0000-00-00', NULL, 6, 2, NULL, NULL),
 (40, 1, 1, 1, 'Dmytro', 'Filenkov', '1', '0000-00-00', NULL, 6, 2, NULL, NULL),
 (42, 1, 1, 1, 'Christina', 'Avramidou', '2', '0000-00-00', NULL, 12, 2, NULL, NULL),
-(43, 1, 1, 1, 'Soufia', 'Belebhim', '0', '0000-00-00', NULL, 5, 2, NULL, NULL);
+(43, 1, 1, 1, 'Soufia', 'Belebhim', '2', '0000-00-00', NULL, 5, 2, NULL, NULL),
+(44, 1, 1, 1, 'Lea-Sophie', 'Schwarz', '2', '0000-00-00', NULL, 6, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8267,7 +8268,7 @@ ALTER TABLE `std_lernthema`
 -- AUTO_INCREMENT für Tabelle `std_teilnehmer`
 --
 ALTER TABLE `std_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT für Tabelle `students`
