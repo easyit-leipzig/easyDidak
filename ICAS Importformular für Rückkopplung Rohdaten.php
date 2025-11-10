@@ -1,31 +1,20 @@
 <?php
 // import_datenmaske.php
 // -----------------------------------------------------------
-// Komplettes Import-Skript:
-// - Rohtext parsen -> mtr_rueckkopplung_datenmaske einfügen
-// - Dublettenprüfung (teilnehmer_id + datum) / skip fach = ORG
-// - Metrikberechnung für neue Datensätze
-// - Synchronisation -> mtr_rueckkopplung_lehrkraft_tn
-//   (wenn passender ue_zuweisung_teilnehmer_id existiert -> UPDATE,
-//    sonst INSERT)
-// - Saubere Ergebnisausgabe
+// Erweiterung:
+// Beim Einfügen in mtr_rueckkopplung_datenmaske wird automatisch
+// die passende gruppe_id aus ue_gruppen bestimmt (Tag + Zeit).
 // -----------------------------------------------------------
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// === DB-Verbindung ===
 $pdo = new PDO('mysql:host=localhost;dbname=icas;charset=utf8mb4', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Ergebnis-Container
-$errors = [];   // Dubletten
-$skipped = [];  // skipped (fach = ORG)
+$errors = [];
+$skipped = [];
 $inserted = 0;
-$metricsProcessed = 0;
-$synced = 0;
-$syncUpdated = 0;
-$syncInserted = 0;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -36,106 +25,163 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<p style='color:red'>❌ Bitte Teilnehmer-ID und Rohdaten eingeben!</p>";
     } else {
 
-    $lines = preg_split('/\r\n|\r|\n/', trim($raw));
+        $lines = preg_split('/\r\n|\r|\n/', trim($raw));
 
-    $entries = [];
-    $current = [
-        'fach' => null,
-        'datum' => null,
-        'lehrkraft' => null,
-        'thema' => null,
-        'bemerkungen' => []
-    ];
+        $entries = [];
+        $current = [
+            'fach' => null,
+            'datum' => null,
+            'lehrkraft' => null,
+            'thema' => null,
+            'bemerkungen' => []
+        ];
 
-    foreach ($lines as $line) {
-        $line = trim($line);
-        if ($line === '' || str_contains($line, '1 –') || str_contains($line, 'Schwerpunkte')) continue;
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if ($line === '' || str_contains($line, '1 –') || str_contains($line, 'Schwerpunkte')) continue;
 
-        // Datum + Lehrkraft erkennen
-        if (preg_match('/^(\d{2}\.\d{2}\.\d{2})\s+(.+)$/', $line, $m)) {
-            if ($current['datum'] && $current['fach']) {
-                $entries[] = $current;
-                $current = ['fach'=>null,'datum'=>null,'lehrkraft'=>null,'thema'=>null,'bemerkungen'=>[]];
+            // Datum + Lehrkraft
+            if (preg_match('/^(\d{2}\.\d{2}\.\d{2})\s+(.+)$/', $line, $m)) {
+                if ($current['datum'] && $current['fach']) {
+                    $entries[] = $current;
+                    $current = ['fach'=>null,'datum'=>null,'lehrkraft'=>null,'thema'=>null,'bemerkungen'=>[]];
+                }
+                $datum = DateTime::createFromFormat('d.m.y', $m[1]);
+                $current['datum'] = $datum ? $datum->format('Y-m-d H:i:s') : null;
+                $current['lehrkraft'] = trim(preg_replace('/- geändert:.*/', '', $m[2]));
+                continue;
             }
-            $datum = DateTime::createFromFormat('d.m.y', $m[1]);
-            $current['datum'] = $datum ? $datum->format('Y-m-d') : null;
-            $current['lehrkraft'] = trim(preg_replace('/- geändert:.*/', '', $m[2]));
-            continue;
-        }
 
-        // Fachkennung
-        if (preg_match('/^(PHY|MAT|nM|BIO|CHE|ENG|DEU|INF)$/i', $line, $m)) {
-            $current['fach'] = strtoupper($m[1]);
-            continue;
-        }
+            // Fachkennung
+            if (preg_match('/^(PHY|MAT|nM|BIO|CHE|ENG|DEU|INF)$/i', $line, $m)) {
+                $current['fach'] = strtoupper($m[1]);
+                continue;
+            }
 
-        // Thema (erste Zeile nach Fach)
-        if ($current['fach'] && !$current['thema']) {
-            $current['thema'] = $line;
-            continue;
-        }
+            // Thema
+            if ($current['fach'] && !$current['thema']) {
+                $current['thema'] = $line;
+                continue;
+            }
 
-        // Bemerkungen sammeln
-        if ($current['fach']) {
-            if (!preg_match('/^\d{2}\.\d{2}\.\d{2}/', $line) && !preg_match('/^(PHY|MAT|nM|BIO|CHE|ENG|DEU|INF)$/i', $line)) {
-                $current['bemerkungen'][] = $line;
+            // Bemerkung
+            if ($current['fach']) {
+                if (!preg_match('/^\d{2}\.\d{2}\.\d{2}/', $line) && !preg_match('/^(PHY|MAT|nM|BIO|CHE|ENG|DEU|INF)$/i', $line)) {
+                    $current['bemerkungen'][] = $line;
+                }
             }
         }
-    }
 
-    // letzten Datensatz übernehmen
-    if ($current['datum'] && $current['fach']) {
-        $entries[] = $current;
-    }
+        // letzten Datensatz übernehmen
+        if ($current['datum'] && $current['fach']) {
+            $entries[] = $current;
+        }
 
-    // --- SQL vorbereiten ---
-    $sqlInsertMain = "INSERT ignore INTO mtr_rueckkopplung_datenmaske 
-        (teilnehmer_id, fach, datum, lehrkraft, thema, bemerkung)
-        VALUES (:teilnehmer_id, :fach, :datum, :lehrkraft, :thema, :bemerkung)";
-    $stmtMain = $pdo->prepare($sqlInsertMain);
+        // --- Statements vorbereiten ---
+        $sqlInsertMain = "INSERT IGNORE INTO mtr_rueckkopplung_datenmaske 
+            (teilnehmer_id, fach, datum, gruppe_id, lehrkraft, thema, bemerkung)
+            VALUES (:teilnehmer_id, :fach, :datum, :gruppe_id, :lehrkraft, :thema, :bemerkung)";
+        $stmtMain = $pdo->prepare($sqlInsertMain);
 
-    $sqlInsertValue = "INSERT ignore INTO mtr_rueckkopplung_datenmaske_values 
-        (id_mtr_rueckkopplung_datenmaske, value)
-        VALUES (:id_mtr_rueckkopplung_datenmaske, :value)";
-    $stmtValue = $pdo->prepare($sqlInsertValue);
+        $sqlInsertValue = "INSERT IGNORE INTO mtr_rueckkopplung_datenmaske_values 
+            (id_mtr_rueckkopplung_datenmaske, value)
+            VALUES (:id_mtr_rueckkopplung_datenmaske, :value)";
+        $stmtValue = $pdo->prepare($sqlInsertValue);
 
-    // --- Datensätze einfügen ---
-    $count = 0;
-    foreach ($entries as $e) {
-        $bemerkung = implode(' | ', array_map('trim', $e['bemerkungen']));
-/*
-Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken
-*/
-        $stmtMain->execute([
-            ':teilnehmer_id' => $teilnehmer_id,
-            ':fach' => $e['fach'],
-            ':datum' => $e['datum'],
-            ':lehrkraft' => $e['lehrkraft'],
-            ':thema' => $e['thema'],
-            ':bemerkung' => $bemerkung,
-        ]);
-        
-        // 1️⃣ Hauptdatensatz einfügen
+        // --- Gruppenzuordnung vorbereiten ---
+        $stmtGroup = $pdo->prepare("
+            SELECT id FROM ue_gruppen
+            WHERE day_number = :day
+              AND :time BETWEEN uhrzeit_start AND uhrzeit_ende
+            LIMIT 1
+        ");
 
-        // letzte eingefügte ID ermitteln
-        $idMain = $pdo->lastInsertId();
+        $count = 0;
+        foreach ($entries as $e) {
 
-        // 2️⃣ Einzelbemerkungen einfügen
-        foreach ($e['bemerkungen'] as $b) {
-            $stmtValue->execute([
-                ':id_mtr_rueckkopplung_datenmaske' => $idMain,
-                ':value' => trim($b),
+            if (strtoupper($e['fach']) === 'ORG') {
+                $skipped[] = "{$e['datum']} – {$e['fach']} (ORG übersprungen)";
+                continue;
+            }
+
+            // Tag + Zeit aus Datum bestimmen
+            $dt = new DateTime($e['datum']);
+            $day = (int)$dt->format('N');  // Montag=1 … Sonntag=7
+            $time = $dt->format('H:i:s');
+
+            $stmtGroup->execute([':day' => $day, ':time' => $time]);
+            $gruppe_id = $stmtGroup->fetchColumn();
+
+            if (!$gruppe_id) {
+                $gruppe_id = null; // Kein Treffer
+            }
+
+            $bemerkung = implode(' | ', array_map('trim', $e['bemerkungen']));
+
+            $stmtMain->execute([
+                ':teilnehmer_id' => $teilnehmer_id,
+                ':fach' => $e['fach'],
+                ':datum' => $e['datum'],
+                ':gruppe_id' => $gruppe_id,
+                ':lehrkraft' => $e['lehrkraft'],
+                ':thema' => $e['thema'],
+                ':bemerkung' => $bemerkung,
             ]);
+
+            $idMain = $pdo->lastInsertId();
+
+            foreach ($e['bemerkungen'] as $b) {
+                $stmtValue->execute([
+                    ':id_mtr_rueckkopplung_datenmaske' => $idMain,
+                    ':value' => trim($b),
+                ]);
+            }
+
+            $count++;
         }
 
-        $count++;
-    }
-    $pdo -> exec("insert ignore into _mtr_datenmaske_values_wertung (value) select value from mtr_rueckkopplung_datenmaske_values");
-    echo "✅ Import abgeschlossen: {$count} Hauptdatensätze + Teilbemerkungen eingetragen.\n";
+        $pdo->exec("INSERT IGNORE INTO _mtr_datenmaske_values_wertung (value)
+                    SELECT value FROM mtr_rueckkopplung_datenmaske_values");
+
+        echo "✅ Import abgeschlossen: {$count} Datensätze (mit Gruppenzuordnung) eingetragen.<br>";
+
+        if (!empty($skipped)) {
+            echo "<p style='color:orange'>⚠️ Übersprungen (Fach ORG):<br>" . implode("<br>", $skipped) . "</p>";
+        }
     }
 }
+$pdo -> exec("UPDATE mtr_rueckkopplung_datenmaske dm
+JOIN ue_zuweisung_teilnehmer zut 
+  ON dm.teilnehmer_id = zut.teilnehmer_id 
+  AND WEEKDAY(dm.datum) = WEEKDAY(zut.datum)
+JOIN ue_gruppen g 
+  ON zut.gruppe_id = g.id
+SET dm.gruppe_id = g.id;
+");
+/* diese abfrage listet die teilnehmer pro gruppe und tagnummer und andere werte,
 
-// -------------------- HTML-Form --------------------
+SELECT distinct
+    g.id AS gruppe_id,
+    g.tag,
+    g.day_number,
+    g.uhrzeit_start,
+    g.uhrzeit_ende,
+    g.fach,
+    CONCAT(t.Nachname, ', ', t.Vorname) AS teilnehmername,
+    t.id AS teilnehmer_id
+FROM ue_gruppen g
+LEFT JOIN ue_zuweisung_teilnehmer zt 
+       ON g.id = zt.gruppe_id
+LEFT JOIN std_teilnehmer t 
+       ON zt.teilnehmer_id = t.id
+ORDER BY g.tag, g.uhrzeit_start, t.Nachname, t.Vorname;
+
+damit müsste sich die gruppen_id bestimmen lassen.
+
+über SELECT teilnehmer_id, weekday(datum) FROM `mtr_rueckkopplung_datenmaske`
+
+lassen sich beide koppeln und damit die gruppe in mtr_rueckkopplung_datenmaske setzen
+*/
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -161,11 +207,11 @@ button:hover { background: #1e4fd5; }
     <select name="teilnehmer_id" id="teilnehmer_id" required>
         <option value="">-- auswählen --</option>
 <?php
-// Teilnehmerliste ziehen
-$rows = $pdo->query("SELECT id, CONCAT(Nachname, ', ', Vorname) as tnName FROM std_teilnehmer ORDER BY Nachname, Vorname")->fetchAll(PDO::FETCH_ASSOC);
+$rows = $pdo->query("SELECT id, CONCAT(Vorname, '; ', Nachname, ', ', Vorname) AS tnName 
+                     FROM std_teilnehmer 
+                     ORDER BY Vorname, Nachname")->fetchAll(PDO::FETCH_ASSOC);
 foreach ($rows as $r) {
-    $sel = (isset($teilnehmer_id) && $teilnehmer_id == $r['id']) ? ' selected' : '';
-    echo "<option value=\"" . htmlspecialchars($r['id']) . "\"$sel>" . htmlspecialchars($r['tnName']) . " (id:" . htmlspecialchars($r['id']) . ")</option>\n";
+    echo "<option value='{$r['id']}'>{$r['tnName']} (id: {$r['id']})</option>\n";
 }
 ?>
     </select>
@@ -183,5 +229,6 @@ foreach ($rows as $r) {
 }
     
 ?>
+
 </body>
 </html>
