@@ -9,14 +9,49 @@
         if( !nj().isJ( jsonobject ) ) {
             throw "kein JSON-Objekt übergeben";
         }
-        console.log( jsonobject );
+        console.log( jsonobject, jsonobject.command );
         let el;
         switch( jsonobject.command ) {
             case "setGroup":
+                    data.command = "getUeData";
+                    data.ueId = jsonobject.ueId;
+                    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+                break;
+            case "getUeData":
+                    Df_3.opt.filter = "ue_unterrichtseinheit_id=" + jsonobject.ueId;
+                    Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
+
+                    Df_3.init();
+                    Df_3.dDF.show();
+                    //data.command = "getLernthemenData";
+                    //data.ueId = jsonobject.ueId;
+                    //data.lernthemen = jsonobject.r_lernthemen;
+                    //nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+                break;
+            case "getLernthemenData":
                 break;
         }
 }
+setFieldOptions = function( el ) {
+    console.log(el);
+    data.command = "getLernthemenData";
+    data.ueId = getIdAndName( el.id ).Id;
+    data.tn = nj( "#df3_teilnehmer_id_" + data.ueId ).v();
+    console.log( data )
+                    //data.lernthemen = jsonobject.r_lernthemen;
+    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+    //let els = nj().els( "input[data-dvar^='Df_3.opt.recordsets']");data-dvar="Df_3.opt.recordsets.0.opt.fields
+/*
+    while( i < l ) {
+        id = els[i].id;
+        console.log(id);
+        nj( el ).htm( options );
+        nj( "#" + els.id ).a( el );
+        i += 1;
+    }
+*/                    
 
+}
 setTooltips = function() {
    nj( "#df2_einrichtung_id_new").v( nj("#df1_search_einrichtung_id" ).v() );
     try {

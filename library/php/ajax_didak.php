@@ -93,6 +93,8 @@ function setEmotions($db_pdo,$tmpTN,$zwId,$datum, $tmpEmotions){
     }
 
 }
+/* mock $_POST */
+/**/
 switch( $_POST["command"]) {
     // start standard functions
     case "setGroup":
@@ -167,6 +169,7 @@ switch( $_POST["command"]) {
                                         $db_pdo -> query( $q );
                                         $ueId = $db_pdo -> lastInsertId();
                                     } else {
+                                        $newId = $result[0]["id"];
                                         $q = "select `teilnehmer_id` from `ue_unterrichtseinheit_zw_thema` where ue_unterrichtseinheit_id=" . $result[0]["id"];
                                         $ueId =  $result[0]["id"];
                                          try {
@@ -241,13 +244,53 @@ switch( $_POST["command"]) {
 
                     $return -> s = $tnId;
   
-                    $return -> r = $rtn;
+                    $return -> ueId = $newId;
   /*
                     $return -> q = $q;
                     $return -> rtn = $rtn;
                     $return -> emotionen = $emotionen;
   */
                     print_r( json_encode( $return )); 
+    break;
+    case "getUeData":
+                    $return -> ueId = $_POST["ueId"];
+                    $r = $db_pdo -> query("select * from ue_unterrichtseinheit_zw_thema where ue_unterrichtseinheit_id=" .  $_POST["ueId"]) -> fetchAll();
+                    $r_tn = $db_pdo -> query("select std_teilnehmer.*, _std_schulform.schulform as schulform from std_teilnehmer, _std_schulform where std_teilnehmer.KlassentypID = _std_schulform.id and std_teilnehmer.id=" .  $r[0]["teilnehmer_id"]) -> fetchAll();
+                    $r_lernthemen = $db_pdo -> query("select id as value, lernthema as text from std_lernthema where schulform='" .  $r_tn[0]["schulform"] . "' order by lernthema") -> fetchAll();
+
+                    $l = count( $r_lernthemen );
+                    $i = 0;
+                    $option = "";
+                    while ($i < $l ) {
+                        // code...
+                        $option .= '<option value="' . $r_lernthemen[$i]["value"] . '">' . $r_lernthemen[$i]["text"] . '</option>';
+                        $i += 1;
+                    }
+                    $r_lernthemen = $option;
+                    $db_pdo -> exec( "update ue_unterrichtseinheit_zw_thema set schulform_id= " . $r_tn[0]["KlassentypID"] . " where ue_unterrichtseinheit_id=" .  $_POST["ueId"]);
+                    $return -> r = $r;
+                    $return -> r_tn = $r_tn;
+                    $return -> r_lernthemen = $r_lernthemen;
+  /*
+                    $return -> rtn = $rtn;
+                    $return -> emotionen = $emotionen;
+  */
+                    print_r( json_encode( $return )); 
+    
+    break;
+    case "getLernthemenData":
+                    $r = $db_pdo -> query("select * from ue_unterrichtseinheit_zw_thema where id=" .  $_POST["ueId"] . " and teilnehmer_id = "  .  $_POST["tn"]) -> fetchAll();
+                    $r_tn = $db_pdo -> query("select std_teilnehmer.*, _std_schulform.schulform as schulform from std_teilnehmer, _std_schulform where std_teilnehmer.KlassentypID = _std_schulform.id and std_teilnehmer.id=" .  $r[0]["teilnehmer_id"]) -> fetchAll();
+                    $r_lernthemen = $db_pdo -> query("select id as value, lernthema as text from std_lernthema where schulform='" .  $r_tn[0]["schulform"] . "' order by lernthema") -> fetchAll();
+                    $return -> ueId = $_POST["ueId"];
+                    $return -> r_lernthemen = $r_lernthemen;
+;
+  /*
+                    $return -> rtn = $rtn;
+                    $return -> emotionen = $emotionen;
+  */
+                    print_r( json_encode( $return )); 
+
     break;
     default:
                             print_r( json_encode( $startdiff )); 

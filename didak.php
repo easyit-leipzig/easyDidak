@@ -440,10 +440,294 @@ var Df_2 = new DataForm( {
  */
         ]
     /*additionalFields: additionalFields, */
-} );
+} )
+var Df_3 = new DataForm( { 
+    dVar: "Df_3", 
+    id: "#Df_3", 
+    table: "ue_unterrichtseinheit_zw_thema",
+    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,dauer,thema",
+    addPraefix: "df3_",
+    formType: "form",
+    validOnSave: false, 
+    classButtonSize: "cButtonMiddle",
+    hasHelp: false,
+    autoOpen:false,
+    formWidth: 400,
+    formHeight: 300,
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+        },
+        {
+            field: "id",
+            label: "Id",
+            type: "input_text",
+
+        },
+        {
+            field: "ue_unterrichtseinheit_id",
+            label: "Einheit",
+            type: "input_text",
+
+        },    
+        {
+            field: "teilnehmer_id",
+            label: "TN",
+            type: "input_text",
+
+        },
+        {
+            field: "dauer",
+            label: "Zeit",
+            type: "input_number",
+
+        },
+        {
+            field: "thema",
+            label: "thema",
+            type: "input_text",
+            options: undefined,
+            onMouseOver: function(){setFieldOptions(this)},
+        },
+
+/*
+        {
+            field: "teilnehmer_id",
+            label: "tn_id",
+            type: "select",
+            addClasses: "cselect",
+            options: list_teilnehmer,
+        },
+        {
+            field: "mitarbeit",
+            label: "MA  ",
+            type: "input_number",
+            //default: 3,
+            Comment: "",
+            minValue: 1,
+            maxValue: 6,
+            addClasses: "elBew"
+        },
+        {
+            field: "absprachen",
+            label: "AB  ",
+            type: "input_number",
+            default: "",
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+         },
+        {
+            field: "selbststaendigkeit",
+            label: "St  ",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+ 
+        },
+        {
+            field: "konzentration",
+            label: "Ko  ",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "fleiss",
+            label: "Fl",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "lernfortschritt",
+            label: "LF",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "beherrscht_thema",
+            label: "BT",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "transferdenken",
+            label: "Tr",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "basiswissen",
+            label: "BW",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "vorbereitet",
+            label: "Vo",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "themenauswahl",
+            label: "Th",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "materialien",
+            label: "Ma",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "methodenvielfalt",
+            label: "MV",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },            
+        {
+            field: "individualisierung",
+            label: "In",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "aufforderung",
+            label: "Af",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "zielgruppen",
+            label: "ZG",
+            type: "input_number",
+//            default: 3,
+            Comment: "",
+
+            minValue: 1,
+            maxValue: 6,
+        },
+        {
+            field: "emotions",
+            label: "Gefühle",
+            type: "select",
+            addClasses: "cselect_multi",
+            addAtr: "multiple data-clickable", // clickable opens the select dialog
+            options: list_emotionen,
+            Comment: "",
+        },
+        {
+            field: "bemerkungen",
+            label: "Bemerkungen",
+            type: "input_text",
+            Comment: "",
+        },
+*/
+        ],
+
+    countPerPage: 5,
+    currentPage: 0,
+    hasPagination: true,
+    countRecords: undefined,
+    //onShow: function(){console.log(data)},
+    //afterBuild: function(){setFieldOptions()},
+//    afterNew: function(){setGroup()},
+//    filter: "id=0",
+/*
+    orderArray: ["val_varchar", "val_int"],
+*/
+    searchArray: [
+ /*
+            {
+                field: "id",
+                type: "select",
+                options: "<option value='>0'>alle</option><option value=0>nur Neu</option>",
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_select",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+            },
+            {
+                field: "val_select_multi",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+                addAtr: "multiple",
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_checkbox",
+                type: "select",
+                options: "<option value='>-1'>alle</option><option value=0>aus</option><option value='1'>an</option>",
+                value: ">-1",
+                sel: "value",
+            },
+ */
+        ]
+    /*additionalFields: additionalFields, */
+});
 (function() {
     Df.init();
     Df_2.init();
+//    Df_3.init();
     nj("#df1_search_id").on("change", function(){ let v = nj("#df1_search_id").v();    nj("#df2_teilnehmer_id_new").v( v)})
 })();
 </script>
