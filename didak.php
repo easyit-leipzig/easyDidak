@@ -445,7 +445,7 @@ var Df_3 = new DataForm( {
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_unterrichtseinheit_zw_thema",
-    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,dauer,thema",
+    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,dauer,std_lernthema_id,thema",
     addPraefix: "df3_",
     formType: "form",
     validOnSave: false, 
@@ -486,11 +486,19 @@ var Df_3 = new DataForm( {
 
         },
         {
-            field: "thema",
-            label: "thema",
+            field: "std_lernthema_id",
+            label: "Thema",
             type: "input_text",
             options: undefined,
-            onMouseOver: function(){setFieldOptions(this)},
+            onFocus: function(){setFieldOptions(this)},
+            onBlur: function(){setFieldOptions(this)},
+        },
+        {
+            field: "thema",
+            label: "Uterthema",
+            type: "input_text",
+            options: undefined,
+            //onMouseOver: function(){setFieldOptions(this)},
         },
 
 /*
@@ -684,8 +692,8 @@ var Df_3 = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
-    //onShow: function(){console.log(data)},
-    //afterBuild: function(){setFieldOptions()},
+    onShow:  function(){setTnDf_2( this )},
+    //afterBuild: function(){setTnDf_2( this )},
 //    afterNew: function(){setGroup()},
 //    filter: "id=0",
 /*

@@ -23,12 +23,57 @@
 
                     Df_3.init();
                     Df_3.dDF.show();
-                    //data.command = "getLernthemenData";
-                    //data.ueId = jsonobject.ueId;
-                    //data.lernthemen = jsonobject.r_lernthemen;
-                    //nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
                 break;
             case "getLernthemenData":
+                    tmp = "#df3_std_lernthema_id_" + jsonobject.ueId;
+                    console.log( getIdAndName( tmp ).Id/*, nj( tmp ).hAt( "list" )*/ );
+                    if( getIdAndName( tmp ).Id === "undefined" ) {
+                        nj( "#df3_std_lernthema_id_new").atr( "list", "list_df3_std_lernthema_id_new");
+                        if ( jsonobject.lernthemen === "" ) {
+                            data.ueId = nj().els( "input[id^='df3_ue_unterrichtseinheit_id_']")[0].value;
+                            data.tn = nj().els( "input[id^='df3_teilnehmer_id_']")[0].value;
+                            data.command = "getLernthemenDataNew";
+                            data.lernthemen = jsonobject.lernthemen;                   
+                            nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+                            return;
+                        }
+                        el = nj().cEl( "datalist" );
+                        el.id = "list_df3_std_lernthema_id_new";
+                        nj( tmp ).a( el );
+                        nj( "#" + el.id ).atr( "for", "df3_std_lernthema_id_new" );
+                        nj( "#" + el.id ).htm( jsonobject.lernthemen );
+
+                        return;
+                    }
+                    if( nj( tmp ).hAt( "list" ) || ( typeof jsonobject.ueId === "undefined" && nj("#df3_std_lernthema_id_new").hAt( "list" ) ) ) {
+                    //console.log( tmp, nj( tmp ).hAt( "list" ) );
+
+                        return;
+                    }
+                    nj( tmp ).atr( "list", "list_df3_std_lernthema_id_" + jsonobject.ueId );           
+                    el = nj().cEl( "datalist" );
+                    el.id = "list_df3_std_lernthema_id_" + jsonobject.ueId;
+                    nj( tmp ).a( el );
+                    nj( "#" + el.id ).atr( "for", "df3_std_lernthema_id_" + jsonobject.ueId );
+                    nj( "#" + el.id ).htm( jsonobject.lernthemen );
+                break;
+            case "getLernthemenDataNew":
+                        //console.log( tmp, nj( tmp ).hAt( "list" ) );
+                        strVal = jsonobject.lernthemen;
+                        el = nj().cEl( "datalist" );                    
+                        el.id = "list_df3_std_lernthema_id_new";
+                        tmp = "#df3_std_lernthema_id_new";
+                        nj( tmp ).a( el );
+                        nj( "#" + el.id ).htm( strVal )
+                    strVal = jsonobject.lernthemen;
+                    el = nj().cEl( "datalist" );                    
+                    el.id = "list_df3_std_lernthema_id_new";
+                    tmp = "#df3_std_lernthema_id_new";
+                    nj( tmp ).a( el );
+                    nj( "#" + el.id ).atr( "for", "df3_std_lernthema_id_new" );
+                    nj( "#" + el.id ).htm( strVal )
+                    strVal = nj( Df_2.opt.fieldDefinitions[2].id).v();
+                    nj( "#df3_teilnehmer_id_new" ).v( strVal );
                 break;
         }
 }
@@ -36,21 +81,14 @@ setFieldOptions = function( el ) {
     console.log(el);
     data.command = "getLernthemenData";
     data.ueId = getIdAndName( el.id ).Id;
+    //if( data.ueId === "new" ) 
     data.tn = nj( "#df3_teilnehmer_id_" + data.ueId ).v();
     console.log( data )
                     //data.lernthemen = jsonobject.r_lernthemen;
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
-    //let els = nj().els( "input[data-dvar^='Df_3.opt.recordsets']");data-dvar="Df_3.opt.recordsets.0.opt.fields
-/*
-    while( i < l ) {
-        id = els[i].id;
-        console.log(id);
-        nj( el ).htm( options );
-        nj( "#" + els.id ).a( el );
-        i += 1;
-    }
-*/                    
-
+}
+setTnDf_2 = function( el ) {
+    console.log(el);
 }
 setTooltips = function() {
    nj( "#df2_einrichtung_id_new").v( nj("#df1_search_einrichtung_id" ).v() );
