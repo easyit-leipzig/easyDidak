@@ -445,7 +445,7 @@ var Df_3 = new DataForm( {
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_unterrichtseinheit_zw_thema",
-    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,dauer,std_lernthema_id,thema",
+    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,fach,dauer,std_lernthema_id,thema",
     addPraefix: "df3_",
     formType: "form",
     validOnSave: false, 
@@ -477,6 +477,13 @@ var Df_3 = new DataForm( {
             field: "teilnehmer_id",
             label: "TN",
             type: "input_text",
+
+        },
+        {
+            field: "fach",
+            label: "Fach",
+            type: "select",
+            options: "<option value='1'>MAT</option><option value='2'>PHY</option>",
 
         },
         {
