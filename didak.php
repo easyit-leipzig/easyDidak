@@ -445,14 +445,14 @@ var Df_3 = new DataForm( {
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_unterrichtseinheit_zw_thema",
-    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,fach,dauer,std_lernthema_id,thema",
+    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,fach_id,dauer,std_lernthema_id,thema",
     addPraefix: "df3_",
     formType: "form",
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     hasHelp: false,
     autoOpen:false,
-    formWidth: 400,
+    formWidth: 800,
     formHeight: 300,
     fieldDefinitions: [
         {
@@ -480,23 +480,26 @@ var Df_3 = new DataForm( {
 
         },
         {
-            field: "fach",
+            field: "fach_id",
             label: "Fach",
             type: "select",
-            options: "<option value='1'>MAT</option><option value='2'>PHY</option>",
+            options: "<option value='1' selected>MAT</option><option value='2'>PHY</option>",
+            onChange: function(){changeFach(this)},
 
         },
         {
             field: "dauer",
             label: "Zeit",
-            type: "input_number",
+            type: "input_text",
+            default: 15,
+            options: "<option value='15' selected>15</option><option value='30' selected>30</option><option value='45' selected>45</option><option value='60' selected>60</option><option value='90' selected>90</option>",
 
         },
         {
             field: "std_lernthema_id",
             label: "Thema",
             type: "input_text",
-            options: undefined,
+            options: "",
             onFocus: function(){setFieldOptions(this)},
             onBlur: function(){setFieldOptions(this)},
         },
@@ -504,7 +507,7 @@ var Df_3 = new DataForm( {
             field: "thema",
             label: "Uterthema",
             type: "input_text",
-            options: undefined,
+            options: "",
             //onMouseOver: function(){setFieldOptions(this)},
         },
 
