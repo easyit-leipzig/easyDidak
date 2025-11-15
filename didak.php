@@ -501,7 +501,7 @@ var Df_3 = new DataForm( {
             type: "input_text",
             options: "",
             onFocus: function(){setFieldOptions(this)},
-            onBlur: function(){setFieldOptions(this)},
+            onChange: function(){changeLernthema(this)},
         },
         {
             field: "thema",

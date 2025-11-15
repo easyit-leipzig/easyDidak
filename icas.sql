@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 14. Nov 2025 um 11:39
+-- Erstellungszeit: 15. Nov 2025 um 06:45
 -- Server-Version: 10.4.32-MariaDB
--- PHP-Version: 8.2.12
+-- PHP-Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -1312,7 +1312,11 @@ INSERT INTO `mtr_didaktik` (`id`, `ue_zuweisung_teilnehmer_id`, `teilnehmer_id`,
 (124, 222, 18, '2025-11-13 17:10:00', 2, 2, 2, 3, 2, 2),
 (125, 223, 22, '2025-11-13 17:10:00', 1, 1, 1, 2, 1, 1),
 (126, 224, 16, '2025-11-13 17:10:00', 1, 1, 1, 1, 1, 1),
-(127, 225, 19, '2025-11-13 17:10:00', 2, 2, 2, 2, 2, 2);
+(127, 225, 19, '2025-11-13 17:10:00', 2, 2, 2, 2, 2, 2),
+(128, 226, 4, '2025-11-14 15:35:00', 4, 3, 3, 3, 4, 4),
+(129, 227, 6, '2025-11-14 15:35:00', 2, 2, 2, 2, 2, 2),
+(130, 228, 20, '2025-11-14 15:35:00', 1, 1, 1, 1, 1, 1),
+(131, 229, 24, '2025-11-14 15:35:00', 1, 2, 2, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1525,7 +1529,11 @@ INSERT INTO `mtr_emotions` (`id`, `ue_zuweisung_teilnehmer_id`, `teilnehmer_id`,
 (162, 222, 18, '2025-11-13 17:10:00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (163, 223, 22, '2025-11-13 17:10:00', '', 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0),
 (164, 224, 16, '2025-11-13 17:10:00', '', 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0),
-(165, 225, 19, '2025-11-13 17:10:00', '', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(165, 225, 19, '2025-11-13 17:10:00', '', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(166, 226, 4, '2025-11-14 15:35:00', '', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(167, 227, 6, '2025-11-14 15:35:00', '', 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(168, 228, 20, '2025-11-14 15:35:00', '', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(169, 229, 24, '2025-11-14 15:35:00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1763,7 +1771,11 @@ INSERT INTO `mtr_leistung` (`id`, `ue_zuweisung_teilnehmer_id`, `datum`, `teilne
 (194, 222, '2025-11-13 17:10:00', 18, 2.0, 2.0, 3.0, 4.0, 4.0, 4.0, 4.0, 0.00, 0, '', '', NULL),
 (195, 223, '2025-11-13 17:10:00', 22, 3.0, 3.0, 3.0, 4.0, 2.0, 4.0, 4.0, 0.00, 0, '', '', NULL),
 (196, 224, '2025-11-13 17:10:00', 16, 2.0, 3.0, 2.0, 4.0, 1.0, 4.0, 4.0, 0.00, 0, '', '', NULL),
-(197, 225, '2025-11-13 17:10:00', 19, 2.0, 2.0, 2.0, 4.0, 2.0, 4.0, 4.0, 0.00, 0, '', '', NULL);
+(197, 225, '2025-11-13 17:10:00', 19, 2.0, 2.0, 2.0, 4.0, 2.0, 4.0, 4.0, 0.00, 0, '', '', NULL),
+(198, 226, '2025-11-14 15:35:00', 4, 4.0, 3.0, 3.0, 4.0, 3.0, 4.0, 4.0, 0.00, 0, '', '', NULL),
+(199, 227, '2025-11-14 15:35:00', 6, 2.0, 2.0, 2.0, 4.0, 2.0, 4.0, 4.5, 0.00, 0, '', '', NULL),
+(200, 228, '2025-11-14 15:35:00', 20, 2.0, 2.0, 2.0, 4.0, 2.0, 4.0, 2.6, 0.00, 0, '', '', NULL),
+(201, 229, '2025-11-14 15:35:00', 24, 1.0, 1.0, 2.0, 4.0, 2.0, 4.0, 4.0, 0.00, 0, '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -5281,7 +5293,11 @@ INSERT INTO `mtr_rueckkopplung_teilnehmer` (`id`, `ue_id`, `ue_zuweisung_teilneh
 (209, 0, 222, 18, 8, 1, '2025-11-13 17:10:00', 3, 2, 4, 3, 3, 2, 2, 3, 2, 4, 2, 2, 2, 2, 3, 2, '15', ''),
 (210, 0, 223, 22, 8, 1, '2025-11-13 17:10:00', 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 1, 1, 1, 1, 2, 1, '23,4,2', ''),
 (211, 0, 224, 16, 8, 1, '2025-11-13 17:10:00', 3, 1, 3, 2, 2, 2, 3, 2, 3, 1, 1, 1, 1, 1, 1, 1, '27,1,10,23,12', ''),
-(212, 0, 225, 19, 8, 1, '2025-11-13 17:10:00', 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, '2', '');
+(212, 0, 225, 19, 8, 1, '2025-11-13 17:10:00', 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, '2', ''),
+(213, 0, 226, 4, 9, 1, '2025-11-14 15:35:00', 3, 3, 4, 3, 3, 4, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, '6', ''),
+(214, 0, 227, 6, 9, 1, '2025-11-14 15:35:00', 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, '3,1,10,8,14,13,7', ''),
+(215, 0, 228, 20, 9, 1, '2025-11-14 15:35:00', 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, '2', ''),
+(216, 0, 229, 24, 9, 1, '2025-11-14 15:35:00', 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 1, 1, 2, 2, 1, 1, '28,14', '');
 
 -- --------------------------------------------------------
 
@@ -5969,7 +5985,7 @@ INSERT INTO `ue_gruppen` (`id`, `day_number`, `tag`, `uhrzeit_start`, `uhrzeit_e
 (7, 5, 'Do.', '15:35:00', '17:05:00', 'MAT', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 31.08.25'),
 (8, 5, 'Do.', '17:10:00', '18:40:00', 'PHY', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 30.09.25'),
 (9, 6, 'Fr.', '15:35:00', '17:05:00', 'MAT', 'Rm. 3', 'SH Leipzig-Lausen', 'bis 29.08.25'),
-(10, 6, '', '06:30:00', '07:00:00', '', 'dummy', NULL, NULL),
+(10, 7, '', '06:30:00', '06:45:08', '', 'dummy', NULL, NULL),
 (11, 4, 'Mit', '14:15:00', '15:00:00', 'MAT', NULL, '2', NULL);
 
 -- --------------------------------------------------------
@@ -6056,7 +6072,8 @@ INSERT INTO `ue_unterrichtseinheit` (`id`, `gruppe_id`, `einrichtung_id`, `datum
 (63, 5, 1, '2025-11-12', '15:35:00', 90, 'Gruppenveranstaltung'),
 (64, 6, 1, '2025-11-12', '17:10:00', 90, 'Gruppenveranstaltung'),
 (65, 7, 1, '2025-11-13', '15:35:00', 90, 'Gruppenveranstaltung'),
-(66, 8, 1, '2025-11-13', '17:10:00', 90, 'Gruppenveranstaltung');
+(66, 8, 1, '2025-11-13', '17:10:00', 90, 'Gruppenveranstaltung'),
+(67, 9, 1, '2025-11-14', '15:35:00', 90, 'Gruppenveranstaltung');
 
 -- --------------------------------------------------------
 
@@ -6149,7 +6166,8 @@ INSERT INTO `ue_unterrichtseinheit_zw_thema` (`id`, `ue_unterrichtseinheit_id`, 
 (65, 63, '2025-11-12 16:52:03', 1, 0, 1, 1, 24, '', '', 90, '10', 'Gruppe 5'),
 (66, 64, '2025-11-12 18:23:42', 1, 0, 1, 1, 24, '', '', 90, '7', 'Gruppe 6'),
 (67, 65, '2025-11-13 16:42:26', 1, 0, 1, 1, 24, '', '', 90, '10', 'Gruppe 7'),
-(68, 66, '2025-11-13 18:29:14', 1, 0, 1, 1, 24, '', '', 90, '19', 'Gruppe 8');
+(68, 66, '2025-11-13 18:29:14', 1, 0, 1, 1, 24, '', '', 90, '19', 'Gruppe 8'),
+(69, 67, '2025-11-14 16:40:48', 1, 0, 1, 1, 24, '', '', 90, '24', 'Gruppe 9');
 
 -- --------------------------------------------------------
 
@@ -6382,7 +6400,11 @@ INSERT INTO `ue_zuweisung_teilnehmer` (`id`, `ue_unterrichtseinheit_zw_thema_id`
 (222, 8, '2025-11-13 17:10:00', 8, 18),
 (223, 58, '2025-11-13 17:10:00', 8, 22),
 (224, 8, '2025-11-13 17:10:00', 8, 16),
-(225, 8, '2025-11-13 17:10:00', 8, 19);
+(225, 8, '2025-11-13 17:10:00', 8, 19),
+(226, 18, '2025-11-14 15:35:00', 9, 4),
+(227, 69, '2025-11-14 15:35:00', 9, 6),
+(228, 69, '2025-11-14 15:35:00', 9, 20),
+(229, 27, '2025-11-14 15:35:00', 9, 24);
 
 -- --------------------------------------------------------
 
@@ -8338,19 +8360,19 @@ ALTER TABLE `frzk_transitions`
 -- AUTO_INCREMENT für Tabelle `mtr_didaktik`
 --
 ALTER TABLE `mtr_didaktik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT für Tabelle `mtr_emotions`
 --
 ALTER TABLE `mtr_emotions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
 
 --
 -- AUTO_INCREMENT für Tabelle `mtr_leistung`
 --
 ALTER TABLE `mtr_leistung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT für Tabelle `mtr_persoenlichkeit`
@@ -8386,7 +8408,7 @@ ALTER TABLE `mtr_rueckkopplung_lehrkraft_tn`
 -- AUTO_INCREMENT für Tabelle `mtr_rueckkopplung_teilnehmer`
 --
 ALTER TABLE `mtr_rueckkopplung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'neu', AUTO_INCREMENT=213;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'neu', AUTO_INCREMENT=217;
 
 --
 -- AUTO_INCREMENT für Tabelle `mtr_sozial`
@@ -8464,19 +8486,19 @@ ALTER TABLE `ue_gruppen`
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit`
 --
 ALTER TABLE `ue_unterrichtseinheit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit_zw_thema`
 --
 ALTER TABLE `ue_unterrichtseinheit_zw_thema`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT für Tabelle `ue_zuweisung_teilnehmer`
 --
 ALTER TABLE `ue_zuweisung_teilnehmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
 -- AUTO_INCREMENT für Tabelle `verhaltens_mapping`

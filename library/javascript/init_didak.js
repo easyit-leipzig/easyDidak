@@ -27,6 +27,7 @@
             case "getLernthemenData":
                     tmp = "#df3_std_lernthema_id_" + jsonobject.ueId;
                     console.log( getIdAndName( tmp ).Id/*, nj( tmp ).hAt( "list" )*/ );
+/*
                     if( getIdAndName( tmp ).Id === "undefined" ) {
                         nj( "#df3_std_lernthema_id_new").atr( "list", "list_df3_std_lernthema_id_new");
                         if ( jsonobject.lernthemen === "" ) {
@@ -39,11 +40,8 @@
                             return;
                         }
 
-                        el = nj().cEl( "datalist" );
-                        el.id = "list_df3_std_lernthema_id_new";
-                        nj( tmp ).a( el );
-                        nj( "#" + el.id ).atr( "for", "df3_std_lernthema_id_new" );
-                        nj( "#" + el.id ).htm( jsonobject.lernthemen );
+                        el.id = "#list_df3_std_lernthema_id_new";
+                        nj( "#list_df3_std_lernthema_id_new" ).htm( jsonobject.lernthemen );
 
                         return;
                     }
@@ -52,16 +50,23 @@
 
                         return;
                     }
-                    nj( tmp ).atr( "list", "list_df3_std_lernthema_id_" + jsonobject.ueId );           
-                    el = nj().cEl( "datalist" );
-                    el.id = "list_df3_std_lernthema_id_" + jsonobject.ueId;
-                    nj( tmp ).a( el );
-                    nj( "#" + el.id ).atr( "for", "df3_std_lernthema_id_" + jsonobject.ueId );
-                    nj( "#" + el.id ).htm( jsonobject.lernthemen );
+*/
+                    if( nj( "#list_df3_std_lernthema_id_" + jsonobject.ueId ).htm() != jsonobject.lernthemen ) {
+                        nj( "#list_df3_std_lernthema_id_" + jsonobject.ueId ).htm( jsonobject.lernthemen );
+                        data.ueId = nj().els( "input[id^='df3_ue_unterrichtseinheit_id_']")[0].value;
+                        data.tn = nj().els( "input[id^='df3_teilnehmer_id_']")[0].value;
+                        console.log( nj().els( "select[id^='df3_fach_id_']") );
+                        data.fach_id = nj().els( "select[id^='df3_fach_id_']")[0].value;
+                        data.command = "getLernthemenDataNew";
+                        data.lernthemen = jsonobject.lernthemen;                   
+                        nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+                    }
+                    //if( nj( "#list_df3_std_lernthema_id_new" ).htm() != jsonobject.lernthemen ) nj( "#list_df3_std_lernthema_id_new" ).htm( jsonobject.lernthemen );
                 break;
             case "getLernthemenDataNew":
                         //console.log( tmp, nj( tmp ).hAt( "list" ) );
                     strVal = jsonobject.lernthemen;
+                    /*
                     el = nj().cEl( "datalist" );                    
                     el.id = "list_df3_std_lernthema_id_new";
                     try { nj( "#" + el.id ).r() } catch {}
@@ -71,6 +76,9 @@
                     nj( "#" + el.id ).htm( strVal )
                     strVal = nj( Df_2.opt.fieldDefinitions[2].id).v();
                     nj( "#df3_teilnehmer_id_new" ).v( strVal );
+                    */
+                    if( nj( "#list_df3_std_lernthema_id_new" ).htm() != jsonobject.lernthemen ) nj( "#list_df3_std_lernthema_id_new" ).htm( jsonobject.lernthemen );
+
                 break;
             case "getThemenPerFach":
                     nj( "#list_df3_std_lernthema_id_" + jsonobject.Id ).htm( jsonobject.lernthemen );
@@ -103,6 +111,13 @@ changeFach = function( el ) {
     if( data.id === "new" && nj( "#df3_teilnehmer_id_new" ).v() === "" ) nj( "#df3_teilnehmer_id_new" ).v( data.tn ) 
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 
+}
+changeLernthema = function( el ) {
+    console.log(el);
+    data.command = "getLernthemenData";
+    data.ueId = getIdAndName( el.id ).Id;
+    data.value = el.value;
+    console.log( data );
 }
 setTooltips = function() {
    nj( "#df2_einrichtung_id_new").v( nj("#df1_search_einrichtung_id" ).v() );
