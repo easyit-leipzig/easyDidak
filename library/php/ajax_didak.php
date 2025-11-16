@@ -129,6 +129,7 @@ switch( $_POST["command"]) {
                                 $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
                                 return $return;   
                             }
+                            $return -> gruppenId = $result[0]["id"];
                             if( count($result)===0) {
                                 print_r( json_encode( $result )); 
                                 return;
@@ -243,10 +244,23 @@ switch( $_POST["command"]) {
                         ];
                     }
 
-                    $return -> s = $tnId;
+                    $return -> tnId = $tnId;
   
                     $return -> ueId = $newId;
-  /*
+                    $r = $db_pdo -> query("select * from ue_unterrichtseinheit_zw_thema where ue_unterrichtseinheit_id=" .  $return -> ueId ) -> fetchAll();
+                    $r_tn = $db_pdo -> query("select std_teilnehmer.*, _std_schulform.schulform as schulform from std_teilnehmer, _std_schulform where std_teilnehmer.KlassentypID = _std_schulform.id and std_teilnehmer.id=" .  $return -> tnId) -> fetchAll();
+                    $r_lernthemen = $db_pdo -> query("select id as value, lernthema as text from std_lernthema where schulform='" .  $r_tn[0]["schulform"] . "' and fach_id=1 order by lernthema") -> fetchAll();
+                    $l = count( $r_lernthemen );
+                    $i = 0;
+                    $option = "";
+                    while ($i < $l ) {
+                        // code...
+                        $option .= '<option value="' . $r_lernthemen[$i]["value"] . '">' . $r_lernthemen[$i]["text"] . '</option>';
+                        $i += 1;
+                    }
+                    //$db_pdo -> exec( "update ue_unterrichtseinheit_zw_thema set schulform_id= " . $r_tn[0]["KlassentypID"] . " where ue_unterrichtseinheit_id=" .  $_POST["ueId"] . " and teilnehmer_id = " . $r[0]["teilnehmer_id"]);
+                    $return -> lernthemen = $option;
+ /*
                     $return -> q = $q;
                     $return -> rtn = $rtn;
                     $return -> emotionen = $emotionen;

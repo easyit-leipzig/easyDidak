@@ -16,100 +16,31 @@ var Df_3;
             case "setGroup":
                     data.command = "getUeData";
                     data.ueId = jsonobject.ueId;
-                    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+                    Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
+                    Df_3.opt.fieldDefinitions[3].default = jsonobject.currentDate.date;
+                    Df_3.opt.fieldDefinitions[4].default = jsonobject.gruppenId;
+                    Df_3.opt.fieldDefinitions[5].default = jsonobject.tnId;
+                    Df_3.opt.fieldDefinitions[8].options = jsonobject.lernthemen;
+                    Df_3.opt.filter = "ue_id=" + jsonobject.ueId  + " and tn_id=" + nj( "#df2_teilnehmer_id_new").v(),
+                    Df_3.init();
+                    Df_3.dDF.show();
+//*                    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
                 break;
             case "getUeData":
-                Df_3 = null;
-                try { nj( "#Df_3_box" ).oHt(); } catch {}
+                //Df_3 = null;
+                //try { nj( "#Df_3_box" ).oHt(); } catch {}
                 
-    Df_3 = new DataForm( { 
-    dVar: "Df_3", 
-    id: "#Df_3", 
-    table: "ue_thema_zu_ue",
-    fields: "id,ue_id,tn_id,zeitpunkt,gruppe_id,tn_id,fach_id,lernfeld,thema,bemerkungen,klasse,schulform",
-    addPraefix: "df3_",
-    formType: "form",
-    validOnSave: false, 
-    classButtonSize: "cButtonMiddle",
-    hasHelp: false,
-    autoOpen:false,
-    formWidth: 800,
-    formHeight: 300,
-    fieldDefinitions: [
-        {
-            type: "recordPointer",
-            value: "&nbsp;",
-            field: "recordPointer",
-            baseClass: "cButtonMiddle",
-        },
-        {
-            field: "id",
-            label: "Id",
-            type: "input_text",
-
-        },
-        {
-            field: "ue_id",
-            label: "Einheit",
-            type: "input_text",
-
-        },    
-
-        ],
-
-    countPerPage: 5,
-    currentPage: 0,
-    hasPagination: true,
-    countRecords: undefined,
-    //onShow:  function(){setTnDf_2( this )},
-    //onRSFocus: function(){setFieds(this)},
-    //afterBuild: function(){setTnDf_2( this )},
-    //afterNew: function(){setTnInNew( this )},
-    //filter: "teilnehmer_id=" + nj( "#df2_teilnehmer_id_new").v(),
-/*
-    orderArray: ["val_varchar", "val_int"],
-*/
-    searchArray: [
- /*
-            {
-                field: "id",
-                type: "select",
-                options: "<option value='>0'>alle</option><option value=0>nur Neu</option>",
-                value: ">-1",
-                sel: "value",
-            },
-            {
-                field: "val_select",
-                type: "select",
-                options: "<option value='>-1'>alle</option>" + optRole,
-            },
-            {
-                field: "val_select_multi",
-                type: "select",
-                options: "<option value='>-1'>alle</option>" + optRole,
-                addAtr: "multiple",
-                value: ">-1",
-                sel: "value",
-            },
-            {
-                field: "val_checkbox",
-                type: "select",
-                options: "<option value='>-1'>alle</option><option value=0>aus</option><option value='1'>an</option>",
-                value: ">-1",
-                sel: "value",
-            },
- */
-        ]
-    /*additionalFields: additionalFields, */
-});
 
                     /*
                     Df_3.opt.filter = "ue_unterrichtseinheit_id=" + jsonobject.ueId + " and teilnehmer_id=" + nj( "#df2_teilnehmer_id_new").v();
                     Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
                     Df_3.opt.fieldDefinitions[3].default = jsonobject.r_tn[0]["id"];
 */
-                    //Df_3.init();
-                    //Df_3.dDF.show();
+                    Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
+                    Df_3.opt.fieldDefinitions[4].default = jsonobject.r_tn[0][0];
+                    Df_3.opt.filter = "ue_id=" + jsonobject.ueId  + " and tn_id=" + nj( "#df2_teilnehmer_id_new").v(),
+                    Df_3.init();
+                    Df_3.dDF.show();
                 break;
             case "getLernthemenData":
                     tmp = "#df3_std_lernthema_id_" + jsonobject.ueId;

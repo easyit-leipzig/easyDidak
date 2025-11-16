@@ -442,10 +442,127 @@ var Df_2 = new DataForm( {
         ]
     /*additionalFields: additionalFields, */
 } );
+    Df_3 = new DataForm( { 
+    dVar: "Df_3", 
+    id: "#Df_3", 
+    table: "ue_thema_zu_ue",
+    fields: "id,ue_id,tn_id,zeitpunkt,gruppe_id,tn_id,fach_id,dauer,lernfeld,thema,bemerkungen,klasse,schulform",
+    addPraefix: "df3_",
+    formType: "form",
+    validOnSave: false, 
+    classButtonSize: "cButtonMiddle",
+    hasHelp: false,
+    autoOpen:false,
+    formWidth: 800,
+    formHeight: 500,
+    fieldDefinitions: [
+        {
+            type: "recordPointer",
+            value: "&nbsp;",
+            field: "recordPointer",
+            baseClass: "cButtonMiddle",
+        },
+        {
+            field: "id",
+            label: "Id",
+            type: "input_text",
+
+        },
+        {
+            field: "ue_id",
+            label: "Einheit",
+            type: "input_text",
+
+        },    
+        {
+            field: "zeitpunkt",
+            label: "zeitpunkt",
+            type: "input_text",
+
+        },    
+        {
+            field: "gruppe_id",
+            label: "gruppe_id",
+            type: "input_text",
+
+        },    
+        {
+            field: "tn_id",
+            label: "tn_id",
+            type: "input_text",
+
+        },    
+        {
+            field: "fach_id",
+            label: "fach_id",
+            type: "input_text",
+
+        },    
+        {
+            field: "dauer",
+            label: "dauer",
+            type: "input_text",
+
+        },    
+        {
+            field: "lernfeld",
+            label: "lernfeld",
+            type: "input_text",
+            options: "",
+        },    
+
+        ],
+
+    countPerPage: 5,
+    currentPage: 0,
+    hasPagination: true,
+    countRecords: undefined,
+    //onShow:  function(){setTnDf_2( this )},
+    //onRSFocus: function(){setFieds(this)},
+    //afterBuild: function(){setTnDf_2( this )},
+    //afterNew: function(){setTnInNew( this )},
+    
+/*
+    orderArray: ["val_varchar", "val_int"],
+*/
+    searchArray: [
+ /*
+            {
+                field: "id",
+                type: "select",
+                options: "<option value='>0'>alle</option><option value=0>nur Neu</option>",
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_select",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+            },
+            {
+                field: "val_select_multi",
+                type: "select",
+                options: "<option value='>-1'>alle</option>" + optRole,
+                addAtr: "multiple",
+                value: ">-1",
+                sel: "value",
+            },
+            {
+                field: "val_checkbox",
+                type: "select",
+                options: "<option value='>-1'>alle</option><option value=0>aus</option><option value='1'>an</option>",
+                value: ">-1",
+                sel: "value",
+            },
+ */
+        ]
+    /*additionalFields: additionalFields, */
+});
+
 (function() {
     Df.init();
     Df_2.init();
-//    Df_3.init();
+    Df_3.init();
     nj("#df1_search_id").on("change", function(){ let v = nj("#df1_search_id").v();    nj("#df2_teilnehmer_id_new").v( v)})
 })();
 </script>
