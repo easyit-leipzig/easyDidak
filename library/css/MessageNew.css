@@ -2,7 +2,7 @@
 #mess_box {
     width: 250px !important;
     margin: 0 auto;
-    position: relative !important;
+    position: fix !important;
 }
 .diaMess > div {
     display: table;

@@ -350,6 +350,14 @@ switch( $_POST["command"]) {
                     print_r( json_encode( $return ));     
     
     break;
+    case "getThemenDataFromLernthema":
+                    $r_th = "select * from ";
+                    print_r( json_encode( $return ));     
+    break;
+    case "callProcedure":
+                    $return -> res =$db_pdo -> exec( "call updateGruppen");
+                    print_r( json_encode( $return ));     
+    break;
     default:
                             print_r( json_encode( $startdiff )); 
     break;

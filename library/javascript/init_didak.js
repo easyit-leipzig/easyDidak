@@ -114,10 +114,11 @@ changeFach = function( el ) {
 }
 changeLernthema = function( el ) {
     console.log(el);
-    data.command = "getLernthemenData";
+    data.command = "getThemenDataFromLernthema";
     data.ueId = getIdAndName( el.id ).Id;
     data.value = el.value;
     console.log( data );
+    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 }
 setTooltips = function() {
    nj( "#df2_einrichtung_id_new").v( nj("#df1_search_einrichtung_id" ).v() );
