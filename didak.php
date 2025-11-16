@@ -107,6 +107,7 @@ let fields = [
         {
             field: "id",
             label: "Id",
+            addAtr: " style='display:none'",
             type: "input_text",
 
         },
@@ -445,7 +446,7 @@ var Df_3 = new DataForm( {
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_unterrichtseinheit_zw_thema",
-    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,fach_id,dauer,std_lernthema_id,thema",
+    fields: "id,ue_unterrichtseinheit_id,teilnehmer_id,fach_id,dauer,std_lernthema_id,thema,bemerkungen",
     addPraefix: "df3_",
     formType: "form",
     validOnSave: false, 
@@ -505,7 +506,14 @@ var Df_3 = new DataForm( {
         },
         {
             field: "thema",
-            label: "Uterthema",
+            label: "Unterthema",
+            type: "input_text",
+            options: "",
+            //onMouseOver: function(){setFieldOptions(this)},
+        },
+        {
+            field: "bemerkungen",
+            label: "Bemerkungen",
             type: "input_text",
             options: "",
             //onMouseOver: function(){setFieldOptions(this)},
@@ -702,9 +710,10 @@ var Df_3 = new DataForm( {
     currentPage: 0,
     hasPagination: true,
     countRecords: undefined,
-    onShow:  function(){setTnDf_2( this )},
+    //onShow:  function(){setTnDf_2( this )},
+    onRSFocus: function(){setFieds(this)},
     //afterBuild: function(){setTnDf_2( this )},
-//    afterNew: function(){setGroup()},
+    afterNew: function(){setTnInNew( this )},
 //    filter: "id=0",
 /*
     orderArray: ["val_varchar", "val_int"],

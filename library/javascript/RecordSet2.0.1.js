@@ -13,6 +13,8 @@ class RecordSet {                    // class for DataForm2.0
             addClasses:         "",
             classButtonSize:    "",
             afterShowRS:        undefined,
+            onRSFocus:          function() {},
+            onRSBlur:           function() { console.log( "blur") },
         }
         let showOnInit = true, primaryKey, primaryKeyValue;
         Object.assign( this.opt, param );
@@ -49,6 +51,8 @@ class RecordSet {                    // class for DataForm2.0
         el.id = this.opt.id.substring( 1 );
         nj( el ).aCN( this.opt.baseClass + this.opt.addClasses );
         nj( el ).sDs( "dvar", this.opt.dVar );
+        nj( el ).atr( "tabindex", "-1" );
+        nj( el ).on( "focus", this.opt.onRSFocus );
         nj( this.opt.target ).aCh( el );
         if( getFields ) {
             l = this.opt.fields.length;
@@ -59,6 +63,9 @@ class RecordSet {                    // class for DataForm2.0
                 let j = 0;
                 while( j < m ) {
                     nj( "#" + el.id ).aCh( elField[j] );
+                    if( typeof this.opt.onRSFocus === "function" ) {
+                       nj(elField[j]).on( "focus", function(){ nj( "#" + el.id ).tri("focus") } ); 
+                    }
                     if( typeof nj(elField[j]).Dia().opt.onFocus === "function" ) {
                        nj(elField[j]).on( "focus", nj(elField[j]).Dia().opt.onFocus ); 
                     }

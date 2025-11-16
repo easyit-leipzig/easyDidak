@@ -95,6 +95,7 @@ class DataForm {                    // class for DataForm2.0
                                                     } catch {}
                                                 },
             onsave:                             function(){},
+            onRSFocus:                          function(){},
         }
         let tmpId = "",
             tmpClasses = "",
@@ -833,7 +834,8 @@ class DataForm {                    // class for DataForm2.0
                 addClasses: this.opt.addRSClasses,
                 baseClassField: this.opt.baseClassField,
                 classButtonSize: this.opt.classButtonSize,
-                afterShowRS: this.opt.afterBuild
+                afterShowRS: this.opt.afterBuild,
+                onRSFocus: this.opt.onRSFocus,
             } ) );
             m = this.opt.fieldDefinitions.length;
             j = 0;

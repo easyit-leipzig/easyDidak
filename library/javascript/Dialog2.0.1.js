@@ -14,8 +14,7 @@ var setDialogPosOnScroll = function() {
     //console.log( dias );  
     i = 0;  
     while( i < l ) {
-        console.log( nj( nj().els( dias[i].opt.id + "_box" ) ).gRe() );
-        console.log( window.scrollX, window.scrollY );
+        nj( nj().els( dias[i].opt.id + "_box" ) ).gRe();
         i += 1;    
     }    
 }
@@ -137,7 +136,6 @@ class Dialog {                    // dialog drag and resize
                 b = {};
                 b.title = "Okay";
                 b.action = function( el ){
-                    console.log( getDVar(  this ) );
                     nj( this ).Dia().hide();
                 };
                 this.opt.buttons.push( b ); 
@@ -346,8 +344,6 @@ class Dialog {                    // dialog drag and resize
         }
         if( typeof this.opt.onInit === "function" ) this.opt.onInit( this );
         if( this.opt.autoOpen ) {
-            console.log( window.innerWidth, this.opt.width );
-            console.log( window.innerHeight, this.opt.height );
             this.showOnInit = true;
             this.show();
         }
@@ -386,8 +382,6 @@ class Dialog {                    // dialog drag and resize
         if( this.opt.center ) {
             x = this.center().x; 
             y = this.center().y;
-            console.log( x, window.innerWidth, this.opt.width );
-            console.log( y, window.innerHeight, this.opt.height );
             if( parseInt( x ) < 0 ) {
                 x = window.innerWidth / 2 - this.opt.width / 2 - 3 + "px";
             }

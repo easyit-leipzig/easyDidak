@@ -102,3 +102,10 @@ div[id="Df_2_head_headline"]>div:nth-child(n+3) {
 #df2_hl_val_emotions {
     margin-right: 50px;
 }
+/* Df_3 */
+input[id^='df3_id_'], input[id^='df3_ue_unterrichtseinheit_id_'], input[id^='df3_teilnehmer_id_'] {
+    display: none;
+}
+input[id^='df3_dauer_'] {
+    width: 4em;
+}

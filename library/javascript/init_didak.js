@@ -64,29 +64,17 @@
                     //if( nj( "#list_df3_std_lernthema_id_new" ).htm() != jsonobject.lernthemen ) nj( "#list_df3_std_lernthema_id_new" ).htm( jsonobject.lernthemen );
                 break;
             case "getLernthemenDataNew":
-                        //console.log( tmp, nj( tmp ).hAt( "list" ) );
-                    strVal = jsonobject.lernthemen;
-                    /*
-                    el = nj().cEl( "datalist" );                    
-                    el.id = "list_df3_std_lernthema_id_new";
-                    try { nj( "#" + el.id ).r() } catch {}
-                    tmp = "#df3_std_lernthema_id_new";
-                    nj( tmp ).a( el );
-                    nj( "#" + el.id ).atr( "for", "df3_std_lernthema_id_new" );
-                    nj( "#" + el.id ).htm( strVal )
-                    strVal = nj( Df_2.opt.fieldDefinitions[2].id).v();
-                    nj( "#df3_teilnehmer_id_new" ).v( strVal );
-                    */
                     if( nj( "#list_df3_std_lernthema_id_new" ).htm() != jsonobject.lernthemen ) nj( "#list_df3_std_lernthema_id_new" ).htm( jsonobject.lernthemen );
-
                 break;
             case "getThemenPerFach":
                     nj( "#list_df3_std_lernthema_id_" + jsonobject.Id ).htm( jsonobject.lernthemen );
                 break;
+            case "getThemenDataFromLernthema":
+                    nj( "#list_df3_thema_" + jsonobject.ueId ).htm( jsonobject.unterThemen );
+            break;
         }
 }
 setFieldOptions = function( el ) {
-    console.log(el);
     data.command = "getLernthemenData";
     data.ueId = getIdAndName( el.id ).Id;
     data.fachId = nj( "#df3_fach_id_" + data.ueId ).v();
@@ -94,31 +82,39 @@ setFieldOptions = function( el ) {
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 }
 setTnDf_2 = function( el ) {
-    console.log(el);
 }
 changeFach = function( el ) {
-    console.log( el );
-
-    //data.ueId = nj().els( "input[id^='df3_ue_unterrichtseinheit_id_']")[0].value;
     data.tn = nj().els( "input[id^='df3_teilnehmer_id_']")[0].value;
     data.command = "getThemenPerFach";
     data.id = getIdAndName( el.id ).Id;
     nj( "#df3_std_lernthema_id_" + data.id ).v( "" );
     data.ueId = nj( "#df3_ue_unterrichtseinheit_id_" + data.id ).v();
     data.fachId = nj( el ).v();
-    //data.tn = nj( "#df3_teilnehmer_id_" + data.id ).v();
-    console.log( data );
     if( data.id === "new" && nj( "#df3_teilnehmer_id_new" ).v() === "" ) nj( "#df3_teilnehmer_id_new" ).v( data.tn ) 
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
-
+}
+setFieds = function(el) {
+    data.id = getIdAndName( el.id ).Id;
+    data.tn = nj( "#df3_teilnehmer_id_" + data.id ).v();
+    data.fach = nj( "#df3_fach_id_" + data.id ).v();
+    data.ueId = nj( "#df3_ue_unterrichtseinheit_id_" + data.id ).v();
+    nj( "#df3_teilnehmer_id_new" ).v( data.tn );
+    nj( "#df3_fach_id_new" ).v( data.fach );
+    nj( "#df3_ue_unterrichtseinheit_id_new" ).v( data.ueId );
 }
 changeLernthema = function( el ) {
-    console.log(el);
     data.command = "getThemenDataFromLernthema";
     data.ueId = getIdAndName( el.id ).Id;
     data.value = el.value;
-    console.log( data );
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+}
+setTnInNew = function ( el ) {
+    let tmp;
+    tmp = el.filter.split( "=" );
+    data.ueId = tmp[1];
+    data.command = "correctTnInZuwTh";
+    data.tn = nj( "#df3_teilnehmer_id_" + tmp[1] );
+    //*console.log( data );
 }
 setTooltips = function() {
    nj( "#df2_einrichtung_id_new").v( nj("#df1_search_einrichtung_id" ).v() );

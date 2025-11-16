@@ -14,7 +14,7 @@
         switch( jsonobject.command ) {
             case "callProcedure":
                     if( jsonobject.res == 1 ) {
-                                    dMNew.show( { title: "Buch speichern", type: true, text: "Die Gruppe 10 wurden auf die aktuelle Zeit gesetzt", buttons: [ { title: "Okay", action: function( args ) {} } ] } );
+                                    dMNew.show( { title: "Buch speichern", type: true, text: "Die Gruppe 10 wurden auf die aktuelle Zeit gesetzt" } );
                         //dMNew.show( "Setze Gruppe 10", "okay", "Die Gruppe 10 wurden auf die aktuelle Zeit gesetzt", "okay" );
                     } 
             break;
@@ -28,4 +28,7 @@ callProcedure = function(){
 init = function() {
     Df_1.init();
     nj( "#setGroupForTime").on( "click", function(){ callProcedure() } );
+}
+rsOnFocus = function() {
+    console.log( this );
 }

@@ -351,7 +351,18 @@ switch( $_POST["command"]) {
     
     break;
     case "getThemenDataFromLernthema":
-                    $r_th = "select * from ";
+                    $return ->r_th = $db_pdo -> query( "select * from std_lernthema where lernthema='" . $_POST["value"] . "'" ) -> fetchAll();
+                    $r_lernthemen = $db_pdo -> query( "select * from _std_lernthema_inhalt where std_lernthema_id =" . $return ->r_th[0]["id"] ) -> fetchAll();
+                    $l = count( $r_lernthemen );
+                    $i = 0;
+                    $option = "";
+                    while ($i < $l ) {
+                        // code...
+                        $option .= '<option>' . $r_lernthemen[$i]["inhalt"] . '</option>';
+                        $i += 1;
+                    }
+                    $return -> unterThemen = $option;
+                    $return -> ueId = $_POST["ueId"];
                     print_r( json_encode( $return ));     
     break;
     case "callProcedure":
