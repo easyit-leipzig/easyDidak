@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 16. Nov 2025 um 09:58
+-- Erstellungszeit: 16. Nov 2025 um 12:03
 -- Server-Version: 10.4.32-MariaDB
 -- PHP-Version: 8.0.30
 
@@ -5991,6 +5991,26 @@ INSERT INTO `ue_gruppen` (`id`, `day_number`, `tag`, `uhrzeit_start`, `uhrzeit_e
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `ue_thema_zu_ue`
+--
+
+CREATE TABLE `ue_thema_zu_ue` (
+  `id` int(11) NOT NULL,
+  `ue_id` int(11) NOT NULL,
+  `zeitpunkt` datetime NOT NULL,
+  `gruppe_id` int(1) NOT NULL,
+  `tn_id` int(11) NOT NULL,
+  `schulform` int(11) NOT NULL,
+  `klasse` int(11) NOT NULL,
+  `fach_id` int(1) NOT NULL,
+  `lernfeld` varchar(512) NOT NULL,
+  `thema` varchar(512) NOT NULL,
+  `bemerkungen` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `ue_unterrichtseinheit`
 --
 
@@ -8141,6 +8161,12 @@ ALTER TABLE `ue_gruppen`
   ADD KEY `tag` (`tag`);
 
 --
+-- Indizes für die Tabelle `ue_thema_zu_ue`
+--
+ALTER TABLE `ue_thema_zu_ue`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indizes für die Tabelle `ue_unterrichtseinheit`
 --
 ALTER TABLE `ue_unterrichtseinheit`
@@ -8482,6 +8508,12 @@ ALTER TABLE `tmp_unterrichtseinheiten`
 --
 ALTER TABLE `ue_gruppen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT für Tabelle `ue_thema_zu_ue`
+--
+ALTER TABLE `ue_thema_zu_ue`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `ue_unterrichtseinheit`

@@ -188,7 +188,8 @@ switch( $_POST["command"]) {
                                             } else {
                                                 $appendTnId = $result[0]["teilnehmer_id"] . "," . $tnId;                                                
                                             }
-                                            $q= "update ue_unterrichtseinheit_zw_thema set teilnehmer_id='" . $appendTnId . "' where ue_unterrichtseinheit_id =$ueId";
+                                            $q = "insert into ue_unterrichtseinheit_zw_thema (teilnehmer_id, ue_unterrichtseinheit_id) values( $tnId, $ueId)";
+                                            //$q= "update ue_unterrichtseinheit_zw_thema set teilnehmer_id='" . $appendTnId . "' where ue_unterrichtseinheit_id =$ueId";
                                             $db_pdo -> query( $q );                                            
                                         }
                                     }
@@ -267,7 +268,7 @@ switch( $_POST["command"]) {
                         $i += 1;
                     }
                     $r_lernthemen = $option;
-                    $db_pdo -> exec( "update ue_unterrichtseinheit_zw_thema set schulform_id= " . $r_tn[0]["KlassentypID"] . " where ue_unterrichtseinheit_id=" .  $_POST["ueId"]);
+                    //$db_pdo -> exec( "update ue_unterrichtseinheit_zw_thema set schulform_id= " . $r_tn[0]["KlassentypID"] . " where ue_unterrichtseinheit_id=" .  $_POST["ueId"] . " and teilnehmer_id = " . $r[0]["teilnehmer_id"]);
                     $return -> r = $r;
                     $return -> r_tn = $r_tn;
                     $return -> r_lernthemen = $r_lernthemen;
