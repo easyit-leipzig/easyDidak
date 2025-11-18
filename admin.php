@@ -34,6 +34,11 @@
 <h1>Lernthemen bearbeiten</h1><br>
     <button id="editLernthemen">rewriteSQL</button>
 </div>
+<div>
+<h1>Werte Datenmaske übertragen</h1>
+<p>Zerlegt die Bemerkungswerte der Tabelle mtr_rueckkopplung_datenmaske und trägt diese zerlegt in mtr_rueckkopplung_datenmaske_values ein.</p>
+    <button id="migrateDatenmaske">Zerlege Datenmaske</button>
+</div>
 <script src="library/javascript/no_jquery.js"></script>
 <script src="library/javascript/easyit_helper_neu.js"></script>
 <script src="library/javascript/const_main.js"></script>

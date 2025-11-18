@@ -201,7 +201,7 @@ button:hover { background: #1e4fd5; }
 <body>
 
 <h2>ICAS – Rückkopplung Rohdaten importieren</h2>
-
+<p>Dazu "Seite untersuchen --> Eintrag "app-current-course-member" suchen --> HTML hintereinander kopieren und übertragen</p>
 <form method="post">
     <label for="teilnehmer_id">Teilnehmer:</label>
     <select name="teilnehmer_id" id="teilnehmer_id" required>

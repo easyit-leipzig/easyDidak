@@ -21,7 +21,7 @@ var Df_3;
                 break;
             case "getUeData":
                     Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
-                    Df_3.opt.fieldDefinitions[3].default = jsonobject.currentDate.date.substring(0, 16);
+                    Df_3.opt.fieldDefinitions[3].default = jsonobject.datum.substring(0, 16);
                     Df_3.opt.fieldDefinitions[4].default = jsonobject.r_tn[0][0];
                     Df_3.opt.fieldDefinitions[5].default = jsonobject.tnId;
                     Df_3.opt.fieldDefinitions[10].options = jsonobject.lernthemen;

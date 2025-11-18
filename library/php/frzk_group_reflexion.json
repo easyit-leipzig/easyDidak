@@ -2,101 +2,101 @@
     {
         "id": 1,
         "gruppe_id": 1,
-        "zeitpunkt": "2025-11-03 15:35:00",
-        "reflexionsgrad": 0.566556,
-        "meta_kohärenz": 0.832277,
+        "zeitpunkt": "2025-11-17 15:35:00",
+        "reflexionsgrad": 0.570115,
+        "meta_kohärenz": 0.867974,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.57 | Meta-Kohärenz 0.83 | Stabilität 0.94"
+        "bemerkung": "Reflexionsgrad 0.57 | Meta-Kohärenz 0.87 | Stabilität 0.95"
     },
     {
         "id": 2,
         "gruppe_id": 2,
-        "zeitpunkt": "2025-11-03 17:10:00",
-        "reflexionsgrad": 0.539167,
-        "meta_kohärenz": 0.938621,
+        "zeitpunkt": "2025-11-17 17:10:00",
+        "reflexionsgrad": 0.541637,
+        "meta_kohärenz": 0.947945,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.54 | Meta-Kohärenz 0.94 | Stabilität 0.90"
+        "bemerkung": "Reflexionsgrad 0.54 | Meta-Kohärenz 0.95 | Stabilität 0.90"
     },
     {
         "id": 3,
         "gruppe_id": 3,
-        "zeitpunkt": "2025-11-04 15:35:00",
-        "reflexionsgrad": 0.568267,
-        "meta_kohärenz": 0.749623,
+        "zeitpunkt": "2025-11-11 15:35:00",
+        "reflexionsgrad": 0.563833,
+        "meta_kohärenz": 0.791351,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.57 | Meta-Kohärenz 0.75 | Stabilität 0.95"
+        "bemerkung": "Reflexionsgrad 0.56 | Meta-Kohärenz 0.79 | Stabilität 0.94"
     },
     {
         "id": 4,
         "gruppe_id": 4,
-        "zeitpunkt": "2025-11-04 17:10:00",
-        "reflexionsgrad": 0.56542,
-        "meta_kohärenz": 0.91351,
+        "zeitpunkt": "2025-11-11 17:10:00",
+        "reflexionsgrad": 0.562857,
+        "meta_kohärenz": 0.813203,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.57 | Meta-Kohärenz 0.91 | Stabilität 0.94"
+        "bemerkung": "Reflexionsgrad 0.56 | Meta-Kohärenz 0.81 | Stabilität 0.94"
     },
     {
         "id": 5,
         "gruppe_id": 5,
-        "zeitpunkt": "2025-10-29 15:35:00",
-        "reflexionsgrad": 0.568475,
-        "meta_kohärenz": 0.760035,
+        "zeitpunkt": "2025-11-12 15:35:00",
+        "reflexionsgrad": 0.571788,
+        "meta_kohärenz": 0.789326,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.57 | Meta-Kohärenz 0.76 | Stabilität 0.95"
+        "bemerkung": "Reflexionsgrad 0.57 | Meta-Kohärenz 0.79 | Stabilität 0.95"
     },
     {
         "id": 6,
         "gruppe_id": 6,
-        "zeitpunkt": "2025-10-29 17:10:00",
-        "reflexionsgrad": 0.569574,
-        "meta_kohärenz": 0.855121,
+        "zeitpunkt": "2025-11-12 17:10:00",
+        "reflexionsgrad": 0.566153,
+        "meta_kohärenz": 0.871806,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.57 | Meta-Kohärenz 0.86 | Stabilität 0.95"
+        "bemerkung": "Reflexionsgrad 0.57 | Meta-Kohärenz 0.87 | Stabilität 0.94"
     },
     {
         "id": 7,
         "gruppe_id": 7,
-        "zeitpunkt": "2025-11-06 15:35:00",
-        "reflexionsgrad": 0.540042,
-        "meta_kohärenz": 0.821181,
+        "zeitpunkt": "2025-11-13 15:35:00",
+        "reflexionsgrad": 0.530495,
+        "meta_kohärenz": 0.836827,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.54 | Meta-Kohärenz 0.82 | Stabilität 0.90"
+        "bemerkung": "Reflexionsgrad 0.53 | Meta-Kohärenz 0.84 | Stabilität 0.88"
     },
     {
         "id": 8,
         "gruppe_id": 8,
-        "zeitpunkt": "2025-11-06 17:10:00",
-        "reflexionsgrad": 0.523477,
-        "meta_kohärenz": 0.949735,
+        "zeitpunkt": "2025-11-13 17:10:00",
+        "reflexionsgrad": 0.523852,
+        "meta_kohärenz": 0.955647,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.52 | Meta-Kohärenz 0.95 | Stabilität 0.87"
+        "bemerkung": "Reflexionsgrad 0.52 | Meta-Kohärenz 0.96 | Stabilität 0.87"
     },
     {
         "id": 9,
         "gruppe_id": 9,
-        "zeitpunkt": "2025-11-07 15:35:00",
-        "reflexionsgrad": 0.578932,
-        "meta_kohärenz": 0.98384,
+        "zeitpunkt": "2025-11-14 15:35:00",
+        "reflexionsgrad": 0.580891,
+        "meta_kohärenz": 0.977813,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad 0.58 | Meta-Kohärenz 0.98 | Stabilität 0.96"
+        "bemerkung": "Reflexionsgrad 0.58 | Meta-Kohärenz 0.98 | Stabilität 0.97"
     },
     {
         "id": 10,
         "gruppe_id": 10,
-        "zeitpunkt": "2025-11-07 06:30:00",
-        "reflexionsgrad": 0,
+        "zeitpunkt": "2025-11-18 06:30:00",
+        "reflexionsgrad": 0.3,
         "meta_kohärenz": 1,
         "selbstbezug_index": 0,
         "reflexions_marker": "niedrig",
-        "bemerkung": "Reflexionsgrad 0.00 | Meta-Kohärenz 1.00 | Stabilität 0.00"
+        "bemerkung": "Reflexionsgrad 0.30 | Meta-Kohärenz 1.00 | Stabilität 0.50"
     }
 ]

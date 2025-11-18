@@ -85,6 +85,34 @@
     },
     {
         "id": 7,
+        "gruppe_id": 1,
+        "zeitpunkt": "2025-11-10 15:35:00",
+        "operator_sigma": 0.633333,
+        "operator_meta": 0.304236,
+        "operator_resonanz": 0.908333,
+        "operator_emer": 0.308333,
+        "stabilitaet_score": 0.991528,
+        "hub_score": 0.538559,
+        "hub_typ": "Sozial-Stabil",
+        "bedeutungszentrum": "Sozialer Knoten – kohärent",
+        "bemerkung": "σ=0.63 M=0.30 R=0.91 E=0.31 | Score=0.54 Typ=Sozial-Stabil Stab=0.99"
+    },
+    {
+        "id": 8,
+        "gruppe_id": 1,
+        "zeitpunkt": "2025-11-17 15:35:00",
+        "operator_sigma": 0.666667,
+        "operator_meta": 0.327778,
+        "operator_resonanz": 0.866667,
+        "operator_emer": 0.174997,
+        "stabilitaet_score": 0.944444,
+        "hub_score": 0.509027,
+        "hub_typ": "Sozial-Resonant (meta-homöostatisch)",
+        "bedeutungszentrum": "Soziales Kohärenzfeld – Primärstruktur",
+        "bemerkung": "σ=0.67 M=0.33 R=0.87 E=0.17 | Score=0.51 Typ=Sozial-Resonant (meta-homöostatisch) Stab=0.94"
+    },
+    {
+        "id": 9,
         "gruppe_id": 2,
         "zeitpunkt": "2025-09-15 17:10:00",
         "operator_sigma": 0.75,
@@ -98,7 +126,7 @@
         "bemerkung": "σ=0.75 M=0.38 R=0.64 E=0.20 | Score=0.49 Typ=Semantisch-Tendenziell Stab=0.84"
     },
     {
-        "id": 8,
+        "id": 10,
         "gruppe_id": 2,
         "zeitpunkt": "2025-09-22 17:10:00",
         "operator_sigma": 0.586667,
@@ -112,7 +140,7 @@
         "bemerkung": "σ=0.59 M=0.31 R=0.68 E=0.42 | Score=0.50 Typ=Sozial-Stabil Stab=0.98"
     },
     {
-        "id": 9,
+        "id": 11,
         "gruppe_id": 2,
         "zeitpunkt": "2025-09-29 17:10:00",
         "operator_sigma": 0.583333,
@@ -126,7 +154,7 @@
         "bemerkung": "σ=0.58 M=0.32 R=0.66 E=0.21 | Score=0.44 Typ=Sozial-Stabil Stab=0.97"
     },
     {
-        "id": 10,
+        "id": 12,
         "gruppe_id": 2,
         "zeitpunkt": "2025-10-20 17:10:00",
         "operator_sigma": 0.766667,
@@ -140,7 +168,7 @@
         "bemerkung": "σ=0.77 M=0.38 R=0.70 E=0.63 | Score=0.62 Typ=Resonant-Kohärent (stabil) Stab=0.84"
     },
     {
-        "id": 11,
+        "id": 13,
         "gruppe_id": 2,
         "zeitpunkt": "2025-10-27 17:10:00",
         "operator_sigma": 0.65,
@@ -154,7 +182,7 @@
         "bemerkung": "σ=0.65 M=0.33 R=0.66 E=0.52 | Score=0.54 Typ=Sozial-Stabil Stab=0.93"
     },
     {
-        "id": 12,
+        "id": 14,
         "gruppe_id": 2,
         "zeitpunkt": "2025-11-03 17:10:00",
         "operator_sigma": 0.733333,
@@ -168,7 +196,35 @@
         "bemerkung": "σ=0.73 M=0.39 R=0.63 E=0.37 | Score=0.53 Typ=Semantisch-Tendenziell Stab=0.82"
     },
     {
-        "id": 13,
+        "id": 15,
+        "gruppe_id": 2,
+        "zeitpunkt": "2025-11-10 17:10:00",
+        "operator_sigma": 0.65,
+        "operator_meta": 0.358871,
+        "operator_resonanz": 0.595833,
+        "operator_emer": 0.429167,
+        "stabilitaet_score": 0.882257,
+        "hub_score": 0.508468,
+        "hub_typ": "Semantisch-Tendenziell",
+        "bedeutungszentrum": "Kognitiver Knoten – fokussiert",
+        "bemerkung": "σ=0.65 M=0.36 R=0.60 E=0.43 | Score=0.51 Typ=Semantisch-Tendenziell Stab=0.88"
+    },
+    {
+        "id": 16,
+        "gruppe_id": 2,
+        "zeitpunkt": "2025-11-17 17:10:00",
+        "operator_sigma": 0.6,
+        "operator_meta": 0.32605,
+        "operator_resonanz": 0.644443,
+        "operator_emer": 0.215274,
+        "stabilitaet_score": 0.947901,
+        "hub_score": 0.446442,
+        "hub_typ": "Sozial-Stabil",
+        "bedeutungszentrum": "Sozialer Knoten – kohärent",
+        "bemerkung": "σ=0.60 M=0.33 R=0.64 E=0.22 | Score=0.45 Typ=Sozial-Stabil Stab=0.95"
+    },
+    {
+        "id": 17,
         "gruppe_id": 3,
         "zeitpunkt": "2025-09-09 15:35:00",
         "operator_sigma": 0.533333,
@@ -182,7 +238,7 @@
         "bemerkung": "σ=0.53 M=0.34 R=0.53 E=0.00 | Score=0.35 Typ=Semantisch-Tendenziell Stab=0.92"
     },
     {
-        "id": 14,
+        "id": 18,
         "gruppe_id": 3,
         "zeitpunkt": "2025-09-23 15:35:00",
         "operator_sigma": 0.333333,
@@ -196,7 +252,7 @@
         "bemerkung": "σ=0.33 M=0.30 R=0.53 E=0.20 | Score=0.34 Typ=Sozial-Stabil Stab=1.00"
     },
     {
-        "id": 15,
+        "id": 19,
         "gruppe_id": 3,
         "zeitpunkt": "2025-09-30 15:35:00",
         "operator_sigma": 0.666667,
@@ -210,7 +266,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.95 | Score=0.65 Typ=Emergent-Tendenziell Stab=0.88"
     },
     {
-        "id": 16,
+        "id": 20,
         "gruppe_id": 3,
         "zeitpunkt": "2025-10-21 15:35:00",
         "operator_sigma": 0.4,
@@ -224,7 +280,7 @@
         "bemerkung": "σ=0.40 M=0.30 R=0.53 E=0.68 | Score=0.48 Typ=Emergent-Tendenziell Stab=0.99"
     },
     {
-        "id": 17,
+        "id": 21,
         "gruppe_id": 3,
         "zeitpunkt": "2025-11-04 15:35:00",
         "operator_sigma": 0.6,
@@ -238,7 +294,21 @@
         "bemerkung": "σ=0.60 M=0.33 R=0.62 E=0.45 | Score=0.50 Typ=Sozial-Stabil Stab=0.95"
     },
     {
-        "id": 18,
+        "id": 22,
+        "gruppe_id": 3,
+        "zeitpunkt": "2025-11-11 15:35:00",
+        "operator_sigma": 0.666667,
+        "operator_meta": 0.348611,
+        "operator_resonanz": 0.616667,
+        "operator_emer": 0.0666633,
+        "stabilitaet_score": 0.902778,
+        "hub_score": 0.424652,
+        "hub_typ": "Semantisch-Tendenziell",
+        "bedeutungszentrum": "Kognitiver Knoten – fokussiert",
+        "bemerkung": "σ=0.67 M=0.35 R=0.62 E=0.07 | Score=0.42 Typ=Semantisch-Tendenziell Stab=0.90"
+    },
+    {
+        "id": 23,
         "gruppe_id": 4,
         "zeitpunkt": "2025-09-09 17:10:00",
         "operator_sigma": 0.8,
@@ -252,7 +322,7 @@
         "bemerkung": "σ=0.80 M=0.35 R=0.91 E=0.20 | Score=0.56 Typ=Resonant-Kohärent (stabil) Stab=0.90"
     },
     {
-        "id": 19,
+        "id": 24,
         "gruppe_id": 4,
         "zeitpunkt": "2025-09-23 17:10:00",
         "operator_sigma": 0.822223,
@@ -266,7 +336,7 @@
         "bemerkung": "σ=0.82 M=0.38 R=0.78 E=0.37 | Score=0.59 Typ=Resonant-Kohärent (stabil) Stab=0.85"
     },
     {
-        "id": 20,
+        "id": 25,
         "gruppe_id": 4,
         "zeitpunkt": "2025-09-30 17:10:00",
         "operator_sigma": 0.823333,
@@ -280,7 +350,7 @@
         "bemerkung": "σ=0.82 M=0.32 R=0.87 E=0.27 | Score=0.57 Typ=Resonant-Kohärent (stabil) Stab=0.96"
     },
     {
-        "id": 21,
+        "id": 26,
         "gruppe_id": 4,
         "zeitpunkt": "2025-10-07 17:10:00",
         "operator_sigma": 0.533333,
@@ -294,7 +364,7 @@
         "bemerkung": "σ=0.53 M=0.30 R=0.73 E=0.81 | Score=0.59 Typ=Emergent-Tendenziell Stab=1.00"
     },
     {
-        "id": 22,
+        "id": 27,
         "gruppe_id": 4,
         "zeitpunkt": "2025-10-21 17:10:00",
         "operator_sigma": 0.666667,
@@ -308,7 +378,7 @@
         "bemerkung": "σ=0.67 M=0.32 R=0.84 E=0.67 | Score=0.62 Typ=Sozial-Stabil Stab=0.97"
     },
     {
-        "id": 23,
+        "id": 28,
         "gruppe_id": 4,
         "zeitpunkt": "2025-10-28 17:10:00",
         "operator_sigma": 0.683333,
@@ -322,7 +392,7 @@
         "bemerkung": "σ=0.68 M=0.31 R=0.87 E=0.24 | Score=0.53 Typ=Sozial-Resonant (meta-homöostatisch) Stab=0.98"
     },
     {
-        "id": 24,
+        "id": 29,
         "gruppe_id": 4,
         "zeitpunkt": "2025-11-04 17:10:00",
         "operator_sigma": 0.577777,
@@ -336,7 +406,21 @@
         "bemerkung": "σ=0.58 M=0.33 R=0.98 E=0.31 | Score=0.55 Typ=Sozial-Stabil Stab=0.94"
     },
     {
-        "id": 25,
+        "id": 30,
+        "gruppe_id": 4,
+        "zeitpunkt": "2025-11-11 17:10:00",
+        "operator_sigma": 0.883333,
+        "operator_meta": 0.345903,
+        "operator_resonanz": 1,
+        "operator_emer": 1,
+        "stabilitaet_score": 0.908194,
+        "hub_score": 0.807309,
+        "hub_typ": "Resonant-Kohärent (hyperstabil)",
+        "bedeutungszentrum": "Kognitiv-sozialer Integrationskern – Primärkohärenz",
+        "bemerkung": "σ=0.88 M=0.35 R=1.00 E=1.00 | Score=0.81 Typ=Resonant-Kohärent (hyperstabil) Stab=0.91"
+    },
+    {
+        "id": 31,
         "gruppe_id": 5,
         "zeitpunkt": "2025-09-10 15:35:00",
         "operator_sigma": 0.633333,
@@ -350,7 +434,7 @@
         "bemerkung": "σ=0.63 M=0.31 R=0.87 E=0.20 | Score=0.50 Typ=Sozial-Resonant (meta-homöostatisch) Stab=0.99"
     },
     {
-        "id": 26,
+        "id": 32,
         "gruppe_id": 5,
         "zeitpunkt": "2025-09-17 15:35:00",
         "operator_sigma": 0.466667,
@@ -364,7 +448,7 @@
         "bemerkung": "σ=0.47 M=0.31 R=0.70 E=0.50 | Score=0.49 Typ=Sozial-Stabil Stab=0.99"
     },
     {
-        "id": 27,
+        "id": 33,
         "gruppe_id": 5,
         "zeitpunkt": "2025-09-24 15:35:00",
         "operator_sigma": 0.666667,
@@ -378,7 +462,7 @@
         "bemerkung": "σ=0.67 M=0.31 R=0.81 E=0.65 | Score=0.61 Typ=Sozial-Stabil Stab=0.98"
     },
     {
-        "id": 28,
+        "id": 34,
         "gruppe_id": 5,
         "zeitpunkt": "2025-10-01 15:35:00",
         "operator_sigma": 0.6,
@@ -392,7 +476,7 @@
         "bemerkung": "σ=0.60 M=0.32 R=0.87 E=0.07 | Score=0.46 Typ=Sozial-Resonant (meta-homöostatisch) Stab=0.96"
     },
     {
-        "id": 29,
+        "id": 35,
         "gruppe_id": 5,
         "zeitpunkt": "2025-10-22 15:35:00",
         "operator_sigma": 1,
@@ -406,7 +490,7 @@
         "bemerkung": "σ=1.00 M=0.41 R=0.87 E=1.00 | Score=0.82 Typ=Resonant-Kohärent (stabil) Stab=0.78"
     },
     {
-        "id": 30,
+        "id": 36,
         "gruppe_id": 5,
         "zeitpunkt": "2025-10-29 15:35:00",
         "operator_sigma": 0.755557,
@@ -420,7 +504,21 @@
         "bemerkung": "σ=0.76 M=0.31 R=0.89 E=0.64 | Score=0.65 Typ=Resonant-Kohärent (stabil) Stab=0.99"
     },
     {
-        "id": 31,
+        "id": 37,
+        "gruppe_id": 5,
+        "zeitpunkt": "2025-11-12 15:35:00",
+        "operator_sigma": 0.666667,
+        "operator_meta": 0.306944,
+        "operator_resonanz": 0.866667,
+        "operator_emer": 0.344447,
+        "stabilitaet_score": 0.986111,
+        "hub_score": 0.546181,
+        "hub_typ": "Sozial-Stabil",
+        "bedeutungszentrum": "Sozialer Knoten – kohärent",
+        "bemerkung": "σ=0.67 M=0.31 R=0.87 E=0.34 | Score=0.55 Typ=Sozial-Stabil Stab=0.99"
+    },
+    {
+        "id": 38,
         "gruppe_id": 6,
         "zeitpunkt": "2025-09-10 17:10:00",
         "operator_sigma": 0.61111,
@@ -434,7 +532,7 @@
         "bemerkung": "σ=0.61 M=0.31 R=0.69 E=0.00 | Score=0.40 Typ=Sozial-Stabil Stab=0.97"
     },
     {
-        "id": 32,
+        "id": 39,
         "gruppe_id": 6,
         "zeitpunkt": "2025-09-17 17:10:00",
         "operator_sigma": 0.4,
@@ -448,7 +546,7 @@
         "bemerkung": "σ=0.40 M=0.32 R=0.70 E=0.36 | Score=0.45 Typ=Sozial-Stabil Stab=0.96"
     },
     {
-        "id": 33,
+        "id": 40,
         "gruppe_id": 6,
         "zeitpunkt": "2025-09-24 17:10:00",
         "operator_sigma": 0.683333,
@@ -462,7 +560,7 @@
         "bemerkung": "σ=0.68 M=0.32 R=0.74 E=0.82 | Score=0.64 Typ=Emergent-Tendenziell Stab=0.97"
     },
     {
-        "id": 34,
+        "id": 41,
         "gruppe_id": 6,
         "zeitpunkt": "2025-10-01 17:10:00",
         "operator_sigma": 0.555557,
@@ -476,7 +574,7 @@
         "bemerkung": "σ=0.56 M=0.32 R=0.59 E=0.41 | Score=0.47 Typ=Sozial-Stabil Stab=0.96"
     },
     {
-        "id": 35,
+        "id": 42,
         "gruppe_id": 6,
         "zeitpunkt": "2025-10-22 17:10:00",
         "operator_sigma": 0.666667,
@@ -490,7 +588,7 @@
         "bemerkung": "σ=0.67 M=0.35 R=0.67 E=0.62 | Score=0.58 Typ=Sozial-Stabil Stab=0.90"
     },
     {
-        "id": 36,
+        "id": 43,
         "gruppe_id": 6,
         "zeitpunkt": "2025-10-29 17:10:00",
         "operator_sigma": 0.577777,
@@ -504,7 +602,21 @@
         "bemerkung": "σ=0.58 M=0.33 R=0.67 E=0.34 | Score=0.48 Typ=Sozial-Stabil Stab=0.94"
     },
     {
-        "id": 37,
+        "id": 44,
+        "gruppe_id": 6,
+        "zeitpunkt": "2025-11-12 17:10:00",
+        "operator_sigma": 0.533333,
+        "operator_meta": 0.345309,
+        "operator_resonanz": 0.58889,
+        "operator_emer": 0.361115,
+        "stabilitaet_score": 0.909383,
+        "hub_score": 0.457162,
+        "hub_typ": "Sozial-Stabil",
+        "bedeutungszentrum": "Sozialer Knoten – kohärent",
+        "bemerkung": "σ=0.53 M=0.35 R=0.59 E=0.36 | Score=0.46 Typ=Sozial-Stabil Stab=0.91"
+    },
+    {
+        "id": 45,
         "gruppe_id": 7,
         "zeitpunkt": "2025-09-11 15:35:00",
         "operator_sigma": 0.777777,
@@ -518,7 +630,7 @@
         "bemerkung": "σ=0.78 M=0.37 R=0.67 E=0.20 | Score=0.51 Typ=Resonant-Kohärent (stabil) Stab=0.86"
     },
     {
-        "id": 38,
+        "id": 46,
         "gruppe_id": 7,
         "zeitpunkt": "2025-09-18 15:35:00",
         "operator_sigma": 0.644443,
@@ -532,7 +644,7 @@
         "bemerkung": "σ=0.64 M=0.33 R=0.64 E=0.47 | Score=0.52 Typ=Semantisch-Tendenziell Stab=0.94"
     },
     {
-        "id": 39,
+        "id": 47,
         "gruppe_id": 7,
         "zeitpunkt": "2025-09-25 15:35:00",
         "operator_sigma": 0.733333,
@@ -546,7 +658,7 @@
         "bemerkung": "σ=0.73 M=0.38 R=0.61 E=0.00 | Score=0.43 Typ=Semantisch-Tendenziell Stab=0.83"
     },
     {
-        "id": 40,
+        "id": 48,
         "gruppe_id": 7,
         "zeitpunkt": "2025-10-02 15:35:00",
         "operator_sigma": 0.6,
@@ -560,7 +672,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.62 E=0.24 | Score=0.45 Typ=Sozial-Stabil Stab=0.90"
     },
     {
-        "id": 41,
+        "id": 49,
         "gruppe_id": 7,
         "zeitpunkt": "2025-10-23 15:35:00",
         "operator_sigma": 0.6,
@@ -574,7 +686,7 @@
         "bemerkung": "σ=0.60 M=0.30 R=0.81 E=0.34 | Score=0.51 Typ=Sozial-Stabil Stab=1.00"
     },
     {
-        "id": 42,
+        "id": 50,
         "gruppe_id": 7,
         "zeitpunkt": "2025-10-30 15:35:00",
         "operator_sigma": 0.466667,
@@ -588,7 +700,7 @@
         "bemerkung": "σ=0.47 M=0.31 R=0.62 E=0.61 | Score=0.50 Typ=Sozial-Stabil Stab=0.97"
     },
     {
-        "id": 43,
+        "id": 51,
         "gruppe_id": 7,
         "zeitpunkt": "2025-11-06 15:35:00",
         "operator_sigma": 0.9,
@@ -602,7 +714,21 @@
         "bemerkung": "σ=0.90 M=0.40 R=0.74 E=1.00 | Score=0.76 Typ=Resonant-Kohärent (stabil) Stab=0.80"
     },
     {
-        "id": 44,
+        "id": 52,
+        "gruppe_id": 7,
+        "zeitpunkt": "2025-11-13 15:35:00",
+        "operator_sigma": 0.966667,
+        "operator_meta": 0.413611,
+        "operator_resonanz": 0.783333,
+        "operator_emer": 0.475003,
+        "stabilitaet_score": 0.772778,
+        "hub_score": 0.659653,
+        "hub_typ": "Resonant-Kohärent (stabil)",
+        "bedeutungszentrum": "Kognitiv-sozialer Integrationskern – Sekundärfeld",
+        "bemerkung": "σ=0.97 M=0.41 R=0.78 E=0.48 | Score=0.66 Typ=Resonant-Kohärent (stabil) Stab=0.77"
+    },
+    {
+        "id": 53,
         "gruppe_id": 8,
         "zeitpunkt": "2025-09-11 17:10:00",
         "operator_sigma": 0.716667,
@@ -616,7 +742,7 @@
         "bemerkung": "σ=0.72 M=0.34 R=0.70 E=0.20 | Score=0.49 Typ=Semantisch-Tendenziell Stab=0.93"
     },
     {
-        "id": 45,
+        "id": 54,
         "gruppe_id": 8,
         "zeitpunkt": "2025-09-18 17:10:00",
         "operator_sigma": 0.833333,
@@ -630,7 +756,7 @@
         "bemerkung": "σ=0.83 M=0.36 R=0.74 E=0.40 | Score=0.58 Typ=Resonant-Kohärent (stabil) Stab=0.87"
     },
     {
-        "id": 46,
+        "id": 55,
         "gruppe_id": 8,
         "zeitpunkt": "2025-09-25 17:10:00",
         "operator_sigma": 0.633333,
@@ -644,7 +770,7 @@
         "bemerkung": "σ=0.63 M=0.31 R=0.72 E=0.50 | Score=0.54 Typ=Sozial-Stabil Stab=0.98"
     },
     {
-        "id": 47,
+        "id": 56,
         "gruppe_id": 8,
         "zeitpunkt": "2025-10-02 17:10:00",
         "operator_sigma": 0.716667,
@@ -658,7 +784,7 @@
         "bemerkung": "σ=0.72 M=0.35 R=0.68 E=0.37 | Score=0.53 Typ=Semantisch-Tendenziell Stab=0.89"
     },
     {
-        "id": 48,
+        "id": 57,
         "gruppe_id": 8,
         "zeitpunkt": "2025-10-23 17:10:00",
         "operator_sigma": 0.955557,
@@ -672,7 +798,7 @@
         "bemerkung": "σ=0.96 M=0.48 R=0.47 E=0.50 | Score=0.60 Typ=Semantisch-Tendenziell Stab=0.64"
     },
     {
-        "id": 49,
+        "id": 58,
         "gruppe_id": 8,
         "zeitpunkt": "2025-10-30 17:10:00",
         "operator_sigma": 0.85,
@@ -686,7 +812,7 @@
         "bemerkung": "σ=0.85 M=0.39 R=0.76 E=0.28 | Score=0.57 Typ=Resonant-Kohärent (stabil) Stab=0.82"
     },
     {
-        "id": 50,
+        "id": 59,
         "gruppe_id": 8,
         "zeitpunkt": "2025-11-06 17:10:00",
         "operator_sigma": 0.693333,
@@ -700,7 +826,21 @@
         "bemerkung": "σ=0.69 M=0.31 R=0.78 E=0.51 | Score=0.58 Typ=Sozial-Stabil Stab=0.97"
     },
     {
-        "id": 51,
+        "id": 60,
+        "gruppe_id": 8,
+        "zeitpunkt": "2025-11-13 17:10:00",
+        "operator_sigma": 0.783333,
+        "operator_meta": 0.361268,
+        "operator_resonanz": 0.720833,
+        "operator_emer": 0.277497,
+        "stabilitaet_score": 0.877465,
+        "hub_score": 0.535733,
+        "hub_typ": "Resonant-Kohärent (stabil)",
+        "bedeutungszentrum": "Kognitiv-sozialer Integrationskern – Sekundärfeld",
+        "bemerkung": "σ=0.78 M=0.36 R=0.72 E=0.28 | Score=0.54 Typ=Resonant-Kohärent (stabil) Stab=0.88"
+    },
+    {
+        "id": 61,
         "gruppe_id": 9,
         "zeitpunkt": "2025-09-19 15:35:00",
         "operator_sigma": 0.84,
@@ -714,7 +854,7 @@
         "bemerkung": "σ=0.84 M=0.31 R=0.90 E=0.20 | Score=0.56 Typ=Resonant-Kohärent (stabil) Stab=0.97"
     },
     {
-        "id": 52,
+        "id": 62,
         "gruppe_id": 9,
         "zeitpunkt": "2025-09-26 15:35:00",
         "operator_sigma": 0.766667,
@@ -728,7 +868,7 @@
         "bemerkung": "σ=0.77 M=0.32 R=0.82 E=0.37 | Score=0.57 Typ=Resonant-Kohärent (stabil) Stab=0.96"
     },
     {
-        "id": 53,
+        "id": 63,
         "gruppe_id": 9,
         "zeitpunkt": "2025-10-24 15:35:00",
         "operator_sigma": 0.8,
@@ -742,7 +882,7 @@
         "bemerkung": "σ=0.80 M=0.32 R=0.84 E=0.27 | Score=0.56 Typ=Resonant-Kohärent (stabil) Stab=0.95"
     },
     {
-        "id": 54,
+        "id": 64,
         "gruppe_id": 9,
         "zeitpunkt": "2025-11-07 15:35:00",
         "operator_sigma": 0.666667,
@@ -756,7 +896,21 @@
         "bemerkung": "σ=0.67 M=0.31 R=0.78 E=0.44 | Score=0.55 Typ=Sozial-Stabil Stab=0.97"
     },
     {
-        "id": 55,
+        "id": 65,
+        "gruppe_id": 9,
+        "zeitpunkt": "2025-11-14 15:35:00",
+        "operator_sigma": 0.733333,
+        "operator_meta": 0.309393,
+        "operator_resonanz": 0.845833,
+        "operator_emer": 0.356947,
+        "stabilitaet_score": 0.981215,
+        "hub_score": 0.561377,
+        "hub_typ": "Sozial-Stabil",
+        "bedeutungszentrum": "Sozialer Knoten – kohärent",
+        "bemerkung": "σ=0.73 M=0.31 R=0.85 E=0.36 | Score=0.56 Typ=Sozial-Stabil Stab=0.98"
+    },
+    {
+        "id": 66,
         "gruppe_id": 10,
         "zeitpunkt": "2025-11-07 06:30:00",
         "operator_sigma": 0,
@@ -768,5 +922,19 @@
         "hub_typ": "Reflexiv-Tendenziell",
         "bedeutungszentrum": "Meta-Knoten – explorativ",
         "bemerkung": "σ=0.00 M=0.80 R=0.00 E=0.00 | Score=0.20 Typ=Reflexiv-Tendenziell Stab=0.00"
+    },
+    {
+        "id": 67,
+        "gruppe_id": 10,
+        "zeitpunkt": "2025-11-18 06:30:00",
+        "operator_sigma": 0,
+        "operator_meta": 0.3,
+        "operator_resonanz": 0.2,
+        "operator_emer": 0,
+        "stabilitaet_score": 1,
+        "hub_score": 0.125,
+        "hub_typ": "Meta-Stabil",
+        "bedeutungszentrum": "Meta-Knoten – regulativ",
+        "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Score=0.12 Typ=Meta-Stabil Stab=1.00"
     }
 ]

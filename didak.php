@@ -422,6 +422,7 @@ var Df_2 = new DataForm( {
     orderArray: ["val_varchar", "val_int"],
 */
     searchArray: [
+            /*
             {
                 field: "id",
                 type: "select",
@@ -429,6 +430,7 @@ var Df_2 = new DataForm( {
                 value: ">-1",
                 sel: "value",
             },
+            */
  /*
             {
                 field: "val_select",
@@ -535,6 +537,7 @@ var Df_2 = new DataForm( {
             field: "fach_id",
             label: "fach_id",
             type: "select",
+            default: 1,
             options: list_fach,
             //onChange: function(){changeFach()},
             onChange: changeFach,
@@ -742,6 +745,26 @@ var Df_2 = new DataForm( {
           </td>
           <td>
              Wirst du vom Tutor ausreichend ermutigt und aufgefordert, dich aktiv einzubringen?
+          </td>
+       </tr>
+       <tr>
+          <td>
+             ZG
+          </td>
+          <td>
+             Entsprechen die Aufgabenblätter und die Durchführung der Nachhilfe Deinen Bedürfnissen.
+          </td>
+          <td>
+             
+          </td>
+          <td>
+             
+          </td>
+          <td>
+             
+          </td>
+          <td>
+             
           </td>
        </tr>
     </table>

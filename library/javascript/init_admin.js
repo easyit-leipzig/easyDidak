@@ -18,6 +18,16 @@
                         //dMNew.show( "Setze Gruppe 10", "okay", "Die Gruppe 10 wurden auf die aktuelle Zeit gesetzt", "okay" );
                     } 
             break;
+            case "migrateDatenmaske":
+                    if( jsonobject.res == "✅ Deep-Granulare Integration abgeschlossen – Valenz/Aktivierung jetzt mehrstufig berechnet.\n" ) {
+                                    dMNew.show( { title: "Datenmaske Bemerkung zerlegt", type: true, text: "Datenmaske Bemerkungen wurden nach 'mtr_rueckkopplung_datenmaske_values' zerlegt" } );
+                        //dMNew.show( "Setze Gruppe 10", "okay", "Die Gruppe 10 wurden auf die aktuelle Zeit gesetzt", "okay" );
+                    } 
+            break;
+            {
+
+
+}
         }
 }
 callProcedure = function(){
@@ -36,12 +46,17 @@ copySQL = function(){
     nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
 
 }
+migrateDatenmaske = function(){
+    data.command = "migrateDatenmaske";
+    nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
+}
 init = function() {
     Df_1.init();
     Df_2.init();
     nj( "#setGroupForTime").on( "click", function(){ callProcedure() } );
     nj( "#rewriteSQL").on( "click", function(){ rewriteSQL() } );
     nj( "#copySQL").on( "click", function(){ copySQL() } );
+    nj( "#migrateDatenmaske").on( "click", function(){ migrateDatenmaske() } );
 }
 rsOnFocus = function() {
     console.log( this );

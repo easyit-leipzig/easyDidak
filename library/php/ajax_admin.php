@@ -78,9 +78,9 @@ switch( $_POST["command"]) {
                     $file = file_get_contents('../../icas.sql');
                     if( $file[0] === "-" ) {
                         $file = "drop database icas;
-                        create databse icas;
-                        use icas;
-                        " . $file;
+create databse icas;
+use icas;
+" . $file;
                     $return -> res = file_put_contents('../../icas.sql', $file);
                     }
                     print_r( json_encode( $return ));     
@@ -105,6 +105,12 @@ switch( $_POST["command"]) {
                     unlink( 'd:\xampp\htdocs\easyDidak\usr_web411_2.sql' );
                     $return -> file = copy('C:\Users\thiel\Downloads\usr_web411_2.sql', 'd:\xampp\htdocs\easyDidak\usr_web411_2.sql');
                     print_r( json_encode( $return ));     
+    break;
+    case "migrateDatenmaske":
+                    ob_start();
+                    require_once('migrate_datenmaske_values_wichtungswerte.php');
+                    $return -> res = ob_get_clean();
+                    print_r( json_encode( $return )); 
     break;
     default:
                             print_r( json_encode( $startdiff )); 
