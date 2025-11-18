@@ -50,6 +50,11 @@ migrateDatenmaske = function(){
     data.command = "migrateDatenmaske";
     nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
 }
+transferDatenmaskeValuesToFrzkWertungMapping = function(){
+    data.command = "transferDatenmaskeValuesToFrzkWertungMapping";
+    data.withTransfer = nj( "#withMigrateDatenmaske").chk();
+    nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
+}
 init = function() {
     Df_1.init();
     Df_2.init();

@@ -114,8 +114,6 @@ class DataForm {                    // class for DataForm2.0
             if( tmp[i] !== "undefined" ) loadCSS( PATH_TO_CSS + tmp[i] );
             i += 1;
         }
-        console.log( this.opt.autoOpen );
-        //this.opt.id = "#" + this.opt.addPraefix + this.opt.id.substring( 1 );
         if( this.opt.formType === "html") {            
             if( !nj( this.opt.id ).isE() ) {
                 tmpEl = nj().cEl( "div" );

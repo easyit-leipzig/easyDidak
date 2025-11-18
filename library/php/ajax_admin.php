@@ -31,7 +31,7 @@ $_POST["id"] = "45";
 */
 $return = new \stdClass();
 /* mock $_POST */
-//$_POST["command"] = "copyWebSQL";
+//$_POST["command"] = "fillFrzkWertungMapping";
 /**/
 $return -> command = $_POST["command"];
 if( isset( $_POST["param"] ) ) {
@@ -91,9 +91,9 @@ use icas;
                         $file = file_get_contents('C:\Users\thiel\Downloads\icas.sql');
                             if( $file[0] === "-" ) {
                                 $file = "drop database icas;
-                                create databse icas;
-                                use icas;
-                                " . $file;
+create databse icas;
+use icas;
+" . $file;
                             $return -> res = file_put_contents('C:\Users\thiel\Downloads\icas.sql', $file);
                         }
                         
@@ -112,6 +112,73 @@ use icas;
                     $return -> res = ob_get_clean();
                     print_r( json_encode( $return )); 
     break;
+    case "transferDatenmaskeValuesToFrzkWertungMapping":
+                    $db_pdo -> exec( "truncate frzk_wertung_mapping");
+                    $db_pdo -> exec( "INSERT INTO frzk_wertung_mapping
+  (id, value, orig_note, wichtung, emotional, affektiv, kognitiv, sozial, leistung,
+   valenz_avg, aktivierung_avg, last_update, dominanter_operator, frzk_vector, bemerkung)
+SELECT
+  m.id,
+  m.value,
+  CAST(m.note AS DECIMAL(6,4)),
+  CAST(m.wichtung AS SIGNED),
+  CAST(m.emotional AS DECIMAL(6,4)),
+  CAST(m.affektiv AS DECIMAL(6,4)),
+  CAST(m.kognitiv AS DECIMAL(6,4)),
+  CAST(m.sozial AS DECIMAL(6,4)),
+  CAST(m.leistung AS DECIMAL(6,4)),
+  CAST(m.valenz_avg AS DECIMAL(7,6)),
+  CAST(m.aktivierung_avg AS DECIMAL(7,6)),
+  m.last_update,
+
+  /* dominanter_operator: größte der Komponenten */
+  CASE
+    WHEN COALESCE(m.kognitiv,0) >= GREATEST(COALESCE(m.affektiv,0),COALESCE(m.sozial,0),COALESCE(m.emotional,0),COALESCE(m.leistung,0)) THEN 'kognitiv'
+    WHEN COALESCE(m.affektiv,0) >= GREATEST(COALESCE(m.kognitiv,0),COALESCE(m.sozial,0),COALESCE(m.emotional,0),COALESCE(m.leistung,0)) THEN 'affektiv'
+    WHEN COALESCE(m.sozial,0) >= GREATEST(COALESCE(m.kognitiv,0),COALESCE(m.affektiv,0),COALESCE(m.emotional,0),COALESCE(m.leistung,0)) THEN 'sozial'
+    WHEN COALESCE(m.emotional,0) >= GREATEST(COALESCE(m.kognitiv,0),COALESCE(m.affektiv,0),COALESCE(m.sozial,0),COALESCE(m.leistung,0)) THEN 'emotional'
+    WHEN COALESCE(m.leistung,0) >= GREATEST(COALESCE(m.kognitiv,0),COALESCE(m.affektiv,0),COALESCE(m.sozial,0),COALESCE(m.emotional,0)) THEN 'leistung'
+    ELSE 'neutral'
+  END AS dominanter_operator,
+
+  JSON_OBJECT(
+    'emotional', COALESCE(m.emotional,0),
+    'affektiv',  COALESCE(m.affektiv,0),
+    'kognitiv',  COALESCE(m.kognitiv,0),
+    'sozial',    COALESCE(m.sozial,0),
+    'leistung',  COALESCE(m.leistung,0),
+    'gesamt_index', ((COALESCE(m.emotional,0)+COALESCE(m.affektiv,0)+COALESCE(m.kognitiv,0)+COALESCE(m.sozial,0)+COALESCE(m.leistung,0))/5)
+  ) AS frzk_vector,
+
+  CONCAT(
+    CASE WHEN COALESCE(m.valenz_avg,0) < 0 THEN 'neg. Valenz; ' ELSE '' END,
+    CASE WHEN COALESCE(m.aktivierung_avg,0) > 0.6 THEN 'hohe Aktivierung; ' ELSE '' END,
+    'Quelle: _mtr_datenmaske_values_wertung'
+  ) AS bemerkung
+
+FROM `_mtr_datenmaske_values_wertung` m
+ON DUPLICATE KEY UPDATE
+  value = VALUES(value),
+  orig_note = VALUES(orig_note),
+  wichtung = VALUES(wichtung),
+  emotional = VALUES(emotional),
+  affektiv = VALUES(affektiv),
+  kognitiv = VALUES(kognitiv),
+  sozial = VALUES(sozial),
+  leistung = VALUES(leistung),
+  valenz_avg = VALUES(valenz_avg),
+  aktivierung_avg = VALUES(aktivierung_avg),
+  last_update = VALUES(last_update),
+  dominanter_operator = VALUES(dominanter_operator),
+  frzk_vector = VALUES(frzk_vector),
+  bemerkung = VALUES(bemerkung);
+    
+    
+");
+                    
+    
+    break;
+    
     default:
                             print_r( json_encode( $startdiff )); 
     break;

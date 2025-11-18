@@ -37,7 +37,15 @@
 <div>
 <h1>Werte Datenmaske übertragen</h1>
 <p>Zerlegt die Bemerkungswerte der Tabelle mtr_rueckkopplung_datenmaske und trägt diese zerlegt in mtr_rueckkopplung_datenmaske_values ein.</p>
+<p>das Mapping erfolgt über _mtr_datenmaske_values_wertung</p>
     <button id="migrateDatenmaske">Zerlege Datenmaske</button>
+</div>
+<div>
+<h1>Übertrage Werte Datenmaske in frzk_wertung_mapping</h1>
+<p>löscht frzk_wertung_mapping und überträgt die Werte aus mtr_rueckkopplung_datenmaske_values gewichtet nach frzk_wertung_mapping.</p>
+<p>Dazu muss vorher "Zerlege Datenmaske" ausgeführt werden.</p>
+    <button id="transferDatenmaskeValuesToFrzkWertungMapping">Zerlege Datenmaske</button>
+mit Zerlegung Datenmaske&nbsp;&nbsp;    <input type="checkbox" id="withMigrateDatenmaske">
 </div>
 <script src="library/javascript/no_jquery.js"></script>
 <script src="library/javascript/easyit_helper_neu.js"></script>
