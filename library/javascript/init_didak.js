@@ -15,29 +15,18 @@ var Df_3;
         switch( jsonobject.command ) {
             case "setGroup":
                     data.command = "getUeData";
+                    console.log( jsonobject.currentDate.date.substring(0, 19) );
                     data.ueId = jsonobject.ueId;
-                    Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
-                    Df_3.opt.fieldDefinitions[3].default = jsonobject.currentDate.date;
-                    Df_3.opt.fieldDefinitions[4].default = jsonobject.gruppenId;
-                    Df_3.opt.fieldDefinitions[5].default = jsonobject.tnId;
-                    Df_3.opt.fieldDefinitions[8].options = jsonobject.lernthemen;
-                    Df_3.opt.filter = "ue_id=" + jsonobject.ueId  + " and tn_id=" + nj( "#df2_teilnehmer_id_new").v(),
-                    Df_3.init();
-                    Df_3.dDF.show();
-//*                    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+                        nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
                 break;
             case "getUeData":
-                //Df_3 = null;
-                //try { nj( "#Df_3_box" ).oHt(); } catch {}
-                
-
-                    /*
-                    Df_3.opt.filter = "ue_unterrichtseinheit_id=" + jsonobject.ueId + " and teilnehmer_id=" + nj( "#df2_teilnehmer_id_new").v();
                     Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
-                    Df_3.opt.fieldDefinitions[3].default = jsonobject.r_tn[0]["id"];
-*/
-                    Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
+                    Df_3.opt.fieldDefinitions[3].default = jsonobject.currentDate.date.substring(0, 16);
                     Df_3.opt.fieldDefinitions[4].default = jsonobject.r_tn[0][0];
+                    Df_3.opt.fieldDefinitions[5].default = jsonobject.tnId;
+                    Df_3.opt.fieldDefinitions[10].options = jsonobject.lernthemen;
+                    Df_3.opt.fieldDefinitions[13].options = jsonobject.r_tn[0]["Klassenstufe"];
+                    Df_3.opt.fieldDefinitions[14].options = jsonobject.r_tn[0]["Klassentyp"];
                     Df_3.opt.filter = "ue_id=" + jsonobject.ueId  + " and tn_id=" + nj( "#df2_teilnehmer_id_new").v(),
                     Df_3.init();
                     Df_3.dDF.show();
@@ -67,23 +56,25 @@ var Df_3;
             break;
         }
 }
+/*
 setFieldOptions = function( el ) {
     data.command = "getLernthemenData";
     data.ueId = getIdAndName( el.id ).Id;
     data.fachId = nj( "#df3_fach_id_" + data.ueId ).v();
     data.tn = nj( "#df3_teilnehmer_id_" + data.ueId ).v();
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
-}
 setTnDf_2 = function( el ) {
 }
+}*/
 changeFach = function( el ) {
-    data.tn = nj().els( "input[id^='df3_teilnehmer_id_']")[0].value;
+    data.fachId = getIdAndName( this.id ).Id;
+    data.tn = nj("#df3_tn_id_" + data.fachId ).v();
+    data.ueId = nj( "#df3_ue_id_" + data.fachId ).v();
+    data.schulform = nj( "#df3_schulform_id_" + data.fachId ).v();
+    nj( "#df3_std_lernthema_id_" + data.fachId ).v( "" );
     data.command = "getThemenPerFach";
-    data.id = getIdAndName( el.id ).Id;
-    nj( "#df3_std_lernthema_id_" + data.id ).v( "" );
-    data.ueId = nj( "#df3_ue_unterrichtseinheit_id_" + data.id ).v();
-    data.fachId = nj( el ).v();
-    if( data.id === "new" && nj( "#df3_teilnehmer_id_new" ).v() === "" ) nj( "#df3_teilnehmer_id_new" ).v( data.tn ) 
+    console.log( data );
+
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 }
 setFieds = function(el) {

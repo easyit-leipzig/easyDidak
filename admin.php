@@ -20,6 +20,20 @@
 <h1>Setze Gruppen für Zeit</h1><br>
     <button id="setGroupForTime">Setze Gruppen für Zeit</button>
 </div>
+<div>
+<h1>SQL umschreiben</h1><br>
+    <button id="rewriteSQL">rewriteSQL</button>
+</div>
+<div>
+<h1>SQL nach easyDidak</h1><br>
+    <button id="copySQL">SQL nach easyDidak</button>
+    Drop hinzufügen&nbsp;&nbsp;
+    <input type="checkbox" id="withDrop" checked>
+</div>
+<div>
+<h1>Lernthemen bearbeiten</h1><br>
+    <button id="editLernthemen">rewriteSQL</button>
+</div>
 <script src="library/javascript/no_jquery.js"></script>
 <script src="library/javascript/easyit_helper_neu.js"></script>
 <script src="library/javascript/const_main.js"></script>
@@ -67,6 +81,9 @@ var Df_1 = new DataForm( {
     addPraefix: "df1_",
     formType: "form",
     formWidth: 800,
+    autoOpen: false,
+    boundForm: ["Df_2"] ,
+    boundFields: [{"from": "id", "to": "std_lernthema_id"},],
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     hasHelp: false,
@@ -113,6 +130,12 @@ var Df_1 = new DataForm( {
             type: "input_text",
 
         },
+        {
+            field: "openInhalt",
+            label: "Inhalt",
+            type: "input_button",
+
+        },
         ],
     countPerPage: 5,
     currentPage: 0,
@@ -149,7 +172,13 @@ var Df_1 = new DataForm( {
  */
         ]
     /*additionalFields: additionalFields, */
-} )
+} );
+var Df_2 = new DataForm( { 
+    dVar: "Df_1", 
+    id: "#Df_1", 
+    table: "_std_lernthema_inhalt",
+    fields: "id,std_lernthema_id,inhalt",
+});
 init();
 </script>
 </body>

@@ -95,6 +95,18 @@ require_once("library/php/getOS.php");
         $i += 1;
     }
     print_r( "var list_names = '" . $option . "';\n" );
+    $q = "SELECT * FROM `_ue_fach`";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->fach . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_fach = '" . $option . "';\n" );
    ?>
 let fields = [
         {
@@ -442,11 +454,38 @@ var Df_2 = new DataForm( {
         ]
     /*additionalFields: additionalFields, */
 } );
+<?php
+    $q = "SELECT * FROM `_mtr_definition_zieltyp` order by bezeichnung";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->bezeichnung . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_zieltyp = '" . $option . "';\n" );
+    $q = "SELECT * FROM `_mtr_definition_lernmethode` order by bezeichnung";
+    $s = $db_pdo -> query( $q );
+    $r = $s -> fetchAll( PDO::FETCH_CLASS );
+    $l = count( $r );
+    $i = 0;
+    $option = "";
+    while ($i < $l ) {
+        // code...
+        $option .= '<option value="' . $r[$i]->id . '">' . $r[$i]->bezeichnung . '</option>';
+        $i += 1;
+    }
+    print_r( "var list_lernmethode = '" . $option . "';\n" );
+    
+?>
     Df_3 = new DataForm( { 
     dVar: "Df_3", 
     id: "#Df_3", 
     table: "ue_thema_zu_ue",
-    fields: "id,ue_id,tn_id,zeitpunkt,gruppe_id,tn_id,fach_id,dauer,lernfeld,thema,bemerkungen,klasse,schulform",
+    fields: "id,ue_id,tn_id,zeitpunkt,gruppe_id,tn_id,fach_id,dauer,zieltyp_id,lernmethode_id,lernfeld,thema,bemerkungen,klasse,schulform",
     addPraefix: "df3_",
     formType: "form",
     validOnSave: false, 
@@ -477,7 +516,7 @@ var Df_2 = new DataForm( {
         {
             field: "zeitpunkt",
             label: "zeitpunkt",
-            type: "input_text",
+            type: "input_datetime-local",
 
         },    
         {
@@ -495,20 +534,57 @@ var Df_2 = new DataForm( {
         {
             field: "fach_id",
             label: "fach_id",
-            type: "input_text",
-
+            type: "select",
+            options: list_fach,
+            //onChange: function(){changeFach()},
+            onChange: changeFach,
         },    
         {
             field: "dauer",
             label: "dauer",
             type: "input_text",
-
+            default: 15,
         },    
         {
+            field: "zieltyp_id",
+            label: "zieltyp_id",
+            type: "select",
+            options: list_zieltyp,
+        },    
+       {
+            field: "lernmethode_id",
+            label: "lernmethode_id",
+            type: "select",
+            options: list_lernmethode,
+        },    
+       {
             field: "lernfeld",
             label: "lernfeld",
             type: "input_text",
             options: "",
+        },    
+        {
+            field: "thema",
+            label: "thema",
+            type: "input_text",
+            options: "",
+        },    
+        {
+            field: "bemerkungen",
+            label: "bemerkungen",
+            type: "input_text",
+            options: "",
+        },    
+        {
+            field: "klasse",
+            label: "klasse",
+            type: "input_number",
+        },    
+        {
+            field: "schulform",
+            label: "schulform",
+            type: "select",
+            options: list_schulform,
         },    
 
         ],

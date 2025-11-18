@@ -22,12 +22,26 @@
 }
 callProcedure = function(){
     data.command = "callProcedure";
-    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateAdmin);
+    nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
+
+}
+rewriteSQL = function(){
+    data.command = "rewriteSQL";
+    nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
+
+}
+copySQL = function(){
+    data.command = "copySQL";
+    data.withDrop = nj( "#withDrop").chk();
+    nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
 
 }
 init = function() {
     Df_1.init();
+    Df_2.init();
     nj( "#setGroupForTime").on( "click", function(){ callProcedure() } );
+    nj( "#rewriteSQL").on( "click", function(){ rewriteSQL() } );
+    nj( "#copySQL").on( "click", function(){ copySQL() } );
 }
 rsOnFocus = function() {
     console.log( this );
