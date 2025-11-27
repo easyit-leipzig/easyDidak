@@ -40,6 +40,17 @@ rewriteSQL = function(){
     nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
 
 }
+saveWebSQL
+saveWebSQL = function(){
+    data.command = "saveWebSQL";
+    nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
+
+}
+rewriteWebSQL = function(){
+    data.command = "rewriteWebSQL";
+    nj().fetchPostNew("library/php/ajax_admin.php", data, this.evaluateAdmin);
+
+}
 copySQL = function(){
     data.command = "copySQL";
     data.withDrop = nj( "#withDrop").chk();
@@ -59,7 +70,9 @@ init = function() {
     Df_1.init();
     Df_2.init();
     nj( "#setGroupForTime").on( "click", function(){ callProcedure() } );
+    nj( "#saveWebSQL").on( "click", function(){ saveWebSQL() } );
     nj( "#rewriteSQL").on( "click", function(){ rewriteSQL() } );
+    nj( "#rewriteWebSQL").on( "click", function(){ rewriteWebSQL() } );
     nj( "#copySQL").on( "click", function(){ copySQL() } );
     nj( "#migrateDatenmaske").on( "click", function(){ migrateDatenmaske() } );
 }

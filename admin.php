@@ -17,31 +17,44 @@
 </head>
 <body>
 <div>
-<h1>Setze Gruppen für Zeit</h1><br>
+<h3>Setze Gruppen für Zeit</h3>
     <button id="setGroupForTime">Setze Gruppen für Zeit</button>
 </div>
 <div>
-<h1>SQL umschreiben</h1><br>
-    <button id="rewriteSQL">rewriteSQL</button>
+<h3>usr_web411_2.sql als originasl markieren und kopieren</h3><br>
+<p>Fügt usr_web411_2.sql [datum_original] hinzu und kopiert die Date nach easyDidak.</p>
+<p>'C:/Users/thiel/Downloads/usr_web411_2.sql' --> D:/xampp/htdocs/easyDidak/usr_web411_2_[Datum]_[original].sql</p>
+    <button id="saveWebSQL">saveWebSQL</button>
+<h3>icas-SQL umschreiben</h3>
+<p>Kopiert websql nach icas.sql und schreibt die datenbank für icas-Import um.</p>
+<p>'C:/Users/thiel/Downloads/usr_web411_2.sql' --> D:/xampp/htdocs/easyDidak/icas_[Datum]_[rewritten].sql</p>
+    <button id="rewriteSQL">rewriteSQL</button>&nbsp;&nbsp;
+<div>
+<h3>WebSQL zum Datenimport nach alphahosting preparieren</h3><br>
+<p>Fügt usr_web411_2.sql_[datum_original].sql table-truncate-statements für den alphahosting-importhinzu.</p>
+<p>'D:/xampp/htdocs/easyDidak/usr_web411_2_[Datum]_[original].sql' --> D:/xampp/htdocs/easyDidak/usr_web411_2_[Datum]_[readyForImport].sql</p>
+    <button id="rewriteWebSQL">rewriteWebSQL</button>
+    Drop hinzufügen&nbsp;&nbsp;
+    <input type="checkbox" id="withDrop" checked>
 </div>
 <div>
-<h1>SQL nach easyDidak</h1><br>
+<h3>SQL nach easyDidak</h3><br>
     <button id="copySQL">SQL nach easyDidak</button>
     Drop hinzufügen&nbsp;&nbsp;
     <input type="checkbox" id="withDrop" checked>
 </div>
 <div>
-<h1>Lernthemen bearbeiten</h1><br>
+<h3>Lernthemen bearbeiten</h3><br>
     <button id="editLernthemen">rewriteSQL</button>
 </div>
 <div>
-<h1>Werte Datenmaske übertragen</h1>
+<h3>Werte Datenmaske übertragen</h3>
 <p>Zerlegt die Bemerkungswerte der Tabelle mtr_rueckkopplung_datenmaske und trägt diese zerlegt in mtr_rueckkopplung_datenmaske_values ein.</p>
 <p>das Mapping erfolgt über _mtr_datenmaske_values_wertung</p>
     <button id="migrateDatenmaske">Zerlege Datenmaske</button>
 </div>
 <div>
-<h1>Übertrage Werte Datenmaske in frzk_wertung_mapping</h1>
+<h3>Übertrage Werte Datenmaske in frzk_wertung_mapping</h3>
 <p>löscht frzk_wertung_mapping und überträgt die Werte aus mtr_rueckkopplung_datenmaske_values gewichtet nach frzk_wertung_mapping.</p>
 <p>Dazu muss vorher "Zerlege Datenmaske" ausgeführt werden.</p>
     <button id="transferDatenmaskeValuesToFrzkWertungMapping">Zerlege Datenmaske</button>

@@ -196,7 +196,8 @@ class Dialog {                    // dialog drag and resize
         el_add = null;
         el_add = nj().cEl( "div" );
         if( this.opt.hasMax ) {
-            nj( el_add ).aCl( "cbMax iconButtMin " + this.opt.classPraefix + "HLMax" );
+            nj( el_add ).aCl( "cbMaxWindow iconButtMin " + this.opt.classPraefix + "HLMax" );
+            nj( el_add ).htm( "□" );
             nj( el_add ).on( "click", function( el ) {
                 let df = nj( el.target ).Dia();
                 if( nj( df.opt.id + "_box" ).hCl( "maximized" ) ) {
@@ -210,7 +211,8 @@ class Dialog {                    // dialog drag and resize
         el_add = null;
         el_add = nj().cEl( "div" );
         if( this.opt.hasClose ) {
-            nj( el_add ).aCl( "cbClose iconButtMin " + this.opt.classPraefix + "HLClose" );
+            nj( el_add ).aCl( "cbCloseWindow iconButtMin " + this.opt.classPraefix + "HLClose" );
+            nj( el_add ).htm( "✖" );
             if( typeof this.opt.onClose === "undefined") {
                 nj( el_add ).on( "click", function( el ) {
                     nj( el.target ).Dia().hide();    

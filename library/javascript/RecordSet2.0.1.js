@@ -90,6 +90,9 @@ class RecordSet {                    // class for DataForm2.0
                     if( typeof nj(elField[j]).Dia().opt.onMouseDown === "function" ) {
                        nj(elField[j]).on( "mousedown", nj(elField[j]).Dia().opt.onMouseOver ); 
                     }
+                    if( typeof nj(elField[j]).Dia().opt.onKeyDown === "function" ) {
+                       nj(elField[j]).on( "keydown", nj(elField[j]).Dia().opt.onKeyDown ); 
+                    }
                     j += 1;
                 }
                 i += 1;

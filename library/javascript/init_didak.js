@@ -22,8 +22,8 @@ var Df_3;
             case "getUeData":
                     Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
                     Df_3.opt.fieldDefinitions[3].default = jsonobject.datum.substring(0, 16);
-                    Df_3.opt.fieldDefinitions[4].default = jsonobject.r_tn[0][0];
-                    Df_3.opt.fieldDefinitions[5].default = jsonobject.tnId;
+                    //Df_3.opt.fieldDefinitions[4].default = jsonobject.r_tn[0][0];
+                    Df_3.opt.fieldDefinitions[5].default = jsonobject.r_tn[0][0];
                     Df_3.opt.fieldDefinitions[10].options = jsonobject.lernthemen;
                     Df_3.opt.fieldDefinitions[13].options = jsonobject.r_tn[0]["Klassenstufe"];
                     Df_3.opt.fieldDefinitions[14].options = jsonobject.r_tn[0]["Klassentyp"];
@@ -56,25 +56,16 @@ var Df_3;
             break;
         }
 }
-/*
-setFieldOptions = function( el ) {
-    data.command = "getLernthemenData";
-    data.ueId = getIdAndName( el.id ).Id;
-    data.fachId = nj( "#df3_fach_id_" + data.ueId ).v();
-    data.tn = nj( "#df3_teilnehmer_id_" + data.ueId ).v();
-    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
-setTnDf_2 = function( el ) {
-}
-}*/
 changeFach = function( el ) {
-    data.fachId = getIdAndName( this.id ).Id;
-    data.tn = nj("#df3_tn_id_" + data.fachId ).v();
-    data.ueId = nj( "#df3_ue_id_" + data.fachId ).v();
-    data.schulform = nj( "#df3_schulform_id_" + data.fachId ).v();
-    nj( "#df3_std_lernthema_id_" + data.fachId ).v( "" );
-    data.command = "getThemenPerFach";
+     data.command = "changeFach";
+    let Id = getIdAndName( el.id ).Id;
+    data.tn = nj("#df3_tn_id_" + Id ).v();
+    data.ueId = nj( "#df3_ue_id_" + Id ).v();
+    data.schulform = nj( "#df3_schulform_id_" + Id ).v();
+    nj( "#df3_std_lernthema_id_" + Id ).v( "" );
+    let fach = el.value;
+    data.fach_id = fach;
     console.log( data );
-
     nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 }
 setFieds = function(el) {
@@ -87,10 +78,12 @@ setFieds = function(el) {
     nj( "#df3_ue_unterrichtseinheit_id_new" ).v( data.ueId );
 }
 changeLernthema = function( el ) {
+    console.log( el );
     data.command = "getThemenDataFromLernthema";
     data.ueId = getIdAndName( el.id ).Id;
     data.value = el.value;
-    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+    console.log( data );
+    //nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 }
 setTnInNew = function ( el ) {
     let tmp, d = {};

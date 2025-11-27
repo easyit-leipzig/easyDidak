@@ -296,74 +296,14 @@ switch( $_POST["command"]) {
                     print_r( json_encode( $return )); 
     
     break;
-    case "getThemenPerFach":
-    /*
-                    $r_tn = $db_pdo -> query("select std_teilnehmer.*, _std_schulform.schulform as schulform from std_teilnehmer, _std_schulform where std_teilnehmer.KlassentypID = _std_schulform.id and std_teilnehmer.id=" .  $_POST["tn"] ) -> fetchAll();
-                    $r_lernthemen = $db_pdo -> query("select id as value, lernthema as text from std_lernthema where schulform='" .  $r_tn[0]["schulform"] . "' and fach_id=". $_POST["fachId"] . " order by lernthema") -> fetchAll();
-                    $l = count( $r_lernthemen );
-                    $i = 0;
-                    $option = "";
-                    while ($i < $l ) {
-                        // code...
-                        $option .= '<option>' . $r_lernthemen[$i]["text"] . '</option>';
-                        $i += 1;
-                    }
-                    $return -> lernthemen = $option;
-                    if( $_POST["ueId"] === "new" ) {
-                        
-                    } else {
-                        
-                    }
-                    //$return -> lernthemen = $option;
-      */              
-                    $return -> r_tn = "select std_teilnehmer.*, _std_schulform.schulform as schulform from std_teilnehmer, _std_schulform where std_teilnehmer.KlassentypID = _std_schulform.id and std_teilnehmer.id=" .  $_POST["tn"];
-                    $return -> r_lernthemen = "select id as value, lernthema as text from std_lernthema where schulform='" .  $r_tn[0]["schulform"] . "' and fach_id=". $_POST["fachId"] . " order by lernthema";
-                    $l = count( $r_lernthemen );
-                    $i = 0;
-                    $option = "";
-                    while ($i < $l ) {
-                        // code...
-                        $option .= '<option value="' . $r_lernthemen[$i]["value"] . '">' . $r_lernthemen[$i]["text"] . '</option>';
-                        $i += 1;
-                    }
-                    $return -> lernthemen = $option;
-                    $return -> fachId = $_POST["fachId"];
-                    $return -> ueId = $_POST["ueId"];
-                    $return -> Id = $_POST["id"];
-                    $return -> tn = $_POST["tn"];
-                    $l = count( $r_lernthemen );
-                    $i = 0;
-                    $option = "";
-                    while ($i < $l ) {
-                        // code...
-                        $option .= '<option value="' . $r_lernthemen[$i]["value"] . '">' . $r_lernthemen[$i]["text"] . '</option>';
-                        $i += 1;
-                    }
-                    $r_lernthemen = $option;
-                    print_r( json_encode( $return ));     
+    case "changeFach":
+                    $r_tn = $db_pdo -> query("select * from std_teilnehmer where id=" . $_POST["tn"] ) -> fetchAll();
+                    $return -> ueId = $_POST;
+                    print_r( json_encode( $return )); 
     
     break;
-    case "getThemenDataFromLernthema":
-                    $return ->r_th = $db_pdo -> query( "select * from std_lernthema where lernthema='" . $_POST["value"] . "'" ) -> fetchAll();
-                    $r_lernthemen = $db_pdo -> query( "select * from _std_lernthema_inhalt where std_lernthema_id =" . $return ->r_th[0]["id"] ) -> fetchAll();
-                    $l = count( $r_lernthemen );
-                    $i = 0;
-                    $option = "";
-                    while ($i < $l ) {
-                        // code...
-                        $option .= '<option>' . $r_lernthemen[$i]["inhalt"] . '</option>';
-                        $i += 1;
-                    }
-                    $return -> unterThemen = $option;
-                    $return -> ueId = $_POST["ueId"];
-                    print_r( json_encode( $return ));     
-    break;
-    case "callProcedure":
-                    $return -> res =$db_pdo -> exec( "call updateGruppen");
-                    print_r( json_encode( $return ));     
-    break;
     default:
-                            print_r( json_encode( $startdiff )); 
+                            print_r( json_encode( $return )); 
     break;
 }
 ?>

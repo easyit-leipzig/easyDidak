@@ -175,6 +175,7 @@ var Df = new DataForm( {
     formType: "html", 
     boundForm: ["Df_2"] ,
     boundFields: [{"from": "id", "to": "teilnehmer_id"}],
+    boundFilter: "id=0",
     validOnSave: false, 
     classButtonSize: "cButtonMiddle",
     fieldDefinitions: fields,
@@ -494,8 +495,8 @@ var Df_2 = new DataForm( {
     classButtonSize: "cButtonMiddle",
     hasHelp: false,
     autoOpen:false,
-    formWidth: 800,
-    formHeight: 500,
+    formWidth: 900,
+    formHeight: 300,
     fieldDefinitions: [
         {
             type: "recordPointer",
@@ -539,8 +540,8 @@ var Df_2 = new DataForm( {
             type: "select",
             default: 1,
             options: list_fach,
-            //onChange: function(){changeFach()},
-            onChange: changeFach,
+            onChange: function(){changeFach( this )},
+            //onChange: changeFach,
         },    
         {
             field: "dauer",
@@ -565,12 +566,29 @@ var Df_2 = new DataForm( {
             label: "lernfeld",
             type: "input_text",
             options: "",
+            onKeyDown: function( ev ) {
+                if( ev.code == "Delete") {
+                    ev.srcElement.value="";
+                }
+            
+            
+            },
+            onChange: function( ) {
+                changeLernthema(this);
+            },
         },    
         {
             field: "thema",
             label: "thema",
             type: "input_text",
             options: "",
+            onKeyDown: function( ev ) {
+                if( ev.code == "Delete") {
+                    ev.srcElement.value="";
+                }
+            
+            
+            }
         },    
         {
             field: "bemerkungen",

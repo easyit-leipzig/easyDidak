@@ -1,7 +1,62 @@
-drop database icas;
-create database icas;
-use icas;
--- phpMyAdmin SQL Dump
+SET FOREIGN_KEY_CHECKS = 0;
+drop table _frzk_hubs;
+drop table _mtr_datenmaske_values_wertung;
+drop table _mtr_definition_lernmethode;
+drop table _mtr_definition_zieltyp;
+drop table _mtr_einrichtung;
+drop table _mtr_emotionen;
+drop table _mtr_persoenlichkeitsmerkmal_definition;
+drop table _mtr_soziale_beziehung_type;
+drop table _mtr_soziale_beziehung_werte;
+drop table _mtr_unterrichtsbewertung;
+drop table _std_lernthema_inhalt;
+drop table _std_lernthema_quelle;
+drop table _std_schulform;
+drop table _ue_fach;
+drop table frzk_group_hubs;
+drop table frzk_group_interdependenz;
+drop table frzk_group_loops;
+drop table frzk_group_operatoren;
+drop table frzk_group_reflexion;
+drop table frzk_group_semantische_dichte;
+drop table frzk_group_transitions;
+drop table frzk_hubs;
+drop table frzk_interdependenz;
+drop table frzk_loops;
+drop table frzk_operatoren;
+drop table frzk_reflexion;
+drop table frzk_semantische_dichte;
+drop table frzk_transitions;
+drop table frzk_wertung_mapping;
+drop table mtr_didaktik;
+drop table mtr_emotions;
+drop table mtr_ethik;
+drop table mtr_leistung;
+drop table mtr_persoenlichkeit;
+drop table mtr_rueckkopplung_datenmaske;
+drop table mtr_rueckkopplung_datenmaske_values;
+drop table mtr_rueckkopplung_lehrkraft_lesson;
+drop table mtr_rueckkopplung_lehrkraft_tn;
+drop table mtr_rueckkopplung_teilnehmer;
+drop table mtr_sozial;
+drop table mtr_soziale_beziehungen;
+drop table rooms;
+drop table session_students;
+drop table sessions;
+drop table std_lehrkraft;
+drop table std_lernthema;
+drop table std_teilnehmer;
+drop table students;
+drop table subjects;
+drop table tmp_teilnehmer;
+drop table tmp_unterrichtseinheiten;
+drop table ue_gruppen;
+drop table ue_thema_zu_ue;
+drop table ue_unterrichtseinheit;
+drop table ue_unterrichtseinheit_zw_thema;
+drop table ue_zuweisung_teilnehmer;
+drop table verhaltens_mapping;
+SET FOREIGN_KEY_CHECKS = 1;-- phpMyAdmin SQL Dump
 -- version 4.5.2
 -- http://www.phpmyadmin.net
 --
@@ -20,14 +75,14 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `icas`
+-- Datenbank: `usr_web411_2`
 --
 
 DELIMITER $$
 --
 -- Prozeduren
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `updateGruppen` ()  BEGIN
+CREATE DEFINER=`web411`@`localhost` PROCEDURE `updateGruppen` ()  BEGIN
     UPDATE ue_gruppen
     SET 
         day_number = (DAYOFWEEK(CURDATE()) + 5) % 7 + 2,  
@@ -73,7 +128,7 @@ CREATE TABLE `frzk_group_interdependenz` (
   `z_affektiv` float DEFAULT NULL,
   `h_bedeutung` float DEFAULT NULL,
   `korrelationsscore` float DEFAULT NULL,
-  `kohaerenz_index` float DEFAULT NULL,
+  `kohärenz_index` float DEFAULT NULL,
   `varianz_xyz` float DEFAULT NULL,
   `bemerkung` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -133,7 +188,7 @@ CREATE TABLE `frzk_group_reflexion` (
   `gruppe_id` int(11) NOT NULL,
   `zeitpunkt` datetime NOT NULL,
   `reflexionsgrad` float DEFAULT NULL,
-  `meta_kohaerenz` float DEFAULT NULL,
+  `meta_kohärenz` float DEFAULT NULL,
   `selbstbezug_index` float DEFAULT NULL,
   `reflexions_marker` varchar(20) DEFAULT NULL,
   `bemerkung` text
@@ -211,24 +266,24 @@ INSERT INTO `frzk_hubs` (`id`, `teilnehmer_id`, `gruppe_id`, `zeitpunkt`, `x_kog
 (1, 2, 1, '2025-09-22 15:35:00', 2.2, 1.75, 1.5, 0, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Sokratische Methode, Problem-Based Learning, Leittextarbeit'),
 (2, 21, 2, '2025-09-08 17:10:00', 2.2, 1, 2, 1.125, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Sokratische Methode, Scaffolding, Problem-Based Learning'),
 (3, 12, 2, '2025-09-08 17:10:00', 1, 1, 1, -9.875, 'systemisch', 'Systemische Selbstreferenz – Metareflexion.', 'Adaptive Lernpfade, Kollegiale Beratung, Selbstorganisierte Lernprojekte'),
-(4, 21, 2, '2025-09-15 17:10:00', 2, 1, 2, -1.35294, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Stationenlernen, Projektarbeit, Forschendes Lernen'),
+(4, 21, 2, '2025-09-15 17:10:00', 2, 1, 2, -1.35294, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Stationenlernen, Projektarbeit, Forschendes Lernen'),
 (5, 16, 2, '2025-09-15 17:10:00', 2.6, 1.5, 2, 1.23529, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Leittextarbeit, Sokratische Methode, Scaffolding'),
 (6, 21, 2, '2025-09-22 17:10:00', 1.6, 1.25, 1, -2.8, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Think-Pair-Share, Sokratische Methode, Scaffolding'),
-(7, 23, 2, '2025-09-22 17:10:00', 2, 1.75, 2, 1, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Stationenlernen, Forschendes Lernen, Transversales Lernfeld'),
+(7, 23, 2, '2025-09-22 17:10:00', 2, 1.75, 2, 1, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Stationenlernen, Forschendes Lernen, Transversales Lernfeld'),
 (8, 13, 2, '2025-09-22 17:10:00', 1.2, 1.75, 1.5, -1.6, 'sozial', 'Soziale Interaktion – Kooperation und Aushandlung.', 'Gruppenpuzzle, World Café, Kooperative Fallarbeit'),
 (9, 23, 2, '2025-09-29 17:10:00', 2, 2, 2.5, 2.06061, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Emotionale Ankerarbeit, Feedback-Loops, Dramapädagogik'),
 (10, 16, 2, '2025-09-29 17:10:00', 1.4, 1, 1, -1.69697, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Sokratische Methode, Cognitive Apprenticeship, Think-Pair-Share'),
 (11, 21, 2, '2025-10-20 17:10:00', 2.6, 1.5, 3, 1, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Symbolisches Handeln, Dramapädagogik, Rollenspiel'),
 (12, 21, 2, '2025-10-20 17:10:00', 2.6, 1.5, 3, 1, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Ästhetisches Lernen, Emotionale Ankerarbeit, Symbolisches Handeln'),
-(13, 23, 2, '2025-10-20 17:10:00', 2, 1.75, 2, -1, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Lernateliers, Projektarbeit, Blended Learning'),
+(13, 23, 2, '2025-10-20 17:10:00', 2, 1.75, 2, -1, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Lernateliers, Projektarbeit, Blended Learning'),
 (14, 20, 2, '2025-10-20 17:10:00', 2, 1.25, 1.5, -2.48148, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Leittextarbeit, Think-Pair-Share, Sokratische Methode'),
 (15, 21, 2, '2025-10-27 17:10:00', 1.2, 1.25, 1.5, -2.89474, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Dramapädagogik, Emotionale Ankerarbeit, Gamification'),
 (16, 23, 2, '2025-10-27 17:10:00', 2.2, 2, 2, 1.84211, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Lernaufgaben mit Anforderungszuwachs, Concept Mapping, Sokratische Methode'),
-(17, 20, 2, '2025-11-03 17:10:00', 2, 1.25, 2, -1, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Transversales Lernfeld, Lernlandschaften, Stationenlernen'),
+(17, 20, 2, '2025-11-03 17:10:00', 2, 1.25, 2, -1, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Transversales Lernfeld, Lernlandschaften, Stationenlernen'),
 (18, 21, 2, '2025-11-03 17:10:00', 2.4, 1.25, 2.5, 1, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Storytelling, Symbolisches Handeln, Ästhetisches Lernen'),
 (19, 21, 2, '2025-11-03 17:10:00', 2.4, 1.25, 2.5, 1, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Rollenspiel, Emotionale Ankerarbeit, Dramapädagogik'),
 (20, 23, 2, '2025-11-03 17:10:00', 2, 1.75, 1.5, -1, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Cognitive Apprenticeship, Leittextarbeit, Sokratische Methode'),
-(21, 3, 3, '2025-09-30 15:35:00', 2, 1.25, 2, 0, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Blended Learning, Stationenlernen, Forschendes Lernen'),
+(21, 3, 3, '2025-09-30 15:35:00', 2, 1.25, 2, 0, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Blended Learning, Stationenlernen, Forschendes Lernen'),
 (22, 3, 3, '2025-10-21 15:35:00', 1.2, 1, 1, 0, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Think-Pair-Share, Problem-Based Learning, Concept Mapping'),
 (23, 8, 4, '2025-09-09 17:10:00', 2.8, 2.5, 3, 1.33333, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Rollenspiel, Emotionale Ankerarbeit, Storytelling'),
 (24, 5, 4, '2025-09-09 17:10:00', 2.2, 1.5, 2.5, -1.46667, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Storytelling, Symbolisches Handeln, Ästhetisches Lernen'),
@@ -248,12 +303,12 @@ INSERT INTO `frzk_hubs` (`id`, `teilnehmer_id`, `gruppe_id`, `zeitpunkt`, `x_kog
 (38, 10, 5, '2025-09-17 15:35:00', 1.6, 1, 1, -1, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Leittextarbeit, Scaffolding, Sokratische Methode'),
 (39, 2, 5, '2025-09-17 15:35:00', 1.2, 2, 1.5, 1, 'sozial', 'Soziale Interaktion – Kooperation und Aushandlung.', 'Peer Instruction, Fishbowl-Diskussion, Kooperative Fallarbeit'),
 (40, 10, 5, '2025-09-24 15:35:00', 1, 1, 1.5, -2.5, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Symbolisches Handeln, Rollenspiel, Feedback-Loops'),
-(41, 6, 5, '2025-09-24 15:35:00', 2, 2, 2, 0, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Forschendes Lernen, Transversales Lernfeld, Projektarbeit'),
+(41, 6, 5, '2025-09-24 15:35:00', 2, 2, 2, 0, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Forschendes Lernen, Transversales Lernfeld, Projektarbeit'),
 (42, 4, 5, '2025-09-24 15:35:00', 3, 2.5, 1.5, 1, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Cognitive Apprenticeship, Think-Pair-Share, Leittextarbeit'),
 (43, 11, 5, '2025-10-01 15:35:00', 1.6, 2.25, 1, -1, 'sozial', 'Soziale Interaktion – Kooperation und Aushandlung.', 'World Café, Design Sprint, Rollenzirkulation'),
 (44, 6, 5, '2025-10-01 15:35:00', 2, 2, 2, 4.75, 'systemisch', 'Systemische Selbstreferenz – Metareflexion.', 'Reflexionszirkel, Kollegiale Beratung, Portfolioarbeit'),
 (45, 10, 5, '2025-10-01 16:53:43', 1.4, 1, 1, 0, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Leittextarbeit, Lernaufgaben mit Anforderungszuwachs, Problem-Based Learning'),
-(46, 6, 5, '2025-10-22 15:35:00', 3, 2, 3, 0, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Projektarbeit, Lernateliers, Lernlandschaften'),
+(46, 6, 5, '2025-10-22 15:35:00', 3, 2, 3, 0, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Projektarbeit, Lernateliers, Lernlandschaften'),
 (47, 2, 5, '2025-10-29 15:35:00', 1.6, 1.75, 1.5, -5, 'sozial', 'Soziale Interaktion – Kooperation und Aushandlung.', 'Gruppenpuzzle, Fishbowl-Diskussion, Rollenzirkulation'),
 (48, 6, 5, '2025-10-29 15:35:00', 2.6, 2.25, 3, 1, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Emotionale Ankerarbeit, Storytelling, Feedback-Loops'),
 (49, 10, 5, '2025-10-29 16:53:35', 1.6, 1, 1, 0, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Scaffolding, Concept Mapping, Cognitive Apprenticeship'),
@@ -263,8 +318,8 @@ INSERT INTO `frzk_hubs` (`id`, `teilnehmer_id`, `gruppe_id`, `zeitpunkt`, `x_kog
 (53, 14, 6, '2025-09-17 17:10:00', 1.4, 1.75, 1, 1, 'sozial', 'Soziale Interaktion – Kooperation und Aushandlung.', 'Gruppenfeedback, Design Sprint, World Café'),
 (54, 12, 6, '2025-09-17 17:10:00', 1, 1.25, 1, -1, 'sozial', 'Soziale Interaktion – Kooperation und Aushandlung.', 'World Café, Fishbowl-Diskussion, Gruppenfeedback'),
 (55, 22, 6, '2025-09-24 17:10:00', 2.8, 1.5, 3, 1.72222, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Emotionale Ankerarbeit, Rollenspiel, Gamification'),
-(56, 13, 6, '2025-09-24 17:10:00', 2, 2, 1.5, -0.277778, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Blended Learning, Lernlandschaften, Projektarbeit'),
-(57, 7, 6, '2025-09-24 17:10:00', 2, 2, 2, 0.277778, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Kooperative Simulationen, Stationenlernen, Transversales Lernfeld'),
+(56, 13, 6, '2025-09-24 17:10:00', 2, 2, 1.5, -0.277778, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Blended Learning, Lernlandschaften, Projektarbeit'),
+(57, 7, 6, '2025-09-24 17:10:00', 2, 2, 2, 0.277778, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Kooperative Simulationen, Stationenlernen, Transversales Lernfeld'),
 (58, 14, 6, '2025-09-24 17:10:00', 1.4, 1, 1, -2.61111, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Concept Mapping, Leittextarbeit, Lernaufgaben mit Anforderungszuwachs'),
 (59, 22, 6, '2025-10-01 17:10:00', 2.6, 1.25, 2, 3, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Scaffolding, Concept Mapping, Think-Pair-Share'),
 (60, 12, 6, '2025-10-01 17:10:00', 1, 1.25, 1, -1, 'sozial', 'Soziale Interaktion – Kooperation und Aushandlung.', 'Fishbowl-Diskussion, Design Sprint, World Café'),
@@ -275,7 +330,7 @@ INSERT INTO `frzk_hubs` (`id`, `teilnehmer_id`, `gruppe_id`, `zeitpunkt`, `x_kog
 (65, 22, 6, '2025-10-29 17:10:00', 2.8, 1.25, 2.5, 1, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Scaffolding, Leittextarbeit, Lernaufgaben mit Anforderungszuwachs'),
 (66, 15, 7, '2025-09-11 15:35:00', 3.2, 1.5, 3, 2.57895, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Think-Pair-Share, Sokratische Methode, Leittextarbeit'),
 (67, 10, 7, '2025-09-11 15:35:00', 1.8, 1, 1.5, -1, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Lernaufgaben mit Anforderungszuwachs, Think-Pair-Share, Concept Mapping'),
-(68, 10, 7, '2025-09-18 15:35:00', 1.2, 1.25, 1, -1, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Forschendes Lernen, Transversales Lernfeld, Lernateliers'),
+(68, 10, 7, '2025-09-18 15:35:00', 1.2, 1.25, 1, -1, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Forschendes Lernen, Transversales Lernfeld, Lernateliers'),
 (69, 15, 7, '2025-09-18 15:35:00', 3.2, 1.75, 2, 2.68421, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Problem-Based Learning, Sokratische Methode, Cognitive Apprenticeship'),
 (70, 9, 7, '2025-09-25 15:35:00', 2.8, 1.25, 1, 1, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Scaffolding, Lernaufgaben mit Anforderungszuwachs, Sokratische Methode'),
 (71, 10, 7, '2025-09-25 15:35:00', 1.4, 1, 1, -10, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Concept Mapping, Problem-Based Learning, Sokratische Methode'),
@@ -289,7 +344,7 @@ INSERT INTO `frzk_hubs` (`id`, `teilnehmer_id`, `gruppe_id`, `zeitpunkt`, `x_kog
 (79, 16, 8, '2025-09-25 17:10:00', 1.4, 1, 1, -1.55263, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Cognitive Apprenticeship, Concept Mapping, Lernaufgaben mit Anforderungszuwachs'),
 (80, 17, 8, '2025-10-02 17:10:00', 2.8, 1.25, 2.5, 2.4375, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Problem-Based Learning, Lernaufgaben mit Anforderungszuwachs, Scaffolding'),
 (81, 18, 8, '2025-10-02 17:10:00', 1.4, 1.75, 2, -1.0625, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Gamification, Symbolisches Handeln, Emotionale Ankerarbeit'),
-(82, 18, 8, '2025-10-23 17:10:00', 3, 1.5, 3, 1.26667, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Stationenlernen, Transversales Lernfeld, Projektarbeit'),
+(82, 18, 8, '2025-10-23 17:10:00', 3, 1.5, 3, 1.26667, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Stationenlernen, Transversales Lernfeld, Projektarbeit'),
 (83, 17, 8, '2025-10-23 17:10:00', 2.8, 1.5, 1.5, -1, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Cognitive Apprenticeship, Leittextarbeit, Think-Pair-Share'),
 (84, 19, 8, '2025-10-30 17:10:00', 2.8, 2.25, 3, 1, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Feedback-Loops, Symbolisches Handeln, Rollenspiel'),
 (85, 18, 8, '2025-10-30 17:10:00', 2.8, 2.25, 3, 1, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Rollenspiel, Emotionale Ankerarbeit, Symbolisches Handeln'),
@@ -298,10 +353,10 @@ INSERT INTO `frzk_hubs` (`id`, `teilnehmer_id`, `gruppe_id`, `zeitpunkt`, `x_kog
 (88, 20, 9, '2025-09-19 15:35:00', 1.8, 1.25, 2, -1, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Storytelling, Dramapädagogik, Symbolisches Handeln'),
 (89, 6, 9, '2025-09-19 15:35:00', 2.8, 3, 2.5, 1.03125, 'sozial', 'Soziale Interaktion – Kooperation und Aushandlung.', 'World Café, Design Sprint, Kooperative Fallarbeit'),
 (90, 4, 9, '2025-09-26 15:35:00', 2.8, 2.5, 2.5, 1, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Problem-Based Learning, Scaffolding, Sokratische Methode'),
-(91, 24, 9, '2025-09-26 17:30:26', 1.4, 1.5, 1.5, 0, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Blended Learning, Projektarbeit, Transversales Lernfeld'),
+(91, 24, 9, '2025-09-26 17:30:26', 1.4, 1.5, 1.5, 0, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Blended Learning, Projektarbeit, Transversales Lernfeld'),
 (92, 4, 9, '2025-10-24 15:35:00', 2.8, 2.5, 3, 1.65217, 'affektiv', 'Affektive Resonanz – emotionale Involvierung.', 'Feedback-Loops, Storytelling, Rollenspiel'),
 (93, 6, 9, '2025-10-24 15:35:00', 2.4, 2, 2, 0, 'kognitiv', 'Kognitive Aktivierung – Denkherausforderung.', 'Think-Pair-Share, Lernaufgaben mit Anforderungszuwachs, Problem-Based Learning'),
-(94, 20, 9, '2025-10-24 15:35:00', 2, 1.25, 2, -1, 'integrativ', 'Integrativer Hub – multimodale kohaerenz.', 'Projektarbeit, Kooperative Simulationen, Transversales Lernfeld');
+(94, 20, 9, '2025-10-24 15:35:00', 2, 1.25, 2, -1, 'integrativ', 'Integrativer Hub – multimodale Kohärenz.', 'Projektarbeit, Kooperative Simulationen, Transversales Lernfeld');
 
 -- --------------------------------------------------------
 
@@ -318,7 +373,7 @@ CREATE TABLE `frzk_interdependenz` (
   `z_affektiv` decimal(5,2) DEFAULT NULL,
   `h_bedeutung` decimal(5,2) DEFAULT NULL,
   `korrelationsscore` float DEFAULT NULL,
-  `kohaerenz_index` float DEFAULT NULL,
+  `kohärenz_index` float DEFAULT NULL,
   `varianz_xyz` float DEFAULT NULL,
   `bemerkung` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -327,7 +382,7 @@ CREATE TABLE `frzk_interdependenz` (
 -- Daten für Tabelle `frzk_interdependenz`
 --
 
-INSERT INTO `frzk_interdependenz` (`id`, `teilnehmer_id`, `zeitpunkt`, `x_kognition`, `y_sozial`, `z_affektiv`, `h_bedeutung`, `korrelationsscore`, `kohaerenz_index`, `varianz_xyz`, `bemerkung`) VALUES
+INSERT INTO `frzk_interdependenz` (`id`, `teilnehmer_id`, `zeitpunkt`, `x_kognition`, `y_sozial`, `z_affektiv`, `h_bedeutung`, `korrelationsscore`, `kohärenz_index`, `varianz_xyz`, `bemerkung`) VALUES
 (1, 2, '2025-09-15 15:35:00', '3.00', '2.25', '2.50', '2.64', 6.625, 0.833333, 0.0972222, 'x=3.00 y=2.25 z=2.50 h=2.64 | Corr=6.625 Koh=0.833 Var=0.097'),
 (2, 2, '2025-09-17 15:35:00', '1.20', '2.00', '1.50', '1.55', 2.4, 0.822222, 0.108889, 'x=1.20 y=2.00 z=1.50 h=1.55 | Corr=2.400 Koh=0.822 Var=0.109'),
 (3, 2, '2025-09-22 15:35:00', '2.20', '1.75', '1.50', '1.91', 3.25833, 0.844444, 0.0838889, 'x=2.20 y=1.75 z=1.50 h=1.91 | Corr=3.258 Koh=0.844 Var=0.084'),
@@ -759,7 +814,7 @@ CREATE TABLE `frzk_reflexion` (
   `teilnehmer_id` int(11) NOT NULL,
   `zeitpunkt` datetime NOT NULL,
   `reflexionsgrad` float DEFAULT NULL,
-  `meta_kohaerenz` float DEFAULT NULL,
+  `meta_kohärenz` float DEFAULT NULL,
   `selbstbezug_index` float DEFAULT NULL,
   `reflexions_marker` varchar(20) DEFAULT NULL,
   `bemerkung` text
@@ -769,32 +824,32 @@ CREATE TABLE `frzk_reflexion` (
 -- Daten für Tabelle `frzk_reflexion`
 --
 
-INSERT INTO `frzk_reflexion` (`id`, `teilnehmer_id`, `zeitpunkt`, `reflexionsgrad`, `meta_kohaerenz`, `selbstbezug_index`, `reflexions_marker`, `bemerkung`) VALUES
-(1, 2, '2025-11-03 15:35:00', 0.565708, 0.797521, 0, 'mittel', 'Reflexionsgrad: 0.57 | Meta-kohaerenz: 0.80 | Selbstbezug: 0.00 | Stabilität: 0.94'),
-(2, 3, '2025-11-04 15:35:00', 0.560333, 0.800103, 0, 'mittel', 'Reflexionsgrad: 0.56 | Meta-kohaerenz: 0.80 | Selbstbezug: 0.00 | Stabilität: 0.93'),
-(3, 4, '2025-10-27 15:35:00', 0.540133, 0.907438, 0, 'mittel', 'Reflexionsgrad: 0.54 | Meta-kohaerenz: 0.91 | Selbstbezug: 0.00 | Stabilität: 0.90'),
-(4, 5, '2025-11-04 17:10:00', 0.550267, 0.973702, 0, 'mittel', 'Reflexionsgrad: 0.55 | Meta-kohaerenz: 0.97 | Selbstbezug: 0.00 | Stabilität: 0.92'),
-(5, 6, '2025-11-07 15:35:00', 0.569417, 0.72017, 0, 'mittel', 'Reflexionsgrad: 0.57 | Meta-kohaerenz: 0.72 | Selbstbezug: 0.00 | Stabilität: 0.95'),
-(6, 7, '2025-10-29 17:10:00', 0.507889, 0.896924, 0, 'mittel', 'Reflexionsgrad: 0.51 | Meta-kohaerenz: 0.90 | Selbstbezug: 0.00 | Stabilität: 0.85'),
-(7, 8, '2025-11-04 17:10:00', 0.550571, 0.684938, 0, 'mittel', 'Reflexionsgrad: 0.55 | Meta-kohaerenz: 0.68 | Selbstbezug: 0.00 | Stabilität: 0.92'),
-(8, 9, '2025-11-06 15:35:00', 0.442633, 0.62413, 0, 'mittel', 'Reflexionsgrad: 0.44 | Meta-kohaerenz: 0.62 | Selbstbezug: 0.00 | Stabilität: 0.74'),
-(9, 10, '2025-11-06 16:51:46', 0.548384, 0.773485, 0, 'mittel', 'Reflexionsgrad: 0.55 | Meta-kohaerenz: 0.77 | Selbstbezug: 0.00 | Stabilität: 0.91'),
-(10, 11, '2025-11-07 15:35:00', 0.5582, 0.578182, 0, 'mittel', 'Reflexionsgrad: 0.56 | Meta-kohaerenz: 0.58 | Selbstbezug: 0.00 | Stabilität: 0.93'),
-(11, 12, '2025-10-01 17:10:00', 0.588133, 0.992066, 0, 'mittel', 'Reflexionsgrad: 0.59 | Meta-kohaerenz: 0.99 | Selbstbezug: 0.00 | Stabilität: 0.98'),
-(12, 13, '2025-10-07 17:10:00', 0.554416, 0.824897, 0, 'mittel', 'Reflexionsgrad: 0.55 | Meta-kohaerenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.92'),
-(13, 14, '2025-10-29 17:10:00', 0.556889, 0.623278, 0, 'mittel', 'Reflexionsgrad: 0.56 | Meta-kohaerenz: 0.62 | Selbstbezug: 0.00 | Stabilität: 0.93'),
-(14, 15, '2025-11-06 15:35:00', 0.369222, 0.819789, 0, 'mittel', 'Reflexionsgrad: 0.37 | Meta-kohaerenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.62'),
-(15, 16, '2025-11-06 17:10:00', 0.487133, 0.761028, 0, 'mittel', 'Reflexionsgrad: 0.49 | Meta-kohaerenz: 0.76 | Selbstbezug: 0.00 | Stabilität: 0.81'),
-(16, 17, '2025-11-06 17:10:00', 0.351857, 0.883286, 0, 'mittel', 'Reflexionsgrad: 0.35 | Meta-kohaerenz: 0.88 | Selbstbezug: 0.00 | Stabilität: 0.59'),
-(17, 18, '2025-11-06 17:10:00', 0.518857, 0.93186, 0, 'mittel', 'Reflexionsgrad: 0.52 | Meta-kohaerenz: 0.93 | Selbstbezug: 0.00 | Stabilität: 0.86'),
-(18, 19, '2025-11-06 17:10:00', 0.566133, 0.73752, 0, 'mittel', 'Reflexionsgrad: 0.57 | Meta-kohaerenz: 0.74 | Selbstbezug: 0.00 | Stabilität: 0.94'),
-(19, 20, '2025-11-03 17:10:00', 0.537367, 0.99595, 0, 'mittel', 'Reflexionsgrad: 0.54 | Meta-kohaerenz: 1.00 | Selbstbezug: 0.00 | Stabilität: 0.90'),
-(20, 21, '2025-11-03 17:10:00', 0.461741, 0.759412, 0, 'mittel', 'Reflexionsgrad: 0.46 | Meta-kohaerenz: 0.76 | Selbstbezug: 0.00 | Stabilität: 0.77'),
-(21, 22, '2025-11-06 17:10:00', 0.444667, 0.823242, 0, 'mittel', 'Reflexionsgrad: 0.44 | Meta-kohaerenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.74'),
-(22, 23, '2025-11-03 17:10:00', 0.573055, 0.970615, 0, 'mittel', 'Reflexionsgrad: 0.57 | Meta-kohaerenz: 0.97 | Selbstbezug: 0.00 | Stabilität: 0.96'),
-(23, 24, '2025-11-07 15:35:00', 0.544067, 0.884298, 0, 'mittel', 'Reflexionsgrad: 0.54 | Meta-kohaerenz: 0.88 | Selbstbezug: 0.00 | Stabilität: 0.91'),
-(24, 40, '2025-11-03 16:56:09', 0.404833, 0.930135, 0, 'mittel', 'Reflexionsgrad: 0.40 | Meta-kohaerenz: 0.93 | Selbstbezug: 0.00 | Stabilität: 0.67'),
-(25, 43, '2025-11-03 16:55:09', 0.578666, 1, 0, 'mittel', 'Reflexionsgrad: 0.58 | Meta-kohaerenz: 1.00 | Selbstbezug: 0.00 | Stabilität: 0.96');
+INSERT INTO `frzk_reflexion` (`id`, `teilnehmer_id`, `zeitpunkt`, `reflexionsgrad`, `meta_kohärenz`, `selbstbezug_index`, `reflexions_marker`, `bemerkung`) VALUES
+(1, 2, '2025-11-03 15:35:00', 0.565708, 0.797521, 0, 'mittel', 'Reflexionsgrad: 0.57 | Meta-Kohärenz: 0.80 | Selbstbezug: 0.00 | Stabilität: 0.94'),
+(2, 3, '2025-11-04 15:35:00', 0.560333, 0.800103, 0, 'mittel', 'Reflexionsgrad: 0.56 | Meta-Kohärenz: 0.80 | Selbstbezug: 0.00 | Stabilität: 0.93'),
+(3, 4, '2025-10-27 15:35:00', 0.540133, 0.907438, 0, 'mittel', 'Reflexionsgrad: 0.54 | Meta-Kohärenz: 0.91 | Selbstbezug: 0.00 | Stabilität: 0.90'),
+(4, 5, '2025-11-04 17:10:00', 0.550267, 0.973702, 0, 'mittel', 'Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.97 | Selbstbezug: 0.00 | Stabilität: 0.92'),
+(5, 6, '2025-11-07 15:35:00', 0.569417, 0.72017, 0, 'mittel', 'Reflexionsgrad: 0.57 | Meta-Kohärenz: 0.72 | Selbstbezug: 0.00 | Stabilität: 0.95'),
+(6, 7, '2025-10-29 17:10:00', 0.507889, 0.896924, 0, 'mittel', 'Reflexionsgrad: 0.51 | Meta-Kohärenz: 0.90 | Selbstbezug: 0.00 | Stabilität: 0.85'),
+(7, 8, '2025-11-04 17:10:00', 0.550571, 0.684938, 0, 'mittel', 'Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.68 | Selbstbezug: 0.00 | Stabilität: 0.92'),
+(8, 9, '2025-11-06 15:35:00', 0.442633, 0.62413, 0, 'mittel', 'Reflexionsgrad: 0.44 | Meta-Kohärenz: 0.62 | Selbstbezug: 0.00 | Stabilität: 0.74'),
+(9, 10, '2025-11-06 16:51:46', 0.548384, 0.773485, 0, 'mittel', 'Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.77 | Selbstbezug: 0.00 | Stabilität: 0.91'),
+(10, 11, '2025-11-07 15:35:00', 0.5582, 0.578182, 0, 'mittel', 'Reflexionsgrad: 0.56 | Meta-Kohärenz: 0.58 | Selbstbezug: 0.00 | Stabilität: 0.93'),
+(11, 12, '2025-10-01 17:10:00', 0.588133, 0.992066, 0, 'mittel', 'Reflexionsgrad: 0.59 | Meta-Kohärenz: 0.99 | Selbstbezug: 0.00 | Stabilität: 0.98'),
+(12, 13, '2025-10-07 17:10:00', 0.554416, 0.824897, 0, 'mittel', 'Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.92'),
+(13, 14, '2025-10-29 17:10:00', 0.556889, 0.623278, 0, 'mittel', 'Reflexionsgrad: 0.56 | Meta-Kohärenz: 0.62 | Selbstbezug: 0.00 | Stabilität: 0.93'),
+(14, 15, '2025-11-06 15:35:00', 0.369222, 0.819789, 0, 'mittel', 'Reflexionsgrad: 0.37 | Meta-Kohärenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.62'),
+(15, 16, '2025-11-06 17:10:00', 0.487133, 0.761028, 0, 'mittel', 'Reflexionsgrad: 0.49 | Meta-Kohärenz: 0.76 | Selbstbezug: 0.00 | Stabilität: 0.81'),
+(16, 17, '2025-11-06 17:10:00', 0.351857, 0.883286, 0, 'mittel', 'Reflexionsgrad: 0.35 | Meta-Kohärenz: 0.88 | Selbstbezug: 0.00 | Stabilität: 0.59'),
+(17, 18, '2025-11-06 17:10:00', 0.518857, 0.93186, 0, 'mittel', 'Reflexionsgrad: 0.52 | Meta-Kohärenz: 0.93 | Selbstbezug: 0.00 | Stabilität: 0.86'),
+(18, 19, '2025-11-06 17:10:00', 0.566133, 0.73752, 0, 'mittel', 'Reflexionsgrad: 0.57 | Meta-Kohärenz: 0.74 | Selbstbezug: 0.00 | Stabilität: 0.94'),
+(19, 20, '2025-11-03 17:10:00', 0.537367, 0.99595, 0, 'mittel', 'Reflexionsgrad: 0.54 | Meta-Kohärenz: 1.00 | Selbstbezug: 0.00 | Stabilität: 0.90'),
+(20, 21, '2025-11-03 17:10:00', 0.461741, 0.759412, 0, 'mittel', 'Reflexionsgrad: 0.46 | Meta-Kohärenz: 0.76 | Selbstbezug: 0.00 | Stabilität: 0.77'),
+(21, 22, '2025-11-06 17:10:00', 0.444667, 0.823242, 0, 'mittel', 'Reflexionsgrad: 0.44 | Meta-Kohärenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.74'),
+(22, 23, '2025-11-03 17:10:00', 0.573055, 0.970615, 0, 'mittel', 'Reflexionsgrad: 0.57 | Meta-Kohärenz: 0.97 | Selbstbezug: 0.00 | Stabilität: 0.96'),
+(23, 24, '2025-11-07 15:35:00', 0.544067, 0.884298, 0, 'mittel', 'Reflexionsgrad: 0.54 | Meta-Kohärenz: 0.88 | Selbstbezug: 0.00 | Stabilität: 0.91'),
+(24, 40, '2025-11-03 16:56:09', 0.404833, 0.930135, 0, 'mittel', 'Reflexionsgrad: 0.40 | Meta-Kohärenz: 0.93 | Selbstbezug: 0.00 | Stabilität: 0.67'),
+(25, 43, '2025-11-03 16:55:09', 0.578666, 1, 0, 'mittel', 'Reflexionsgrad: 0.58 | Meta-Kohärenz: 1.00 | Selbstbezug: 0.00 | Stabilität: 0.96');
 
 -- --------------------------------------------------------
 
@@ -1183,7 +1238,7 @@ CREATE TABLE `frzk_wertung_mapping` (
   `valenz_avg` float DEFAULT NULL,
   `aktivierung_avg` float DEFAULT NULL,
   `last_update` datetime DEFAULT NULL,
-  `gesamtkohaerenz_index` float GENERATED ALWAYS AS ((((((coalesce(`emotional`,0) + coalesce(`affektiv`,0)) + coalesce(`kognitiv`,0)) + coalesce(`sozial`,0)) + coalesce(`leistung`,0)) / 5)) STORED,
+  `gesamtkohärenz_index` float GENERATED ALWAYS AS ((((((coalesce(`emotional`,0) + coalesce(`affektiv`,0)) + coalesce(`kognitiv`,0)) + coalesce(`sozial`,0)) + coalesce(`leistung`,0)) / 5)) STORED,
   `semantische_dichte_h` float GENERATED ALWAYS AS ((((((coalesce(`kognitiv`,0) * 0.45) + (coalesce(`affektiv`,0) * 0.20)) + (coalesce(`sozial`,0) * 0.15)) + (coalesce(`emotional`,0) * 0.10)) + (coalesce(`leistung`,0) * 0.10))) STORED,
   `orientation_score` float GENERATED ALWAYS AS ((case when (coalesce(`wichtung`,0) = 0) then `semantische_dichte_h` else (`semantische_dichte_h` * (`wichtung` / greatest(1,abs(`wichtung`)))) end)) STORED,
   `dominanter_operator` varchar(32) DEFAULT NULL,
@@ -1195,7 +1250,7 @@ CREATE TABLE `frzk_wertung_mapping` (
 -- Daten für Tabelle `frzk_wertung_mapping`
 --
 
-INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohaerenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
+INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohärenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
 (1, 'braucht selten Unterstützung bei der Anwendung neuer Lernmethoden', 0.51, 3, 0.2, 1, 1, 0.4, 0.8, -0.22, 0.79, '2025-11-18 12:11:38', 0.68, 0.81, 0.81, 'kognitiv', '{"emotional": 0.20000000298023224, "affektiv": 1, "kognitiv": 1, "sozial": 0.4000000059604645, "leistung": 0.800000011920929, "gesamt_index": 0.6800000041723251}', 'neg. Valenz; hohe Aktivierung; Quelle: _mtr_datenmaske_values_wertung'),
 (2, 'gibt nur manchmal zu erkennen, wenn er ein Problem mit einer Aufgabenstellung hat', 0, 4, 0.6, 0.4, 0.6, 0, 0.2, 0, 0, '2025-11-18 12:11:38', 0.36, 0.43, 0.43, 'kognitiv', '{"emotional": 0.6000000238418579, "affektiv": 0.4000000059604645, "kognitiv": 0.6000000238418579, "sozial": 0, "leistung": 0.20000000298023224, "gesamt_index": 0.3600000113248825}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (3, 'hat zuletzt deutlich von der individuellen Unterstützung in der Nachhilfe profitiert', 0.88, 3, 0.6, 0.2, 1, 0.8, 0.6, -0.9, 0.85, '2025-11-18 12:11:38', 0.64, 0.73, 0.73, 'kognitiv', '{"emotional": 0.6000000238418579, "affektiv": 0.20000000298023224, "kognitiv": 1, "sozial": 0.800000011920929, "leistung": 0.6000000238418579, "gesamt_index": 0.6400000125169754}', 'neg. Valenz; hohe Aktivierung; Quelle: _mtr_datenmaske_values_wertung'),
@@ -1322,7 +1377,7 @@ INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emo
 (193, 'nutzt regelmäßig erlaubte Hilfsmittel zum Lösen von Aufgaben', 0, 3, 0.6, 0.8, 0.4, 1, 0.2, 0, 0, '2025-11-18 12:11:38', 0.6, 0.57, 0.57, 'sozial', '{"emotional": 0.6000000238418579, "affektiv": 0.800000011920929, "kognitiv": 0.4000000059604645, "sozial": 1, "leistung": 0.20000000298023224, "gesamt_index": 0.6000000089406967}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (194, 'Ausdauer hat sich stark erhöht', 0.31, 3, 0.6, 0.2, 0.4, 0.8, 0.6, 0.075, 0.55, '2025-11-18 12:11:38', 0.52, 0.46, 0.46, 'sozial', '{"emotional": 0.6000000238418579, "affektiv": 0.20000000298023224, "kognitiv": 0.4000000059604645, "sozial": 0.800000011920929, "leistung": 0.6000000238418579, "gesamt_index": 0.5200000137090683}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (195, 'kann sich gut an Veränderungen im Lernumfeld anpassen', 0.31, 10, 0.4, 0.4, 1, 0, 0, 0.075, 0.55, '2025-11-18 12:11:38', 0.36, 0.57, 0.57, 'kognitiv', '{"emotional": 0.4000000059604645, "affektiv": 0.4000000059604645, "kognitiv": 1, "sozial": 0, "leistung": 0, "gesamt_index": 0.3600000023841858}', 'Quelle: _mtr_datenmaske_values_wertung');
-INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohaerenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
+INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohärenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
 (196, 'schlägt regelmäßig sinnvolle Übungen oder Themen vor, an denen er arbeiten möchte', 0, 2, 0.6, 1, 0.8, 0.6, 0.8, 0, 0, '2025-11-18 12:11:38', 0.76, 0.79, 0.79, 'affektiv', '{"emotional": 0.6000000238418579, "affektiv": 1, "kognitiv": 0.800000011920929, "sozial": 0.6000000238418579, "leistung": 0.800000011920929, "gesamt_index": 0.7600000143051148}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (197, 'Ausdauer hat sich erhöht', 0.31, 10, 0, 0.6, 0.4, 1, 0.8, 0.075, 0.55, '2025-11-18 12:11:38', 0.56, 0.53, 0.53, 'sozial', '{"emotional": 0, "affektiv": 0.6000000238418579, "kognitiv": 0.4000000059604645, "sozial": 1, "leistung": 0.800000011920929, "gesamt_index": 0.5600000083446502}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (198, 'kann sich gut auf eine Aufgabe konzentrieren, auch wenn diese als zu schwer empfunden wird', 0.31, 3, 0.2, 0.2, 0.2, 0.2, 0.8, 0.075, 0.55, '2025-11-18 12:11:38', 0.32, 0.26, 0.26, 'leistung', '{"emotional": 0.20000000298023224, "affektiv": 0.20000000298023224, "kognitiv": 0.20000000298023224, "sozial": 0.20000000298023224, "leistung": 0.800000011920929, "gesamt_index": 0.3200000047683716}', 'Quelle: _mtr_datenmaske_values_wertung'),
@@ -1451,7 +1506,7 @@ INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emo
 (397, 'Muss wiederholt werden da sie dieses Mal desinteressierter war', 0.5, 8, 1, 0.6, 0.8, 0.6, 0.8, 0.4, 0.6, '2025-11-18 12:11:38', 0.76, 0.75, 0.75, 'emotional', '{"emotional": 1, "affektiv": 0.6000000238418579, "kognitiv": 0.800000011920929, "sozial": 0.6000000238418579, "leistung": 0.800000011920929, "gesamt_index": 0.7600000143051148}', 'hohe Aktivierung; Quelle: _mtr_datenmaske_values_wertung'),
 (398, 'Juni hat ihre Mathe Aufgaben gelöst und danach für ihre Musik Arbeit gelernt', 0, 3, 0.4, 0.6, 0.6, 0.6, 0, 0, 0, '2025-11-18 12:11:38', 0.44, 0.52, 0.52, 'kognitiv', '{"emotional": 0.4000000059604645, "affektiv": 0.6000000238418579, "kognitiv": 0.6000000238418579, "sozial": 0.6000000238418579, "leistung": 0, "gesamt_index": 0.44000001549720763}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (399, 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltBasiswissen vorhandenfähig zu Transferdenkenbeherrscht Thema', 0.31, 6, 0.6, 0.6, 0.6, 0.4, 0, 0.075, 0.55, '2025-11-18 12:11:38', 0.44, 0.51, 0.51, 'kognitiv', '{"emotional": 0.6000000238418579, "affektiv": 0.6000000238418579, "kognitiv": 0.6000000238418579, "sozial": 0.4000000059604645, "leistung": 0, "gesamt_index": 0.44000001549720763}', 'Quelle: _mtr_datenmaske_values_wertung');
-INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohaerenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
+INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohärenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
 (400, 'Juni beherrscht das Thema Brüche sehr sehr gut und kommt einfach nur voran!', 0, 6, 0.6, 0.8, 0, 1, 0, 0, 0, '2025-11-18 12:11:38', 0.48, 0.37, 0.37, 'sozial', '{"emotional": 0.6000000238418579, "affektiv": 0.800000011920929, "kognitiv": 0, "sozial": 1, "leistung": 0, "gesamt_index": 0.48000000715255736}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (401, 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltBasiswissen vorhandenbeherrscht Thema', 0.31, 3, 0.6, 1, 0, 0.4, 0.2, 0.075, 0.55, '2025-11-18 12:11:38', 0.44, 0.34, 0.34, 'affektiv', '{"emotional": 0.6000000238418579, "affektiv": 1, "kognitiv": 0, "sozial": 0.4000000059604645, "leistung": 0.20000000298023224, "gesamt_index": 0.44000000655651095}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (402, 'Juni macht super mit sie erledigt ihre Aufgaben selbstständig', 0, 8, 0.2, 0.6, 0.8, 0.4, 1, 0, 0, '2025-11-18 12:11:38', 0.6, 0.66, 0.66, 'leistung', '{"emotional": 0.20000000298023224, "affektiv": 0.6000000238418579, "kognitiv": 0.800000011920929, "sozial": 0.4000000059604645, "leistung": 1, "gesamt_index": 0.6000000089406967}', 'Quelle: _mtr_datenmaske_values_wertung'),
@@ -1581,7 +1636,7 @@ INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emo
 (578, 'kann bereits erlerntes Wissen schnell aus dem Gedächtnis wieder abrufen', 0, 9, 0.2, 0.4, 0.4, 0.8, 0, 0, 0, '2025-11-18 12:11:38', 0.36, 0.4, 0.4, 'sozial', '{"emotional": 0.20000000298023224, "affektiv": 0.4000000059604645, "kognitiv": 0.4000000059604645, "sozial": 0.800000011920929, "leistung": 0, "gesamt_index": 0.360000005364418}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (579, 'kann einigermaßen flexibel mit unerwarteten Aufgabenstellungen umgehen', 0, 3, 0, 0.6, 0, 0.8, 0.4, 0, 0, '2025-11-18 12:11:38', 0.36, 0.28, 0.28, 'sozial', '{"emotional": 0, "affektiv": 0.6000000238418579, "kognitiv": 0, "sozial": 0.800000011920929, "leistung": 0.4000000059604645, "gesamt_index": 0.3600000083446503}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (580, 'kann sich nur bedingt an Veränderungen im Lernumfeld anpassen', 0.31, 2, 1, 0.4, 0.2, 0.6, 1, 0.075, 0.55, '2025-11-18 12:11:38', 0.64, 0.46, 0.46, 'emotional', '{"emotional": 1, "affektiv": 0.4000000059604645, "kognitiv": 0.20000000298023224, "sozial": 0.6000000238418579, "leistung": 1, "gesamt_index": 0.6400000065565109}', 'Quelle: _mtr_datenmaske_values_wertung');
-INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohaerenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
+INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohärenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
 (581, 'kann sich weniger gut auf eine Aufgabe konzentrieren, wenn diese als zu schwer empfunden wird', 0.31, 7, 0.6, 0.6, 1, 0.8, 0.8, 0.075, 0.55, '2025-11-18 12:11:38', 0.76, 0.83, 0.83, 'kognitiv', '{"emotional": 0.6000000238418579, "affektiv": 0.6000000238418579, "kognitiv": 1, "sozial": 0.800000011920929, "leistung": 0.800000011920929, "gesamt_index": 0.7600000143051148}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (582, 'nM BrGl', 0, 9, 0.4, 0.2, 0.4, 1, 0.8, 0, 0, '2025-11-18 12:11:38', 0.56, 0.49, 0.49, 'sozial', '{"emotional": 0.4000000059604645, "affektiv": 0.20000000298023224, "kognitiv": 0.4000000059604645, "sozial": 1, "leistung": 0.800000011920929, "gesamt_index": 0.5600000053644181}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (583, 'Nm BruchGl/binF', 0, 8, 0, 1, 0.8, 0, 0, 0, 0, '2025-11-18 12:11:38', 0.36, 0.56, 0.56, 'affektiv', '{"emotional": 0, "affektiv": 1, "kognitiv": 0.800000011920929, "sozial": 0, "leistung": 0, "gesamt_index": 0.3600000023841858}', 'Quelle: _mtr_datenmaske_values_wertung'),
@@ -1716,7 +1771,7 @@ INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emo
 (769, 'Diff/Integr', 0, 4, 1, 0.2, 0.6, 0.6, 0.4, 0, 0, '2025-11-18 12:11:39', 0.56, 0.54, 0.54, 'emotional', '{"emotional": 1, "affektiv": 0.20000000298023224, "kognitiv": 0.6000000238418579, "sozial": 0.6000000238418579, "leistung": 0.4000000059604645, "gesamt_index": 0.5600000113248825}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (770, 'n.M. Check NSt / Beginn Vektorrech', 0.93, 2, 0.2, 0.4, 0.8, 0.2, 0.6, -0.95, 0.9, '2025-11-18 12:11:39', 0.44, 0.55, 0.55, 'kognitiv', '{"emotional": 0.20000000298023224, "affektiv": 0.4000000059604645, "kognitiv": 0.800000011920929, "sozial": 0.20000000298023224, "leistung": 0.6000000238418579, "gesamt_index": 0.4400000095367432}', 'neg. Valenz; hohe Aktivierung; Quelle: _mtr_datenmaske_values_wertung'),
 (771, 'geht gut voran', 0, 2, 1, 1, 0.8, 0.2, 1, 0, 0, '2025-11-18 12:11:39', 0.8, 0.79, 0.79, 'affektiv', '{"emotional": 1, "affektiv": 1, "kognitiv": 0.800000011920929, "sozial": 0.20000000298023224, "leistung": 1, "gesamt_index": 0.8000000029802322}', 'Quelle: _mtr_datenmaske_values_wertung');
-INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohaerenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
+INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohärenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
 (772, 'gr. Schritt nach vorn / n.M. Terme', 0, 7, 0.8, 0, 0.4, 0.4, 0, 0, 0, '2025-11-18 12:11:39', 0.32, 0.32, 0.32, 'emotional', '{"emotional": 0.800000011920929, "affektiv": 0, "kognitiv": 0.4000000059604645, "sozial": 0.4000000059604645, "leistung": 0, "gesamt_index": 0.3200000047683716}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (773, 'aktTh: Terme/Vektoren/Tangenten/Normalform/DiffR/Grenzwerte/PolynomDiv --> Def.: binF / Sachaufg', 0, 6, 0.6, 1, 0.2, 0, 0.8, 0, 0, '2025-11-18 12:11:39', 0.52, 0.43, 0.43, 'affektiv', '{"emotional": 0.6000000238418579, "affektiv": 1, "kognitiv": 0.20000000298023224, "sozial": 0, "leistung": 0.800000011920929, "gesamt_index": 0.5200000077486038}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (776, 'erkennt nur gelegentlich, dass ein bereits besprochener Lösungsansatz erneut benötigt wird', 0.77, 6, 0.8, 0, 0.6, 0, 0.4, 0.88, 0.65, '2025-11-18 12:11:39', 0.36, 0.39, 0.39, 'emotional', '{"emotional": 0.800000011920929, "affektiv": 0, "kognitiv": 0.6000000238418579, "sozial": 0, "leistung": 0.4000000059604645, "gesamt_index": 0.3600000083446503}', 'hohe Aktivierung; Quelle: _mtr_datenmaske_values_wertung'),
@@ -1846,7 +1901,7 @@ INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emo
 (985, '10er-Potenzen üben; Einheitenrechnung festigen', 0, 9, 0, 0.8, 0.6, 1, 1, 0, 0, '2025-11-18 12:11:39', 0.68, 0.68, 0.68, 'sozial', '{"emotional": 0, "affektiv": 0.800000011920929, "kognitiv": 0.6000000238418579, "sozial": 1, "leistung": 1, "gesamt_index": 0.6800000071525574}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (986, 'Überschlagsrechnung bei Potenzen üben', 0.7, 1, 0.2, 1, 0.2, 0, 0.8, 0.65, 0.75, '2025-11-18 12:11:39', 0.44, 0.39, 0.39, 'affektiv', '{"emotional": 0.20000000298023224, "affektiv": 1, "kognitiv": 0.20000000298023224, "sozial": 0, "leistung": 0.800000011920929, "gesamt_index": 0.44000000357627866}', 'hohe Aktivierung; Quelle: _mtr_datenmaske_values_wertung'),
 (987, 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltfähig zu TransferdenkenBasiswissen vorhanden', 0.31, 8, 1, 1, 0.2, 0, 0, 0.075, 0.55, '2025-11-18 12:11:39', 0.44, 0.39, 0.39, 'affektiv', '{"emotional": 1, "affektiv": 1, "kognitiv": 0.20000000298023224, "sozial": 0, "leistung": 0, "gesamt_index": 0.44000000059604644}', 'Quelle: _mtr_datenmaske_values_wertung');
-INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohaerenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
+INSERT INTO `frzk_wertung_mapping` (`id`, `value`, `orig_note`, `wichtung`, `emotional`, `affektiv`, `kognitiv`, `sozial`, `leistung`, `valenz_avg`, `aktivierung_avg`, `last_update`, `gesamtkohärenz_index`, `semantische_dichte_h`, `orientation_score`, `dominanter_operator`, `frzk_vector`, `bemerkung`) VALUES
 (988, 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertbeherrscht Themafähig zu Transferdenken', 0.31, 7, 0.2, 0.2, 0, 0.4, 0.4, 0.075, 0.55, '2025-11-18 12:11:39', 0.24, 0.16, 0.16, 'sozial', '{"emotional": 0.20000000298023224, "affektiv": 0.20000000298023224, "kognitiv": 0, "sozial": 0.4000000059604645, "leistung": 0.4000000059604645, "gesamt_index": 0.24000000357627868}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (989, '76 – 97 of 97', 0, 5, 0.4, 1, 1, 1, 0.8, 0, 0, '2025-11-18 12:11:39', 0.84, 0.92, 0.92, 'kognitiv', '{"emotional": 0.4000000059604645, "affektiv": 1, "kognitiv": 1, "sozial": 1, "leistung": 0.800000011920929, "gesamt_index": 0.8400000035762787}', 'Quelle: _mtr_datenmaske_values_wertung'),
 (990, 'Absprachen einhaltendfleißig / bemühtarbeitet selbstständigkonzentriertLernfortschritt erzieltBasiswissen vorhanden', 0, 6, 0.2, 1, 0.4, 1, 0.2, 0, 0, '2025-11-18 12:11:39', 0.56, 0.57, 0.57, 'affektiv', '{"emotional": 0.20000000298023224, "affektiv": 1, "kognitiv": 0.4000000059604645, "sozial": 1, "leistung": 0.20000000298023224, "gesamt_index": 0.5600000023841858}', 'Quelle: _mtr_datenmaske_values_wertung'),
@@ -2565,7 +2620,7 @@ CREATE TABLE `mtr_persoenlichkeit` (
   `soziale_interaktion` decimal(2,1) NOT NULL DEFAULT '4.0' COMMENT 'Hohe Ausprägung: Kooperativ, kommuniziert offen, integriert sich gut in Gruppen, zeigt Empathie.\r\nNiedrige Ausprägung: Schwierigkeiten in der Zusammenarbeit, vermeidet Interaktion, soziale Konflikte.',
   `metakognition` decimal(2,1) NOT NULL DEFAULT '4.0' COMMENT 'Hohe Ausprägung: Denkt über eigenes Lernen nach, plant Lernprozesse, überwacht Verständnis, bewertet eigene Leistung realistisch.\r\nNiedrige Ausprägung: Wenig Bewusstsein für eigene Lernprozesse, Schwierigkeiten bei der Selbstbewertung.',
   `stressbewaeltigung` decimal(2,1) NOT NULL DEFAULT '4.0' COMMENT 'Hohe Ausprägung: Reagiert ängstlich auf Prüfungen oder neue Situationen, ist besorgt über Leistung, zeigt emotionale Labilität.\r\nNiedrige Ausprägung: Bleibt ruhig unter Druck, geht gelassen mit Unsicherheit um.\r\n\r\nKönnte sich in der erhöhten Reaktivität der Akteur-Funktion auf als bedrohlich interpretierte Feldzustände (z.B. Prüfungsdruck) oder in negativen Mustern der Meta-Funktion (z.B. negative Selbstbewertung) äußern [citation: 6, 7, 9, 11].',
-  `bedeutungsbildung` decimal(2,1) NOT NULL DEFAULT '4.0' COMMENT 'Hohe Ausprägung: Konstruiert kohärente Bedeutungen aus Lerninhalten, vernetzt Wissen, entwickelt eigene Interpretationen, findet Sinn im Gelernten.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Sinnstiftung, isolierte Wissensfragmente, wenig eigene Interpretationen.\r\n\r\nIntegrale Funktionalität (kohaerenzbildung, Kontextualisierung, Narrativierung, Wertschöpfung) synthetisiert lokale Beobachtungen zu globalen Bedeutungen. Ausprägungen zeigen sich in der Qualität und Struktur der konstruierten semantischen Felder und Narrative [citation: 1, 16, 11].',
+  `bedeutungsbildung` decimal(2,1) NOT NULL DEFAULT '4.0' COMMENT 'Hohe Ausprägung: Konstruiert kohärente Bedeutungen aus Lerninhalten, vernetzt Wissen, entwickelt eigene Interpretationen, findet Sinn im Gelernten.\r\nNiedrige Ausprägung: Schwierigkeiten bei der Sinnstiftung, isolierte Wissensfragmente, wenig eigene Interpretationen.\r\n\r\nIntegrale Funktionalität (Kohärenzbildung, Kontextualisierung, Narrativierung, Wertschöpfung) synthetisiert lokale Beobachtungen zu globalen Bedeutungen. Ausprägungen zeigen sich in der Qualität und Struktur der konstruierten semantischen Felder und Narrative [citation: 1, 16, 11].',
   `belastbarkeit` decimal(2,1) NOT NULL DEFAULT '4.0' COMMENT 'Stress- und Drucktoleranz',
   `problemloesefaehigkeit` decimal(2,1) NOT NULL DEFAULT '4.0' COMMENT 'Transferleistung, Umgang mit Komplexität',
   `kreativitaet_innovation` decimal(2,1) NOT NULL DEFAULT '4.0' COMMENT 'Verknüpfung, Entwicklung neuer Ansätze',
@@ -2685,14 +2740,14 @@ CREATE TABLE `mtr_rueckkopplung_datenmaske` (
   `metr_sozial` float DEFAULT NULL,
   `metr_affektiv` float DEFAULT NULL,
   `metr_metakog` float DEFAULT NULL,
-  `metr_kohaerenz` float DEFAULT NULL
+  `metr_kohärenz` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `mtr_rueckkopplung_datenmaske`
 --
 
-INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohaerenz`) VALUES
+INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohärenz`) VALUES
 (1, 0, 20, 'PHY', '2025-09-29', 'Gellert, Manuela', NULL, '', '2025-11-10 04:55:44', NULL, NULL, NULL, NULL, NULL),
 (2, 0, 20, 'PHY', '2025-11-03', 'Thiele, Dipl.-Ing. Olaf', 'Prüfungsvorbereitung: BLF', 'stellt manchmal Fragen, die ein tieferes Verständnis für das aktuelle Thema zeigen | hat zuletzt deutlich von der individuellen Unterstützung in der Nachhilfe profitiert | setzt Prioritäten bei Lernaufgaben sehr sinnvoll | braucht selten Unterstützung bei der Anwendung neuer Lernmethoden | gibt nur manchmal zu erkennen, wenn er ein Problem mit einer Aufgabenstellung hat', '2025-11-10 04:55:44', NULL, NULL, NULL, NULL, NULL),
 (3, 0, 20, 'MAT', '2025-10-27', 'Thiele, Dipl.-Ing. Olaf', 'Weitere Themen: Stochastik Üb 2', 'konnte Wissen in der heutigen Stunde weitgehend festigen | Selbstständigkeit hat sich in den letzten Wochen deutlich verbessert | kann sich sehr gut auf eine Aufgabe konzentrieren, auch wenn diese als uninteressant empfunden wird | braucht selten Unterstützung bei der Anwendung neuer Lernmethoden | vermeidet die Wiederholung von zuvor gemachten Fehlern erfolgreich', '2025-11-10 04:55:44', NULL, NULL, NULL, NULL, NULL),
@@ -2844,7 +2899,7 @@ INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, 
 (149, 0, 21, 'PHY', '2025-05-27', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: JÜbers', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 05:15:27', NULL, NULL, NULL, NULL, NULL),
 (150, 0, 21, 'PHY', '2025-05-26', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: AB', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Thema | add | Fach		Thema', '2025-11-10 05:15:27', NULL, NULL, NULL, NULL, NULL),
 (151, 0, 21, 'MAT', '2025-09-29', 'Gellert, Manuela', NULL, '', '2025-11-10 05:16:20', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohaerenz`) VALUES
+INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohärenz`) VALUES
 (152, 0, 21, 'PHY', '2025-05-20', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: LK Teil A', 'nM Korr + Smiley | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltUnverständnisbeherrscht Themafähig zu Transferdenken', '2025-11-10 05:16:20', NULL, NULL, NULL, NULL, NULL),
 (153, 0, 21, 'MAT', '2025-05-19', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: UmkFkt Level 3', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Thema', '2025-11-10 05:16:20', NULL, NULL, NULL, NULL, NULL),
 (154, 0, 21, 'PHY', '2025-05-13', 'Thiele, Dipl.-Ing. Olaf', 'Funktionen: Umkehrfkt', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Thema', '2025-11-10 05:16:20', NULL, NULL, NULL, NULL, NULL),
@@ -3028,7 +3083,7 @@ INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, 
 (333, 1, 3, 'MAT', '2025-05-27', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: JÜbers', 'einfach nur prima | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 05:33:00', NULL, NULL, NULL, NULL, NULL),
 (334, 1, 3, 'MAT', '2025-05-20', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: Einhei', 'Absprachen einhaltendfleißig / bemühtbeteiligt sich / gute Mitarbeitarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Thema', '2025-11-10 05:33:00', NULL, NULL, NULL, NULL, NULL),
 (335, 1, 3, 'MAT', '2025-05-13', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: Längen/Gewichte', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 05:33:00', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohaerenz`) VALUES
+INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohärenz`) VALUES
 (336, 1, 3, 'MAT', '2025-05-06', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: Einheitenrechnung', 'üben in Form einer Hilfstabelle üben | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken | add | Fach		Thema', '2025-11-10 05:33:00', NULL, NULL, NULL, NULL, NULL),
 (337, 0, 3, 'MAT', '2025-09-29', 'Gellert, Manuela', NULL, '', '2025-11-10 05:33:38', NULL, NULL, NULL, NULL, NULL),
 (338, 1, 3, 'MAT', '2025-04-29', 'Thiele, Dipl.-Ing. Olaf', 'Geometrie: Winkel', 'prima gemacht | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 05:33:38', NULL, NULL, NULL, NULL, NULL),
@@ -3172,7 +3227,7 @@ INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, 
 (515, 2, 8, 'MAT', '2025-04-08', 'Wolter, Kathrin', 'Geometrie: Kreis', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetbeherrscht Thema', '2025-11-10 05:51:28', NULL, NULL, NULL, NULL, NULL),
 (516, 0, 8, 'MAT', '2025-04-10', 'Wolter, Kathrin', 'weitere Themen: VorbLK', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetbeherrscht Thema', '2025-11-10 05:51:28', NULL, NULL, NULL, NULL, NULL),
 (517, 0, 8, 'MAT', '2025-04-17', 'Thiele, Dipl.-Ing. Olaf', 'Kreis: Wdhlg', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 05:51:28', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohaerenz`) VALUES
+INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohärenz`) VALUES
 (518, 2, 8, 'MAT', '2025-04-15', 'Thiele, Dipl.-Ing. Olaf', 'Kreis: SachAufg', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Thema', '2025-11-10 05:51:28', NULL, NULL, NULL, NULL, NULL),
 (519, 0, 8, 'MAT', '2025-04-07', 'Kbiri, Judith', NULL, '', '2025-11-10 05:51:28', NULL, NULL, NULL, NULL, NULL),
 (520, 0, 8, 'MAT', '2025-04-03', 'Trigkidis, Dimitrios', 'Geometrie: Kreis', 'Selina hat den Thaleskreis und die Konstruktion von Tangenten Sekanten und Passanten | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzielt', '2025-11-10 05:51:28', NULL, NULL, NULL, NULL, NULL),
@@ -3325,7 +3380,7 @@ INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, 
 (690, 5, 10, 'MAT', '2025-05-22', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: Wdhlg Gesamt', 'weitermachen | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 06:34:20', NULL, NULL, NULL, NULL, NULL),
 (691, 3, 10, 'MAT', '2025-05-21', 'Thiele, Dipl.-Ing. Olaf', 'weitere Themen: KK Teil 1 AB', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Thema', '2025-11-10 06:34:20', NULL, NULL, NULL, NULL, NULL),
 (692, 5, 10, 'MAT', '2025-05-15', 'Thiele, Dipl.-Ing. Olaf', 'Integralrechnung: bI / DiffR', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 06:34:20', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohaerenz`) VALUES
+INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohärenz`) VALUES
 (693, 3, 10, 'MAT', '2025-05-14', 'Thiele, Dipl.-Ing. Olaf', 'Integralrechnung: bestimmteInt', 'Nm DiffR | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 06:34:20', NULL, NULL, NULL, NULL, NULL),
 (694, 5, 10, 'MAT', '2025-05-08', 'Thiele, Dipl.-Ing. Olaf', 'Integralrechnung: Korr LK', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltfähig zu Transferdenkenbeherrscht Thema', '2025-11-10 06:34:20', NULL, NULL, NULL, NULL, NULL),
 (695, 3, 10, 'MAT', '2025-05-07', 'Thiele, Dipl.-Ing. Olaf', 'Integralrechnung: bestI Wdhlg', 'cool / nM KorrLK | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltbeherrscht Themafähig zu Transferdenken', '2025-11-10 06:34:20', NULL, NULL, NULL, NULL, NULL),
@@ -3474,7 +3529,7 @@ INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, 
 (859, 3, 6, 'MAT', '2025-09-24', 'Thiele, Dipl.-Ing. Olaf', 'Weitere Themen: Kreis/Tang', 'kann nur sporadisch den Operatoren der Aufgabenstellung entsprechend eine Antwort formulieren | geht schulische Herausforderungen motivierter an | bittet aktiv um Feedback | achtet sorgfältig darauf gemachte Fehler in folgenden Aufgaben zu vermeiden | behält nur bedingt den Überblick beim Lösen komplexer Aufgaben', '2025-11-10 09:02:20', NULL, NULL, NULL, NULL, NULL),
 (860, 7, 6, 'MAT', '2025-09-19', 'Thiele, Dipl.-Ing. Olaf', 'Geometrie: Tang/Thales', 'kann Gelerntes nur teilweise auf andere Fächer oder den Alltag übertragen | Ausdauer hat sich erhöht | ist offen für alternative Lösungsansätze | kommt normalerweise aus eigener Motivation zur Nachhilfe | kann Frustration aufgrund von Fehlern und Rückschlägen nur selten vermeiden', '2025-11-10 09:02:20', NULL, NULL, NULL, NULL, NULL),
 (861, 7, 6, 'MAT', '2025-09-12', 'Thiele, Dipl.-Ing. Olaf', 'Geometrie: KreiseTangSehnen', 'kann nur sporadisch der Aufgabenstellung entsprechend eine Antwort formulieren | hat in letzter Zeit ein geringfügig besseres Verständnis für die Anforderungen der Lehrkraft in der Schule entwickelt | kann sich weniger gut auf eine Aufgabe konzentrieren, wenn diese als langweilig empfunden wird | verhält sich zurückhaltend, wenn die Lehrkraft über Rückschläge sprechen will (bzw. wenn er selbst darüber sprechen soll) | Fähigkeit zum kreativen Denken ist wenig ausgeprägt', '2025-11-10 09:02:20', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohaerenz`) VALUES
+INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohärenz`) VALUES
 (862, 3, 6, 'MAT', '2025-09-10', 'Thiele, Dipl.-Ing. Olaf', 'Weitere Themen: VorbLK', 'konnte Wissen in der heutigen Stunde grundlegend festigen | hat in letzter Zeit ein besseres Verständnis für die Anforderungen der Lehrkraft in der Schule entwickelt | kann seine Motivation normalerweise trotz den Fehlern, die er macht, aufrechterhalten | zeigt sich zielstrebig beim Erreichen von Lernzielen | kann nur wenig effektiv von einer Aufgabe zur anderen wechseln', '2025-11-10 09:02:20', NULL, NULL, NULL, NULL, NULL),
 (863, 7, 6, 'MAT', '2025-09-05', 'Thiele, Dipl.-Ing. Olaf', 'Dezimalzahlen: vorblk', 'kann meistens den Operatoren der Aufgabenstellung entsprechend eine Antwort formulieren | Selbstständigkeit hat sich in den letzten Wochen verbessert | erreicht in der Regel vereinbarte Lernziele | strebt meist danach, Aufgaben ohne Hilfe zu bewältigen | kann sich nach einer unerwarteten Unterbrechung schnell wieder auf den Unterricht fokussieren', '2025-11-10 09:02:20', NULL, NULL, NULL, NULL, NULL),
 (864, 3, 6, 'MAT', '2025-09-03', 'Thiele, Dipl.-Ing. Olaf', 'Algebra: VorbLK/DezZ', 'stellt manchmal Fragen, die ein tieferes Verständnis für das aktuelle Thema zeigen | hat zuletzt deutlich von der individuellen Unterstützung in der Nachhilfe profitiert | braucht ab und zu Ermutigung, nach Misserfolgen | kann sich gut an Veränderungen im Lernumfeld anpassen | kann Zusammenhänge zwischen verschiedenen Informationen nur ausreichend erkennen', '2025-11-10 09:02:20', NULL, NULL, NULL, NULL, NULL),
@@ -3641,7 +3696,7 @@ INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, 
 (1025, 7, 11, 'MAT', '2024-11-08', 'Thiele, Dipl.-Ing. Olaf', 'Brüche: Rechnen mit Brüchen', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltBasiswissen vorhanden', '2025-11-10 09:40:37', NULL, NULL, NULL, NULL, NULL),
 (1026, 3, 11, 'MAT', '2024-11-06', 'Thiele, Dipl.-Ing. Olaf', 'Brüche: Erweiterte Brüche', 'verbessert sich ständig | Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltBasiswissen vorhanden', '2025-11-10 09:40:37', NULL, NULL, NULL, NULL, NULL),
 (1027, 7, 11, 'MAT', '2024-11-01', 'Thiele, Dipl.-Ing. Olaf', 'Brüche: Kürzen, Grundrechenarten', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertBasiswissen vorhanden', '2025-11-10 09:40:37', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohaerenz`) VALUES
+INSERT INTO `mtr_rueckkopplung_datenmaske` (`id`, `gruppe_id`, `teilnehmer_id`, `fach`, `datum`, `lehrkraft`, `thema`, `bemerkung`, `erstellt_am`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohärenz`) VALUES
 (1028, 3, 11, 'MAT', '2024-10-30', 'Thiele, Dipl.-Ing. Olaf', 'Brüche: Grundrechenarten', 'Absprachen einhaltendbeteiligt sich / gute Mitarbeitfleißig / bemühtarbeitet selbstständigkonzentriertLernfortschritt erzieltBasiswissen vorhanden', '2025-11-10 09:40:37', NULL, NULL, NULL, NULL, NULL),
 (1029, 7, 11, 'MAT', '2024-10-25', 'Nößler, Brian', 'Mathematik: Brüche', 'Zoey arbeitet sehr zielstrebig. Sie macht vereinzelt noch Konzeptuelle Fehler | Absprachen einhaltendbeteiligt sich / gute Mitarbeitarbeitet selbstständigkonzentriertLernfortschritt erzieltBasiswissen vorhanden | 76 – 85 of 85 | add | Fach		Thema', '2025-11-10 09:40:37', NULL, NULL, NULL, NULL, NULL);
 
@@ -5778,14 +5833,14 @@ CREATE TABLE `mtr_rueckkopplung_lehrkraft_tn` (
   `metr_sozial` float DEFAULT NULL,
   `metr_affektiv` float DEFAULT NULL,
   `metr_metakog` float DEFAULT NULL,
-  `metr_kohaerenz` float DEFAULT NULL
+  `metr_kohärenz` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Lehrkraft-Rückmeldungen mit didaktischen FRZK-Metriken';
 
 --
 -- Daten für Tabelle `mtr_rueckkopplung_lehrkraft_tn`
 --
 
-INSERT INTO `mtr_rueckkopplung_lehrkraft_tn` (`id`, `ue_zuweisung_teilnehmer_id`, `teilnehmer_id`, `datum`, `erfasst_am`, `lehrkraft`, `fach`, `thema`, `rueckmeldung`, `mitarbeit`, `absprachen`, `selbststaendigkeit`, `konzentration`, `fleiss`, `lernfortschritt`, `beherrscht_thema`, `transferdenken`, `basiswissen`, `vorbereitet`, `themenauswahl`, `materialien`, `methodenvielfalt`, `individualisierung`, `aufforderung`, `emotions`, `bemerkungen`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohaerenz`) VALUES
+INSERT INTO `mtr_rueckkopplung_lehrkraft_tn` (`id`, `ue_zuweisung_teilnehmer_id`, `teilnehmer_id`, `datum`, `erfasst_am`, `lehrkraft`, `fach`, `thema`, `rueckmeldung`, `mitarbeit`, `absprachen`, `selbststaendigkeit`, `konzentration`, `fleiss`, `lernfortschritt`, `beherrscht_thema`, `transferdenken`, `basiswissen`, `vorbereitet`, `themenauswahl`, `materialien`, `methodenvielfalt`, `individualisierung`, `aufforderung`, `emotions`, `bemerkungen`, `metr_kognition`, `metr_sozial`, `metr_affektiv`, `metr_metakog`, `metr_kohärenz`) VALUES
 (1, 176, 20, '2025-11-03', '2025-11-05 12:47:56', 'Thiele, Dipl.-Ing. Olaf - geändert: 04.11.25', 'PHY', 'Prüfungsvorbereitung: BLF', 'Schaff, Luise (10 GYM) Protokoll Noten Extras Protokoll filter_listadd ! Luise kommt nicht in den Herbstferien stellt manchmal Fragen, die ein tieferes Verständnis für das aktuelle Thema zeigen hat zuletzt deutlich von der individuellen Unterstützung in der Nachhilfe profitiert setzt Prioritäten bei Lernaufgaben sehr sinnvoll braucht selten Unterstützung bei der Anwendung neuer Lernmethoden gibt nur manchmal zu erkennen, wenn er ein Problem mit einer Aufgabenstellung hat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0.2, 0),
 (2, 130, 20, '2025-10-27', '2025-11-05 12:47:56', 'Thiele, Dipl.-Ing. Olaf - geändert: 28.10.25', 'MAT', 'Weitere Themen: Stochastik Üb 2', 'konnte Wissen in der heutigen Stunde weitgehend festigen Selbstständigkeit hat sich in den letzten Wochen deutlich verbessert kann sich sehr gut auf eine Aufgabe konzentrieren, auch wenn diese als uninteressant empfunden wird braucht selten Unterstützung bei der Anwendung neuer Lernmethoden vermeidet die Wiederholung von zuvor gemachten Fehlern erfolgreich', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0.2, 0),
 (3, 122, 20, '2025-10-24', '2025-11-05 12:47:56', 'Thiele, Dipl.-Ing. Olaf - geändert: 25.10.25', 'PHY', 'Prüfungsvorbereitung: BLF', 'fühlt sich ziemlich sicher bei der Anwendung des Gelernten Einstellung zum Lernen hat sich in letzter Zeit stark verbessert ist sehr offen für andere Lösungsansätze kann die Lernzeit für mehrere Tests normalerweise effektiv einteilen kann umfangreiches Wissen in der Regel sinnvoll zusammenfassen nM Teil B Staudamm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.4, 0, 0.6, 0.2, 0),
@@ -8269,13 +8324,13 @@ INSERT INTO `_mtr_persoenlichkeitsmerkmal_definition` (`merkmal_id`, `merkmal_na
 (2, 'gewissenhaftigkeit', 'Gewissenhaftigkeit und Leistungsbereitschaft.', 'Könnte sich in der Dynamik der Akteur-Funktion A(Ψ,x,y,z,t) äußern, die exploratives Verhalten in Bezug auf das "Feld" (Ψ) anregt. Verbunden mit der Fähigkeit zur Reflexion (Meta-Funktion) über neue Bedeutungsfelder und der Bereitschaft, etablierte semantische Attraktoren zu verlassen. Kann sich in der Offenheit für die Transformation symbolischer Meta-Strukturen zeigen. Hohe Ausprägung könnte mit der Stabilität der Akteur-Funktion und der Fähigkeit zur Aufrechterhaltung von Zielen korrelieren.'),
 (3, 'extraversion', 'Extraversion und soziale Interaktion.', 'Könnte sich in der Interaktion der Akteur-Funktion A(Ψ,x,y,z,t) mit sozialen "Feldern" (Ψ) manifestieren. Hohe Ausprägung ist verbunden mit der Fähigkeit, sich in soziale Interaktionen zu begeben und diese aktiv zu gestalten. Könnte auch mit der energetischen Komponente der Meta-Funktion M(A,Ψ,x,y,z,t) zusammenhängen, die die Bereitschaft zur Exploration und Einflussnahme auf die Umgebung fördert.'),
 (4, 'vertraeglichkeit', 'Verträglichkeit und Kooperationsbereitschaft.', 'Zeigt sich in der Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t), sich an gemeinsame "Feldzustände" anzupassen und kooperatives Verhalten zu zeigen. Könnte auch mit der Resonanz der Meta-Funktion M(A,Ψ,x,y,z,t) auf die emotionalen und sozialen Signale anderer Akteure zusammenhängen. Hohe Ausprägung fördert die Bildung stabiler semantischer Attraktoren im sozialen Kontext.'),
-(5, 'zielorientierung', 'Zielorientierung und Fokus.', 'Spiegelt die Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t) wider, spezifische "Feldzustände" als Ziele zu definieren und darauf hinzuarbeiten. Verbunden mit der kohaerenz der Meta-Funktion M(A,Ψ,x,y,z,t) in Bezug auf die Planung und Durchführung von Handlungen. Hohe Ausprägung könnte mit der Stärke der semantischen Attraktoren für bestimmte Ziele zusammenhängen.'),
+(5, 'zielorientierung', 'Zielorientierung und Fokus.', 'Spiegelt die Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t) wider, spezifische "Feldzustände" als Ziele zu definieren und darauf hinzuarbeiten. Verbunden mit der Kohärenz der Meta-Funktion M(A,Ψ,x,y,z,t) in Bezug auf die Planung und Durchführung von Handlungen. Hohe Ausprägung könnte mit der Stärke der semantischen Attraktoren für bestimmte Ziele zusammenhängen.'),
 (6, 'lernfaehigkeit', 'Lernfähigkeit und Adaptivität.', 'Beschreibt die Plastizität der Akteur-Funktion A(Ψ,x,y,z,t) und ihre Fähigkeit, neue "Feldzustände" und Verhaltensweisen zu internalisieren. Verbunden mit der Agilität der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Neubildung und Transformation von Wissensstrukturen. Hohe Ausprägung ist essentiell für die Anpassung an sich ändernde Umgebungen und die effektive Nutzung neuer Informationen.'),
 (7, 'anpassungsfaehigkeit', 'Anpassungsfähigkeit an neue Situationen und Anforderungen.', 'Zeigt sich in der Flexibilität der Akteur-Funktion A(Ψ,x,y,z,t) und ihrer Fähigkeit, sich an unvorhergesehene "Feldzustände" anzupassen. Könnte auch mit der Robustheit der Meta-Funktion M(A,Ψ,x,y,z,t) unter Stressbedingungen und ihrer Fähigkeit zur Reorganisation von Handlungsplänen zusammenhängen. Hohe Ausprägung ermöglicht die effiziente Navigation in dynamischen Umgebungen.'),
 (8, 'soziale_interaktion', 'Fähigkeit zur sozialen Interaktion und Kommunikation.', 'Betont die bidirektionale Kopplung der Akteur-Funktion A(Ψ,x,y,z,t) mit den sozialen "Feldern" (Ψ) und die Fähigkeit zur gemeinsamen Konstruktion von Bedeutung. Verbunden mit der Kommunikationsfähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t) in der Koordination mit anderen Akteuren. Hohe Ausprägung ist entscheidend für effektive Zusammenarbeit und den Aufbau sozialer Netzwerke.'),
 (9, 'metakognition', 'Metakognitive Fähigkeiten und Selbstreflexion.', 'Beschreibt die Fähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t), die eigene Akteur-Funktion A(Ψ,x,y,z,t) und die Interaktion mit dem "Feld" (Ψ) zu beobachten, zu bewerten und zu regulieren. Dies beinhaltet das Verständnis der eigenen Lernprozesse und der Wirksamkeit der angewandten Strategien. Hohe Ausprägung ermöglicht eine bewusste Steuerung von Lern- und Handlungsprozessen.'),
 (10, 'stressbewaeltigung', 'Stressbewältigungsstrategien und emotionale Regulation.', 'Bezieht sich auf die Resilienz der Akteur-Funktion A(Ψ,x,y,z,t) und ihre Fähigkeit, unter Druck effektive Handlungen aufrechtzuerhalten. Verbunden mit der Regulationsfähigkeit der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Verarbeitung von emotionalen "Feldzuständen". Hohe Ausprägung ermöglicht es, Herausforderungen konstruktiv zu begegnen und psychische Belastungen zu reduzieren.'),
-(11, 'bedeutungsbildung', 'Bedeutungsbildung und Sinnstiftung.', 'Umfasst die Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t), kohärente "Feldzustände" zu schaffen und diesen eine persönliche oder kollektive Bedeutung zu verleihen. Verbunden mit der integrativen Funktion der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Synthese von Erfahrungen und der Konstruktion von Weltbildern. Hohe Ausprägung ist fundamental für die persönliche Entwicklung und das Gefühl der kohaerenz.');
+(11, 'bedeutungsbildung', 'Bedeutungsbildung und Sinnstiftung.', 'Umfasst die Fähigkeit der Akteur-Funktion A(Ψ,x,y,z,t), kohärente "Feldzustände" zu schaffen und diesen eine persönliche oder kollektive Bedeutung zu verleihen. Verbunden mit der integrativen Funktion der Meta-Funktion M(A,Ψ,x,y,z,t) bei der Synthese von Erfahrungen und der Konstruktion von Weltbildern. Hohe Ausprägung ist fundamental für die persönliche Entwicklung und das Gefühl der Kohärenz.');
 
 -- --------------------------------------------------------
 
