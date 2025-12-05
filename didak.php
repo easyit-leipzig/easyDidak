@@ -588,13 +588,20 @@ var Df_2 = new DataForm( {
                 }
             
             
-            }
+            },
         },    
         {
             field: "bemerkungen",
             label: "bemerkungen",
             type: "input_text",
             options: "",
+            onKeyDown: function( ev ) {
+                if( ev.code == "Delete") {
+                    ev.srcElement.value="";
+                }
+            
+            
+            },
         },    
         {
             field: "klasse",

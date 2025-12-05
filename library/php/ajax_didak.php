@@ -69,7 +69,7 @@ function setEmotions($db_pdo,$tmpTN,$zwId,$datum, $tmpEmotions){
     try {
         // 1) Emotions-Mapping laden
         if( $tmpEmotions === "") {
-                $db_pdo->query( "insert into mtr_emotions (teilnehmer_id, datum,     ue_zuweisung_teilnehmer_id ) values ($tmpTN,'$datum',$zwId)");
+                $db_pdo->query( "insert into mtr_emotions (teilnehmer_id, datum, ue_zuweisung_teilnehmer_id ) values ($tmpTN,'$datum',$zwId)");
             } else {
             $stmt = $db_pdo->query("SELECT id, map_field FROM _mtr_emotionen where id in ($tmpEmotions) ORDER BY id")->fetchAll();
             $l = count( $stmt );
@@ -81,7 +81,7 @@ function setEmotions($db_pdo,$tmpTN,$zwId,$datum, $tmpEmotions){
                 $str_values.= "1,";
                 $i += 1;
             }
-            $db_pdo->query( "insert into mtr_emotions ($str_fields teilnehmer_id, datum,     ue_zuweisung_teilnehmer_id ) values($str_values$tmpTN,'$datum',$zwId)");
+            $db_pdo->query( "insert into mtr_emotions ($str_fields teilnehmer_id, datum, ue_zuweisung_teilnehmer_id ) values($str_values$tmpTN,'$datum',$zwId)");
         }
         return;
     } catch (Exception $e) {
@@ -93,11 +93,130 @@ function setEmotions($db_pdo,$tmpTN,$zwId,$datum, $tmpEmotions){
     }
 
 }
+function checkZuwTn($db_pdo, $thId, $datumZeit, $gruppeId, $tnId ) {
+    $return = new \stdClass();
+    $rst = $db_pdo -> query("SELECT id FROM `ue_zuweisung_teilnehmer` WHERE ue_unterrichtseinheit_zw_thema_id=$thId 
+                            and teilnehmer_id= $tnId") -> fetchAll();
+    if( count( $rst ) == 0 ) {
+        $db_pdo -> exec("INSERT INTO `ue_zuweisung_teilnehmer` ( `ue_unterrichtseinheit_zw_thema_id`, `datum`, `gruppe_id`, `teilnehmer_id`)
+                             VALUES (  $thId, '$datumZeit', $gruppeId, $tnId)");
+        $return -> zuwTn = $db_pdo -> lastInsertId();
+    } else {
+        $return -> zuwTn = $rst[0]["id"];
+    }
+    return $return;
+}
+function checkThema($db_pdo, $ueId, $gruppeId, $datumZeit, $tnId ) {
+    $return = new \stdClass();
+    $rst = $db_pdo -> query("select id, teilnehmer_id from ue_unterrichtseinheit_zw_thema where ue_unterrichtseinheit_id = $ueId and beschreibung ='Gruppe " . $gruppeId ."'") -> fetchAll();
+    if( count( $rst ) == 0 ) {
+        $db_pdo -> exec("INSERT INTO `ue_unterrichtseinheit_zw_thema` ( `ue_unterrichtseinheit_id`, `datum`, `beschreibung`) 
+                VALUES ( $ueId, '" . $datumZeit . "', 'Gruppe $gruppeId')");
+    }
+    $rst = $db_pdo -> query("select id, teilnehmer_id from ue_unterrichtseinheit_zw_thema where ue_unterrichtseinheit_id = $ueId and beschreibung ='Gruppe " . $gruppeId ."'") -> fetchAll();
+    if( $rst[0]["teilnehmer_id"] !="" ) $tmp = explode( ",", $rst[0]["teilnehmer_id"]);
+    $tmp[] = $tnId;
+    $tmp = array_unique( $tmp );
+    $tmp = join( ",", $tmp );
+    $db_pdo -> exec("UPDATE `ue_unterrichtseinheit_zw_thema` SET `teilnehmer_id` = '$tmp' 
+            WHERE `ue_unterrichtseinheit_zw_thema`.`id` = " . $rst[0]["id"]);
+    $return -> themaId = $rst[0]["id"];
+    $return ->ueThId = checkZuwTn( $db_pdo, $return -> themaId, $datumZeit, $gruppeId, $tnId) -> zuwTn;
+    return $return;
+}
+function checkUe($db_pdo , $gruppeId, $startzeit, $datum, $tnId) {
+    $return = new \stdClass();
+    $currentDate = new \DateTime();
+    $rst= $db_pdo -> query("select id from ue_unterrichtseinheit where datum = '" . $datum . "' and zeit = '" . $startzeit . "' and  gruppe_id=$gruppeId")->fetchAll(); 
+    if( count( $rst ) == 0 ) {
+        $db_pdo -> exec( "INSERT INTO `ue_unterrichtseinheit` (`gruppe_id`, `datum`, `zeit`, `dauer`, `beschreibung`) 
+        VALUES ( $gruppeId, '" . $datum . "', '" . $startzeit . "', '90', '');");
+        $return -> ueId = $db_pdo -> lastInsertId();
+    } else {
+        $return -> ueId = $rst[0]["id"];
+    }
+    $return -> result = checkThema($db_pdo, $return -> ueId, $gruppeId, $datum . " " . $startzeit, $tnId);
+    return $return;
+    
+}
+function setMtrTeilnehmer($db_pdo, $mtrId, $tnId, $erfasstAm ) {
+    $return = new \stdClass();
+    $currentDate = new \DateTime();
+    $diff = 30;
+    $startdiff = $currentDate->modify("-" . $diff . " minutes");
+    $startdiff = $currentDate->format("Y-m-d H:i:s");
+    $currentDate->modify("+" . (2 * $diff) . " minutes");
+    $enddiff = $currentDate ->format("Y-m-d H:i:s");
+
+    $return -> wochentag = $currentDate->format('N')+1;
+    $query = "select id, uhrzeit_start FROM `ue_gruppen` where day_number=" . $return -> wochentag . " and uhrzeit_ende between '" .  $startdiff . "' and '" . $enddiff . "'";
+    try {
+        $stm = $db_pdo -> query( $query );
+        $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
+    } catch ( Exception $e ) {
+        $return -> success = false;
+        $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
+        return $return;   
+    }
+    $return -> gruppenId = $result[0]["id"];
+    $return -> datum = $currentDate ->format("Y-m-d");  
+    $return -> starzeit = $result[0]["uhrzeit_start"];  
+    $return -> result = checkUe( $db_pdo, $return -> gruppenId, $return -> starzeit, $return -> datum, $tnId );
+    return $return;
+}
 /* mock $_POST */
 /**/
 switch( $_POST["command"]) {
     // start standard functions
     case "setGroup":
+                            /* prüfe, ob leerer Datensatz*/
+                            /*
+                            SELECT id FROM `mtr_rueckkopplung_teilnehmer` WHERE
+COALESCE(mitarbeit,0) = 0 AND
+COALESCE(absprachen,0) = 0 AND
+COALESCE(selbststaendigkeit,0) = 0 AND
+COALESCE(konzentration,0) = 0 AND
+COALESCE(fleiss,0) = 0 AND
+COALESCE(lernfortschritt,0) = 0 AND
+COALESCE(beherrscht_thema,0) = 0 AND
+COALESCE(transferdenken,0) = 0 AND
+COALESCE(basiswissen,0) = 0 AND
+COALESCE(vorbereitet,0) = 0 AND
+COALESCE(themenauswahl,0) = 0 AND
+COALESCE(materialien,0) = 0 AND
+COALESCE(methodenvielfalt,0) = 0 AND
+COALESCE(individualisierung,0) = 0 AND
+COALESCE(aufforderung,0) = 0 AND
+COALESCE(zielgruppen,0) = 0 AND
+(emotions = '' OR emotions IS NULL) AND
+(bemerkungen = '' OR bemerkungen IS NULL) AND id=" . $_POST["id"];
+*/
+$r = $db_pdo->query("SELECT id FROM `mtr_rueckkopplung_teilnehmer` WHERE
+COALESCE(mitarbeit,0) = 0 AND
+COALESCE(absprachen,0) = 0 AND
+COALESCE(selbststaendigkeit,0) = 0 AND
+COALESCE(konzentration,0) = 0 AND
+COALESCE(fleiss,0) = 0 AND
+COALESCE(lernfortschritt,0) = 0 AND
+COALESCE(beherrscht_thema,0) = 0 AND
+COALESCE(transferdenken,0) = 0 AND
+COALESCE(basiswissen,0) = 0 AND
+COALESCE(vorbereitet,0) = 0 AND
+COALESCE(themenauswahl,0) = 0 AND
+COALESCE(materialien,0) = 0 AND
+COALESCE(methodenvielfalt,0) = 0 AND
+COALESCE(individualisierung,0) = 0 AND
+COALESCE(aufforderung,0) = 0 AND
+COALESCE(zielgruppen,0) = 0 AND
+(emotions = '' OR emotions IS NULL) AND
+(bemerkungen = '' OR bemerkungen IS NULL) AND id=" . $_POST["id"])->fetchAll();
+if( count( $r) == 1 ) {
+    $db_pdo -> exec("DELETE FROM mtr_rueckkopplung_teilnehmer where id=" . $r[0]["id"] );
+    $return -> message = "empty record";
+    print_r( json_encode( $return )); 
+    break;
+}
+
                             $query = "SELECT teilnehmer_id, erfasst_am, emotions FROM `mtr_rueckkopplung_teilnehmer` where id=" . $_POST["id"] ;
                             $return -> s = $query;
                             try {
@@ -110,111 +229,11 @@ switch( $_POST["command"]) {
                             }
                             $tnId =  $result[0]["teilnehmer_id"];
                             $date = $result[0]["erfasst_am"];
-                            $diff = 30;
-                            $a = new DateTime($date);
-                            $b = new DateTime($date);
-                            $tmpTN = $result[0]["teilnehmer_id"];
                             $tmpEmotions = $result[0]["emotions"];
-                            $return -> startdiff = $a->sub(new DateInterval('PT' . $diff . 'M'));
-                            $return -> enddiff = $b->add(new DateInterval('PT' . $diff . 'M'));
-                            $return -> currentDate = new DateTime();
-                            $return -> currentDate->setTime(0, 0, 0);
-                            $return -> wochentag = $return -> currentDate->format('N')+1;
-                            $query = "select id, uhrzeit_ende, uhrzeit_start FROM `ue_gruppen` where day_number=" . $return -> wochentag . " and uhrzeit_ende between '" .  $return -> startdiff->format('H:i:s') . "' and '" . $return -> enddiff->format('H:i:s') . "'";
-                            try {
-                                $stm = $db_pdo -> query( $query );
-                                $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
-                            } catch ( Exception $e ) {
-                                $return -> success = false;
-                                $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
-                                return $return;   
-                            }
-                            $return -> gruppenId = $result[0]["id"];
-                            if( count($result)===0) {
-                                print_r( json_encode( $result )); 
-                                return;
-                            }
-                            $groupId = $result[0]["id"];
-                            $l = count( $result );
-                            $i = 0;
- 
-                            while( $i < $l ) {
-                                $timearr =  explode( ":", $result[$i]["uhrzeit_ende"] );
-                                $return -> currentDate->setTime( $timearr[0], $timearr[1] );
-                                if ( $return -> currentDate >= $return -> startdiff && $return -> currentDate <= $return -> enddiff ) {
-                                    $q = "update mtr_rueckkopplung_teilnehmer set gruppe_id=" . $result[$i]["id"] . " where id=". $_POST["id"];
-                                    $db_pdo -> query( $q );
-                                    $a =  $result[$i]["uhrzeit_start"];
-                                    $timearr =  explode( ":", $result[$i]["uhrzeit_start"] );
-                                    $group_id = $result[$i]["id"];
-                                    $return -> currentDate->setTime( $timearr[0], $timearr[1] );                            
-                                    $mysqlDate = $return -> currentDate->format('Y-m-d');
-                                    $q = "select id from ue_unterrichtseinheit where datum= '" . $mysqlDate . "' and gruppe_id=" . $result[$i]["id"];
-                                    try {
-                                        $stm = $db_pdo -> query( $q );
-                                        $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
-                                    } catch ( Exception $e ) {
-                                        $return -> success = false;
-                                        $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
-                                        return $return;   
-                                    }
-                                    if( count( $result ) === 0 ) {
-                                        $q = $result;
-                                        // 1. neue ue
-                                        $q = "INSERT INTO `ue_unterrichtseinheit` (`gruppe_id`, `datum`, `zeit`, `beschreibung`) VALUES (" . $group_id . ", '" . $return -> currentDate->format('Y-m-d') . "', '" . $return -> currentDate->format('H:i:s') . "',  'Gruppenveranstaltung')";
-                                        $db_pdo -> query( $q );
-                                        $newId = $db_pdo -> lastInsertId();
-                                        $db_pdo->exec("update mtr_rueckkopplung_teilnehmer set ue_id=" . $newId . " where id=". $_POST["id"]);
-                                        $q = "INSERT INTO `ue_unterrichtseinheit_zw_thema` (`ue_unterrichtseinheit_id`, `schulform_id`, `fach_id`, `zieltyp_id`, `lernmethode_id`, `std_lernthema_id`, `thema`, `dauer`, `teilnehmer_id`, `beschreibung`) 
-                                                VALUES ($newId, '', '1', '1', 24, '', '', 90, $tnId, 'Gruppe " . $groupId . "')" ;
-                                        $db_pdo -> query( $q );
-                                        $ueId = $db_pdo -> lastInsertId();
-                                    } else {
-                                        $newId = $result[0]["id"];
-                                        $q = "select `teilnehmer_id` from `ue_unterrichtseinheit_zw_thema` where ue_unterrichtseinheit_id=" . $result[0]["id"];
-                                        $ueId =  $result[0]["id"];
-                                         try {
-                                            $stm = $db_pdo -> query( $q );
-                                            $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
-                                        } catch ( Exception $e ) {
-                                            $return -> success = false;
-                                            $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
-                                            return $return;   
-                                        }
-                                        // tn id anfügen
-                                        $tmpTNIds = explode( ",", $result[0]["teilnehmer_id"] );
-                                        if( !in_array($tnId, $tmpTNIds) ) {
-                                            if( count( $tmpTNIds ) === 1) {
-                                                $appendTnId = $tnId;
-                                            } else {
-                                                $appendTnId = $result[0]["teilnehmer_id"] . "," . $tnId;                                                
-                                            }
-                                            $q = "insert into ue_unterrichtseinheit_zw_thema (teilnehmer_id, ue_unterrichtseinheit_id) values( $tnId, $ueId)";
-                                            //$q= "update ue_unterrichtseinheit_zw_thema set teilnehmer_id='" . $appendTnId . "' where ue_unterrichtseinheit_id =$ueId";
-                                            $db_pdo -> query( $q );                                            
-                                        }
-                                    }
+                            $result = setMtrTeilnehmer( $db_pdo, $_POST["id"], $tnId, $date);
+                            $db_pdo -> exec( "UPDATE `mtr_rueckkopplung_teilnehmer` SET `ue_id` = " . $result->result->ueId . ", `ue_zuweisung_teilnehmer_id` = " . $result->result->result->ueThId. ", `gruppe_id` = " . $result->gruppenId . ", `erfasst_am` = '" .  $result->datum . " " . $result->starzeit  . "' WHERE `mtr_rueckkopplung_teilnehmer`.`id` = " . $_POST["id"] );
+                            setEmotions( $db_pdo, $tnId, $result->result->result->ueThId, $result->datum . " " . $result->starzeit, $tmpEmotions );
 
-                                    } else {
- 
-                                    //echo "Die Zeit liegt außerhalb des Bereichs.";
-                                }
-                                $i += 1;
-                            } 
-
-                   $q = "select id from ue_unterrichtseinheit_zw_thema where FIND_IN_SET('$tnId', teilnehmer_id) > 0 And beschreibung='Gruppe " . $group_id . "'"; 
-                                    try {
-                                        $stm = $db_pdo -> query( $q );
-                                        $result = $stm -> fetchAll(PDO::FETCH_ASSOC);
-                                    } catch ( Exception $e ) {
-                                        $return -> success = false;
-                                        $return -> message = "Beim Lesen der Daten ist folgender Fehler aufgetreten:" . $e->getMessage();
-                                        return                            print_r( json_encode( $return )); 
-;   
-                                    }
-                   $q = "INSERT INTO `ue_zuweisung_teilnehmer` (`ue_unterrichtseinheit_zw_thema_id`, `teilnehmer_id`, gruppe_id, datum) VALUES (" . $result[0]["id"] . ", $tnId, $group_id, '" . $return -> currentDate->format('Y-m-d') . " " . $a . "')";
-                   $db_pdo -> query( $q );
-                            $zwId = $db_pdo -> lastInsertId();
                             $r =  $db_pdo -> query( "select lernfortschritt, beherrscht_thema, transferdenken, vorbereitet from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
                             $rtn = $db_pdo -> query( "select basiswissen,belastbarkeit, note from mtr_persoenlichkeit where teilnehmer_id = $tnId" )->fetchAll();
 /*
@@ -224,16 +243,11 @@ switch( $_POST["command"]) {
 
                             $db_pdo -> query( $q );
 */
-                            $db_pdo -> query( "update mtr_rueckkopplung_teilnehmer set ue_zuweisung_teilnehmer_id=$zwId, erfasst_am='" . $return -> currentDate->format('Y-m-d') . " " . $a . "' where id=" . $_POST["id"] );
-                            setEmotions( $db_pdo,$tmpTN,$zwId,$return -> currentDate->format('Y-m-d') . " " . $a, $tmpEmotions );
                             $r =  $db_pdo -> query( "select ue_zuweisung_teilnehmer_id, teilnehmer_id, erfasst_am, themenauswahl, methodenvielfalt,individualisierung, aufforderung, materialien, zielgruppen from mtr_rueckkopplung_teilnehmer where id= " . $_POST["id"] )->fetchAll();
                             $return -> t = "INSERT INTO `mtr_didaktik` (`ue_zuweisung_teilnehmer_id`, `teilnehmer_id`, `datum`, `themenauswahl`, `methodenvielfalt`, `individualisierung`, `aufforderung`, `materialien`, `zielgruppen`) VALUES (" 
-                            . $r[0]["ue_zuweisung_teilnehmer_id"] . ", " . $r[0]["teilnehmer_id"] . ", '" .  $return -> currentDate->format('Y-m-d') . " " . $a . "', " . $r[0]["themenauswahl"] . ", " . $r[0]["methodenvielfalt"] . ", "  . $r[0]["individualisierung"] . ", "
-                            . $r[0]["aufforderung"] . ", " . $r[0]["materialien"] . ", "  . $r[0]["materialien"] . ")";
+                            . $r[0]["ue_zuweisung_teilnehmer_id"] . ", " . $r[0]["teilnehmer_id"] . ", '" .  $result->datum . " " . $result->starzeit  . "', " . $r[0]["themenauswahl"] . ", " . $r[0]["methodenvielfalt"] . ", "  . $r[0]["individualisierung"] . ", "
+                            . $r[0]["aufforderung"] . ", " . $r[0]["materialien"] . ")";
                             
-                            $db_pdo -> query("INSERT INTO `mtr_didaktik` (`ue_zuweisung_teilnehmer_id`, `teilnehmer_id`, `datum`, `themenauswahl`, `methodenvielfalt`, `individualisierung`, `aufforderung`, `materialien`, `zielgruppen`) VALUES (" 
-                            . $r[0]["ue_zuweisung_teilnehmer_id"] . ", " . $r[0]["teilnehmer_id"] . ", '" .  $return -> currentDate->format('Y-m-d') . " " . $a . "', " . $r[0]["themenauswahl"] . ", " . $r[0]["methodenvielfalt"] . ", "  . $r[0]["individualisierung"] . ", "
-                            . $r[0]["aufforderung"] . ", " . $r[0]["materialien"] . ", "  . $r[0]["materialien"] . ")");
                              //$return -> q = $test;
                    $emotionen = [];
                     $res = $db_pdo->query("SELECT id AS code, valenz, aktivierung FROM _mtr_emotionen");
@@ -246,7 +260,7 @@ switch( $_POST["command"]) {
 
                     $return -> tnId = $tnId;
   
-                    $return -> ueId = $newId;
+                    $return -> ueId = $result->result->ueId;
                     $r = $db_pdo -> query("select *, concat(datum, ' ', zeit) as erfasst from ue_unterrichtseinheit where id=" .  $return -> ueId ) -> fetchAll();
                     $r_tn = $db_pdo -> query("select std_teilnehmer.*, _std_schulform.schulform as schulform from std_teilnehmer, _std_schulform where std_teilnehmer.KlassentypID = _std_schulform.id and std_teilnehmer.id=" .  $return -> tnId) -> fetchAll();
                     $r_lernthemen = $db_pdo -> query("select id as value, lernthema as text from std_lernthema where schulform='" .  $r_tn[0]["schulform"] . "' and fach_id=1 order by lernthema") -> fetchAll();
@@ -261,6 +275,7 @@ switch( $_POST["command"]) {
                     //$db_pdo -> exec( "update ue_unterrichtseinheit_zw_thema set schulform_id= " . $r_tn[0]["KlassentypID"] . " where ue_unterrichtseinheit_id=" .  $_POST["ueId"] . " and teilnehmer_id = " . $r[0]["teilnehmer_id"]);
                     $return -> tn = $r_tn;
                     $return -> lernthemen = $option;
+                    $return -> currentDate = $result->datum . " " . $result->starzeit;
  /*
                     $return -> q = $q;
                     $return -> rtn = $rtn;
@@ -298,9 +313,26 @@ switch( $_POST["command"]) {
     break;
     case "changeFach":
                     $r_tn = $db_pdo -> query("select * from std_teilnehmer where id=" . $_POST["tn"] ) -> fetchAll();
-                    $return -> ueId = $_POST;
+                    $return -> ueId = $_POST["ueID"];
                     print_r( json_encode( $return )); 
     
+    break;
+    case "getThemenFromLernfeld":
+                    $return -> thema = $_POST["thema"];
+                    $return -> ueId = $_POST["ueId"];
+                    $return -> Id = $_POST["Id"];
+                    $r_lernthemen = $db_pdo -> query("select _std_lernthema_inhalt.id as value, _std_lernthema_inhalt.inhalt as text from _std_lernthema_inhalt, std_lernthema where std_lernthema.id=_std_lernthema_inhalt.std_lernthema_id and std_lernthema.lernthema='" . $_POST["value"] . "' order by inhalt;") -> fetchAll();
+                                                                                                                                                                             
+                    $l = count( $r_lernthemen );
+                    $i = 0;
+                    $option = "";
+                    while ($i < $l ) {
+                        // code...
+                        $option .= '<option value="' . $r_lernthemen[$i]["value"] . '">' . $r_lernthemen[$i]["text"] . '</option>';
+                        $i += 1;
+                    }
+                    $r_lernthemen = $option;
+                    print_r( json_encode( $return ));                     
     break;
     default:
                             print_r( json_encode( $return )); 

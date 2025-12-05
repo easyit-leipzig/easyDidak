@@ -162,7 +162,8 @@ class Dialog {                    // dialog drag and resize
         el_add = null;
         el_add = nj().cEl( "div" );
         if( this.opt.hasHelp ) {
-            nj( el_add ).aCl( "cbHelp iconButtMin " + this.opt.classPraefix + "HLHelp");
+            nj( el_add ).aCl( "cbHelpButton iconButtMin " + this.opt.classPraefix + "HLHelp");
+            nj( el_add ).htm( "?" );
             nj( el_add ).on( "click", function( e ) {
                 e.stopPropagation();
                 nj( e.target ).Dia().opt.divHelp.show();
@@ -172,7 +173,8 @@ class Dialog {                    // dialog drag and resize
         el_add = null;
         el_add = nj().cEl( "div" );
         if( this.opt.hasInfo ) {
-            nj( el_add ).aCl( "cbInfo iconButtMin " + this.opt.classPraefix + "HLInfo");
+            nj( el_add ).aCl( "cbInfoButton iconButtMin " + this.opt.classPraefix + "HLInfo");
+            nj( el_add ).htm( "i" );
             nj( el_add ).on( "click", function( e ) {
                 e.stopPropagation();
                 nj( e.target ).Dia().opt.divInfo.show();    
@@ -182,7 +184,8 @@ class Dialog {                    // dialog drag and resize
         el_add = null;
         el_add = nj().cEl( "div" );
         if( this.opt.hasMin ) {
-            nj( el_add ).aCl( "cbMinimize iconButtMin " + this.opt.classPraefix + "HLMin" );
+            nj( el_add ).aCl( "cbMinWindow iconButtMin " + this.opt.classPraefix + "HLMin" );
+            nj( el_add ).htm( "─" );
             nj( el_add ).on( "click", function( el ) {
                 let df = nj( el.target ).Dia();
                 if( nj( df.opt.id + "_box" ).hCl( "minimized" ) ) {

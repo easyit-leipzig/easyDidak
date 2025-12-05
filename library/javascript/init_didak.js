@@ -15,7 +15,7 @@ var Df_3;
         switch( jsonobject.command ) {
             case "setGroup":
                     data.command = "getUeData";
-                    console.log( jsonobject.currentDate.date.substring(0, 19) );
+                    //console.log( jsonobject.currentDate.date.substring(0, 19) );
                     data.ueId = jsonobject.ueId;
                         nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
                 break;
@@ -79,11 +79,12 @@ setFieds = function(el) {
 }
 changeLernthema = function( el ) {
     console.log( el );
-    data.command = "getThemenDataFromLernthema";
-    data.ueId = getIdAndName( el.id ).Id;
-    data.value = el.value;
+    data.command = "getThemenFromLernfeld";
+    data.Id = getIdAndName( el.id ).Id;
+    data.ueId = nj("#df3_ue_id_" + data.Id ).v();
+    data.thema = el.value;
     console.log( data );
-    //nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
+    nj().fetchPostNew("library/php/ajax_didak.php", data, this.evaluateDidak);
 }
 setTnInNew = function ( el ) {
     let tmp, d = {};
