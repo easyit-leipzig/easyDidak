@@ -14,21 +14,28 @@
 <meta name="creation-date" content="09/06/2012">
 <meta name="revisit-after" content="15 days">
 <title>Administion</title>
+<link rel="stylesheet" href="library/css/admin.css" />
 </head>
 <body>
 <div>
 <h3>Setze Gruppen für Zeit</h3>
     <button id="setGroupForTime">Setze Gruppen für Zeit</button>
 </div>
+<div class="flexDiv">
 <div>
-<h3>usr_web411_2.sql als originasl markieren und kopieren</h3><br>
-<p>Fügt usr_web411_2.sql [datum_original] hinzu und kopiert die Date nach easyDidak.</p>
-<p>'C:/Users/thiel/Downloads/usr_web411_2.sql' --> D:/xampp/htdocs/easyDidak/usr_web411_2_[Datum]_[original].sql</p>
-    <button id="saveWebSQL">saveWebSQL</button>
-<h3>icas-SQL umschreiben</h3>
-<p>Kopiert websql nach icas.sql und schreibt die datenbank für icas-Import um.</p>
-<p>'C:/Users/thiel/Downloads/usr_web411_2.sql' --> D:/xampp/htdocs/easyDidak/icas_[Datum]_[rewritten].sql</p>
-    <button id="rewriteSQL">rewriteSQL</button>&nbsp;&nbsp;
+    <h3>usr_web411_2.sql als originasl markieren und kopieren</h3><br>
+        <p>Fügt usr_web411_2.sql [datum_original] hinzu und kopiert die Date nach easyDidak.</p>
+        <p>'C:/Users/thiel/Downloads/usr_web411_2.sql' --> D:/xampp/htdocs/easyDidak/usr_web411_2_[Datum]_[original].sql</p>
+            <button id="saveWebSQL">saveWebSQL</button>
+</div>
+<div>
+    <h3>icas-SQL umschreiben</h3>
+    <p>Kopiert websql nach icas.sql und schreibt die datenbank für icas-Import um.</p>
+    <p>'C:/Users/thiel/Downloads/usr_web411_2.sql' --> D:/xampp/htdocs/easyDidak/icas_[Datum]_[rewritten].sql</p>
+        <button id="rewriteSQL">rewriteSQL</button>&nbsp;&nbsp;
+</div>
+</div>
+<div class="flexDiv">
 <div>
 <h3>WebSQL zum Datenimport nach alphahosting preparieren</h3><br>
 <p>Fügt usr_web411_2.sql_[datum_original].sql table-truncate-statements für den alphahosting-importhinzu.</p>
@@ -47,6 +54,7 @@
 <h3>Lernthemen bearbeiten</h3><br>
     <button id="editLernthemen">rewriteSQL</button>
 </div>
+</div>
 <div>
 <h3>Werte Datenmaske übertragen</h3>
 <p>Zerlegt die Bemerkungswerte der Tabelle mtr_rueckkopplung_datenmaske und trägt diese zerlegt in mtr_rueckkopplung_datenmaske_values ein.</p>
@@ -60,6 +68,7 @@
     <button id="transferDatenmaskeValuesToFrzkWertungMapping">Zerlege Datenmaske</button>
 mit Zerlegung Datenmaske&nbsp;&nbsp;    <input type="checkbox" id="withMigrateDatenmaske">
 </div>
+
 <script src="library/javascript/no_jquery.js"></script>
 <script src="library/javascript/easyit_helper_neu.js"></script>
 <script src="library/javascript/const_main.js"></script>

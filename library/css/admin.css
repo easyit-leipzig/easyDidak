@@ -1,0 +1,7 @@
+.flexDiv {
+    display: flex;
+}
+.fexDiv>div {
+    width:450px;
+    margin: 1em;
+}

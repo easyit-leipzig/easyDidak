@@ -22,8 +22,7 @@ var Df_3;
             case "getUeData":
                     Df_3.opt.fieldDefinitions[2].default = jsonobject.ueId;
                     Df_3.opt.fieldDefinitions[3].default = jsonobject.datum.substring(0, 16);
-                    //Df_3.opt.fieldDefinitions[4].default = jsonobject.r_tn[0][0];
-                    Df_3.opt.fieldDefinitions[5].default = jsonobject.r_tn[0][0];
+                     Df_3.opt.fieldDefinitions[5].default = jsonobject.r_tn[0][0];
                     Df_3.opt.fieldDefinitions[10].options = jsonobject.lernthemen;
                     Df_3.opt.fieldDefinitions[13].options = jsonobject.r_tn[0]["Klassenstufe"];
                     Df_3.opt.fieldDefinitions[14].options = jsonobject.r_tn[0]["Klassentyp"];
