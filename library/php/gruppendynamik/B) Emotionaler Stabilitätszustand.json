@@ -1,0 +1,102 @@
+[
+    {
+        "gruppe_id": 1,
+        "koh\u00e4renz_mean": 0.9054,
+        "koh\u00e4renz_std": 0.0468,
+        "stabilitaet_mean": 0.9588,
+        "stabilitaet_std": 0.0329,
+        "dynamik_mean": 0.2604,
+        "dynamik_std": 0.2038,
+        "n": 12
+    },
+    {
+        "gruppe_id": 2,
+        "koh\u00e4renz_mean": 0.8651,
+        "koh\u00e4renz_std": 0.0519,
+        "stabilitaet_mean": 0.9157,
+        "stabilitaet_std": 0.0595,
+        "dynamik_mean": 0.1576,
+        "dynamik_std": 0.1374,
+        "n": 10
+    },
+    {
+        "gruppe_id": 3,
+        "koh\u00e4renz_mean": 0.9016,
+        "koh\u00e4renz_std": 0.0604,
+        "stabilitaet_mean": 0.9468,
+        "stabilitaet_std": 0.0454,
+        "dynamik_mean": 0.3357,
+        "dynamik_std": 0.2745,
+        "n": 7
+    },
+    {
+        "gruppe_id": 4,
+        "koh\u00e4renz_mean": 0.8902,
+        "koh\u00e4renz_std": 0.0496,
+        "stabilitaet_mean": 0.9481,
+        "stabilitaet_std": 0.0431,
+        "dynamik_mean": 0.327,
+        "dynamik_std": 0.2967,
+        "n": 11
+    },
+    {
+        "gruppe_id": 5,
+        "koh\u00e4renz_mean": 0.912,
+        "koh\u00e4renz_std": 0.0551,
+        "stabilitaet_mean": 0.9568,
+        "stabilitaet_std": 0.0603,
+        "dynamik_mean": 0.2699,
+        "dynamik_std": 0.2625,
+        "n": 11
+    },
+    {
+        "gruppe_id": 6,
+        "koh\u00e4renz_mean": 0.883,
+        "koh\u00e4renz_std": 0.0373,
+        "stabilitaet_mean": 0.9464,
+        "stabilitaet_std": 0.0316,
+        "dynamik_mean": 0.2928,
+        "dynamik_std": 0.1812,
+        "n": 10
+    },
+    {
+        "gruppe_id": 7,
+        "koh\u00e4renz_mean": 0.8504,
+        "koh\u00e4renz_std": 0.0754,
+        "stabilitaet_mean": 0.9011,
+        "stabilitaet_std": 0.0741,
+        "dynamik_mean": 0.3618,
+        "dynamik_std": 0.3406,
+        "n": 11
+    },
+    {
+        "gruppe_id": 8,
+        "koh\u00e4renz_mean": 0.8646,
+        "koh\u00e4renz_std": 0.0789,
+        "stabilitaet_mean": 0.9092,
+        "stabilitaet_std": 0.0975,
+        "dynamik_mean": 0.228,
+        "dynamik_std": 0.1527,
+        "n": 12
+    },
+    {
+        "gruppe_id": 9,
+        "koh\u00e4renz_mean": 0.9134,
+        "koh\u00e4renz_std": 0.0362,
+        "stabilitaet_mean": 0.9681,
+        "stabilitaet_std": 0.0215,
+        "dynamik_mean": 0.123,
+        "dynamik_std": 0.0778,
+        "n": 9
+    },
+    {
+        "gruppe_id": 10,
+        "koh\u00e4renz_mean": 1,
+        "koh\u00e4renz_std": 0,
+        "stabilitaet_mean": 0,
+        "stabilitaet_std": 0,
+        "dynamik_mean": 0,
+        "dynamik_std": 0,
+        "n": 1
+    }
+]

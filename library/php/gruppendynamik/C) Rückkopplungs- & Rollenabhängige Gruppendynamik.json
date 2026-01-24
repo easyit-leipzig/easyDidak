@@ -1,0 +1,56 @@
+[
+    {
+        "gruppe_id": 1,
+        "mean_abs_dh": 0.260415,
+        "var_dh": 0.0415291,
+        "loop_density": 0.75
+    },
+    {
+        "gruppe_id": 2,
+        "mean_abs_dh": 0.157639,
+        "var_dh": 0.0188675,
+        "loop_density": 0.8
+    },
+    {
+        "gruppe_id": 3,
+        "mean_abs_dh": 0.335713,
+        "var_dh": 0.0753518,
+        "loop_density": 0.285714
+    },
+    {
+        "gruppe_id": 4,
+        "mean_abs_dh": 0.327021,
+        "var_dh": 0.0880181,
+        "loop_density": 0.454545
+    },
+    {
+        "gruppe_id": 5,
+        "mean_abs_dh": 0.26995,
+        "var_dh": 0.0688998,
+        "loop_density": 0.454545
+    },
+    {
+        "gruppe_id": 6,
+        "mean_abs_dh": 0.292777,
+        "var_dh": 0.03282,
+        "loop_density": 0.6
+    },
+    {
+        "gruppe_id": 7,
+        "mean_abs_dh": 0.361784,
+        "var_dh": 0.115991,
+        "loop_density": 0.545455
+    },
+    {
+        "gruppe_id": 8,
+        "mean_abs_dh": 0.227962,
+        "var_dh": 0.0233248,
+        "loop_density": 0.333333
+    },
+    {
+        "gruppe_id": 9,
+        "mean_abs_dh": 0.122963,
+        "var_dh": 0.00604693,
+        "loop_density": 0.777778
+    }
+]

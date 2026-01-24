@@ -325,7 +325,7 @@ $rows = $stmt->fetchAll();
 $insert = $pdo->prepare("
     INSERT INTO frzk_interdependenz
     (teilnehmer_id, zeitpunkt, x_kognition, y_sozial, z_affektiv, h_bedeutung,
-     korrelationsscore, kohärenz_index, varianz_xyz, bemerkung)
+     korrelationsscore, kohaerenz_index, varianz_xyz, bemerkung)
     VALUES
     (:tid, :zeitpunkt, :x, :y, :z, :h, :corr, :koh, :var, :bem)
 ");
@@ -654,7 +654,7 @@ foreach ($rows as $r) {
 // --- Insert vorbereiten ---
 $insert = $pdo->prepare("
     INSERT INTO frzk_reflexion
-    (teilnehmer_id, zeitpunkt, reflexionsgrad, meta_kohärenz, selbstbezug_index, reflexions_marker, bemerkung)
+    (teilnehmer_id, zeitpunkt, reflexionsgrad, meta_kohaerenz, selbstbezug_index, reflexions_marker, bemerkung)
     VALUES (:tid, :zeit, :grad, :meta, :self, :marker, :bem)
 ");
 

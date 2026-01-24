@@ -20,7 +20,13 @@ echo "🚀 Starte Aggregation: Gruppen-Semantik, Transitions, Reflexion & Loops\
 // --------------------------------------------------------------------------
 // 1️⃣ Basisstruktur
 // --------------------------------------------------------------------------
+$pdo->exec("TRUNCATE frzk_group_hubs");
+$pdo->exec("TRUNCATE frzk_group_interdependenz");
+$pdo->exec("TRUNCATE frzk_group_loops");
+$pdo->exec("TRUNCATE frzk_group_operatoren");
+$pdo->exec("TRUNCATE frzk_group_reflexion");
 $pdo->exec("TRUNCATE frzk_group_semantische_dichte");
+$pdo->exec("TRUNCATE frzk_group_transitions");
 $pdo->exec("
 INSERT INTO frzk_group_semantische_dichte (ue_id, gruppe_id, zeitpunkt)
 SELECT id, gruppe_id, CONCAT(datum, ' ', zeit)
@@ -130,7 +136,7 @@ foreach($groups as $gid=>$rws){
   elseif($dh<-0.4&&$ds<0){$typ="Destabilisierung";$m="⚡";}
   elseif(abs($dh)<0.2&&abs($ds)<0.1){$typ="Neutral";$m="•";}
   else{$typ="Rückkopplung";$m="🔄";}
-  $bem=sprintf("Δh=%.3f Δstab=%.3f Cluster %d→%d Typ=%s Intensität=%.2f",
+  $bem=sprintf("Δh=%.3f Δstab=%.3f Cluster %d→%d Typ=%s Intensitaet=%.2f",
                 $dh,$ds,$v,$n,$typ,$inten);
   $ins->execute([":g"=>$gid,":t"=>$c["zeitpunkt"],":v"=>$v,":n"=>$n,
                  ":dh"=>$dh,":ds"=>$ds,":typ"=>$typ,":inten"=>$inten,
@@ -148,7 +154,7 @@ CREATE TABLE IF NOT EXISTS frzk_group_reflexion (
  gruppe_id INT NOT NULL,
  zeitpunkt DATETIME NOT NULL,
  reflexionsgrad FLOAT,
- meta_kohärenz FLOAT,
+ meta_kohaerenz FLOAT,
  selbstbezug_index FLOAT,
  reflexions_marker VARCHAR(20),
  bemerkung TEXT,
@@ -161,10 +167,10 @@ $groups=[];
 foreach($rows as $r)$groups[$r["gruppe_id"]][]=$r;
 
 $ins=$pdo->prepare("INSERT INTO frzk_group_reflexion
-(gruppe_id,zeitpunkt,reflexionsgrad,meta_kohärenz,selbstbezug_index,reflexions_marker,bemerkung)
+(gruppe_id,zeitpunkt,reflexionsgrad,meta_kohaerenz,selbstbezug_index,reflexions_marker,bemerkung)
 VALUES(:g,:t,:grad,:meta,:self,:mark,:bem)");
 $cR=0;
-$selfWords=["selbst","ich","bewusst","reflexion","identität","zweifel","motivation","vertrauen"];
+$selfWords=["selbst","ich","bewusst","reflexion","identitaet","zweifel","motivation","vertrauen"];
 foreach($groups as $gid=>$entries){
  $dhVals=array_column($entries,"dh_dt");
  $mDh=array_sum($dhVals)/max(1,count($dhVals));
@@ -174,7 +180,7 @@ foreach($groups as $gid=>$entries){
  $selfIndex=0; // placeholder (wie vorher)
  $grad=0.6*$stab+0.4*$selfIndex;
  $mark=$grad<0.33?"niedrig":($grad<0.66?"mittel":"hoch");
- $bem=sprintf("Reflexionsgrad %.2f | Meta-Kohärenz %.2f | Stabilität %.2f",$grad,$meta,$stab);
+ $bem=sprintf("Reflexionsgrad %.2f | Meta-Kohaerenz %.2f | Stabilitaet %.2f",$grad,$meta,$stab);
  $ins->execute([":g"=>$gid,":t"=>end($entries)["zeitpunkt"],":grad"=>$grad,
                 ":meta"=>$meta,":self"=>$selfIndex,":mark"=>$mark,":bem"=>$bem]);
  $cR++;
@@ -235,13 +241,13 @@ foreach($groups as $gid=>$entries){
   $start=$entries[$i-2]["zeitpunkt"];
   $ende=$entries[$i]["zeitpunkt"];
   $dauer=$i-($i-2);
-  $bem=sprintf("Loop %s Δh1=%.2f Δh2=%.2f Intensität=%.2f",$typ,$dh1,$dh2,$inten);
+  $bem=sprintf("Loop %s Δh1=%.2f Δh2=%.2f Intensitaet=%.2f",$typ,$dh1,$dh2,$inten);
   $ins->execute([":g"=>$gid,":s"=>$start,":e"=>$ende,":d"=>$dauer,
                  ":t"=>$typ,":i"=>$inten,":z"=>$zs,":m"=>$mark,":bem"=>$bem]);
   $cL++;
  }
 }
-echo "✅ Group Loops berechnet ($cL Einträge)\n";
+echo "✅ Group Loops berechnet ($cL Eintraege)\n";
 
 // ==========================================================================
 // 7️⃣ Gruppen-Interdependenz
@@ -258,7 +264,7 @@ CREATE TABLE IF NOT EXISTS frzk_group_interdependenz (
  z_affektiv FLOAT,
  h_bedeutung FLOAT,
  korrelationsscore FLOAT,
- kohärenz_index FLOAT,
+ kohaerenz_index FLOAT,
  varianz_xyz FLOAT,
  bemerkung TEXT,
  INDEX(gruppe_id)
@@ -271,7 +277,7 @@ foreach ($data as $r) $groups[$r["gruppe_id"]][] = $r;
 
 $ins = $pdo->prepare("INSERT INTO frzk_group_interdependenz
 (gruppe_id, zeitpunkt, x_kognition, y_sozial, z_affektiv, h_bedeutung,
- korrelationsscore, kohärenz_index, varianz_xyz, bemerkung)
+ korrelationsscore, kohaerenz_index, varianz_xyz, bemerkung)
 VALUES (:g,:t,:x,:y,:z,:h,:corr,:koh,:var,:bem)");
 
 $cI = 0;
@@ -298,7 +304,81 @@ foreach ($groups as $gid => $rows) {
         $cI++;
     }
 }
-echo "✅ frzk_group_interdependenz erstellt ($cI Einträge)\n";
+echo "✅ frzk_group_interdependenz erstellt ($cI Eintraege)\n";
+// ==========================================================================
+// 7️⃣ Gruppen-Emotion
+// ==========================================================================
+
+echo "→ Erzeuge frzk_group_emotion...\n";
+
+$pdo->exec("TRUNCATE frzk_group_emotion");
+
+$rows = $pdo->query("
+SELECT
+ s.gruppe_id,
+ s.zeitpunkt,
+ s.z_affektiv,
+ s.stabilitaet_score,
+ s.dh_dt,
+ i.kohaerenz_index
+FROM frzk_group_semantische_dichte s
+JOIN frzk_group_interdependenz i
+  ON i.gruppe_id = s.gruppe_id
+ AND i.zeitpunkt = s.zeitpunkt
+ORDER BY s.gruppe_id, s.zeitpunkt
+")->fetchAll();
+
+$ins = $pdo->prepare("
+INSERT INTO frzk_group_emotion
+(gruppe_id, zeitpunkt, z_affektiv, kohärenz, stabilitaet, dynamik,
+ emotionaler_status, emotionaler_modus, bemerkung)
+VALUES
+(:g,:t,:z,:koh,:stab,:dyn,:status,:modus,:bem)
+");
+
+foreach ($rows as $r) {
+    $z    = (float)$r["z_affektiv"];
+    $koh  = (float)$r["kohaerenz_index"];
+    $stab = (float)$r["stabilitaet_score"];
+    $dyn  = abs((float)$r["dh_dt"]);
+
+    // --- emotionaler Status (Niveau + Stabilität)
+    if ($z > 2.2 && $stab > 0.7) $status = "emotional integriert";
+    elseif ($z > 2.2)            $status = "emotional aktiviert";
+    elseif ($z < 1.2)            $status = "emotional gedämpft";
+    else                         $status = "emotional balanciert";
+
+    // --- emotionaler Modus (FRZK-typisch)
+    if ($z > 2.0 && $koh > 0.7 && $stab > 0.7)
+        $modus = "Resonanzmodus";
+    elseif ($z > 2.0 && $koh < 0.5)
+        $modus = "Spannungsmodus";
+    elseif ($stab < 0.4)
+        $modus = "Fragmentierungsmodus";
+    elseif ($dyn < 0.05)
+        $modus = "Trägheitsmodus";
+    else
+        $modus = "Adaptiver Modus";
+
+    $bem = sprintf(
+        "z=%.2f Koh=%.2f Stab=%.2f Δ=%.3f → %s / %s",
+        $z,$koh,$stab,$dyn,$status,$modus
+    );
+
+    $ins->execute([
+        ":g"=>$r["gruppe_id"],
+        ":t"=>$r["zeitpunkt"],
+        ":z"=>$z,
+        ":koh"=>$koh,
+        ":stab"=>$stab,
+        ":dyn"=>$dyn,
+        ":status"=>$status,
+        ":modus"=>$modus,
+        ":bem"=>$bem
+    ]);
+}
+
+echo "✅ frzk_group_emotion erstellt (" . count($rows) . " Einträge)\n";
 
 // ==========================================================================
 // 8️⃣ Gruppen-Operatoren (σ, M, R, E)
@@ -382,7 +462,7 @@ foreach ($rows as $r) {
     ]);
     $cO++;
 }
-echo "✅ frzk_group_operatoren erstellt ($cO Einträge)\n";
+echo "✅ frzk_group_operatoren erstellt ($cO Eintraege)\n";
 
 // ==========================================================================
 // 9️⃣ JSON-Exporte für die neuen Tabellen
@@ -390,7 +470,7 @@ echo "✅ frzk_group_operatoren erstellt ($cO Einträge)\n";
 foreach (["frzk_group_interdependenz","frzk_group_operatoren"] as $t) {
     $rows = $pdo->query("SELECT * FROM $t")->fetchAll(PDO::FETCH_ASSOC);
     file_put_contents(__DIR__."/$t.json", json_encode($rows, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
-    echo "📄 Exportiert: $t (" . count($rows) . " Einträge)\n";
+    echo "📄 Exportiert: $t (" . count($rows) . " Eintraege)\n";
 }
 // ==========================================================================
 // 🔟 Gruppen-Hubs (Granulare Klassifikation σ–M–R–E)
@@ -457,11 +537,11 @@ foreach ($grouped as $gid => $entries) {
         // --- granulare Klassifikation ---
 // --- tiefere granulare Klassifikation ---
 if ($σ > 0.85 && $R > 0.75 && $stab > 0.8) {
-    $typ = "Resonant-Kohärent (hyperstabil)";
-    $bz  = "Kognitiv-sozialer Integrationskern – Primärkohärenz";
+    $typ = "Resonant-Kohaerent (hyperstabil)";
+    $bz  = "Kognitiv-sozialer Integrationskern – Primaerkohaerenz";
 } elseif ($σ > 0.75 && $R > 0.6 && $stab > 0.7) {
-    $typ = "Resonant-Kohärent (stabil)";
-    $bz  = "Kognitiv-sozialer Integrationskern – Sekundärfeld";
+    $typ = "Resonant-Kohaerent (stabil)";
+    $bz  = "Kognitiv-sozialer Integrationskern – Sekundaerfeld";
 } elseif ($E > 0.9 && $M > 0.7 && $stab < 0.6) {
     $typ = "Emergent-Synergisch (hyperdynamisch)";
     $bz  = "Transformationszentrum – Selbstorganisationsknoten";
@@ -482,19 +562,19 @@ if ($σ > 0.85 && $R > 0.75 && $stab > 0.8) {
     $bz  = "Kognitives Bedeutungszentrum – Diskursfeld";
 } elseif ($R > 0.85 && $stab > 0.8 && $E < 0.3) {
     $typ = "Sozial-Resonant (meta-homöostatisch)";
-    $bz  = "Soziales Kohärenzfeld – Primärstruktur";
+    $bz  = "Soziales Kohaerenzfeld – Primaerstruktur";
 } elseif ($R > 0.75 && $stab > 0.8 && $E < 0.3) {
     $typ = "Sozial-Resonant (homöostatisch)";
-    $bz  = "Soziales Kohärenzfeld – Sekundärstruktur";
+    $bz  = "Soziales Kohaerenzfeld – Sekundaerstruktur";
 } elseif ($E > 0.7 && $stab < 0.4) {
     $typ = "Perturbativ-Instabil (Übergangsphase)";
     $bz  = "Instabiler Übergang – Turbulenzfeld";
 } elseif ($score > 0.9 && $σ > 0.8 && $M > 0.8 && $R > 0.8 && $E > 0.8) {
-    $typ = "Kohärent-Emergent (integral)";
+    $typ = "Kohaerent-Emergent (integral)";
     $bz  = "Bedeutungs-Superhub – holarchisches Zentrum";
 } elseif ($score > 0.8 && $σ > 0.7 && $M > 0.7 && $R > 0.7 && $E > 0.7) {
-    $typ = "Kohärent-Emergent (integrativ)";
-    $bz  = "Bedeutungs-Superhub – intermediäres Zentrum";
+    $typ = "Kohaerent-Emergent (integrativ)";
+    $bz  = "Bedeutungs-Superhub – intermediaeres Zentrum";
 } else {
     // feinere Tendenzen
     $maxOp = max($σ, $M, $R, $E);
@@ -502,7 +582,7 @@ if ($σ > 0.85 && $R > 0.75 && $stab > 0.8) {
     $dom = "";
     switch ($maxOp) {
         case $σ:
-            $dom = ($delta < 0.2) ? "Semantisch-Kohärent" : "Semantisch-Tendenziell";
+            $dom = ($delta < 0.2) ? "Semantisch-Kohaerent" : "Semantisch-Tendenziell";
             $bz  = ($delta < 0.2) ? "Kognitiver Knoten – balanciert" : "Kognitiver Knoten – fokussiert";
             break;
         case $M:
@@ -511,7 +591,7 @@ if ($σ > 0.85 && $R > 0.75 && $stab > 0.8) {
             break;
         case $R:
             $dom = ($stab > 0.7) ? "Sozial-Stabil" : "Sozial-Tendenziell";
-            $bz  = ($stab > 0.7) ? "Sozialer Knoten – kohärent" : "Sozialer Knoten – adaptiv";
+            $bz  = ($stab > 0.7) ? "Sozialer Knoten – kohaerent" : "Sozialer Knoten – adaptiv";
             break;
         case $E:
             $dom = ($stab < 0.5) ? "Emergent-Volatil" : "Emergent-Tendenziell";
@@ -550,11 +630,11 @@ try {
     }
 }
 
-echo "✅ frzk_group_hubs erstellt ($countH Einträge, granular klassifiziert)\n";
+echo "✅ frzk_group_hubs erstellt ($countH Eintraege, granular klassifiziert)\n";
 
 $rows = $pdo->query("SELECT * FROM frzk_group_hubs")->fetchAll(PDO::FETCH_ASSOC);
 file_put_contents(__DIR__."/frzk_group_hubs.json", json_encode($rows, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
-echo "📄 Exportiert: frzk_group_hubs (" . count($rows) . " Einträge)\n";
+echo "📄 Exportiert: frzk_group_hubs (" . count($rows) . " Eintraege)\n";
 
 $sql="select ue_id from frzk_group_semantische_dichte";
 $rows = $pdo->query($sql)->fetchAll();
@@ -640,7 +720,7 @@ foreach ($rows as $r) {
     }
 }
 
-echo "✅ Aggregation abgeschlossen: {$written} Datensätze aktualisiert.\n";
+echo "✅ Aggregation abgeschlossen: {$written} Datensaetze aktualisiert.\n";
 echo "📄 JSON exportiert: frzk_tmp_group_semantische_dichte.json\n";
 // --------------------------------------------------------------------------
 // 6️⃣ JSON Exporte
@@ -649,7 +729,7 @@ foreach(["frzk_group_semantische_dichte","frzk_group_transitions",
          "frzk_group_reflexion","frzk_group_loops"] as $t){
  $rows=$pdo->query("SELECT * FROM $t")->fetchAll(PDO::FETCH_ASSOC);
  file_put_contents(__DIR__."/$t.json",json_encode($rows,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
- echo "📄 Exportiert: $t (" . count($rows) . " Einträge)\n";
+ echo "📄 Exportiert: $t (" . count($rows) . " Eintraege)\n";
 }
 
 echo "🏁 Fertig: Alle Gruppendynamiken (Semantik + Transition + Reflexion + Loops) berechnet.\n";
