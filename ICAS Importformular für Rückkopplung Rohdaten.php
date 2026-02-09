@@ -222,7 +222,7 @@ foreach ($rows as $r) {
     <button type="submit">Import starten</button>
 </form>
 <?php
-$rows = $pdo->query("SELECT min(datum) as minDate, max(datum) as maxDate, concat(Nachname, ', ', Vorname) as tnName FROM `mtr_rueckkopplung_datenmaske`left join std_teilnehmer on teilnehmer_id=std_teilnehmer.id group by std_teilnehmer.id order by Nachname")->fetchAll(PDO::FETCH_ASSOC);
+$rows = $pdo->query("SELECT min(datum) as minDate, max(datum) as maxDate, concat(Nachname, ', ', Vorname) as tnName FROM `mtr_rueckkopplung_datenmaske` left join std_teilnehmer on teilnehmer_id=std_teilnehmer.id group by std_teilnehmer.id order by Nachname")->fetchAll(PDO::FETCH_ASSOC);
 foreach ($rows as $r) {
     echo "<div>" . htmlspecialchars($r['minDate']) . "\t" . htmlspecialchars($r['maxDate']) . "\t" . htmlspecialchars($r['tnName']);
     echo "</div>";

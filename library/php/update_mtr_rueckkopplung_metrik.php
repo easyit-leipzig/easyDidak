@@ -1,6 +1,6 @@
 <?php
 /**
- * ICAS – Didaktische Metrikberechnung
+ * ICAS – Didaktische Metrikberechnung für mtr_rueckkopplung_lehrkraft_datenmaske
  * ------------------------------------
  * Dieses Skript analysiert das Feld "bemerkung" in mtr_rueckkopplung_datenmaske
  * und leitet daraus fünf didaktische Dimensionen ab:
@@ -10,9 +10,9 @@
  *   - metr_metakog
  *   - metr_kohärenz
  *
- * Danach werden die Werte auch in mtr_rueckkopplung_lehrkraft_tn gespiegelt (falls vorhanden).
+ * Danach werden die Werte auch in mtr_rueckkopplung_lehrkraft_datenmaske gespiegelt (falls vorhanden).
  *
- * Aufruf: automatisch durch import_datenmaske.php oder manuell im Browser.
+ * Aufruf: automatisch durch fill_mtr_rueckkopplung_lehrkraft_datenmaske_optimiert.php oder manuell im Browser.
  */
 
 $pdo = new PDO('mysql:host=localhost;dbname=icas;charset=utf8mb4', 'root', '');

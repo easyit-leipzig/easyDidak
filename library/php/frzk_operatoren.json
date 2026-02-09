@@ -325,6 +325,42 @@
     },
     {
         "id": 19,
+        "teilnehmer_id": 2,
+        "zeitpunkt": "2026-02-02 15:35:00",
+        "x_kognition": "2.40",
+        "y_sozial": "2.25",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "2.18",
+        "dh_dt": 0.545455,
+        "stabilitaet_score": 0.845,
+        "operator_sigma": 0.8,
+        "operator_meta": 0.3775,
+        "operator_resonanz": 0.95,
+        "operator_emer": 0.545455,
+        "operator_level": 0.668239,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.80 M=0.38 R=0.95 E=0.55 | Level=0.67 dh\/dt=0.545"
+    },
+    {
+        "id": 20,
+        "teilnehmer_id": 2,
+        "zeitpunkt": "2026-02-04 15:35:00",
+        "x_kognition": "2.80",
+        "y_sozial": "2.25",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "2.36",
+        "dh_dt": 0.181818,
+        "stabilitaet_score": 0.716111,
+        "operator_sigma": 0.933333,
+        "operator_meta": 0.441945,
+        "operator_resonanz": 0.95,
+        "operator_emer": 0.181818,
+        "operator_level": 0.626774,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.93 M=0.44 R=0.95 E=0.18 | Level=0.63 dh\/dt=0.182"
+    },
+    {
+        "id": 21,
         "teilnehmer_id": 3,
         "zeitpunkt": "2025-09-09 15:35:00",
         "x_kognition": "1.60",
@@ -342,7 +378,7 @@
         "bemerkung": "σ=0.53 M=0.34 R=0.53 E=0.00 | Level=0.35 dh\/dt=0.000"
     },
     {
-        "id": 20,
+        "id": 22,
         "teilnehmer_id": 3,
         "zeitpunkt": "2025-09-30 15:35:00",
         "x_kognition": "2.00",
@@ -360,7 +396,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.65 | Level=0.58 dh\/dt=0.455"
     },
     {
-        "id": 21,
+        "id": 23,
         "teilnehmer_id": 3,
         "zeitpunkt": "2025-10-21 15:35:00",
         "x_kognition": "1.20",
@@ -378,7 +414,7 @@
         "bemerkung": "σ=0.40 M=0.30 R=0.53 E=0.64 | Level=0.47 dh\/dt=-0.636"
     },
     {
-        "id": 22,
+        "id": 24,
         "teilnehmer_id": 3,
         "zeitpunkt": "2025-11-04 15:35:00",
         "x_kognition": "1.80",
@@ -396,7 +432,7 @@
         "bemerkung": "σ=0.60 M=0.33 R=0.62 E=0.45 | Level=0.50 dh\/dt=0.455"
     },
     {
-        "id": 23,
+        "id": 25,
         "teilnehmer_id": 3,
         "zeitpunkt": "2025-11-11 15:35:00",
         "x_kognition": "2.00",
@@ -414,7 +450,7 @@
         "bemerkung": "σ=0.67 M=0.35 R=0.62 E=0.09 | Level=0.43 dh\/dt=0.091"
     },
     {
-        "id": 24,
+        "id": 26,
         "teilnehmer_id": 3,
         "zeitpunkt": "2025-11-25 15:35:00",
         "x_kognition": "1.40",
@@ -432,7 +468,7 @@
         "bemerkung": "σ=0.47 M=0.31 R=0.62 E=0.27 | Level=0.42 dh\/dt=-0.273"
     },
     {
-        "id": 25,
+        "id": 27,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-09-19 15:35:00",
         "x_kognition": "3.20",
@@ -450,7 +486,7 @@
         "bemerkung": "σ=1.00 M=0.32 R=1.00 E=0.20 | Level=0.63 dh\/dt=0.000"
     },
     {
-        "id": 26,
+        "id": 28,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-09-24 15:35:00",
         "x_kognition": "3.00",
@@ -468,7 +504,7 @@
         "bemerkung": "σ=1.00 M=0.49 R=0.83 E=0.45 | Level=0.70 dh\/dt=-0.455"
     },
     {
-        "id": 27,
+        "id": 29,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-09-26 15:35:00",
         "x_kognition": "2.80",
@@ -486,7 +522,7 @@
         "bemerkung": "σ=0.93 M=0.31 R=1.00 E=0.29 | Level=0.63 dh\/dt=0.091"
     },
     {
-        "id": 28,
+        "id": 30,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-10-24 15:35:00",
         "x_kognition": "2.80",
@@ -504,7 +540,7 @@
         "bemerkung": "σ=0.93 M=0.32 R=1.00 E=0.29 | Level=0.64 dh\/dt=0.091"
     },
     {
-        "id": 29,
+        "id": 31,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-10-27 15:35:00",
         "x_kognition": "2.00",
@@ -522,7 +558,7 @@
         "bemerkung": "σ=0.67 M=0.31 R=0.95 E=0.84 | Level=0.69 dh\/dt=-0.636"
     },
     {
-        "id": 30,
+        "id": 32,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-11-14 15:35:00",
         "x_kognition": "3.20",
@@ -540,7 +576,7 @@
         "bemerkung": "σ=1.00 M=0.31 R=1.00 E=1.00 | Level=0.83 dh\/dt=1.182"
     },
     {
-        "id": 31,
+        "id": 33,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-11-21 15:35:00",
         "x_kognition": "2.60",
@@ -558,7 +594,7 @@
         "bemerkung": "σ=0.87 M=0.31 R=1.00 E=0.75 | Level=0.73 dh\/dt=-0.545"
     },
     {
-        "id": 32,
+        "id": 34,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-11-27 16:53:11",
         "x_kognition": "2.00",
@@ -576,7 +612,7 @@
         "bemerkung": "σ=0.67 M=0.33 R=1.00 E=0.65 | Level=0.66 dh\/dt=-0.455"
     },
     {
-        "id": 33,
+        "id": 35,
         "teilnehmer_id": 4,
         "zeitpunkt": "2025-11-28 15:35:00",
         "x_kognition": "2.00",
@@ -594,7 +630,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.47 | Level=0.58 dh\/dt=-0.273"
     },
     {
-        "id": 34,
+        "id": 36,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-09-09 17:10:00",
         "x_kognition": "2.20",
@@ -612,7 +648,7 @@
         "bemerkung": "σ=0.73 M=0.32 R=0.87 E=0.20 | Level=0.53 dh\/dt=0.000"
     },
     {
-        "id": 35,
+        "id": 37,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-09-30 17:10:00",
         "x_kognition": "1.75",
@@ -630,7 +666,7 @@
         "bemerkung": "σ=0.58 M=0.32 R=0.87 E=0.42 | Level=0.55 dh\/dt=-0.422"
     },
     {
-        "id": 36,
+        "id": 38,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-10-21 17:10:00",
         "x_kognition": "1.80",
@@ -648,7 +684,7 @@
         "bemerkung": "σ=0.60 M=0.32 R=0.87 E=0.02 | Level=0.45 dh\/dt=0.022"
     },
     {
-        "id": 37,
+        "id": 39,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-10-28 17:10:00",
         "x_kognition": "1.75",
@@ -666,7 +702,7 @@
         "bemerkung": "σ=0.58 M=0.32 R=0.87 E=0.09 | Level=0.46 dh\/dt=-0.086"
     },
     {
-        "id": 38,
+        "id": 40,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-11-04 17:10:00",
         "x_kognition": "1.40",
@@ -684,7 +720,7 @@
         "bemerkung": "σ=0.47 M=0.42 R=1.00 E=0.05 | Level=0.48 dh\/dt=-0.048"
     },
     {
-        "id": 39,
+        "id": 41,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-11-11 17:10:00",
         "x_kognition": "2.60",
@@ -702,7 +738,7 @@
         "bemerkung": "σ=0.87 M=0.35 R=1.00 E=1.00 | Level=0.80 dh\/dt=0.879"
     },
     {
-        "id": 40,
+        "id": 42,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-11-12 17:10:00",
         "x_kognition": "1.80",
@@ -720,7 +756,7 @@
         "bemerkung": "σ=0.60 M=0.32 R=0.64 E=0.95 | Level=0.63 dh\/dt=-0.945"
     },
     {
-        "id": 41,
+        "id": 43,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-11-25 17:10:00",
         "x_kognition": "1.20",
@@ -738,7 +774,7 @@
         "bemerkung": "σ=0.40 M=0.39 R=0.87 E=0.20 | Level=0.47 dh\/dt=-0.200"
     },
     {
-        "id": 42,
+        "id": 44,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-11-26 18:23:34",
         "x_kognition": "1.00",
@@ -756,7 +792,7 @@
         "bemerkung": "σ=0.33 M=0.33 R=0.70 E=0.15 | Level=0.38 dh\/dt=-0.150"
     },
     {
-        "id": 43,
+        "id": 45,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-12-02 17:10:00",
         "x_kognition": "1.40",
@@ -774,7 +810,7 @@
         "bemerkung": "σ=0.47 M=0.38 R=0.87 E=0.25 | Level=0.49 dh\/dt=0.250"
     },
     {
-        "id": 44,
+        "id": 46,
         "teilnehmer_id": 5,
         "zeitpunkt": "2025-12-10 18:27:20",
         "x_kognition": "1.80",
@@ -792,7 +828,7 @@
         "bemerkung": "σ=0.60 M=0.64 R=0.56 E=0.25 | Level=0.51 dh\/dt=0.250"
     },
     {
-        "id": 45,
+        "id": 47,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-09-10 15:35:00",
         "x_kognition": "2.00",
@@ -810,7 +846,7 @@
         "bemerkung": "σ=0.67 M=0.31 R=0.95 E=0.20 | Level=0.53 dh\/dt=0.000"
     },
     {
-        "id": 46,
+        "id": 48,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-09-19 15:35:00",
         "x_kognition": "2.80",
@@ -828,7 +864,7 @@
         "bemerkung": "σ=0.93 M=0.32 R=1.00 E=0.93 | Level=0.80 dh\/dt=0.727"
     },
     {
-        "id": 47,
+        "id": 49,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-09-24 15:35:00",
         "x_kognition": "2.00",
@@ -846,7 +882,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=1.00 | Level=0.71 dh\/dt=-0.818"
     },
     {
-        "id": 48,
+        "id": 50,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-10-01 15:35:00",
         "x_kognition": "2.00",
@@ -864,7 +900,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.20 | Level=0.51 dh\/dt=0.000"
     },
     {
-        "id": 49,
+        "id": 51,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-10-22 15:35:00",
         "x_kognition": "3.00",
@@ -882,7 +918,7 @@
         "bemerkung": "σ=1.00 M=0.41 R=0.87 E=0.84 | Level=0.78 dh\/dt=0.636"
     },
     {
-        "id": 50,
+        "id": 52,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-10-24 15:35:00",
         "x_kognition": "2.40",
@@ -900,7 +936,7 @@
         "bemerkung": "σ=0.80 M=0.32 R=0.87 E=0.65 | Level=0.66 dh\/dt=-0.455"
     },
     {
-        "id": 51,
+        "id": 53,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-10-29 15:35:00",
         "x_kognition": "2.60",
@@ -918,7 +954,7 @@
         "bemerkung": "σ=0.87 M=0.35 R=0.95 E=0.56 | Level=0.68 dh\/dt=0.364"
     },
     {
-        "id": 52,
+        "id": 54,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-11-07 15:35:00",
         "x_kognition": "2.00",
@@ -936,7 +972,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.75 | Level=0.64 dh\/dt=-0.545"
     },
     {
-        "id": 53,
+        "id": 55,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-11-12 15:35:00",
         "x_kognition": "2.00",
@@ -954,7 +990,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.20 | Level=0.51 dh\/dt=0.000"
     },
     {
-        "id": 54,
+        "id": 56,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-11-14 15:35:00",
         "x_kognition": "2.00",
@@ -972,7 +1008,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.20 | Level=0.51 dh\/dt=0.000"
     },
     {
-        "id": 55,
+        "id": 57,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-11-26 15:35:00",
         "x_kognition": "2.40",
@@ -990,7 +1026,7 @@
         "bemerkung": "σ=0.80 M=0.31 R=0.95 E=0.56 | Level=0.65 dh\/dt=0.364"
     },
     {
-        "id": 56,
+        "id": 58,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-12-03 15:35:00",
         "x_kognition": "2.00",
@@ -1008,7 +1044,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.56 | Level=0.60 dh\/dt=-0.364"
     },
     {
-        "id": 57,
+        "id": 59,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-12-05 16:45:28",
         "x_kognition": "2.00",
@@ -1026,7 +1062,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.20 | Level=0.51 dh\/dt=0.000"
     },
     {
-        "id": 58,
+        "id": 60,
         "teilnehmer_id": 6,
         "zeitpunkt": "2025-12-10 15:35:00",
         "x_kognition": "2.00",
@@ -1044,7 +1080,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.20 | Level=0.51 dh\/dt=0.000"
     },
     {
-        "id": 59,
+        "id": 61,
         "teilnehmer_id": 6,
         "zeitpunkt": "2026-01-16 15:35:00",
         "x_kognition": "2.00",
@@ -1062,7 +1098,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.20 | Level=0.51 dh\/dt=0.000"
     },
     {
-        "id": 60,
+        "id": 62,
         "teilnehmer_id": 6,
         "zeitpunkt": "2026-01-21 15:35:00",
         "x_kognition": "2.00",
@@ -1080,7 +1116,25 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.20 | Level=0.51 dh\/dt=0.000"
     },
     {
-        "id": 61,
+        "id": 63,
+        "teilnehmer_id": 6,
+        "zeitpunkt": "2026-02-04 15:35:00",
+        "x_kognition": "2.20",
+        "y_sozial": "2.00",
+        "z_affektiv": "2.00",
+        "h_bedeutung": "2.09",
+        "dh_dt": 0.0909091,
+        "stabilitaet_score": 0.991111,
+        "operator_sigma": 0.733333,
+        "operator_meta": 0.304444,
+        "operator_resonanz": 0.866667,
+        "operator_emer": 0.290909,
+        "operator_level": 0.548838,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.73 M=0.30 R=0.87 E=0.29 | Level=0.55 dh\/dt=0.091"
+    },
+    {
+        "id": 64,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "2.60",
@@ -1098,7 +1152,7 @@
         "bemerkung": "σ=0.87 M=0.40 R=0.70 E=0.20 | Level=0.54 dh\/dt=0.000"
     },
     {
-        "id": 62,
+        "id": 65,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-09-24 17:10:00",
         "x_kognition": "2.00",
@@ -1116,7 +1170,7 @@
         "bemerkung": "σ=0.67 M=0.30 R=0.87 E=0.29 | Level=0.53 dh\/dt=-0.091"
     },
     {
-        "id": 63,
+        "id": 66,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-09-30 17:10:00",
         "x_kognition": "2.80",
@@ -1134,7 +1188,7 @@
         "bemerkung": "σ=0.93 M=0.45 R=0.58 E=0.65 | Level=0.66 dh\/dt=0.455"
     },
     {
-        "id": 64,
+        "id": 67,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-10-21 17:10:00",
         "x_kognition": "1.80",
@@ -1152,7 +1206,7 @@
         "bemerkung": "σ=0.60 M=0.39 R=0.70 E=0.84 | Level=0.63 dh\/dt=-0.636"
     },
     {
-        "id": 65,
+        "id": 68,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-10-22 17:10:00",
         "x_kognition": "1.80",
@@ -1170,7 +1224,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.62 E=0.38 | Level=0.49 dh\/dt=-0.182"
     },
     {
-        "id": 66,
+        "id": 69,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-10-29 17:10:00",
         "x_kognition": "1.20",
@@ -1188,7 +1242,7 @@
         "bemerkung": "σ=0.40 M=0.37 R=0.87 E=0.20 | Level=0.46 dh\/dt=0.000"
     },
     {
-        "id": 67,
+        "id": 70,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-11-12 17:10:00",
         "x_kognition": "1.60",
@@ -1206,7 +1260,7 @@
         "bemerkung": "σ=0.53 M=0.38 R=0.53 E=0.38 | Level=0.46 dh\/dt=-0.182"
     },
     {
-        "id": 68,
+        "id": 71,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-11-26 17:10:00",
         "x_kognition": "2.60",
@@ -1224,7 +1278,7 @@
         "bemerkung": "σ=0.87 M=0.50 R=0.50 E=1.00 | Level=0.72 dh\/dt=0.818"
     },
     {
-        "id": 69,
+        "id": 72,
         "teilnehmer_id": 7,
         "zeitpunkt": "2025-12-10 17:10:00",
         "x_kognition": "1.20",
@@ -1242,7 +1296,7 @@
         "bemerkung": "σ=0.40 M=0.30 R=0.53 E=1.00 | Level=0.56 dh\/dt=-1.182"
     },
     {
-        "id": 70,
+        "id": 73,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-09-09 17:10:00",
         "x_kognition": "2.80",
@@ -1260,7 +1314,7 @@
         "bemerkung": "σ=0.93 M=0.32 R=1.00 E=0.20 | Level=0.61 dh\/dt=0.000"
     },
     {
-        "id": 71,
+        "id": 74,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-09-23 17:10:00",
         "x_kognition": "3.00",
@@ -1278,7 +1332,7 @@
         "bemerkung": "σ=1.00 M=0.38 R=1.00 E=0.38 | Level=0.69 dh\/dt=0.182"
     },
     {
-        "id": 72,
+        "id": 75,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-09-30 17:10:00",
         "x_kognition": "2.40",
@@ -1296,7 +1350,7 @@
         "bemerkung": "σ=0.80 M=0.33 R=1.00 E=0.47 | Level=0.65 dh\/dt=-0.273"
     },
     {
-        "id": 73,
+        "id": 76,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-10-07 17:10:00",
         "x_kognition": "1.40",
@@ -1314,7 +1368,7 @@
         "bemerkung": "σ=0.47 M=0.33 R=0.78 E=1.00 | Level=0.65 dh\/dt=-1.000"
     },
     {
-        "id": 74,
+        "id": 77,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-10-21 17:10:00",
         "x_kognition": "2.40",
@@ -1332,7 +1386,7 @@
         "bemerkung": "σ=0.80 M=0.35 R=0.95 E=1.00 | Level=0.78 dh\/dt=0.818"
     },
     {
-        "id": 75,
+        "id": 78,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-10-28 17:10:00",
         "x_kognition": "2.20",
@@ -1350,7 +1404,7 @@
         "bemerkung": "σ=0.73 M=0.35 R=0.78 E=0.56 | Level=0.61 dh\/dt=-0.364"
     },
     {
-        "id": 76,
+        "id": 79,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-11-04 17:10:00",
         "x_kognition": "2.60",
@@ -1368,7 +1422,7 @@
         "bemerkung": "σ=0.87 M=0.32 R=1.00 E=0.75 | Level=0.73 dh\/dt=0.545"
     },
     {
-        "id": 77,
+        "id": 80,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-11-11 17:10:00",
         "x_kognition": "2.60",
@@ -1386,7 +1440,7 @@
         "bemerkung": "σ=0.87 M=0.32 R=1.00 E=0.20 | Level=0.60 dh\/dt=0.000"
     },
     {
-        "id": 78,
+        "id": 81,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-11-25 17:10:00",
         "x_kognition": "3.00",
@@ -1404,7 +1458,7 @@
         "bemerkung": "σ=1.00 M=0.38 R=1.00 E=0.46 | Level=0.71 dh\/dt=0.264"
     },
     {
-        "id": 79,
+        "id": 82,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-12-02 17:10:00",
         "x_kognition": "2.00",
@@ -1422,7 +1476,7 @@
         "bemerkung": "σ=0.67 M=0.33 R=0.87 E=1.00 | Level=0.72 dh\/dt=-0.809"
     },
     {
-        "id": 80,
+        "id": 83,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-12-04 16:52:36",
         "x_kognition": "1.80",
@@ -1440,7 +1494,7 @@
         "bemerkung": "σ=0.60 M=0.31 R=0.70 E=0.45 | Level=0.52 dh\/dt=-0.455"
     },
     {
-        "id": 81,
+        "id": 84,
         "teilnehmer_id": 8,
         "zeitpunkt": "2025-12-09 17:10:00",
         "x_kognition": "2.60",
@@ -1458,7 +1512,43 @@
         "bemerkung": "σ=0.87 M=0.33 R=0.87 E=0.93 | Level=0.75 dh\/dt=0.727"
     },
     {
-        "id": 82,
+        "id": 85,
+        "teilnehmer_id": 8,
+        "zeitpunkt": "2026-02-02 15:35:00",
+        "x_kognition": "2.20",
+        "y_sozial": "2.00",
+        "z_affektiv": "3.00",
+        "h_bedeutung": "2.27",
+        "dh_dt": -0.0909091,
+        "stabilitaet_score": 0.813333,
+        "operator_sigma": 0.733333,
+        "operator_meta": 0.393333,
+        "operator_resonanz": 0.866667,
+        "operator_emer": 0.290909,
+        "operator_level": 0.571061,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.73 M=0.39 R=0.87 E=0.29 | Level=0.57 dh\/dt=-0.091"
+    },
+    {
+        "id": 86,
+        "teilnehmer_id": 8,
+        "zeitpunkt": "2026-02-03 17:10:00",
+        "x_kognition": "2.60",
+        "y_sozial": "1.75",
+        "z_affektiv": "3.00",
+        "h_bedeutung": "2.36",
+        "dh_dt": 0.0909091,
+        "stabilitaet_score": 0.728333,
+        "operator_sigma": 0.866667,
+        "operator_meta": 0.435834,
+        "operator_resonanz": 0.783333,
+        "operator_emer": 0.290909,
+        "operator_level": 0.594186,
+        "dominanter_operator": "σ",
+        "bemerkung": "σ=0.87 M=0.44 R=0.78 E=0.29 | Level=0.59 dh\/dt=0.091"
+    },
+    {
+        "id": 87,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-09 17:10:00",
         "x_kognition": "1.80",
@@ -1476,7 +1566,7 @@
         "bemerkung": "σ=0.60 M=0.79 R=0.67 E=0.20 | Level=0.57 dh\/dt=0.000"
     },
     {
-        "id": 83,
+        "id": 88,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-11 15:35:00",
         "x_kognition": "2.00",
@@ -1494,7 +1584,7 @@
         "bemerkung": "σ=0.67 M=0.32 R=0.78 E=0.45 | Level=0.56 dh\/dt=-0.455"
     },
     {
-        "id": 84,
+        "id": 89,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-18 15:35:00",
         "x_kognition": "1.40",
@@ -1512,7 +1602,7 @@
         "bemerkung": "σ=0.47 M=0.38 R=0.53 E=0.65 | Level=0.51 dh\/dt=-0.455"
     },
     {
-        "id": 85,
+        "id": 90,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-23 17:10:00",
         "x_kognition": "2.60",
@@ -1530,7 +1620,7 @@
         "bemerkung": "σ=0.87 M=0.50 R=0.50 E=1.00 | Level=0.72 dh\/dt=0.909"
     },
     {
-        "id": 86,
+        "id": 91,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-25 15:35:00",
         "x_kognition": "2.80",
@@ -1548,7 +1638,7 @@
         "bemerkung": "σ=0.93 M=0.41 R=0.76 E=0.26 | Level=0.59 dh\/dt=0.061"
     },
     {
-        "id": 87,
+        "id": 92,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-09-30 17:10:00",
         "x_kognition": "3.60",
@@ -1566,7 +1656,7 @@
         "bemerkung": "σ=1.00 M=0.64 R=0.58 E=0.50 | Level=0.68 dh\/dt=0.303"
     },
     {
-        "id": 88,
+        "id": 93,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-10-02 15:35:00",
         "x_kognition": "1.80",
@@ -1584,7 +1674,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.62 E=1.00 | Level=0.64 dh\/dt=-1.000"
     },
     {
-        "id": 89,
+        "id": 94,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-10-28 17:10:00",
         "x_kognition": "2.20",
@@ -1602,7 +1692,7 @@
         "bemerkung": "σ=0.73 M=0.37 R=0.95 E=0.93 | Level=0.74 dh\/dt=0.727"
     },
     {
-        "id": 90,
+        "id": 95,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-10-30 15:35:00",
         "x_kognition": "1.40",
@@ -1620,7 +1710,7 @@
         "bemerkung": "σ=0.47 M=0.31 R=0.62 E=1.00 | Level=0.60 dh\/dt=-1.091"
     },
     {
-        "id": 91,
+        "id": 96,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-11-04 17:10:00",
         "x_kognition": "1.20",
@@ -1638,7 +1728,7 @@
         "bemerkung": "σ=0.40 M=0.35 R=0.87 E=0.27 | Level=0.47 dh\/dt=0.273"
     },
     {
-        "id": 92,
+        "id": 97,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-11-06 15:35:00",
         "x_kognition": "1.80",
@@ -1656,7 +1746,7 @@
         "bemerkung": "σ=0.60 M=0.31 R=0.78 E=0.18 | Level=0.47 dh\/dt=0.182"
     },
     {
-        "id": 93,
+        "id": 98,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-11-11 17:10:00",
         "x_kognition": "1.80",
@@ -1674,7 +1764,7 @@
         "bemerkung": "σ=0.60 M=0.42 R=1.00 E=0.75 | Level=0.69 dh\/dt=0.545"
     },
     {
-        "id": 94,
+        "id": 99,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-11-13 15:35:00",
         "x_kognition": "2.40",
@@ -1692,7 +1782,7 @@
         "bemerkung": "σ=0.80 M=0.37 R=0.70 E=0.47 | Level=0.59 dh\/dt=-0.273"
     },
     {
-        "id": 95,
+        "id": 100,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-11-25 17:10:00",
         "x_kognition": "2.60",
@@ -1710,7 +1800,7 @@
         "bemerkung": "σ=0.87 M=0.44 R=0.95 E=0.84 | Level=0.77 dh\/dt=0.636"
     },
     {
-        "id": 96,
+        "id": 101,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-11-27 16:51:04",
         "x_kognition": "1.40",
@@ -1728,7 +1818,7 @@
         "bemerkung": "σ=0.47 M=0.31 R=0.78 E=1.00 | Level=0.64 dh\/dt=-1.091"
     },
     {
-        "id": 97,
+        "id": 102,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-12-02 17:10:00",
         "x_kognition": "1.60",
@@ -1746,7 +1836,7 @@
         "bemerkung": "σ=0.53 M=0.37 R=0.87 E=0.56 | Level=0.58 dh\/dt=0.364"
     },
     {
-        "id": 98,
+        "id": 103,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-12-04 16:42:55",
         "x_kognition": "1.60",
@@ -1764,7 +1854,7 @@
         "bemerkung": "σ=0.53 M=0.33 R=0.70 E=0.45 | Level=0.51 dh\/dt=-0.455"
     },
     {
-        "id": 99,
+        "id": 104,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-12-09 17:10:00",
         "x_kognition": "2.40",
@@ -1782,7 +1872,7 @@
         "bemerkung": "σ=0.80 M=0.38 R=0.95 E=0.73 | Level=0.71 dh\/dt=0.727"
     },
     {
-        "id": 100,
+        "id": 105,
         "teilnehmer_id": 9,
         "zeitpunkt": "2025-12-11 16:48:38",
         "x_kognition": "2.00",
@@ -1800,7 +1890,25 @@
         "bemerkung": "σ=0.67 M=0.35 R=0.62 E=0.55 | Level=0.54 dh\/dt=-0.545"
     },
     {
-        "id": 101,
+        "id": 106,
+        "teilnehmer_id": 9,
+        "zeitpunkt": "2026-02-03 17:10:00",
+        "x_kognition": "1.40",
+        "y_sozial": "1.75",
+        "z_affektiv": "2.00",
+        "h_bedeutung": "1.64",
+        "dh_dt": 0,
+        "stabilitaet_score": 0.939444,
+        "operator_sigma": 0.466667,
+        "operator_meta": 0.330278,
+        "operator_resonanz": 0.783333,
+        "operator_emer": 0.2,
+        "operator_level": 0.445069,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.47 M=0.33 R=0.78 E=0.20 | Level=0.45 dh\/dt=0.000"
+    },
+    {
+        "id": 107,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-11 15:35:00",
         "x_kognition": "1.80",
@@ -1818,7 +1926,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.53 E=0.00 | Level=0.37 dh\/dt=0.000"
     },
     {
-        "id": 102,
+        "id": 108,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-11 17:10:00",
         "x_kognition": "2.60",
@@ -1836,7 +1944,7 @@
         "bemerkung": "σ=0.87 M=0.38 R=0.87 E=1.00 | Level=0.78 dh\/dt=1.000"
     },
     {
-        "id": 103,
+        "id": 109,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-17 15:35:00",
         "x_kognition": "1.60",
@@ -1854,7 +1962,7 @@
         "bemerkung": "σ=0.53 M=0.34 R=0.53 E=1.00 | Level=0.60 dh\/dt=-1.182"
     },
     {
-        "id": 104,
+        "id": 110,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-18 15:35:00",
         "x_kognition": "1.20",
@@ -1872,7 +1980,7 @@
         "bemerkung": "σ=0.40 M=0.31 R=0.62 E=0.09 | Level=0.35 dh\/dt=-0.091"
     },
     {
-        "id": 105,
+        "id": 111,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-24 15:35:00",
         "x_kognition": "1.00",
@@ -1890,7 +1998,7 @@
         "bemerkung": "σ=0.33 M=0.33 R=0.53 E=0.09 | Level=0.32 dh\/dt=-0.091"
     },
     {
-        "id": 106,
+        "id": 112,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-09-25 15:35:00",
         "x_kognition": "1.40",
@@ -1908,7 +2016,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.09 | Level=0.35 dh\/dt=0.091"
     },
     {
-        "id": 107,
+        "id": 113,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-01 16:53:43",
         "x_kognition": "1.40",
@@ -1926,7 +2034,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.00 | Level=0.33 dh\/dt=0.000"
     },
     {
-        "id": 108,
+        "id": 114,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-02 16:53:16",
         "x_kognition": "2.40",
@@ -1944,7 +2052,7 @@
         "bemerkung": "σ=0.80 M=0.52 R=0.33 E=0.45 | Level=0.53 dh\/dt=0.455"
     },
     {
-        "id": 109,
+        "id": 115,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-23 15:31:28",
         "x_kognition": "1.40",
@@ -1962,7 +2070,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.45 | Level=0.44 dh\/dt=-0.455"
     },
     {
-        "id": 110,
+        "id": 116,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-29 16:53:35",
         "x_kognition": "1.60",
@@ -1980,7 +2088,7 @@
         "bemerkung": "σ=0.53 M=0.34 R=0.53 E=0.09 | Level=0.37 dh\/dt=0.091"
     },
     {
-        "id": 111,
+        "id": 117,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-10-30 16:55:47",
         "x_kognition": "1.00",
@@ -1998,7 +2106,7 @@
         "bemerkung": "σ=0.33 M=0.30 R=0.53 E=0.27 | Level=0.36 dh\/dt=-0.273"
     },
     {
-        "id": 112,
+        "id": 118,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-11-06 15:34:11",
         "x_kognition": "1.40",
@@ -2016,7 +2124,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.18 | Level=0.37 dh\/dt=0.182"
     },
     {
-        "id": 113,
+        "id": 119,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-11-06 16:51:46",
         "x_kognition": "1.40",
@@ -2034,7 +2142,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.00 | Level=0.33 dh\/dt=0.000"
     },
     {
-        "id": 114,
+        "id": 120,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-11-12 16:57:14",
         "x_kognition": "2.00",
@@ -2052,7 +2160,7 @@
         "bemerkung": "σ=0.67 M=0.41 R=0.53 E=0.27 | Level=0.47 dh\/dt=0.273"
     },
     {
-        "id": 115,
+        "id": 121,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-11-13 16:48:41",
         "x_kognition": "1.00",
@@ -2070,7 +2178,7 @@
         "bemerkung": "σ=0.33 M=0.30 R=0.53 E=0.45 | Level=0.41 dh\/dt=-0.455"
     },
     {
-        "id": 116,
+        "id": 122,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-11-26 15:35:00",
         "x_kognition": "1.60",
@@ -2088,7 +2196,7 @@
         "bemerkung": "σ=0.53 M=0.33 R=0.53 E=0.36 | Level=0.44 dh\/dt=0.364"
     },
     {
-        "id": 117,
+        "id": 123,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-11-27 15:35:00",
         "x_kognition": "1.80",
@@ -2106,7 +2214,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.53 E=0.09 | Level=0.39 dh\/dt=0.091"
     },
     {
-        "id": 118,
+        "id": 124,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-12-03 15:35:00",
         "x_kognition": "1.80",
@@ -2124,7 +2232,7 @@
         "bemerkung": "σ=0.60 M=0.37 R=0.53 E=0.09 | Level=0.40 dh\/dt=-0.091"
     },
     {
-        "id": 119,
+        "id": 125,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-12-04 15:35:00",
         "x_kognition": "1.20",
@@ -2142,7 +2250,7 @@
         "bemerkung": "σ=0.40 M=0.31 R=0.62 E=0.09 | Level=0.35 dh\/dt=-0.091"
     },
     {
-        "id": 120,
+        "id": 126,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-12-10 15:35:00",
         "x_kognition": "1.80",
@@ -2160,7 +2268,7 @@
         "bemerkung": "σ=0.60 M=0.37 R=0.53 E=0.09 | Level=0.40 dh\/dt=0.091"
     },
     {
-        "id": 121,
+        "id": 127,
         "teilnehmer_id": 10,
         "zeitpunkt": "2025-12-11 15:35:00",
         "x_kognition": "1.80",
@@ -2178,7 +2286,25 @@
         "bemerkung": "σ=0.60 M=0.37 R=0.53 E=0.00 | Level=0.38 dh\/dt=0.000"
     },
     {
-        "id": 122,
+        "id": 128,
+        "teilnehmer_id": 10,
+        "zeitpunkt": "2026-02-04 15:35:00",
+        "x_kognition": "1.80",
+        "y_sozial": "1.00",
+        "z_affektiv": "1.00",
+        "h_bedeutung": "1.36",
+        "dh_dt": 0,
+        "stabilitaet_score": 0.857778,
+        "operator_sigma": 0.6,
+        "operator_meta": 0.371111,
+        "operator_resonanz": 0.533333,
+        "operator_emer": 0,
+        "operator_level": 0.376111,
+        "dominanter_operator": "σ",
+        "bemerkung": "σ=0.60 M=0.37 R=0.53 E=0.00 | Level=0.38 dh\/dt=0.000"
+    },
+    {
+        "id": 129,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-09-10 15:35:00",
         "x_kognition": "1.80",
@@ -2196,7 +2322,7 @@
         "bemerkung": "σ=0.60 M=0.31 R=0.78 E=0.00 | Level=0.42 dh\/dt=0.000"
     },
     {
-        "id": 123,
+        "id": 130,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-09-19 15:35:00",
         "x_kognition": "2.40",
@@ -2214,7 +2340,7 @@
         "bemerkung": "σ=0.80 M=0.31 R=0.95 E=0.75 | Level=0.70 dh\/dt=0.545"
     },
     {
-        "id": 124,
+        "id": 131,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-10-01 15:35:00",
         "x_kognition": "1.60",
@@ -2232,7 +2358,7 @@
         "bemerkung": "σ=0.53 M=0.43 R=0.95 E=0.55 | Level=0.61 dh\/dt=-0.545"
     },
     {
-        "id": 125,
+        "id": 132,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-10-29 15:35:00",
         "x_kognition": "2.60",
@@ -2250,7 +2376,7 @@
         "bemerkung": "σ=0.87 M=0.31 R=0.95 E=0.93 | Level=0.76 dh\/dt=0.727"
     },
     {
-        "id": 126,
+        "id": 133,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-11-07 15:35:00",
         "x_kognition": "1.60",
@@ -2268,7 +2394,7 @@
         "bemerkung": "σ=0.53 M=0.31 R=0.62 E=1.00 | Level=0.62 dh\/dt=-1.000"
     },
     {
-        "id": 127,
+        "id": 134,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-11-26 15:35:00",
         "x_kognition": "2.60",
@@ -2286,7 +2412,7 @@
         "bemerkung": "σ=0.87 M=0.40 R=0.87 E=0.73 | Level=0.72 dh\/dt=0.727"
     },
     {
-        "id": 128,
+        "id": 135,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-11-28 16:45:47",
         "x_kognition": "2.00",
@@ -2304,7 +2430,7 @@
         "bemerkung": "σ=0.67 M=0.32 R=0.95 E=0.20 | Level=0.53 dh\/dt=0.000"
     },
     {
-        "id": 129,
+        "id": 136,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-12-03 15:35:00",
         "x_kognition": "2.20",
@@ -2322,7 +2448,7 @@
         "bemerkung": "σ=0.73 M=0.35 R=0.70 E=0.36 | Level=0.54 dh\/dt=-0.364"
     },
     {
-        "id": 130,
+        "id": 137,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-12-05 16:45:19",
         "x_kognition": "1.40",
@@ -2340,7 +2466,7 @@
         "bemerkung": "σ=0.47 M=0.31 R=0.78 E=0.27 | Level=0.46 dh\/dt=-0.273"
     },
     {
-        "id": 131,
+        "id": 138,
         "teilnehmer_id": 11,
         "zeitpunkt": "2025-12-10 15:35:00",
         "x_kognition": "1.60",
@@ -2358,7 +2484,7 @@
         "bemerkung": "σ=0.53 M=0.30 R=0.70 E=0.00 | Level=0.38 dh\/dt=0.000"
     },
     {
-        "id": 132,
+        "id": 139,
         "teilnehmer_id": 11,
         "zeitpunkt": "2026-01-16 16:48:15",
         "x_kognition": "1.80",
@@ -2376,7 +2502,7 @@
         "bemerkung": "σ=0.60 M=0.37 R=0.78 E=0.09 | Level=0.46 dh\/dt=0.091"
     },
     {
-        "id": 133,
+        "id": 140,
         "teilnehmer_id": 11,
         "zeitpunkt": "2026-01-21 15:35:00",
         "x_kognition": "2.00",
@@ -2394,7 +2520,25 @@
         "bemerkung": "σ=0.67 M=0.32 R=0.78 E=0.18 | Level=0.49 dh\/dt=0.182"
     },
     {
-        "id": 134,
+        "id": 141,
+        "teilnehmer_id": 11,
+        "zeitpunkt": "2026-02-04 15:35:00",
+        "x_kognition": "1.60",
+        "y_sozial": "1.75",
+        "z_affektiv": "2.00",
+        "h_bedeutung": "1.73",
+        "dh_dt": -0.0909091,
+        "stabilitaet_score": 0.972778,
+        "operator_sigma": 0.533333,
+        "operator_meta": 0.313611,
+        "operator_resonanz": 0.783333,
+        "operator_emer": 0.290909,
+        "operator_level": 0.480297,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.53 M=0.31 R=0.78 E=0.29 | Level=0.48 dh\/dt=-0.091"
+    },
+    {
+        "id": 142,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-08 17:10:00",
         "x_kognition": "1.00",
@@ -2412,7 +2556,7 @@
         "bemerkung": "σ=0.33 M=0.30 R=0.53 E=0.00 | Level=0.29 dh\/dt=0.000"
     },
     {
-        "id": 135,
+        "id": 143,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "1.40",
@@ -2430,7 +2574,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.18 | Level=0.37 dh\/dt=0.182"
     },
     {
-        "id": 136,
+        "id": 144,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "1.40",
@@ -2448,7 +2592,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.00 | Level=0.33 dh\/dt=0.000"
     },
     {
-        "id": 137,
+        "id": 145,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-09-17 17:10:00",
         "x_kognition": "1.00",
@@ -2466,7 +2610,7 @@
         "bemerkung": "σ=0.33 M=0.31 R=0.62 E=0.09 | Level=0.34 dh\/dt=-0.091"
     },
     {
-        "id": 138,
+        "id": 146,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-10-01 17:10:00",
         "x_kognition": "1.00",
@@ -2484,7 +2628,7 @@
         "bemerkung": "σ=0.33 M=0.31 R=0.62 E=0.00 | Level=0.31 dh\/dt=0.000"
     },
     {
-        "id": 139,
+        "id": 147,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-11-12 17:10:00",
         "x_kognition": "1.00",
@@ -2502,7 +2646,7 @@
         "bemerkung": "σ=0.33 M=0.30 R=0.53 E=0.09 | Level=0.31 dh\/dt=-0.091"
     },
     {
-        "id": 140,
+        "id": 148,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-11-26 17:10:00",
         "x_kognition": "1.20",
@@ -2520,7 +2664,7 @@
         "bemerkung": "σ=0.40 M=0.32 R=0.53 E=0.18 | Level=0.36 dh\/dt=0.182"
     },
     {
-        "id": 141,
+        "id": 149,
         "teilnehmer_id": 12,
         "zeitpunkt": "2025-12-10 17:10:00",
         "x_kognition": "1.20",
@@ -2538,7 +2682,7 @@
         "bemerkung": "σ=0.40 M=0.31 R=0.62 E=0.00 | Level=0.33 dh\/dt=0.000"
     },
     {
-        "id": 142,
+        "id": 150,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "2.00",
@@ -2556,7 +2700,7 @@
         "bemerkung": "σ=0.67 M=0.35 R=0.95 E=0.00 | Level=0.49 dh\/dt=0.000"
     },
     {
-        "id": 143,
+        "id": 151,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "1.20",
@@ -2574,7 +2718,7 @@
         "bemerkung": "σ=0.40 M=0.33 R=0.78 E=0.55 | Level=0.51 dh\/dt=-0.545"
     },
     {
-        "id": 144,
+        "id": 152,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-09-24 17:10:00",
         "x_kognition": "2.00",
@@ -2592,7 +2736,7 @@
         "bemerkung": "σ=0.67 M=0.33 R=0.87 E=0.45 | Level=0.58 dh\/dt=0.455"
     },
     {
-        "id": 145,
+        "id": 153,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-10-07 17:10:00",
         "x_kognition": "1.20",
@@ -2610,7 +2754,7 @@
         "bemerkung": "σ=0.40 M=0.35 R=0.78 E=0.55 | Level=0.52 dh\/dt=-0.545"
     },
     {
-        "id": 146,
+        "id": 154,
         "teilnehmer_id": 13,
         "zeitpunkt": "2025-11-12 17:10:00",
         "x_kognition": "1.20",
@@ -2628,7 +2772,7 @@
         "bemerkung": "σ=0.40 M=0.37 R=0.62 E=0.20 | Level=0.40 dh\/dt=0.000"
     },
     {
-        "id": 147,
+        "id": 155,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "1.60",
@@ -2646,7 +2790,7 @@
         "bemerkung": "σ=0.53 M=0.33 R=0.70 E=0.00 | Level=0.39 dh\/dt=0.000"
     },
     {
-        "id": 148,
+        "id": 156,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-09-17 17:10:00",
         "x_kognition": "1.40",
@@ -2664,7 +2808,7 @@
         "bemerkung": "σ=0.47 M=0.35 R=0.78 E=0.00 | Level=0.40 dh\/dt=0.000"
     },
     {
-        "id": 149,
+        "id": 157,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-09-24 17:10:00",
         "x_kognition": "1.40",
@@ -2682,7 +2826,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.27 | Level=0.40 dh\/dt=-0.273"
     },
     {
-        "id": 150,
+        "id": 158,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-01 17:10:00",
         "x_kognition": "1.40",
@@ -2700,7 +2844,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.09 | Level=0.35 dh\/dt=0.091"
     },
     {
-        "id": 151,
+        "id": 159,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-22 17:10:00",
         "x_kognition": "2.60",
@@ -2718,7 +2862,7 @@
         "bemerkung": "σ=0.87 M=0.37 R=0.78 E=1.00 | Level=0.76 dh\/dt=1.000"
     },
     {
-        "id": 152,
+        "id": 160,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-10-29 17:10:00",
         "x_kognition": "1.20",
@@ -2736,7 +2880,7 @@
         "bemerkung": "σ=0.40 M=0.32 R=0.53 E=1.00 | Level=0.56 dh\/dt=-1.091"
     },
     {
-        "id": 153,
+        "id": 161,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-11-26 17:10:00",
         "x_kognition": "1.40",
@@ -2754,7 +2898,7 @@
         "bemerkung": "σ=0.47 M=0.35 R=0.78 E=0.27 | Level=0.47 dh\/dt=0.273"
     },
     {
-        "id": 154,
+        "id": 162,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-12-03 17:10:00",
         "x_kognition": "1.40",
@@ -2772,7 +2916,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.70 E=0.09 | Level=0.40 dh\/dt=-0.091"
     },
     {
-        "id": 155,
+        "id": 163,
         "teilnehmer_id": 14,
         "zeitpunkt": "2025-12-10 17:10:00",
         "x_kognition": "1.80",
@@ -2790,7 +2934,7 @@
         "bemerkung": "σ=0.60 M=0.33 R=0.62 E=0.18 | Level=0.43 dh\/dt=0.182"
     },
     {
-        "id": 156,
+        "id": 164,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-09-11 15:35:00",
         "x_kognition": "3.20",
@@ -2808,7 +2952,7 @@
         "bemerkung": "σ=1.00 M=0.59 R=0.50 E=0.20 | Level=0.57 dh\/dt=0.000"
     },
     {
-        "id": 157,
+        "id": 165,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-09-18 15:35:00",
         "x_kognition": "3.20",
@@ -2826,7 +2970,7 @@
         "bemerkung": "σ=1.00 M=0.50 R=0.58 E=0.29 | Level=0.59 dh\/dt=-0.091"
     },
     {
-        "id": 158,
+        "id": 166,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-09-25 15:35:00",
         "x_kognition": "2.40",
@@ -2844,7 +2988,7 @@
         "bemerkung": "σ=0.80 M=0.47 R=0.33 E=0.73 | Level=0.58 dh\/dt=-0.727"
     },
     {
-        "id": 159,
+        "id": 167,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-10-23 15:35:00",
         "x_kognition": "2.00",
@@ -2862,7 +3006,7 @@
         "bemerkung": "σ=0.67 M=0.38 R=1.00 E=0.93 | Level=0.74 dh\/dt=0.727"
     },
     {
-        "id": 160,
+        "id": 168,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-11-06 15:34:29",
         "x_kognition": "2.60",
@@ -2880,7 +3024,7 @@
         "bemerkung": "σ=0.87 M=0.35 R=0.95 E=0.29 | Level=0.61 dh\/dt=0.091"
     },
     {
-        "id": 161,
+        "id": 169,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-11-06 15:35:00",
         "x_kognition": "3.60",
@@ -2898,7 +3042,7 @@
         "bemerkung": "σ=1.00 M=0.67 R=0.50 E=0.29 | Level=0.61 dh\/dt=0.091"
     },
     {
-        "id": 162,
+        "id": 170,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-11-11 17:10:00",
         "x_kognition": "3.60",
@@ -2916,7 +3060,7 @@
         "bemerkung": "σ=1.00 M=0.67 R=1.00 E=1.00 | Level=0.92 dh\/dt=1.364"
     },
     {
-        "id": 163,
+        "id": 171,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-11-13 15:35:00",
         "x_kognition": "3.40",
@@ -2934,7 +3078,7 @@
         "bemerkung": "σ=1.00 M=0.47 R=0.67 E=1.00 | Level=0.79 dh\/dt=-1.182"
     },
     {
-        "id": 164,
+        "id": 172,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-11-25 18:27:51",
         "x_kognition": "3.00",
@@ -2952,7 +3096,7 @@
         "bemerkung": "σ=1.00 M=0.39 R=1.00 E=0.29 | Level=0.67 dh\/dt=-0.091"
     },
     {
-        "id": 165,
+        "id": 173,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-12-10 18:27:14",
         "x_kognition": "3.60",
@@ -2970,7 +3114,7 @@
         "bemerkung": "σ=1.00 M=0.38 R=1.00 E=0.93 | Level=0.83 dh\/dt=0.727"
     },
     {
-        "id": 166,
+        "id": 174,
         "teilnehmer_id": 15,
         "zeitpunkt": "2025-12-11 16:52:16",
         "x_kognition": "2.60",
@@ -2988,7 +3132,7 @@
         "bemerkung": "σ=0.87 M=0.37 R=0.78 E=1.00 | Level=0.76 dh\/dt=-1.182"
     },
     {
-        "id": 167,
+        "id": 175,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-08 17:10:00",
         "x_kognition": "2.40",
@@ -3006,7 +3150,7 @@
         "bemerkung": "σ=0.80 M=0.42 R=0.62 E=0.00 | Level=0.46 dh\/dt=0.000"
     },
     {
-        "id": 168,
+        "id": 176,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-09 17:10:00",
         "x_kognition": "2.80",
@@ -3024,7 +3168,7 @@
         "bemerkung": "σ=0.93 M=0.37 R=0.87 E=0.75 | Level=0.73 dh\/dt=0.545"
     },
     {
-        "id": 169,
+        "id": 177,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-11 17:10:00",
         "x_kognition": "2.40",
@@ -3042,7 +3186,7 @@
         "bemerkung": "σ=0.80 M=0.47 R=0.33 E=0.75 | Level=0.59 dh\/dt=-0.545"
     },
     {
-        "id": 170,
+        "id": 178,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-15 17:10:00",
         "x_kognition": "2.60",
@@ -3060,7 +3204,7 @@
         "bemerkung": "σ=0.87 M=0.40 R=0.70 E=0.47 | Level=0.61 dh\/dt=0.273"
     },
     {
-        "id": 171,
+        "id": 179,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "2.00",
@@ -3078,7 +3222,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.56 | Level=0.55 dh\/dt=-0.364"
     },
     {
-        "id": 172,
+        "id": 180,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-23 15:35:00",
         "x_kognition": "1.00",
@@ -3096,7 +3240,7 @@
         "bemerkung": "σ=0.33 M=0.30 R=0.53 E=0.73 | Level=0.47 dh\/dt=-0.727"
     },
     {
-        "id": 173,
+        "id": 181,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-25 17:10:00",
         "x_kognition": "1.40",
@@ -3114,7 +3258,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.18 | Level=0.37 dh\/dt=0.182"
     },
     {
-        "id": 174,
+        "id": 182,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-09-29 17:10:00",
         "x_kognition": "1.40",
@@ -3132,7 +3276,7 @@
         "bemerkung": "σ=0.47 M=0.32 R=0.53 E=0.00 | Level=0.33 dh\/dt=0.000"
     },
     {
-        "id": 175,
+        "id": 183,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-02 17:10:00",
         "x_kognition": "2.20",
@@ -3150,7 +3294,7 @@
         "bemerkung": "σ=0.73 M=0.44 R=0.53 E=0.75 | Level=0.61 dh\/dt=0.545"
     },
     {
-        "id": 176,
+        "id": 184,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-23 15:35:00",
         "x_kognition": "1.60",
@@ -3168,7 +3312,7 @@
         "bemerkung": "σ=0.53 M=0.34 R=0.53 E=0.45 | Level=0.47 dh\/dt=-0.455"
     },
     {
-        "id": 177,
+        "id": 185,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-23 17:10:00",
         "x_kognition": "2.80",
@@ -3186,7 +3330,7 @@
         "bemerkung": "σ=0.93 M=0.53 R=0.42 E=1.00 | Level=0.72 dh\/dt=0.909"
     },
     {
-        "id": 178,
+        "id": 186,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-27 17:10:00",
         "x_kognition": "2.40",
@@ -3204,7 +3348,7 @@
         "bemerkung": "σ=0.80 M=0.47 R=0.33 E=0.56 | Level=0.54 dh\/dt=-0.364"
     },
     {
-        "id": 179,
+        "id": 187,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-10-30 17:10:00",
         "x_kognition": "1.80",
@@ -3222,7 +3366,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.53 E=0.36 | Level=0.46 dh\/dt=-0.364"
     },
     {
-        "id": 180,
+        "id": 188,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.20",
@@ -3240,7 +3384,7 @@
         "bemerkung": "σ=0.73 M=0.51 R=0.33 E=0.56 | Level=0.54 dh\/dt=0.364"
     },
     {
-        "id": 181,
+        "id": 189,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-06 17:10:00",
         "x_kognition": "1.20",
@@ -3258,7 +3402,7 @@
         "bemerkung": "σ=0.40 M=0.30 R=0.53 E=0.73 | Level=0.49 dh\/dt=-0.727"
     },
     {
-        "id": 182,
+        "id": 190,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-10 17:10:00",
         "x_kognition": "1.80",
@@ -3276,7 +3420,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.53 E=0.36 | Level=0.46 dh\/dt=0.364"
     },
     {
-        "id": 183,
+        "id": 191,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-13 17:10:00",
         "x_kognition": "2.40",
@@ -3294,7 +3438,7 @@
         "bemerkung": "σ=0.80 M=0.47 R=0.33 E=0.56 | Level=0.54 dh\/dt=0.364"
     },
     {
-        "id": 184,
+        "id": 192,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-24 18:32:51",
         "x_kognition": "2.20",
@@ -3312,7 +3456,7 @@
         "bemerkung": "σ=0.73 M=0.42 R=0.53 E=0.18 | Level=0.47 dh\/dt=-0.182"
     },
     {
-        "id": 185,
+        "id": 193,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-11-27 17:10:00",
         "x_kognition": "1.20",
@@ -3330,7 +3474,7 @@
         "bemerkung": "σ=0.40 M=0.30 R=0.53 E=0.55 | Level=0.45 dh\/dt=-0.545"
     },
     {
-        "id": 186,
+        "id": 194,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-12-04 17:10:00",
         "x_kognition": "1.20",
@@ -3348,7 +3492,7 @@
         "bemerkung": "σ=0.40 M=0.30 R=0.53 E=0.00 | Level=0.31 dh\/dt=0.000"
     },
     {
-        "id": 187,
+        "id": 195,
         "teilnehmer_id": 16,
         "zeitpunkt": "2025-12-08 18:25:18",
         "x_kognition": "1.20",
@@ -3366,7 +3510,7 @@
         "bemerkung": "σ=0.40 M=0.30 R=0.53 E=0.00 | Level=0.31 dh\/dt=0.000"
     },
     {
-        "id": 188,
+        "id": 196,
         "teilnehmer_id": 16,
         "zeitpunkt": "2026-01-15 17:10:00",
         "x_kognition": "2.20",
@@ -3384,7 +3528,61 @@
         "bemerkung": "σ=0.73 M=0.44 R=0.53 E=0.84 | Level=0.64 dh\/dt=0.636"
     },
     {
-        "id": 189,
+        "id": 197,
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2026-01-29 17:10:00",
+        "x_kognition": "1.80",
+        "y_sozial": "1.00",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "1.45",
+        "dh_dt": -0.272727,
+        "stabilitaet_score": 0.891111,
+        "operator_sigma": 0.6,
+        "operator_meta": 0.354445,
+        "operator_resonanz": 0.533333,
+        "operator_emer": 0.272727,
+        "operator_level": 0.440126,
+        "dominanter_operator": "σ",
+        "bemerkung": "σ=0.60 M=0.35 R=0.53 E=0.27 | Level=0.44 dh\/dt=-0.273"
+    },
+    {
+        "id": 198,
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2026-02-02 17:10:00",
+        "x_kognition": "1.60",
+        "y_sozial": "1.00",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "1.36",
+        "dh_dt": -0.0909091,
+        "stabilitaet_score": 0.931111,
+        "operator_sigma": 0.533333,
+        "operator_meta": 0.334444,
+        "operator_resonanz": 0.533333,
+        "operator_emer": 0.0909091,
+        "operator_level": 0.373005,
+        "dominanter_operator": "σ",
+        "bemerkung": "σ=0.53 M=0.33 R=0.53 E=0.09 | Level=0.37 dh\/dt=-0.091"
+    },
+    {
+        "id": 199,
+        "teilnehmer_id": 16,
+        "zeitpunkt": "2026-02-05 17:10:00",
+        "x_kognition": "1.60",
+        "y_sozial": "1.00",
+        "z_affektiv": "1.00",
+        "h_bedeutung": "1.27",
+        "dh_dt": -0.0909091,
+        "stabilitaet_score": 0.92,
+        "operator_sigma": 0.533333,
+        "operator_meta": 0.34,
+        "operator_resonanz": 0.533333,
+        "operator_emer": 0.0909091,
+        "operator_level": 0.374394,
+        "dominanter_operator": "σ",
+        "bemerkung": "σ=0.53 M=0.34 R=0.53 E=0.09 | Level=0.37 dh\/dt=-0.091"
+    },
+    {
+        "id": 200,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-09-11 17:10:00",
         "x_kognition": "2.40",
@@ -3402,7 +3600,7 @@
         "bemerkung": "σ=0.80 M=0.52 R=0.33 E=0.00 | Level=0.41 dh\/dt=0.000"
     },
     {
-        "id": 190,
+        "id": 201,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-09-18 17:10:00",
         "x_kognition": "2.40",
@@ -3420,7 +3618,7 @@
         "bemerkung": "σ=0.80 M=0.47 R=0.33 E=0.09 | Level=0.42 dh\/dt=0.091"
     },
     {
-        "id": 191,
+        "id": 202,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-09-25 17:10:00",
         "x_kognition": "3.20",
@@ -3438,7 +3636,7 @@
         "bemerkung": "σ=1.00 M=0.59 R=0.50 E=1.00 | Level=0.77 dh\/dt=0.818"
     },
     {
-        "id": 192,
+        "id": 203,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-02 17:10:00",
         "x_kognition": "2.80",
@@ -3456,7 +3654,7 @@
         "bemerkung": "σ=0.93 M=0.53 R=0.42 E=0.56 | Level=0.61 dh\/dt=-0.364"
     },
     {
-        "id": 193,
+        "id": 204,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-23 17:10:00",
         "x_kognition": "2.80",
@@ -3474,7 +3672,7 @@
         "bemerkung": "σ=0.93 M=0.49 R=0.50 E=0.09 | Level=0.50 dh\/dt=-0.091"
     },
     {
-        "id": 194,
+        "id": 205,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-10-30 17:10:00",
         "x_kognition": "2.80",
@@ -3492,7 +3690,7 @@
         "bemerkung": "σ=0.93 M=0.61 R=0.42 E=0.38 | Level=0.58 dh\/dt=0.182"
     },
     {
-        "id": 195,
+        "id": 206,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-11-06 17:10:00",
         "x_kognition": "2.40",
@@ -3510,7 +3708,7 @@
         "bemerkung": "σ=0.80 M=0.36 R=0.78 E=0.29 | Level=0.56 dh\/dt=-0.091"
     },
     {
-        "id": 196,
+        "id": 207,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-12-04 17:10:00",
         "x_kognition": "3.00",
@@ -3528,7 +3726,7 @@
         "bemerkung": "σ=1.00 M=0.30 R=1.00 E=1.00 | Level=0.82 dh\/dt=0.818"
     },
     {
-        "id": 197,
+        "id": 208,
         "teilnehmer_id": 17,
         "zeitpunkt": "2025-12-11 17:10:00",
         "x_kognition": "2.40",
@@ -3546,7 +3744,43 @@
         "bemerkung": "σ=0.80 M=0.31 R=0.95 E=0.84 | Level=0.72 dh\/dt=-0.636"
     },
     {
-        "id": 198,
+        "id": 209,
+        "teilnehmer_id": 17,
+        "zeitpunkt": "2026-01-29 17:10:00",
+        "x_kognition": "3.00",
+        "y_sozial": "2.25",
+        "z_affektiv": "3.00",
+        "h_bedeutung": "2.73",
+        "dh_dt": 0.363636,
+        "stabilitaet_score": 0.875,
+        "operator_sigma": 1,
+        "operator_meta": 0.3625,
+        "operator_resonanz": 0.95,
+        "operator_emer": 0.563636,
+        "operator_level": 0.719034,
+        "dominanter_operator": "σ",
+        "bemerkung": "σ=1.00 M=0.36 R=0.95 E=0.56 | Level=0.72 dh\/dt=0.364"
+    },
+    {
+        "id": 210,
+        "teilnehmer_id": 17,
+        "zeitpunkt": "2026-02-05 17:10:00",
+        "x_kognition": "2.40",
+        "y_sozial": "2.25",
+        "z_affektiv": "2.50",
+        "h_bedeutung": "2.36",
+        "dh_dt": -0.363636,
+        "stabilitaet_score": 0.989444,
+        "operator_sigma": 0.8,
+        "operator_meta": 0.305278,
+        "operator_resonanz": 0.95,
+        "operator_emer": 0.563636,
+        "operator_level": 0.654728,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.80 M=0.31 R=0.95 E=0.56 | Level=0.65 dh\/dt=-0.364"
+    },
+    {
+        "id": 211,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-09-11 17:10:00",
         "x_kognition": "1.20",
@@ -3564,7 +3798,7 @@
         "bemerkung": "σ=0.40 M=0.35 R=0.87 E=0.00 | Level=0.41 dh\/dt=0.000"
     },
     {
-        "id": 199,
+        "id": 212,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-09-25 17:10:00",
         "x_kognition": "1.20",
@@ -3582,7 +3816,7 @@
         "bemerkung": "σ=0.40 M=0.33 R=0.78 E=0.09 | Level=0.40 dh\/dt=-0.091"
     },
     {
-        "id": 200,
+        "id": 213,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-02 17:10:00",
         "x_kognition": "1.40",
@@ -3600,7 +3834,7 @@
         "bemerkung": "σ=0.47 M=0.33 R=0.78 E=0.38 | Level=0.49 dh\/dt=0.182"
     },
     {
-        "id": 201,
+        "id": 214,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-23 15:35:00",
         "x_kognition": "1.80",
@@ -3618,7 +3852,7 @@
         "bemerkung": "σ=0.60 M=0.32 R=0.70 E=0.29 | Level=0.48 dh\/dt=0.091"
     },
     {
-        "id": 202,
+        "id": 215,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-23 17:10:00",
         "x_kognition": "3.00",
@@ -3636,7 +3870,7 @@
         "bemerkung": "σ=1.00 M=0.55 R=0.50 E=0.93 | Level=0.74 dh\/dt=0.727"
     },
     {
-        "id": 203,
+        "id": 216,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-10-30 17:10:00",
         "x_kognition": "2.80",
@@ -3654,7 +3888,7 @@
         "bemerkung": "σ=0.93 M=0.35 R=0.95 E=0.38 | Level=0.65 dh\/dt=0.182"
     },
     {
-        "id": 204,
+        "id": 217,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-11-06 17:10:00",
         "x_kognition": "2.80",
@@ -3672,7 +3906,7 @@
         "bemerkung": "σ=0.93 M=0.34 R=1.00 E=0.65 | Level=0.73 dh\/dt=0.455"
     },
     {
-        "id": 205,
+        "id": 218,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-11-13 17:10:00",
         "x_kognition": "3.20",
@@ -3690,7 +3924,7 @@
         "bemerkung": "σ=1.00 M=0.42 R=0.87 E=0.65 | Level=0.74 dh\/dt=-0.455"
     },
     {
-        "id": 206,
+        "id": 219,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-11-27 17:10:00",
         "x_kognition": "2.20",
@@ -3708,7 +3942,7 @@
         "bemerkung": "σ=0.73 M=0.38 R=0.62 E=1.00 | Level=0.68 dh\/dt=-0.818"
     },
     {
-        "id": 207,
+        "id": 220,
         "teilnehmer_id": 18,
         "zeitpunkt": "2025-12-04 17:10:00",
         "x_kognition": "2.00",
@@ -3726,7 +3960,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.29 | Level=0.48 dh\/dt=-0.091"
     },
     {
-        "id": 208,
+        "id": 221,
         "teilnehmer_id": 18,
         "zeitpunkt": "2026-01-15 17:10:00",
         "x_kognition": "3.00",
@@ -3744,7 +3978,25 @@
         "bemerkung": "σ=1.00 M=0.35 R=0.95 E=1.00 | Level=0.82 dh\/dt=0.909"
     },
     {
-        "id": 209,
+        "id": 222,
+        "teilnehmer_id": 18,
+        "zeitpunkt": "2026-01-29 17:10:00",
+        "x_kognition": "1.40",
+        "y_sozial": "2.00",
+        "z_affektiv": "2.00",
+        "h_bedeutung": "1.73",
+        "dh_dt": -0.909091,
+        "stabilitaet_score": 0.92,
+        "operator_sigma": 0.466667,
+        "operator_meta": 0.34,
+        "operator_resonanz": 0.866667,
+        "operator_emer": 1,
+        "operator_level": 0.668333,
+        "dominanter_operator": "E",
+        "bemerkung": "σ=0.47 M=0.34 R=0.87 E=1.00 | Level=0.67 dh\/dt=-0.909"
+    },
+    {
+        "id": 223,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-09-18 17:10:00",
         "x_kognition": "2.60",
@@ -3762,7 +4014,7 @@
         "bemerkung": "σ=0.87 M=0.31 R=0.95 E=0.20 | Level=0.58 dh\/dt=0.000"
     },
     {
-        "id": 210,
+        "id": 224,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-09-25 17:10:00",
         "x_kognition": "1.80",
@@ -3780,7 +4032,7 @@
         "bemerkung": "σ=0.60 M=0.32 R=0.87 E=0.64 | Level=0.61 dh\/dt=-0.636"
     },
     {
-        "id": 211,
+        "id": 225,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-10-02 17:10:00",
         "x_kognition": "2.20",
@@ -3798,7 +4050,7 @@
         "bemerkung": "σ=0.73 M=0.32 R=0.78 E=0.38 | Level=0.55 dh\/dt=0.182"
     },
     {
-        "id": 212,
+        "id": 226,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-10-30 17:10:00",
         "x_kognition": "2.80",
@@ -3816,7 +4068,7 @@
         "bemerkung": "σ=0.93 M=0.35 R=0.95 E=0.84 | Level=0.77 dh\/dt=0.636"
     },
     {
-        "id": 213,
+        "id": 227,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-11-06 17:10:00",
         "x_kognition": "2.20",
@@ -3834,7 +4086,7 @@
         "bemerkung": "σ=0.73 M=0.34 R=0.78 E=0.73 | Level=0.65 dh\/dt=-0.727"
     },
     {
-        "id": 214,
+        "id": 228,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-11-13 17:10:00",
         "x_kognition": "1.80",
@@ -3852,7 +4104,7 @@
         "bemerkung": "σ=0.60 M=0.30 R=0.87 E=0.20 | Level=0.49 dh\/dt=0.000"
     },
     {
-        "id": 215,
+        "id": 229,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-11-27 17:10:00",
         "x_kognition": "1.40",
@@ -3870,7 +4122,7 @@
         "bemerkung": "σ=0.47 M=0.31 R=0.78 E=0.36 | Level=0.48 dh\/dt=-0.364"
     },
     {
-        "id": 216,
+        "id": 230,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-12-04 17:10:00",
         "x_kognition": "1.80",
@@ -3888,7 +4140,7 @@
         "bemerkung": "σ=0.60 M=0.31 R=0.78 E=0.18 | Level=0.47 dh\/dt=0.182"
     },
     {
-        "id": 217,
+        "id": 231,
         "teilnehmer_id": 19,
         "zeitpunkt": "2025-12-11 17:10:00",
         "x_kognition": "1.80",
@@ -3906,7 +4158,7 @@
         "bemerkung": "σ=0.60 M=0.30 R=0.87 E=0.38 | Level=0.54 dh\/dt=0.182"
     },
     {
-        "id": 218,
+        "id": 232,
         "teilnehmer_id": 19,
         "zeitpunkt": "2026-01-15 17:10:00",
         "x_kognition": "1.60",
@@ -3924,7 +4176,43 @@
         "bemerkung": "σ=0.53 M=0.32 R=0.87 E=0.18 | Level=0.48 dh\/dt=-0.182"
     },
     {
-        "id": 219,
+        "id": 233,
+        "teilnehmer_id": 19,
+        "zeitpunkt": "2026-01-29 17:10:00",
+        "x_kognition": "1.80",
+        "y_sozial": "1.75",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "1.73",
+        "dh_dt": 0,
+        "stabilitaet_score": 0.982778,
+        "operator_sigma": 0.6,
+        "operator_meta": 0.308611,
+        "operator_resonanz": 0.783333,
+        "operator_emer": 0,
+        "operator_level": 0.422986,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.60 M=0.31 R=0.78 E=0.00 | Level=0.42 dh\/dt=0.000"
+    },
+    {
+        "id": 234,
+        "teilnehmer_id": 19,
+        "zeitpunkt": "2026-02-05 17:10:00",
+        "x_kognition": "1.60",
+        "y_sozial": "2.00",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "1.73",
+        "dh_dt": 0,
+        "stabilitaet_score": 0.953333,
+        "operator_sigma": 0.533333,
+        "operator_meta": 0.323334,
+        "operator_resonanz": 0.866667,
+        "operator_emer": 0,
+        "operator_level": 0.430833,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.53 M=0.32 R=0.87 E=0.00 | Level=0.43 dh\/dt=0.000"
+    },
+    {
+        "id": 235,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-08 17:10:00",
         "x_kognition": "1.80",
@@ -3942,7 +4230,7 @@
         "bemerkung": "σ=0.60 M=0.31 R=0.70 E=0.00 | Level=0.40 dh\/dt=0.000"
     },
     {
-        "id": 220,
+        "id": 236,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-15 17:10:00",
         "x_kognition": "2.00",
@@ -3960,7 +4248,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.29 | Level=0.48 dh\/dt=0.091"
     },
     {
-        "id": 221,
+        "id": 237,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-19 15:35:00",
         "x_kognition": "1.80",
@@ -3978,7 +4266,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.62 E=0.29 | Level=0.46 dh\/dt=-0.091"
     },
     {
-        "id": 222,
+        "id": 238,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "2.00",
@@ -3996,7 +4284,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.29 | Level=0.48 dh\/dt=0.091"
     },
     {
-        "id": 223,
+        "id": 239,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-26 15:35:00",
         "x_kognition": "1.80",
@@ -4014,7 +4302,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.62 E=0.29 | Level=0.46 dh\/dt=-0.091"
     },
     {
-        "id": 224,
+        "id": 240,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-09-29 17:10:00",
         "x_kognition": "1.80",
@@ -4032,7 +4320,7 @@
         "bemerkung": "σ=0.60 M=0.35 R=0.62 E=0.20 | Level=0.44 dh\/dt=0.000"
     },
     {
-        "id": 225,
+        "id": 241,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-20 17:10:00",
         "x_kognition": "2.00",
@@ -4050,7 +4338,7 @@
         "bemerkung": "σ=0.67 M=0.35 R=0.62 E=0.00 | Level=0.41 dh\/dt=0.000"
     },
     {
-        "id": 226,
+        "id": 242,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-24 15:35:00",
         "x_kognition": "2.00",
@@ -4068,7 +4356,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.29 | Level=0.48 dh\/dt=0.091"
     },
     {
-        "id": 227,
+        "id": 243,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-10-27 17:10:00",
         "x_kognition": "2.00",
@@ -4086,7 +4374,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.20 | Level=0.46 dh\/dt=0.000"
     },
     {
-        "id": 228,
+        "id": 244,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.00",
@@ -4104,7 +4392,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.20 | Level=0.46 dh\/dt=0.000"
     },
     {
-        "id": 229,
+        "id": 245,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-11-10 17:10:00",
         "x_kognition": "2.00",
@@ -4122,7 +4410,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.20 | Level=0.46 dh\/dt=0.000"
     },
     {
-        "id": 230,
+        "id": 246,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-11-14 15:35:00",
         "x_kognition": "2.00",
@@ -4140,7 +4428,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.20 | Level=0.46 dh\/dt=0.000"
     },
     {
-        "id": 231,
+        "id": 247,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-11-17 17:10:00",
         "x_kognition": "2.00",
@@ -4158,7 +4446,7 @@
         "bemerkung": "σ=0.67 M=0.33 R=0.70 E=0.29 | Level=0.50 dh\/dt=0.091"
     },
     {
-        "id": 232,
+        "id": 248,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-11-24 17:10:00",
         "x_kognition": "1.60",
@@ -4176,7 +4464,7 @@
         "bemerkung": "σ=0.53 M=0.30 R=0.70 E=0.27 | Level=0.45 dh\/dt=-0.273"
     },
     {
-        "id": 233,
+        "id": 249,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-11-28 16:47:26",
         "x_kognition": "1.20",
@@ -4194,7 +4482,7 @@
         "bemerkung": "σ=0.40 M=0.31 R=0.62 E=0.36 | Level=0.42 dh\/dt=-0.364"
     },
     {
-        "id": 234,
+        "id": 250,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-12-05 15:35:00",
         "x_kognition": "1.80",
@@ -4212,7 +4500,7 @@
         "bemerkung": "σ=0.60 M=0.33 R=0.62 E=0.36 | Level=0.48 dh\/dt=0.364"
     },
     {
-        "id": 235,
+        "id": 251,
         "teilnehmer_id": 20,
         "zeitpunkt": "2025-12-08 17:10:00",
         "x_kognition": "2.00",
@@ -4230,7 +4518,7 @@
         "bemerkung": "σ=0.67 M=0.33 R=0.70 E=0.47 | Level=0.54 dh\/dt=0.273"
     },
     {
-        "id": 236,
+        "id": 252,
         "teilnehmer_id": 20,
         "zeitpunkt": "2026-01-16 15:35:00",
         "x_kognition": "2.00",
@@ -4248,7 +4536,7 @@
         "bemerkung": "σ=0.67 M=0.33 R=0.70 E=0.20 | Level=0.47 dh\/dt=0.000"
     },
     {
-        "id": 237,
+        "id": 253,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-08 17:10:00",
         "x_kognition": "2.20",
@@ -4266,7 +4554,7 @@
         "bemerkung": "σ=0.73 M=0.44 R=0.53 E=0.20 | Level=0.48 dh\/dt=0.000"
     },
     {
-        "id": 238,
+        "id": 254,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-15 17:10:00",
         "x_kognition": "2.00",
@@ -4284,7 +4572,7 @@
         "bemerkung": "σ=0.67 M=0.41 R=0.53 E=0.29 | Level=0.48 dh\/dt=-0.091"
     },
     {
-        "id": 239,
+        "id": 255,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "1.60",
@@ -4302,7 +4590,7 @@
         "bemerkung": "σ=0.53 M=0.33 R=0.62 E=0.27 | Level=0.44 dh\/dt=-0.273"
     },
     {
-        "id": 240,
+        "id": 256,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-09-29 17:10:00",
         "x_kognition": "1.80",
@@ -4320,7 +4608,7 @@
         "bemerkung": "σ=0.60 M=0.33 R=0.62 E=0.18 | Level=0.43 dh\/dt=0.182"
     },
     {
-        "id": 241,
+        "id": 257,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-20 17:10:00",
         "x_kognition": "2.60",
@@ -4338,7 +4626,7 @@
         "bemerkung": "σ=0.87 M=0.50 R=0.50 E=0.93 | Level=0.70 dh\/dt=0.727"
     },
     {
-        "id": 242,
+        "id": 258,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-20 17:10:00",
         "x_kognition": "2.60",
@@ -4356,7 +4644,7 @@
         "bemerkung": "σ=0.87 M=0.50 R=0.50 E=0.20 | Level=0.52 dh\/dt=0.000"
     },
     {
-        "id": 243,
+        "id": 259,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-10-27 17:10:00",
         "x_kognition": "1.20",
@@ -4374,7 +4662,7 @@
         "bemerkung": "σ=0.40 M=0.31 R=0.62 E=1.00 | Level=0.58 dh\/dt=-1.000"
     },
     {
-        "id": 244,
+        "id": 260,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.40",
@@ -4392,7 +4680,7 @@
         "bemerkung": "σ=0.80 M=0.46 R=0.42 E=0.93 | Level=0.65 dh\/dt=0.727"
     },
     {
-        "id": 245,
+        "id": 261,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.40",
@@ -4410,7 +4698,7 @@
         "bemerkung": "σ=0.80 M=0.46 R=0.42 E=0.20 | Level=0.47 dh\/dt=0.000"
     },
     {
-        "id": 246,
+        "id": 262,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-10 17:10:00",
         "x_kognition": "2.00",
@@ -4428,7 +4716,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.47 | Level=0.53 dh\/dt=-0.273"
     },
     {
-        "id": 247,
+        "id": 263,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-17 17:10:00",
         "x_kognition": "1.60",
@@ -4446,7 +4734,7 @@
         "bemerkung": "σ=0.53 M=0.33 R=0.53 E=0.36 | Level=0.44 dh\/dt=-0.364"
     },
     {
-        "id": 248,
+        "id": 264,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-11-24 17:10:00",
         "x_kognition": "2.00",
@@ -4464,7 +4752,7 @@
         "bemerkung": "σ=0.67 M=0.38 R=0.53 E=0.18 | Level=0.44 dh\/dt=0.182"
     },
     {
-        "id": 249,
+        "id": 265,
         "teilnehmer_id": 21,
         "zeitpunkt": "2025-12-08 17:10:00",
         "x_kognition": "1.40",
@@ -4482,7 +4770,25 @@
         "bemerkung": "σ=0.47 M=0.31 R=0.62 E=0.27 | Level=0.42 dh\/dt=-0.273"
     },
     {
-        "id": 250,
+        "id": 266,
+        "teilnehmer_id": 21,
+        "zeitpunkt": "2026-02-02 17:10:00",
+        "x_kognition": "1.60",
+        "y_sozial": "1.25",
+        "z_affektiv": "1.50",
+        "h_bedeutung": "1.45",
+        "dh_dt": 0.181818,
+        "stabilitaet_score": 0.978333,
+        "operator_sigma": 0.533333,
+        "operator_meta": 0.310834,
+        "operator_resonanz": 0.616667,
+        "operator_emer": 0.181818,
+        "operator_level": 0.410663,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.53 M=0.31 R=0.62 E=0.18 | Level=0.41 dh\/dt=0.182"
+    },
+    {
+        "id": 267,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-09-10 17:10:00",
         "x_kognition": "2.00",
@@ -4500,7 +4806,7 @@
         "bemerkung": "σ=0.67 M=0.38 R=0.70 E=0.20 | Level=0.49 dh\/dt=0.000"
     },
     {
-        "id": 251,
+        "id": 268,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-09-24 17:10:00",
         "x_kognition": "2.80",
@@ -4518,7 +4824,7 @@
         "bemerkung": "σ=0.93 M=0.52 R=0.50 E=0.65 | Level=0.65 dh\/dt=0.455"
     },
     {
-        "id": 252,
+        "id": 269,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-01 17:10:00",
         "x_kognition": "2.60",
@@ -4536,7 +4842,7 @@
         "bemerkung": "σ=0.87 M=0.45 R=0.42 E=0.56 | Level=0.57 dh\/dt=-0.364"
     },
     {
-        "id": 253,
+        "id": 270,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-07 17:10:00",
         "x_kognition": "2.20",
@@ -4554,7 +4860,7 @@
         "bemerkung": "σ=0.73 M=0.38 R=0.62 E=0.38 | Level=0.53 dh\/dt=-0.182"
     },
     {
-        "id": 254,
+        "id": 271,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-22 17:10:00",
         "x_kognition": "1.60",
@@ -4572,7 +4878,7 @@
         "bemerkung": "σ=0.53 M=0.35 R=0.62 E=0.47 | Level=0.49 dh\/dt=-0.273"
     },
     {
-        "id": 255,
+        "id": 272,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-10-29 17:10:00",
         "x_kognition": "2.80",
@@ -4590,7 +4896,7 @@
         "bemerkung": "σ=0.93 M=0.53 R=0.42 E=0.84 | Level=0.68 dh\/dt=0.636"
     },
     {
-        "id": 256,
+        "id": 273,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-11-06 17:10:00",
         "x_kognition": "1.80",
@@ -4608,7 +4914,7 @@
         "bemerkung": "σ=0.60 M=0.39 R=0.53 E=0.84 | Level=0.59 dh\/dt=-0.636"
     },
     {
-        "id": 257,
+        "id": 274,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-11-12 17:10:00",
         "x_kognition": "2.40",
@@ -4626,7 +4932,7 @@
         "bemerkung": "σ=0.80 M=0.56 R=0.42 E=0.75 | Level=0.63 dh\/dt=0.545"
     },
     {
-        "id": 258,
+        "id": 275,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-11-13 17:10:00",
         "x_kognition": "2.00",
@@ -4644,7 +4950,7 @@
         "bemerkung": "σ=0.67 M=0.43 R=0.62 E=0.47 | Level=0.55 dh\/dt=-0.273"
     },
     {
-        "id": 259,
+        "id": 276,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-11-25 18:32:25",
         "x_kognition": "1.80",
@@ -4662,7 +4968,7 @@
         "bemerkung": "σ=0.60 M=0.32 R=0.70 E=0.29 | Level=0.48 dh\/dt=-0.091"
     },
     {
-        "id": 260,
+        "id": 277,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-11-26 17:10:00",
         "x_kognition": "3.00",
@@ -4680,7 +4986,7 @@
         "bemerkung": "σ=1.00 M=0.57 R=0.58 E=1.00 | Level=0.79 dh\/dt=0.909"
     },
     {
-        "id": 261,
+        "id": 278,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-12-03 17:10:00",
         "x_kognition": "2.20",
@@ -4698,7 +5004,7 @@
         "bemerkung": "σ=0.73 M=0.38 R=0.62 E=1.00 | Level=0.68 dh\/dt=-0.818"
     },
     {
-        "id": 262,
+        "id": 279,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-12-04 17:10:00",
         "x_kognition": "1.80",
@@ -4716,7 +5022,7 @@
         "bemerkung": "σ=0.60 M=0.32 R=0.70 E=0.29 | Level=0.48 dh\/dt=-0.091"
     },
     {
-        "id": 263,
+        "id": 280,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-12-10 17:10:00",
         "x_kognition": "2.20",
@@ -4734,7 +5040,7 @@
         "bemerkung": "σ=0.73 M=0.32 R=0.87 E=0.65 | Level=0.64 dh\/dt=0.455"
     },
     {
-        "id": 264,
+        "id": 281,
         "teilnehmer_id": 22,
         "zeitpunkt": "2025-12-11 17:10:00",
         "x_kognition": "2.20",
@@ -4752,7 +5058,43 @@
         "bemerkung": "σ=0.73 M=0.32 R=0.78 E=0.38 | Level=0.55 dh\/dt=-0.182"
     },
     {
-        "id": 265,
+        "id": 282,
+        "teilnehmer_id": 22,
+        "zeitpunkt": "2026-01-29 17:10:00",
+        "x_kognition": "2.60",
+        "y_sozial": "1.25",
+        "z_affektiv": "3.00",
+        "h_bedeutung": "2.18",
+        "dh_dt": 0.181818,
+        "stabilitaet_score": 0.439444,
+        "operator_sigma": 0.866667,
+        "operator_meta": 0.580278,
+        "operator_resonanz": 0.416667,
+        "operator_emer": 0.381818,
+        "operator_level": 0.561357,
+        "dominanter_operator": "σ",
+        "bemerkung": "σ=0.87 M=0.58 R=0.42 E=0.38 | Level=0.56 dh\/dt=0.182"
+    },
+    {
+        "id": 283,
+        "teilnehmer_id": 22,
+        "zeitpunkt": "2026-02-05 17:10:00",
+        "x_kognition": "2.40",
+        "y_sozial": "1.50",
+        "z_affektiv": "2.50",
+        "h_bedeutung": "2.09",
+        "dh_dt": -0.0909091,
+        "stabilitaet_score": 0.797778,
+        "operator_sigma": 0.8,
+        "operator_meta": 0.401111,
+        "operator_resonanz": 0.7,
+        "operator_emer": 0.290909,
+        "operator_level": 0.548005,
+        "dominanter_operator": "σ",
+        "bemerkung": "σ=0.80 M=0.40 R=0.70 E=0.29 | Level=0.55 dh\/dt=-0.091"
+    },
+    {
+        "id": 284,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-09-15 17:10:00",
         "x_kognition": "2.40",
@@ -4770,7 +5112,7 @@
         "bemerkung": "σ=0.80 M=0.37 R=0.70 E=0.20 | Level=0.52 dh\/dt=0.000"
     },
     {
-        "id": 266,
+        "id": 285,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-09-22 17:10:00",
         "x_kognition": "2.00",
@@ -4788,7 +5130,7 @@
         "bemerkung": "σ=0.67 M=0.31 R=0.78 E=0.29 | Level=0.51 dh\/dt=-0.091"
     },
     {
-        "id": 267,
+        "id": 286,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-09-29 17:10:00",
         "x_kognition": "2.00",
@@ -4806,7 +5148,7 @@
         "bemerkung": "σ=0.67 M=0.33 R=0.87 E=0.38 | Level=0.56 dh\/dt=0.182"
     },
     {
-        "id": 268,
+        "id": 287,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-10-20 17:10:00",
         "x_kognition": "2.00",
@@ -4824,7 +5166,7 @@
         "bemerkung": "σ=0.67 M=0.31 R=0.78 E=0.38 | Level=0.53 dh\/dt=-0.182"
     },
     {
-        "id": 269,
+        "id": 288,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-10-27 17:10:00",
         "x_kognition": "2.20",
@@ -4842,7 +5184,7 @@
         "bemerkung": "σ=0.73 M=0.30 R=0.87 E=0.38 | Level=0.57 dh\/dt=0.182"
     },
     {
-        "id": 270,
+        "id": 289,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-11-03 17:10:00",
         "x_kognition": "2.00",
@@ -4860,7 +5202,7 @@
         "bemerkung": "σ=0.67 M=0.32 R=0.78 E=0.27 | Level=0.51 dh\/dt=-0.273"
     },
     {
-        "id": 271,
+        "id": 290,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-11-10 17:10:00",
         "x_kognition": "2.00",
@@ -4878,7 +5220,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.29 | Level=0.48 dh\/dt=-0.091"
     },
     {
-        "id": 272,
+        "id": 291,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-11-17 17:10:00",
         "x_kognition": "1.80",
@@ -4896,7 +5238,7 @@
         "bemerkung": "σ=0.60 M=0.32 R=0.70 E=0.20 | Level=0.46 dh\/dt=0.000"
     },
     {
-        "id": 273,
+        "id": 292,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-11-24 17:10:00",
         "x_kognition": "2.00",
@@ -4914,7 +5256,7 @@
         "bemerkung": "σ=0.67 M=0.33 R=0.70 E=0.00 | Level=0.42 dh\/dt=0.000"
     },
     {
-        "id": 274,
+        "id": 293,
         "teilnehmer_id": 23,
         "zeitpunkt": "2025-12-08 17:10:00",
         "x_kognition": "2.00",
@@ -4932,7 +5274,7 @@
         "bemerkung": "σ=0.67 M=0.31 R=0.78 E=0.38 | Level=0.53 dh\/dt=0.182"
     },
     {
-        "id": 275,
+        "id": 294,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-19 15:35:00",
         "x_kognition": "2.40",
@@ -4950,7 +5292,7 @@
         "bemerkung": "σ=0.80 M=0.41 R=0.62 E=0.20 | Level=0.51 dh\/dt=0.000"
     },
     {
-        "id": 276,
+        "id": 295,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-23 17:10:00",
         "x_kognition": "1.80",
@@ -4968,7 +5310,7 @@
         "bemerkung": "σ=0.60 M=0.33 R=0.62 E=0.36 | Level=0.48 dh\/dt=-0.364"
     },
     {
-        "id": 277,
+        "id": 296,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-26 17:30:26",
         "x_kognition": "1.40",
@@ -4986,7 +5328,7 @@
         "bemerkung": "σ=0.47 M=0.30 R=0.70 E=0.09 | Level=0.39 dh\/dt=-0.091"
     },
     {
-        "id": 278,
+        "id": 297,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-09-30 17:10:00",
         "x_kognition": "1.80",
@@ -5004,7 +5346,7 @@
         "bemerkung": "σ=0.60 M=0.31 R=0.78 E=0.27 | Level=0.49 dh\/dt=0.273"
     },
     {
-        "id": 279,
+        "id": 298,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-11-07 15:35:00",
         "x_kognition": "2.40",
@@ -5022,7 +5364,7 @@
         "bemerkung": "σ=0.80 M=0.38 R=0.87 E=0.84 | Level=0.72 dh\/dt=0.636"
     },
     {
-        "id": 280,
+        "id": 299,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-11-14 15:35:00",
         "x_kognition": "1.60",
@@ -5040,7 +5382,7 @@
         "bemerkung": "σ=0.53 M=0.31 R=0.62 E=0.91 | Level=0.59 dh\/dt=-0.909"
     },
     {
-        "id": 281,
+        "id": 300,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-11-21 15:35:00",
         "x_kognition": "1.80",
@@ -5058,7 +5400,7 @@
         "bemerkung": "σ=0.60 M=0.31 R=0.70 E=0.18 | Level=0.45 dh\/dt=0.182"
     },
     {
-        "id": 282,
+        "id": 301,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-11-28 15:35:00",
         "x_kognition": "2.20",
@@ -5076,7 +5418,7 @@
         "bemerkung": "σ=0.73 M=0.31 R=0.95 E=0.84 | Level=0.71 dh\/dt=0.636"
     },
     {
-        "id": 283,
+        "id": 302,
         "teilnehmer_id": 24,
         "zeitpunkt": "2025-12-05 15:35:00",
         "x_kognition": "2.80",
@@ -5094,7 +5436,7 @@
         "bemerkung": "σ=0.93 M=0.35 R=0.87 E=0.38 | Level=0.63 dh\/dt=0.182"
     },
     {
-        "id": 284,
+        "id": 303,
         "teilnehmer_id": 24,
         "zeitpunkt": "2026-01-16 15:35:00",
         "x_kognition": "1.60",
@@ -5112,7 +5454,25 @@
         "bemerkung": "σ=0.53 M=0.38 R=0.53 E=1.00 | Level=0.61 dh\/dt=-1.000"
     },
     {
-        "id": 285,
+        "id": 304,
+        "teilnehmer_id": 24,
+        "zeitpunkt": "2026-02-03 17:10:00",
+        "x_kognition": "2.60",
+        "y_sozial": "1.50",
+        "z_affektiv": "2.50",
+        "h_bedeutung": "2.18",
+        "dh_dt": 0.727273,
+        "stabilitaet_score": 0.753333,
+        "operator_sigma": 0.866667,
+        "operator_meta": 0.423333,
+        "operator_resonanz": 0.7,
+        "operator_emer": 0.927273,
+        "operator_level": 0.729318,
+        "dominanter_operator": "E",
+        "bemerkung": "σ=0.87 M=0.42 R=0.70 E=0.93 | Level=0.73 dh\/dt=0.727"
+    },
+    {
+        "id": 305,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-10-20 16:43:26",
         "x_kognition": "1.50",
@@ -5130,7 +5490,7 @@
         "bemerkung": "σ=0.50 M=0.38 R=0.87 E=0.20 | Level=0.49 dh\/dt=0.000"
     },
     {
-        "id": 286,
+        "id": 306,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-10-27 16:46:37",
         "x_kognition": "2.60",
@@ -5148,7 +5508,7 @@
         "bemerkung": "σ=0.87 M=0.34 R=0.87 E=0.58 | Level=0.66 dh\/dt=0.384"
     },
     {
-        "id": 287,
+        "id": 307,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-11-03 16:56:05",
         "x_kognition": "1.60",
@@ -5166,7 +5526,7 @@
         "bemerkung": "σ=0.53 M=0.56 R=0.92 E=0.36 | Level=0.59 dh\/dt=-0.364"
     },
     {
-        "id": 288,
+        "id": 308,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-11-03 16:56:09",
         "x_kognition": "1.60",
@@ -5184,7 +5544,7 @@
         "bemerkung": "σ=0.53 M=0.56 R=0.92 E=0.00 | Level=0.50 dh\/dt=0.000"
     },
     {
-        "id": 289,
+        "id": 309,
         "teilnehmer_id": 40,
         "zeitpunkt": "2025-11-10 15:35:00",
         "x_kognition": "1.80",
@@ -5202,7 +5562,7 @@
         "bemerkung": "σ=0.60 M=0.38 R=1.00 E=0.47 | Level=0.61 dh\/dt=0.273"
     },
     {
-        "id": 290,
+        "id": 310,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-11-11 16:45:25",
         "x_kognition": "0.00",
@@ -5220,7 +5580,7 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Level=0.12 dh\/dt=0.000"
     },
     {
-        "id": 291,
+        "id": 311,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-11-12 18:25:20",
         "x_kognition": "0.00",
@@ -5238,7 +5598,7 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Level=0.12 dh\/dt=0.000"
     },
     {
-        "id": 292,
+        "id": 312,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-11-21 16:48:55",
         "x_kognition": "0.00",
@@ -5256,7 +5616,7 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Level=0.12 dh\/dt=0.000"
     },
     {
-        "id": 293,
+        "id": 313,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-11-28 16:44:15",
         "x_kognition": "2.20",
@@ -5274,7 +5634,7 @@
         "bemerkung": "σ=0.73 M=0.43 R=0.78 E=1.00 | Level=0.74 dh\/dt=2.182"
     },
     {
-        "id": 294,
+        "id": 314,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-12-05 16:47:10",
         "x_kognition": "2.20",
@@ -5292,7 +5652,7 @@
         "bemerkung": "σ=0.73 M=0.34 R=0.70 E=0.47 | Level=0.56 dh\/dt=-0.273"
     },
     {
-        "id": 295,
+        "id": 315,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-12-10 18:27:22",
         "x_kognition": "0.00",
@@ -5310,7 +5670,7 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=1.00 | Level=0.38 dh\/dt=-1.909"
     },
     {
-        "id": 296,
+        "id": 316,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-12-10 18:27:23",
         "x_kognition": "0.00",
@@ -5328,7 +5688,7 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Level=0.12 dh\/dt=0.000"
     },
     {
-        "id": 297,
+        "id": 317,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-12-10 18:27:23",
         "x_kognition": "0.00",
@@ -5346,7 +5706,7 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Level=0.12 dh\/dt=0.000"
     },
     {
-        "id": 298,
+        "id": 318,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-12-10 18:27:23",
         "x_kognition": "0.00",
@@ -5364,7 +5724,7 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Level=0.12 dh\/dt=0.000"
     },
     {
-        "id": 299,
+        "id": 319,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-12-10 18:29:11",
         "x_kognition": "0.00",
@@ -5382,7 +5742,7 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Level=0.12 dh\/dt=0.000"
     },
     {
-        "id": 300,
+        "id": 320,
         "teilnehmer_id": 42,
         "zeitpunkt": "2025-12-11 15:35:00",
         "x_kognition": "0.00",
@@ -5400,7 +5760,25 @@
         "bemerkung": "σ=0.00 M=0.30 R=0.20 E=0.00 | Level=0.12 dh\/dt=0.000"
     },
     {
-        "id": 301,
+        "id": 321,
+        "teilnehmer_id": 42,
+        "zeitpunkt": "2026-02-03 18:29:55",
+        "x_kognition": "2.20",
+        "y_sozial": "1.75",
+        "z_affektiv": "2.00",
+        "h_bedeutung": "2.00",
+        "dh_dt": 2,
+        "stabilitaet_score": 0.966111,
+        "operator_sigma": 0.733333,
+        "operator_meta": 0.316945,
+        "operator_resonanz": 0.783333,
+        "operator_emer": 1,
+        "operator_level": 0.708403,
+        "dominanter_operator": "E",
+        "bemerkung": "σ=0.73 M=0.32 R=0.78 E=1.00 | Level=0.71 dh\/dt=2.000"
+    },
+    {
+        "id": 322,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-11-03 16:55:09",
         "x_kognition": "2.40",
@@ -5418,7 +5796,7 @@
         "bemerkung": "σ=0.80 M=0.32 R=0.87 E=0.20 | Level=0.55 dh\/dt=0.000"
     },
     {
-        "id": 302,
+        "id": 323,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-11-10 17:01:44",
         "x_kognition": "1.80",
@@ -5436,7 +5814,7 @@
         "bemerkung": "σ=0.60 M=0.31 R=0.78 E=0.45 | Level=0.54 dh\/dt=-0.455"
     },
     {
-        "id": 303,
+        "id": 324,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-11-17 17:10:00",
         "x_kognition": "2.00",
@@ -5454,7 +5832,7 @@
         "bemerkung": "σ=0.67 M=0.38 R=0.70 E=0.09 | Level=0.46 dh\/dt=-0.091"
     },
     {
-        "id": 304,
+        "id": 325,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-11-24 15:35:00",
         "x_kognition": "2.00",
@@ -5472,7 +5850,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.29 | Level=0.48 dh\/dt=0.091"
     },
     {
-        "id": 305,
+        "id": 326,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-11-24 15:35:00",
         "x_kognition": "2.00",
@@ -5490,7 +5868,7 @@
         "bemerkung": "σ=0.67 M=0.36 R=0.62 E=0.20 | Level=0.46 dh\/dt=0.000"
     },
     {
-        "id": 306,
+        "id": 327,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-12-08 15:35:00",
         "x_kognition": "1.80",
@@ -5508,7 +5886,7 @@
         "bemerkung": "σ=0.60 M=0.33 R=0.62 E=0.18 | Level=0.43 dh\/dt=-0.182"
     },
     {
-        "id": 307,
+        "id": 328,
         "teilnehmer_id": 43,
         "zeitpunkt": "2025-12-08 15:35:00",
         "x_kognition": "1.80",
@@ -5526,7 +5904,7 @@
         "bemerkung": "σ=0.60 M=0.33 R=0.62 E=0.00 | Level=0.39 dh\/dt=0.000"
     },
     {
-        "id": 308,
+        "id": 329,
         "teilnehmer_id": 43,
         "zeitpunkt": "2026-01-12 15:35:00",
         "x_kognition": "1.40",
@@ -5544,7 +5922,7 @@
         "bemerkung": "σ=0.47 M=0.30 R=0.70 E=0.09 | Level=0.39 dh\/dt=-0.091"
     },
     {
-        "id": 309,
+        "id": 330,
         "teilnehmer_id": 43,
         "zeitpunkt": "2026-01-19 15:35:00",
         "x_kognition": "1.80",
@@ -5562,7 +5940,25 @@
         "bemerkung": "σ=0.60 M=0.36 R=0.62 E=0.00 | Level=0.39 dh\/dt=0.000"
     },
     {
-        "id": 310,
+        "id": 331,
+        "teilnehmer_id": 43,
+        "zeitpunkt": "2026-02-02 15:35:00",
+        "x_kognition": "1.80",
+        "y_sozial": "1.75",
+        "z_affektiv": "2.00",
+        "h_bedeutung": "1.82",
+        "dh_dt": 0.363636,
+        "stabilitaet_score": 0.988333,
+        "operator_sigma": 0.6,
+        "operator_meta": 0.305833,
+        "operator_resonanz": 0.783333,
+        "operator_emer": 0.563636,
+        "operator_level": 0.563201,
+        "dominanter_operator": "R",
+        "bemerkung": "σ=0.60 M=0.31 R=0.78 E=0.56 | Level=0.56 dh\/dt=0.364"
+    },
+    {
+        "id": 332,
         "teilnehmer_id": 45,
         "zeitpunkt": "2025-11-25 17:10:00",
         "x_kognition": "1.60",
@@ -5580,7 +5976,7 @@
         "bemerkung": "σ=0.53 M=0.37 R=1.00 E=0.20 | Level=0.53 dh\/dt=0.000"
     },
     {
-        "id": 311,
+        "id": 333,
         "teilnehmer_id": 45,
         "zeitpunkt": "2025-12-02 17:10:00",
         "x_kognition": "2.00",
@@ -5598,7 +5994,7 @@
         "bemerkung": "σ=0.67 M=0.43 R=0.62 E=0.38 | Level=0.52 dh\/dt=-0.182"
     },
     {
-        "id": 312,
+        "id": 334,
         "teilnehmer_id": 45,
         "zeitpunkt": "2025-12-09 17:10:00",
         "x_kognition": "1.60",
@@ -5616,7 +6012,7 @@
         "bemerkung": "σ=0.53 M=0.35 R=0.62 E=0.47 | Level=0.49 dh\/dt=-0.273"
     },
     {
-        "id": 313,
+        "id": 335,
         "teilnehmer_id": 47,
         "zeitpunkt": "2025-12-09 18:29:00",
         "x_kognition": "2.60",

@@ -2,12 +2,12 @@
     {
         "id": 1,
         "teilnehmer_id": 2,
-        "zeitpunkt": "2026-01-21 15:35:00",
-        "reflexionsgrad": 0.54963,
-        "meta_kohaerenz": 0.848357,
+        "zeitpunkt": "2026-02-04 15:35:00",
+        "reflexionsgrad": 0.5415,
+        "meta_kohaerenz": 0.844401,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.85 | Selbstbezug: 0.00 | Stabilität: 0.92"
+        "bemerkung": "Reflexionsgrad: 0.54 | Meta-Kohärenz: 0.84 | Selbstbezug: 0.00 | Stabilität: 0.90"
     },
     {
         "id": 2,
@@ -42,12 +42,12 @@
     {
         "id": 5,
         "teilnehmer_id": 6,
-        "zeitpunkt": "2026-01-21 15:35:00",
-        "reflexionsgrad": 0.584312,
-        "meta_kohaerenz": 0.843524,
+        "zeitpunkt": "2026-02-04 15:35:00",
+        "reflexionsgrad": 0.584922,
+        "meta_kohaerenz": 0.852212,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.58 | Meta-Kohärenz: 0.84 | Selbstbezug: 0.00 | Stabilität: 0.97"
+        "bemerkung": "Reflexionsgrad: 0.58 | Meta-Kohärenz: 0.85 | Selbstbezug: 0.00 | Stabilität: 0.97"
     },
     {
         "id": 6,
@@ -62,42 +62,42 @@
     {
         "id": 7,
         "teilnehmer_id": 8,
-        "zeitpunkt": "2025-12-09 17:10:00",
-        "reflexionsgrad": 0.553278,
-        "meta_kohaerenz": 0.695395,
+        "zeitpunkt": "2026-02-03 17:10:00",
+        "reflexionsgrad": 0.540309,
+        "meta_kohaerenz": 0.737617,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.70 | Selbstbezug: 0.00 | Stabilität: 0.92"
+        "bemerkung": "Reflexionsgrad: 0.54 | Meta-Kohärenz: 0.74 | Selbstbezug: 0.00 | Stabilität: 0.90"
     },
     {
         "id": 8,
         "teilnehmer_id": 9,
-        "zeitpunkt": "2025-12-11 16:48:38",
-        "reflexionsgrad": 0.473103,
-        "meta_kohaerenz": 0.617235,
+        "zeitpunkt": "2026-02-03 17:10:00",
+        "reflexionsgrad": 0.477631,
+        "meta_kohaerenz": 0.63632,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.47 | Meta-Kohärenz: 0.62 | Selbstbezug: 0.00 | Stabilität: 0.79"
+        "bemerkung": "Reflexionsgrad: 0.48 | Meta-Kohärenz: 0.64 | Selbstbezug: 0.00 | Stabilität: 0.80"
     },
     {
         "id": 9,
         "teilnehmer_id": 10,
-        "zeitpunkt": "2025-12-11 15:35:00",
-        "reflexionsgrad": 0.543936,
-        "meta_kohaerenz": 0.838271,
+        "zeitpunkt": "2026-02-04 15:35:00",
+        "reflexionsgrad": 0.542606,
+        "meta_kohaerenz": 0.845622,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.54 | Meta-Kohärenz: 0.84 | Selbstbezug: 0.00 | Stabilität: 0.91"
+        "bemerkung": "Reflexionsgrad: 0.54 | Meta-Kohärenz: 0.85 | Selbstbezug: 0.00 | Stabilität: 0.90"
     },
     {
         "id": 10,
         "teilnehmer_id": 11,
-        "zeitpunkt": "2026-01-21 15:35:00",
-        "reflexionsgrad": 0.554972,
-        "meta_kohaerenz": 0.758322,
+        "zeitpunkt": "2026-02-04 15:35:00",
+        "reflexionsgrad": 0.557179,
+        "meta_kohaerenz": 0.776224,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.76 | Selbstbezug: 0.00 | Stabilität: 0.92"
+        "bemerkung": "Reflexionsgrad: 0.56 | Meta-Kohärenz: 0.78 | Selbstbezug: 0.00 | Stabilität: 0.93"
     },
     {
         "id": 11,
@@ -142,42 +142,42 @@
     {
         "id": 15,
         "teilnehmer_id": 16,
-        "zeitpunkt": "2026-01-15 17:10:00",
-        "reflexionsgrad": 0.495773,
-        "meta_kohaerenz": 0.790025,
+        "zeitpunkt": "2026-02-05 17:10:00",
+        "reflexionsgrad": 0.502093,
+        "meta_kohaerenz": 0.812046,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.50 | Meta-Kohärenz: 0.79 | Selbstbezug: 0.00 | Stabilität: 0.83"
+        "bemerkung": "Reflexionsgrad: 0.50 | Meta-Kohärenz: 0.81 | Selbstbezug: 0.00 | Stabilität: 0.84"
     },
     {
         "id": 16,
         "teilnehmer_id": 17,
-        "zeitpunkt": "2025-12-11 17:10:00",
-        "reflexionsgrad": 0.406296,
-        "meta_kohaerenz": 0.791654,
+        "zeitpunkt": "2026-02-05 17:10:00",
+        "reflexionsgrad": 0.434121,
+        "meta_kohaerenz": 0.804522,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.41 | Meta-Kohärenz: 0.79 | Selbstbezug: 0.00 | Stabilität: 0.68"
+        "bemerkung": "Reflexionsgrad: 0.43 | Meta-Kohärenz: 0.80 | Selbstbezug: 0.00 | Stabilität: 0.72"
     },
     {
         "id": 17,
         "teilnehmer_id": 18,
-        "zeitpunkt": "2026-01-15 17:10:00",
-        "reflexionsgrad": 0.513909,
-        "meta_kohaerenz": 0.779933,
+        "zeitpunkt": "2026-01-29 17:10:00",
+        "reflexionsgrad": 0.517083,
+        "meta_kohaerenz": 0.720615,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.51 | Meta-Kohärenz: 0.78 | Selbstbezug: 0.00 | Stabilität: 0.86"
+        "bemerkung": "Reflexionsgrad: 0.52 | Meta-Kohärenz: 0.72 | Selbstbezug: 0.00 | Stabilität: 0.86"
     },
     {
         "id": 18,
         "teilnehmer_id": 19,
-        "zeitpunkt": "2026-01-15 17:10:00",
-        "reflexionsgrad": 0.576867,
-        "meta_kohaerenz": 0.844959,
+        "zeitpunkt": "2026-02-05 17:10:00",
+        "reflexionsgrad": 0.577528,
+        "meta_kohaerenz": 0.870064,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.58 | Meta-Kohärenz: 0.84 | Selbstbezug: 0.00 | Stabilität: 0.96"
+        "bemerkung": "Reflexionsgrad: 0.58 | Meta-Kohärenz: 0.87 | Selbstbezug: 0.00 | Stabilität: 0.96"
     },
     {
         "id": 19,
@@ -192,22 +192,22 @@
     {
         "id": 20,
         "teilnehmer_id": 21,
-        "zeitpunkt": "2025-12-08 17:10:00",
-        "reflexionsgrad": 0.486385,
-        "meta_kohaerenz": 0.809868,
+        "zeitpunkt": "2026-02-02 17:10:00",
+        "reflexionsgrad": 0.493571,
+        "meta_kohaerenz": 0.820332,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.49 | Meta-Kohärenz: 0.81 | Selbstbezug: 0.00 | Stabilität: 0.81"
+        "bemerkung": "Reflexionsgrad: 0.49 | Meta-Kohärenz: 0.82 | Selbstbezug: 0.00 | Stabilität: 0.82"
     },
     {
         "id": 21,
         "teilnehmer_id": 22,
-        "zeitpunkt": "2025-12-11 17:10:00",
-        "reflexionsgrad": 0.461089,
-        "meta_kohaerenz": 0.774692,
+        "zeitpunkt": "2026-02-05 17:10:00",
+        "reflexionsgrad": 0.45051,
+        "meta_kohaerenz": 0.79885,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.46 | Meta-Kohärenz: 0.77 | Selbstbezug: 0.00 | Stabilität: 0.77"
+        "bemerkung": "Reflexionsgrad: 0.45 | Meta-Kohärenz: 0.80 | Selbstbezug: 0.00 | Stabilität: 0.75"
     },
     {
         "id": 22,
@@ -222,12 +222,12 @@
     {
         "id": 23,
         "teilnehmer_id": 24,
-        "zeitpunkt": "2026-01-16 15:35:00",
-        "reflexionsgrad": 0.551833,
-        "meta_kohaerenz": 0.710331,
+        "zeitpunkt": "2026-02-03 17:10:00",
+        "reflexionsgrad": 0.542758,
+        "meta_kohaerenz": 0.687316,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.71 | Selbstbezug: 0.00 | Stabilität: 0.92"
+        "bemerkung": "Reflexionsgrad: 0.54 | Meta-Kohärenz: 0.69 | Selbstbezug: 0.00 | Stabilität: 0.90"
     },
     {
         "id": 24,
@@ -242,22 +242,22 @@
     {
         "id": 25,
         "teilnehmer_id": 42,
-        "zeitpunkt": "2025-12-11 15:35:00",
-        "reflexionsgrad": 0.580697,
-        "meta_kohaerenz": 0.229151,
+        "zeitpunkt": "2026-02-03 18:29:55",
+        "reflexionsgrad": 0.580611,
+        "meta_kohaerenz": 0,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.58 | Meta-Kohärenz: 0.23 | Selbstbezug: 0.00 | Stabilität: 0.97"
+        "bemerkung": "Reflexionsgrad: 0.58 | Meta-Kohärenz: 0.00 | Selbstbezug: 0.00 | Stabilität: 0.97"
     },
     {
         "id": 26,
         "teilnehmer_id": 43,
-        "zeitpunkt": "2026-01-19 15:35:00",
-        "reflexionsgrad": 0.55437,
-        "meta_kohaerenz": 0.977145,
+        "zeitpunkt": "2026-02-02 15:35:00",
+        "reflexionsgrad": 0.558233,
+        "meta_kohaerenz": 0.961653,
         "selbstbezug_index": 0,
         "reflexions_marker": "mittel",
-        "bemerkung": "Reflexionsgrad: 0.55 | Meta-Kohärenz: 0.98 | Selbstbezug: 0.00 | Stabilität: 0.92"
+        "bemerkung": "Reflexionsgrad: 0.56 | Meta-Kohärenz: 0.96 | Selbstbezug: 0.00 | Stabilität: 0.93"
     },
     {
         "id": 27,

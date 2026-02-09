@@ -723,97 +723,74 @@ echo "✅ Tabelle frzk_reflexion erfolgreich erstellt und befüllt (Variante A, 
 
 //require_once("fill_frzk_transitions.php");
 $pdo->exec("
-CREATE TABLE IF NOT EXISTS frzk_transitions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    teilnehmer_id INT NOT NULL,
-    zeitpunkt DATETIME NOT NULL,
-    von_cluster INT DEFAULT NULL,
-    nach_cluster INT DEFAULT NULL,
-    delta_h FLOAT DEFAULT NULL,
-    delta_stabilitaet FLOAT DEFAULT NULL,
-    transition_typ VARCHAR(50) DEFAULT NULL,
-    transition_intensitaet FLOAT DEFAULT NULL,
-    marker VARCHAR(10) DEFAULT NULL,
-    bemerkung TEXT DEFAULT NULL,
-    INDEX (teilnehmer_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO frzk_transitions (
+    teilnehmer_id,
+
+    zeitpunkt_von,
+    zeitpunkt_nach,
+
+    cluster_von,
+    cluster_nach,
+
+    x_von, y_von, z_von,
+    x_nach, y_nach, z_nach,
+
+    h_von,
+    h_nach,
+
+    delta,
+    transition_typ
+)
+SELECT
+    t1.teilnehmer_id,
+
+    t1.zeitpunkt AS zeitpunkt_von,
+    t2.zeitpunkt AS zeitpunkt_nach,
+
+    t1.cluster_id AS cluster_von,
+    t2.cluster_id AS cluster_nach,
+
+    t1.x_kognition,
+    t1.y_sozial,
+    t1.z_affektiv,
+
+    t2.x_kognition,
+    t2.y_sozial,
+    t2.z_affektiv,
+
+    t1.h_bedeutung AS h_von,
+    t2.h_bedeutung AS h_nach,
+
+    SQRT(
+        POW(t2.x_kognition - t1.x_kognition, 2) +
+        POW(t2.y_sozial    - t1.y_sozial,    2) +
+        POW(t2.z_affektiv  - t1.z_affektiv,  2)
+    ) AS delta,
+
+    CASE
+        WHEN SQRT(
+            POW(t2.x_kognition - t1.x_kognition, 2) +
+            POW(t2.y_sozial    - t1.y_sozial,    2) +
+            POW(t2.z_affektiv  - t1.z_affektiv,  2)
+        ) < 0.2 THEN 'kontinuierlich'
+        WHEN SQRT(
+            POW(t2.x_kognition - t1.x_kognition, 2) +
+            POW(t2.y_sozial    - t1.y_sozial,    2) +
+            POW(t2.z_affektiv  - t1.z_affektiv,  2)
+        ) < 0.6 THEN 'sprung'
+        ELSE 'bruch'
+    END AS transition_typ
+
+FROM frzk_semantische_dichte t1
+JOIN frzk_semantische_dichte t2
+  ON t1.teilnehmer_id = t2.teilnehmer_id
+ AND t2.zeitpunkt = (
+     SELECT MIN(t3.zeitpunkt)
+     FROM frzk_semantische_dichte t3
+     WHERE t3.teilnehmer_id = t1.teilnehmer_id
+       AND t3.zeitpunkt > t1.zeitpunkt
+ );
 ");
-
-// --- Daten aus frzk_semantische_dichte holen ---
-$stmt = $pdo->query("SELECT * FROM frzk_semantische_dichte ORDER BY teilnehmer_id, zeitpunkt");
-$rows = $stmt->fetchAll();
-
-// --- Gruppieren nach Teilnehmer ---
-$grouped = [];
-foreach ($rows as $r) {
-    $tid = $r["teilnehmer_id"];
-    $grouped[$tid][] = $r;
-}
-
-// --- Insert vorbereiten ---
-$insert = $pdo->prepare("
-    INSERT INTO frzk_transitions
-    (teilnehmer_id, zeitpunkt, von_cluster, nach_cluster, delta_h, delta_stabilitaet,
-     transition_typ, transition_intensitaet, marker, bemerkung)
-    VALUES (:tid, :zeit, :von, :nach, :dh, :ds, :typ, :inten, :mark, :bem)
-");
-
-// --- Berechnung ---
-foreach ($grouped as $tid => $data) {
-    if (count($data) < 2) continue; // keine Transition möglich
-
-    for ($i = 1; $i < count($data); $i++) {
-        $prev = $data[$i - 1];
-        $curr = $data[$i];
-
-        $deltaH = (float)$curr["h_bedeutung"] - (float)$prev["h_bedeutung"];
-        $deltaStab = (float)$curr["stabilitaet_score"] - (float)$prev["stabilitaet_score"];
-
-        $vonCluster = (int)$prev["cluster_id"];
-        $nachCluster = (int)$curr["cluster_id"];
-
-        // --- Intensität ---
-        $intensitaet = min(1, (abs($deltaH) + abs($deltaStab)) / 2);
-
-        // --- Typbestimmung ---
-        if ($nachCluster !== $vonCluster && $deltaH > 0.5) {
-            $typ = "Sprung";
-            $mark = "🚀";
-        } elseif ($deltaH > 0.4 && $deltaStab > 0) {
-            $typ = "Stabilisierung";
-            $mark = "🌀";
-        } elseif ($deltaH < -0.4 && $deltaStab < 0) {
-            $typ = "Destabilisierung";
-            $mark = "⚡";
-        } elseif (abs($deltaH) < 0.2 && abs($deltaStab) < 0.1) {
-            $typ = "Neutral";
-            $mark = "•";
-        } else {
-            $typ = "Rückkopplung";
-            $mark = "🔄";
-        }
-
-        // --- Bemerkung ---
-        $bem = sprintf(
-            "Δh: %.3f | Δstab: %.3f | Cluster: %d→%d | Typ: %s | Intensität: %.2f",
-            $deltaH, $deltaStab, $vonCluster, $nachCluster, $typ, $intensitaet
-        );
-
-        // --- Insert ---
-        $insert->execute([
-            ":tid"   => $tid,
-            ":zeit"  => $curr["zeitpunkt"],
-            ":von"   => $vonCluster,
-            ":nach"  => $nachCluster,
-            ":dh"    => $deltaH,
-            ":ds"    => $deltaStab,
-            ":typ"   => $typ,
-            ":inten" => $intensitaet,
-            ":mark"  => $mark,
-            ":bem"   => $bem
-        ]);
-    }
-}
 
 echo "✅ Tabelle frzk_transitions erfolgreich erstellt und befüllt.\n";
 $tables = [

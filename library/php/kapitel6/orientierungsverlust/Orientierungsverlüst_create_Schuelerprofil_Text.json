@@ -1,0 +1,279 @@
+{
+    "meta": {
+        "quelle": "FRZK",
+        "kapitel": "6",
+        "erzeugt_am": "2026-02-08T10:40:49+00:00"
+    },
+    "profile": [
+        {
+            "profil_id": 1,
+            "code": "AFFEKTIV_GETRAGEN",
+            "titel": "Affektiv getragenes Schülerprofil",
+            "typ": "affektiv",
+            "raum": {
+                "x": [
+                    0,
+                    0.3
+                ],
+                "y": [
+                    0,
+                    0.4
+                ],
+                "z": [
+                    0.8,
+                    1
+                ]
+            },
+            "kapiteltext": {
+                "profil_definition": [
+                    "Dieses Profil beschreibt Lernende mit hoher affektiver Beteiligung bei gleichzeitig geringer fachlicher und sozialer Strukturierung."
+                ],
+                "interpretation": [
+                    "Bedeutung entsteht primär über emotionale Resonanz, nicht über begriffliche Ordnung."
+                ],
+                "didaktik": [
+                    "Weitere Motivationssteigerung ist nicht angezeigt; stattdessen ist Strukturierung zentral."
+                ],
+                "fehler": [
+                    "Ein klassischer Fehler ist zusätzliche emotionale Aktivierung ohne kognitive Anbindung."
+                ],
+                "intervention": [
+                    "Didaktisch sinnvoll ist der Pfad Affekt → Struktur → Begriff."
+                ]
+            },
+            "interventionspfad": [
+                {
+                    "schritt": 1,
+                    "phase": "affekt",
+                    "text": "Affekt stabilisieren."
+                },
+                {
+                    "schritt": 2,
+                    "phase": "struktur",
+                    "text": "Struktur aufbauen."
+                },
+                {
+                    "schritt": 3,
+                    "phase": "begriff",
+                    "text": "Begriffe fixieren."
+                }
+            ]
+        },
+        {
+            "profil_id": 2,
+            "code": "KOGNITIV_FOKUSSIERT",
+            "titel": "Kognitiv fokussiertes Schülerprofil",
+            "typ": "kognitiv",
+            "raum": {
+                "x": [
+                    0.7,
+                    1
+                ],
+                "y": [
+                    0,
+                    0.4
+                ],
+                "z": [
+                    0,
+                    0.3
+                ]
+            },
+            "kapiteltext": {
+                "profil_definition": [
+                    "Dieses Profil ist durch hohe kognitive Strukturierung bei geringer affektiver und sozialer Einbindung gekennzeichnet."
+                ],
+                "interpretation": [
+                    "Bedeutung wird über formale Begriffe erzeugt, bleibt jedoch emotional distanziert."
+                ],
+                "didaktik": [
+                    "Nicht weitere Strukturierung, sondern affektive und soziale Anschlussfähigkeit ist zentral."
+                ],
+                "fehler": [
+                    "Überstrukturierung ohne Bedeutungsgewinn."
+                ],
+                "intervention": [
+                    "Struktur → Affekt → Begriff."
+                ]
+            },
+            "interventionspfad": [
+                {
+                    "schritt": 1,
+                    "phase": "struktur",
+                    "text": "Sicherheit anerkennen."
+                },
+                {
+                    "schritt": 2,
+                    "phase": "affekt",
+                    "text": "Relevanz erzeugen."
+                },
+                {
+                    "schritt": 3,
+                    "phase": "begriff",
+                    "text": "Begriffe rückbinden."
+                }
+            ]
+        },
+        {
+            "profil_id": 3,
+            "code": "SOZIAL_GETRAGEN",
+            "titel": "Sozial getragenes Schülerprofil",
+            "typ": "sozial",
+            "raum": {
+                "x": [
+                    0,
+                    0.4
+                ],
+                "y": [
+                    0.7,
+                    1
+                ],
+                "z": [
+                    0,
+                    0.4
+                ]
+            },
+            "kapiteltext": {
+                "profil_definition": [
+                    "Sozial getragene Profile erleben Lernen primär als Beziehungsgeschehen."
+                ],
+                "interpretation": [
+                    "Soziale Sicherheit ersetzt fachliche Struktur."
+                ],
+                "didaktik": [
+                    "Soziale Prozesse müssen fachlich gerahmt werden."
+                ],
+                "fehler": [
+                    "Mehr Gruppenarbeit ohne fachliche Fixierung."
+                ],
+                "intervention": [
+                    "Sozial → Struktur → Begriff."
+                ]
+            },
+            "interventionspfad": [
+                {
+                    "schritt": 1,
+                    "phase": "affekt",
+                    "text": "Soziale Sicherheit anerkennen."
+                },
+                {
+                    "schritt": 2,
+                    "phase": "struktur",
+                    "text": "Fachliche Ordnung."
+                },
+                {
+                    "schritt": 3,
+                    "phase": "begriff",
+                    "text": "Begriffe sozial verankern."
+                }
+            ]
+        },
+        {
+            "profil_id": 4,
+            "code": "INTEGRIERT_STABIL",
+            "titel": "Integriertes stabiles Schülerprofil",
+            "typ": "hybrid",
+            "raum": {
+                "x": [
+                    0.6,
+                    1
+                ],
+                "y": [
+                    0.6,
+                    1
+                ],
+                "z": [
+                    0.6,
+                    1
+                ]
+            },
+            "kapiteltext": {
+                "profil_definition": [
+                    "Dieses Profil weist eine hohe Integration aller Dimensionen auf."
+                ],
+                "interpretation": [
+                    "Es liegt eine stabile Bedeutungsdichte vor."
+                ],
+                "didaktik": [
+                    "Stabilisieren statt intervenieren."
+                ],
+                "fehler": [
+                    "Überdidaktisierung stabiler Prozesse."
+                ],
+                "intervention": [
+                    "Reflexion und Transfer."
+                ]
+            },
+            "interventionspfad": [
+                {
+                    "schritt": 1,
+                    "phase": "struktur",
+                    "text": "Struktur sichern."
+                },
+                {
+                    "schritt": 2,
+                    "phase": "begriff",
+                    "text": "Begriffe reflektieren."
+                },
+                {
+                    "schritt": 3,
+                    "phase": "affekt",
+                    "text": "Bedeutung bewusst machen."
+                }
+            ]
+        },
+        {
+            "profil_id": 5,
+            "code": "FRAGMENTIERT",
+            "titel": "Fragmentiertes Schülerprofil",
+            "typ": "fragmentiert",
+            "raum": {
+                "x": [
+                    0,
+                    0.4
+                ],
+                "y": [
+                    0,
+                    0.4
+                ],
+                "z": [
+                    0,
+                    0.4
+                ]
+            },
+            "kapiteltext": {
+                "profil_definition": [
+                    "Fragmentierte Profile zeigen keine stabile epistemische Achse."
+                ],
+                "interpretation": [
+                    "Bedeutung bleibt episodisch und instabil."
+                ],
+                "didaktik": [
+                    "Reduktion und Fokussierung sind zentral."
+                ],
+                "fehler": [
+                    "Gleichzeitige Mehrfachintervention."
+                ],
+                "intervention": [
+                    "Ein Hub – eine Achse."
+                ]
+            },
+            "interventionspfad": [
+                {
+                    "schritt": 1,
+                    "phase": "struktur",
+                    "text": "Einstieg setzen."
+                },
+                {
+                    "schritt": 2,
+                    "phase": "begriff",
+                    "text": "Zentralen Begriff fixieren."
+                },
+                {
+                    "schritt": 3,
+                    "phase": "affekt",
+                    "text": "Affekt dosieren."
+                }
+            ]
+        }
+    ]
+}
