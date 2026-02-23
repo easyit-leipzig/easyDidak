@@ -96,4 +96,3 @@ foreach ($pdo->query($sql) as $row) {
 }
 file_put_contents("frzk_export_semantische_dichte.json", json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) );
 echo json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-file_put_contents("frzk_export_semantische_dichte.json", json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) );
