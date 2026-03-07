@@ -9,7 +9,7 @@ $pdo -> exec("truncate frzk_lexem_datenmaske_lexem_funktionsklasse_weight");
 $pdo -> exec("truncate frzk_lexem_mapping_not_recognized");
 /* get values */ 
 $r_vals = $pdo -> query("select id, id_mtr_rueckkopplung_datenmaske, value from mtr_rueckkopplung_datenmaske_values
-                           where length(value)>40 order by id") -> fetchAll(PDO::FETCH_ASSOC);
+                           where length(value)>40 and value not like '%absprachen%' order by id") -> fetchAll(PDO::FETCH_ASSOC);
 // iteriere über mtr_rueckkopplung_datenmaske_values */
 $l = count( $r_vals );
 $i = 0;
