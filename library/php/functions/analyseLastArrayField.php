@@ -1,36 +1,36 @@
 <?php
+function checkLastItem( $item ) {
 $words=[
 "abspracheneinhaltend",
 "beteiligtsich",
 "gutemitarbeit",
-"fleißig",
-"bemüht",
-"arbeitetselbstständig",
+"fleissig",
+"bemueht",
+"arbeitetselbststaendig",
 "konzentriert",
 "vorbereitet",
 "beherrschtthema",
-"fähigzutransferdenken",
+"faehigzutransferdenken",
 "lernfortschritterzielt",
 "basiswissenvorhanden",
-"störend ",
+"stoerend ",
 "blockierend ",
 "resignierend",
 "desinteressiert",
-"gleichgültig",
-"benötigtaufforderung"
+"gleichgueltig",
+"benoetigtaufforderung"
 ];
-function checkLastItem( $item ) {
     $tmp = end( $item );
     $resultArray = [];
-    if( count( $tmp == 1 ) ) {
+    //if( count( $tmp == 1 ) ) {
         foreach ($words as $element) {
-            if (str_contains($item, $element)) {
+            if (str_contains($tmp, $element)) {
                 $resultArray[] = ",";
                 $resultArray[] = $element;
             }
         }
 
-    }
+    //}
     if( count( $resultArray )> 2 ) {
         array_pop( $item );
         $item = array_merge( $item, $resultArray ); 

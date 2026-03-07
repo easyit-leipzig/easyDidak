@@ -25,6 +25,9 @@ while( $i < $l )  {
         if( count( $r_map ) == 0 ) {
             $pdo -> exec("INSERT ignore INTO `frzk_lexem_mapping_not_recognized` (`lexem`) 
                         VALUES ('" . $text[$j] . "')");
+            $pdo -> exec("UPDATE frzk_lexem_mapping_not_recognized SET anz = anz + 1 WHERE lexem = '" . $text[$j] . "'");
+            //$tmp = $pdo->query("select anz from frzk_lexem_mapping_not_recognized where lexem='" . $text[$j] . "'")->fetchAll(PDO::FETCH_ASSOC);
+            //$pdo->exec("update frzk_lexem_mapping_not_recognized set anz=" . ($tmp[0]["anz"] + 1)) . " where lexem='" . $text[$j] . "'";
         } else {
             // unterrichtsdaten aus datenmaske holen
             $sql = "select gruppe_id, teilnehmer_id, fach, datum, lehrkraft, thema
@@ -69,7 +72,7 @@ while( $i < $l )  {
                 '2026-02-17 17:30:09.000000', '1', '2.3', '0.000', '0.000', NULL, NULL, NULL, NULL)
             */
             $sql = "INSERT INTO `frzk_lexem_datenmaske_lexem_funktionsklasse_weight`
-            (mtr_rueckkopplung_datenmaske_values_id, mtr_rueckkopplung_datenmaske_id, `funktionsklasse_id`, `lexem`, `wortart`, `ue_id`, `gruppe_id`,
+            (mtr_rueckkopplung_datenmaske_values_id, id_mtr_rueckkopplung_datenmaske, `funktionsklasse_id`, `lexem`, `wortart`, `ue_id`, `gruppe_id`,
             `fach`, `thema`, `unterthema`, `lehrkraft`, `datum_zeit`, `teilnehmer_id`,
             `kognition`, `sozial`, `affektiv`, `motivation`, `methodik`, `performanz`,
             `regulation`) VALUES (

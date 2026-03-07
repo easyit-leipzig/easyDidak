@@ -1,35 +1,23 @@
 <?php
 /**
  * ============================================================
- * FRZK – Ebene 1
+ * FRZK – EBENE 1
  * Nichtlineares rekursives Zustandsmodell
+ * Vollständig modellkonform mit Scope-Handling
+ *
+ * Implementiert:
+ * - Rekursive Zustandsdynamik gemäß Kapitel 6.x
+ * - Operator-Scope: next_token, sentence, left_context
+ * - Mehrfachoperator-Stack
+ * - Theoretisch konsistente Rücksetzung
+ *
+ * Autor: FRZK
  * ============================================================
- *
- * Dieses Skript implementiert die in Kapitel 6.x formal
- * beschriebene rekursive Bedeutungsakkumulation.
- *
- * Grundlage:
- * Tokens aus
- * frzk_lexem_datenmaske_lexem_funktionsklasse_weight
- *
- * Ziel:
- * Berechnung eines nichtlinearen Zustandsvektors V ∈ ℝ⁷
- * pro Bewertungseinheit (id_mtr_rueckkopplung_datenmaske)
- *
- * Gruppierung erfolgt ausschließlich über:
- * id_mtr_rueckkopplung_datenmaske
- *
- * Es wird KEINE lineare Summation verwendet.
- * Die Transformation erfolgt rekursiv und zustandsabhängig.
  */
 
 ini_set('memory_limit', '1024M');
 set_time_limit(0);
 
-/**
- * PDO-Verbindung zur FRZK-Datenbank.
- * UTF-8 wird explizit erzwungen.
- */
 $pdo = new PDO(
     "mysql:host=localhost;dbname=icas;charset=utf8mb4",
     "root",
@@ -38,35 +26,27 @@ $pdo = new PDO(
 );
 
 /* ============================================================
-   PARAMETER DES NICHTLINEAREN MODELLS
-   ============================================================
-
-   β (beta)   → Sättigungsdämpfung
-   λ (lambda) → Interdimensionale Wechselwirkung
-   δ (delta)  → Resonanzterm
-
-   Diese Parameter entsprechen der in Kapitel 6.x
-   formal definierten Update-Funktion:
-
-   V_{i+1} = V_i + w_damped − λ(V ⊙ w) + δ·cos(V,w)·w
-*/
+   MODELLPARAMETER (Kapitel 6.x)
+   ------------------------------------------------------------
+   beta   : Sättigungsdämpfung
+   lambda : Interdimensionale Wechselwirkung
+   delta  : Resonanzverstärkung
+============================================================ */
 
 $params = [
     'beta'   => 0.15,
-    'lambda' => 0.05,
+    'lambda' => 0.25,
     'delta'  => 0.20
 ];
 
-
 /* ============================================================
    OPERATOR-TABELLE LADEN
-   ============================================================
-
-   Operatoren (z.B. Intensität, Negation) wirken multiplikativ
-   auf den nachfolgenden Token-Vektor w.
-
-   Tabelle: frzk_operator
-*/
+   ------------------------------------------------------------
+   name        : lexikalische Form
+   typ         : semantischer Operator-Typ
+   faktor      : Skalierungs-/Transformationsfaktor
+   scope_typ   : next_token | sentence | left_context
+============================================================ */
 
 $operators = [];
 
@@ -77,46 +57,25 @@ $stmtOp = $pdo->query("
 ");
 
 while ($row = $stmtOp->fetch(PDO::FETCH_ASSOC)) {
-    $operators[$row['name']] = [
-        'typ'       => $row['typ'],
-        'faktor'    => (float)$row['faktor'],
-        'scope_typ' => $row['scope_typ']
-    ];
+    $operators[$row['name']] = $row;
 }
 
-
 /* ============================================================
-   TOKEN LADEN
-   ============================================================
-
-   Datenbasis:
-   frzk_lexem_datenmaske_lexem_funktionsklasse_weight
-
-   Sortierung:
-   - nach id_mtr_rueckkopplung_datenmaske
-   - danach nach id (zeitliche Reihenfolge)
-
-   Dadurch bleibt die sequentielle Struktur erhalten.
-*/
+   TOKEN LADEN – SATZWEISE SORTIERT
+============================================================ */
 
 $stmt = $pdo->query("
     SELECT *
     FROM frzk_lexem_datenmaske_lexem_funktionsklasse_weight
-    ORDER BY id_mtr_rueckkopplung_datenmaske, id
+    ORDER BY mtr_rueckkopplung_datenmaske_values_id ASC, id ASC
 ");
 
 $currentSentenceId = null;
 $sentenceTokens = [];
 
-/**
- * Sequentielle Gruppierung nach Bewertungseinheit.
- * Jeder Satz wird vollständig verarbeitet,
- * bevor der nächste beginnt.
- */
-
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-    $sentenceId = $row['id_mtr_rueckkopplung_datenmaske'];
+    $sentenceId = $row['mtr_rueckkopplung_datenmaske_values_id'];
 
     if ($currentSentenceId !== $sentenceId) {
 
@@ -135,65 +94,75 @@ if (!empty($sentenceTokens)) {
     processSentence($sentenceTokens, $operators, $params, $pdo);
 }
 
-echo "FRZK Ebene 1 abgeschlossen.\n";
-
+echo "FRZK Ebene 1 vollständig modellkonform abgeschlossen.\n";
 
 /* ============================================================
    SATZVERARBEITUNG
-   ============================================================
-
-   Für jede Bewertungseinheit wird ein Zustandsvektor
-
-   V = (kognition, sozial, affektiv,
-        motivation, methodik,
-        performanz, regulation)
-
-   rekursiv aufgebaut.
-*/
+============================================================ */
 
 function processSentence($tokens, $operators, $params, $pdo)
 {
-    /**
-     * Initialzustand:
-     * Nullvektor in ℝ⁷
+    /*
+     * V = 7-dimensionaler FRZK-Zustandsvektor
+     * Reihenfolge:
+     * kognition, sozial, affektiv, motivation,
+     * methodik, performanz, regulation
      */
     $V = array_fill(0, 7, 0.0);
 
-    $activeOperator = null;
-    $operatorFactor = 1.0;
+    /*
+     * Operator-Stack
+     * Ermöglicht verschachtelte Operatoren
+     */
+    $sentenceOperators = [];
+    $nextTokenOperators = [];
 
     $tokenCount = 0;
     $funktionsklassenUsed = [];
 
-    foreach ($tokens as $token) {
+    foreach ($tokens as $index => $token) {
 
-        /**
-         * Divisor-Token (Funktionsklasse 0)
-         * wirken nicht semantisch.
-         */
         if ($token['funktionsklasse_id'] == 0 && $token['wortart'] === 'divisor') {
             continue;
         }
 
         $lexem = $token['lexem'];
 
-        /**
-         * Prüfen, ob Token ein Operator ist.
-         */
+        /* =====================================================
+           1. OPERATOR ERKENNEN
+        ===================================================== */
+
         if (isset($operators[$lexem])) {
+
             $op = $operators[$lexem];
-            $activeOperator = $op['typ'];
-            $operatorFactor = $op['faktor'];
+
+            switch ($op['scope_typ']) {
+
+                case 'sentence':
+                    $sentenceOperators[] = $op;
+                    break;
+
+                case 'next_token':
+                    $nextTokenOperators[] = $op;
+                    break;
+
+                case 'left_context':
+                    /*
+                     * LEFT_CONTEXT:
+                     * Transformation des bisherigen Zustandsvektors
+                     */
+                    for ($i = 0; $i < 7; $i++) {
+                        $V[$i] *= $op['faktor'];
+                    }
+                    break;
+            }
+
             continue;
         }
 
         $tokenCount++;
         $funktionsklassenUsed[$token['funktionsklasse_id']] = true;
 
-        /**
-         * Token-Vektor w ∈ ℝ⁷
-         * wird aus Datenbankfeldern gelesen.
-         */
         $w = [
             (float)$token['kognition'],
             (float)$token['sozial'],
@@ -204,144 +173,89 @@ function processSentence($tokens, $operators, $params, $pdo)
             (float)$token['regulation']
         ];
 
-        /**
-         * Operatorwirkung (Multiplikation).
-         */
-        if ($activeOperator !== null) {
+        /* =====================================================
+           2. OPERATOR-ANWENDUNG
+           -----------------------------------------------------
+           Reihenfolge:
+           1. sentence-Operatoren
+           2. next_token-Operatoren
+        ===================================================== */
+
+        foreach ($sentenceOperators as $op) {
             for ($i = 0; $i < 7; $i++) {
-                $w[$i] *= $operatorFactor;
+                $w[$i] *= $op['faktor'];
             }
         }
 
-        /**
-         * Nichtlineares Update gemäß Kapitel 6.x
+        foreach ($nextTokenOperators as $op) {
+            for ($i = 0; $i < 7; $i++) {
+                $w[$i] *= $op['faktor'];
+            }
+        }
+
+        /*
+         * next_token gilt nur einmal
          */
+        $nextTokenOperators = [];
+
+        /* =====================================================
+           3. REKURSIVES UPDATE
+           V_{i+1} = V_i + ...
+        ===================================================== */
+
         $V = updateFRZKState($V, $w, $params);
     }
 
+    /* =====================================================
+       SATZABSCHLUSS – NORM & META
+    ===================================================== */
 
-    /* ========================================================
-       Normberechnung (Semantische Dichte)
-       ========================================================
+    $norm = sqrt(array_sum(array_map(fn($x) => $x*$x, $V)));
 
-       d_semantisch = ||V||₂
-    */
-
-    $norm = 0.0;
-    foreach ($V as $value) {
-        $norm += $value * $value;
-    }
-    $norm = sqrt($norm);
-
-    /**
-     * Normalisierte Richtung
-     * Vnorm = V / ||V||
-     */
-    $epsilon = 0.00001;
-    $Vnorm = [];
-
-    foreach ($V as $value) {
-        $Vnorm[] = $value / ($norm + $epsilon);
-    }
-
-
-    /* ========================================================
-       Dominante Dimension
-       ========================================================
-
-       Bestimmung der Achse mit maximalem Absolutwert.
-    */
+    $epsilon = 1e-5;
+    $Vnorm = array_map(fn($x) => $x / ($norm + $epsilon), $V);
 
     $dimensionNames = [
-        'kognition',
-        'sozial',
-        'affektiv',
-        'motivation',
-        'methodik',
-        'performanz',
-        'regulation'
+        'kognition','sozial','affektiv','motivation',
+        'methodik','performanz','regulation'
     ];
 
-    $maxVal = 0.0;
+    $maxVal = 0;
     $dominantDim = null;
 
-    foreach ($V as $i => $value) {
-        if (abs($value) > abs($maxVal)) {
-            $maxVal = $value;
+    foreach ($V as $i => $val) {
+        if (abs($val) > abs($maxVal)) {
+            $maxVal = $val;
             $dominantDim = $dimensionNames[$i];
         }
     }
 
-
-    /* ========================================================
-       Polarität
-       ========================================================
-
-       Gesamtvalenz:
-       sign(sum(V))
-    */
-
     $sumAll = array_sum($V);
-    $polaritaet = 0;
-    if ($sumAll > 0) $polaritaet = 1;
-    if ($sumAll < 0) $polaritaet = -1;
-
-
-    /* ========================================================
-       Speicherung
-       ========================================================
-
-       Ziel: frzk_semantische_dichte_lehrer
-    */
+    $polaritaet = $sumAll > 0 ? 1 : ($sumAll < 0 ? -1 : 0);
 
     $meta = $tokens[0];
 
     $stmtInsert = $pdo->prepare("
         INSERT INTO frzk_semantische_dichte_lehrer
         (
-            ue_id,
-            teilnehmer_id,
-            x_kognition,
-            x_sozial,
-            x_affektiv,
-            x_motivation,
-            x_methodik,
-            x_performanz,
-            x_regulation,
-            sum_kognition,
-            sum_sozial,
-            sum_affektiv,
-            sum_motivation,
-            sum_methodik,
-            sum_performanz,
-            sum_regulation,
-            token_anzahl,
-            funktionsklassen_anzahl_gesamt,
-            dominante_dimension,
-            dominante_dimension_wert,
-            polaritaet_gesamt,
-            d_semantisch
+            ue_id, teilnehmer_id, id_mtr_rueckkopplung_datenmaske,
+            x_kognition, x_sozial, x_affektiv, x_motivation,
+            x_methodik, x_performanz, x_regulation,
+            sum_kognition, sum_sozial, sum_affektiv, sum_motivation,
+            sum_methodik, sum_performanz, sum_regulation,
+            token_anzahl, funktionsklassen_anzahl_gesamt,
+            dominante_dimension, dominante_dimension_wert,
+            polaritaet_gesamt, d_semantisch
         )
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
     $stmtInsert->execute([
         $meta['ue_id'],
         $meta['teilnehmer_id'],
-        $Vnorm[0],
-        $Vnorm[1],
-        $Vnorm[2],
-        $Vnorm[3],
-        $Vnorm[4],
-        $Vnorm[5],
-        $Vnorm[6],
-        $V[0],
-        $V[1],
-        $V[2],
-        $V[3],
-        $V[4],
-        $V[5],
-        $V[6],
+        $meta['id_mtr_rueckkopplung_datenmaske'],
+        ...$Vnorm,
+        ...$V,
         $tokenCount,
         count($funktionsklassenUsed),
         $dominantDim,
@@ -351,22 +265,9 @@ function processSentence($tokens, $operators, $params, $pdo)
     ]);
 }
 
-
 /* ============================================================
-   NICHTLINEARE UPDATE-FUNKTION
-   ============================================================
-
-   Implementiert die in Kapitel 6.x formalisierte Gleichung:
-
-   1. Sättigungsdämpfung:
-      w_damped = w · e^(−β||V||)
-
-   2. Interaktion:
-      − λ (V_i · w_i)
-
-   3. Resonanz:
-      + δ · cos(V,w) · w_i
-*/
+   UPDATE-FUNKTION – MATHEMATISCHE KERNFORMEL
+============================================================ */
 
 function updateFRZKState($V, $w, $params)
 {
@@ -374,47 +275,35 @@ function updateFRZKState($V, $w, $params)
     $lambda = $params['lambda'];
     $delta  = $params['delta'];
 
-    $normV = 0.0;
-    foreach ($V as $val) {
-        $normV += $val * $val;
-    }
-    $normV = sqrt($normV);
-
+    $normV = sqrt(array_sum(array_map(fn($x) => $x*$x, $V)));
     $damping = exp(-$beta * $normV);
 
-    $w_damped = [];
-    for ($i = 0; $i < 7; $i++) {
-        $w_damped[$i] = $w[$i] * $damping;
-    }
-
-    $dot = 0.0;
-    $normW = 0.0;
+    $dot = 0;
+    $normW = 0;
 
     for ($i = 0; $i < 7; $i++) {
-        $dot += $V[$i] * $w[$i];
+        $dot   += $V[$i] * $w[$i];
         $normW += $w[$i] * $w[$i];
     }
 
     $normW = sqrt($normW);
+    $cosine = ($normV > 0 && $normW > 0)
+        ? $dot / ($normV * $normW)
+        : 0;
 
-    $cosine = 0.0;
-    if ($normV > 0 && $normW > 0) {
-        $cosine = $dot / ($normV * $normW);
-    }
-
-    $V_new = [];
+    $Vnew = [];
 
     for ($i = 0; $i < 7; $i++) {
 
         $interaction = $lambda * ($V[$i] * $w[$i]);
-        $resonance   = $delta * $cosine * $w[$i];
+        $resonance   = $delta  * $cosine * $w[$i];
 
-        $V_new[$i] =
+        $Vnew[$i] =
             $V[$i]
-            + $w_damped[$i]
+            + ($w[$i] * $damping)
             - $interaction
             + $resonance;
     }
 
-    return $V_new;
+    return $Vnew;
 }
