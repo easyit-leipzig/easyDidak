@@ -17,28 +17,22 @@ $r = $pdo->query("select id, bemerkung from  mtr_rueckkopplung_datenmaske where 
 $l = count( $r );
 $i = 0;
 while( $i < $l ) {
-    $pdo->exec("start transaction");
     $tmp = explode("|", $r[$i]["bemerkung"]);
     $k = count($tmp);
     $j = 0;
     while( $j < $k ) {
         if(strlen($tmp[$j])>40) {
-            $pdo->exec("insert into mtr_rueckkopplung_datenmaske_values (id_mtr_rueckkopplung_datenmaske, value)
-                values (" . $r[$i]["id"] .  ", '" . str_replace("'","", $tmp[$j] ) . "')");
+            if( $r[$i]["id"] == 412 ) {
+                $a = 1;
+            }
+            $sql = "insert into mtr_rueckkopplung_datenmaske_values (id_mtr_rueckkopplung_datenmaske, value) values (" . $r[$i]["id"] .  ", '" . str_replace("'","", trim( $tmp[$j] ) ) . "')";
+            $pdo->exec( $sql );
         }
         $j +=1;                                                                                         
     }
-    $pdo->exec("commit");
-    
     $i += 1;
 } 
 
-$pdo->exec("start transaction");
-while( $j < $k ) {
-    $pdo->exec("insert into mtr_rueckkopplung_datenmaske_values (id_mtr_rueckkopplung_datenmaske, value)
-     values (" . $r[$i]["id"] .  ", '" . str_replace("'","", $tmp[$j] ) . "')");
-    $j +=1;                                                                                         
-}
 $pdo->exec("commit");
 echo "mtr_rueckkopplung_datenmaske_values befüllt \n";    
 // hole alle lehrkräfte aus mtr_rueckkopplung_datenmaske

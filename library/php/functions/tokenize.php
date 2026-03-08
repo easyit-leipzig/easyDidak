@@ -71,7 +71,7 @@
     if( $tmp != "" ) {
         $text = $tmp;
     }
-    $text = preg_replace('/[^a-z\s,;]/', '', $text);
+    $text = preg_replace('/[^a-z\s,;()]/', '', $text);
 
     // 4. Tokenisieren
     //$tokens = preg_split('/\s+/', $text); 
