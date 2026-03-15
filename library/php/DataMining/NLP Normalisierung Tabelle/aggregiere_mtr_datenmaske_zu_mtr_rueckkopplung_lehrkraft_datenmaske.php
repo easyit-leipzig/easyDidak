@@ -22,9 +22,6 @@ while( $i < $l ) {
     $j = 0;
     while( $j < $k ) {
         if(strlen($tmp[$j])>40) {
-            if( $r[$i]["id"] == 412 ) {
-                $a = 1;
-            }
             $sql = "insert into mtr_rueckkopplung_datenmaske_values (id_mtr_rueckkopplung_datenmaske, value) values (" . $r[$i]["id"] .  ", '" . str_replace("'","", trim( $tmp[$j] ) ) . "')";
             $pdo->exec( $sql );
         }

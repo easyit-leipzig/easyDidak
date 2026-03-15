@@ -151,7 +151,20 @@ $v = [
 'fleißig \/ bemühtbeteiligt sich \/ gute MitarbeitkonzentriertvorbereitetBasiswissen vorhanden',
 'störend \/ blockierend \/ resignierendAbsprachen einhaltendbenötigt AufforderungLernfortschritt erzielt',
 'störend \/ blockierend \/ resignierenddesinteressiert \/ gleichgültigkonzentriertBasiswissen vorhandenLernfortschritt erzielt',
-'störend \/ blockierend \/ resignierendunkonzentriertMaterialien fehlenUnverständnis'
+'störend \/ blockierend \/ resignierendunkonzentriertMaterialien fehlenUnverständnis',
+"Absprachen einhaltendarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzieltBasiswissen vorhandenfähig zu Transferdenken",
+"Absprachen einhaltendbenötigt AufforderungkonzentriertUnverständnis",
+"Absprachen einhaltendunkonzentriertarbeitet selbstständigUnverständnis",
+"Absprachen einhaltendarbeitet selbstständigkonzentriertBasiswissen vorhanden",
+"Absprachen einhaltendarbeitet selbstständigLernfortschritt erzielt",
+"Absprachen einhaltendbenötigt AufforderungunkonzentriertBasiswissen vorhanden",
+"Absprachen einhaltendkonzentriertBasiswissen vorhanden",
+"Absprachen einhaltendarbeitet selbstständigLernfortschritt erzieltBasiswissen vorhanden",
+"Absprachen einhaltendarbeitet selbstständigBasiswissen vorhandenLernfortschritt erzielt",
+"Absprachen einhaltendkonzentriertvorbereitetBasiswissen vorhanden",
+"Absprachen einhaltendarbeitet selbstständigBasiswissen vorhanden",
+"Absprachen einhaltendarbeitet selbstständigkonzentriertvorbereitetLernfortschritt erzielt",
+"Absprachen einhaltendarbeitet selbstständigbeherrscht Themafähig zu Transferdenken"
 ];
 $r=[
 'Absprachen einhaltend / Absprachen nicht einhaltend / beteiligt sich  / gute Mitarbeit / arbeitet selbstständig / benötigt Aufforderung / konzentriert / Lernfortschritt erzielt',
@@ -306,6 +319,20 @@ $r=[
 'störend  / blockierend  / resignierend / Absprachen einhaltend / benötigt Aufforderung / Lernfortschritt erzielt',
 'störend  / blockierend  / resignierend / desinteressiert  / gleichgültigkonzentriert / Basiswissen vorhanden / Lernfortschritt erzielt',
 'störend  / blockierend  / resignierend / unkonzentriert / Materialien fehlen / Unverständnis',
+"Absprachen einhaltend / arbeitet selbstständig / konzentriert / vorbereitet / Lernfortschritt erzielt / Basiswissen vorhanden / fähig zu Transferdenken",
+"Absprachen einhaltend / benötigt Aufforderung / konzentriert / Unverständnis",
+"Absprachen einhaltend / unkonzentriert / arbeitet selbstständig / Unverständnis",
+"Absprachen einhaltend / arbeitet selbstständig / konzentriert / Basiswissen vorhanden",
+"Absprachen einhaltend / arbeitet selbstständig / Lernfortschritt erzielt",
+"Absprachen einhaltend / benötigt Aufforderung / unkonzentriert / Basiswissen vorhanden",
+"Absprachen einhaltend / konzentriert / Basiswissen vorhanden",
+"Absprachen einhaltend / arbeitet selbstständig / Lernfortschritt erzielt / Basiswissen vorhanden",
+"Absprachen einhaltend / arbeitet selbstständig / Basiswissen vorhanden / Lernfortschritt erzielt",
+"Absprachen einhaltend / konzentriert / vorbereitet / Basiswissen vorhanden",
+"Absprachen einhaltend / arbeitet selbstständig / Basiswissen vorhanden",
+"Absprachen einhaltend / arbeitet selbstständig / konzentriert / vorbereitet / Lernfortschritt erzielt",
+"Absprachen einhaltend / arbeitet selbstständig / beherrscht Thema / fähig zu Transferdenken"
+
 ];
 $s = [
 [0.100000, -0.200000, 0.050000, -0.400000, 0.150000, 0.050000, -0.200000],
@@ -459,7 +486,20 @@ $s = [
 [-0.300000, -0.350000, -0.500000, -0.400000, -0.350000, -0.300000, -0.300000],
 [-0.350000, -0.400000, -0.550000, -0.450000, -0.400000, -0.350000, -0.350000],
 [-0.400000, -0.450000, -0.600000, -0.500000, -0.450000, -0.400000, -0.400000],
-[-0.450000, -0.500000, -0.650000, -0.550000, -0.500000, -0.450000, -0.450000]
+[-0.450000, -0.500000, -0.650000, -0.550000, -0.500000, -0.450000, -0.450000],
+[0.85, 0.50, 0.20, 0.70, 0.80, 0.75, 0.80],
+[-0.40, 0.40, -0.20, -0.30, -0.20, -0.40, -0.10],
+[-0.30, 0.40, -0.30, 0.10, -0.10, -0.30, -0.20],
+[0.50, 0.40, 0.10, 0.50, 0.50, 0.50, 0.60],
+[0.40, 0.40, 0.20, 0.50, 0.30, 0.40, 0.50],
+[0.10, 0.40, -0.30, -0.20, 0.00, 0.00, -0.20],
+[0.30, 0.40, 0.10, 0.20, 0.20, 0.20, 0.30],
+[0.60, 0.40, 0.20, 0.50, 0.40, 0.50, 0.60],
+[0.60, 0.40, 0.20, 0.50, 0.40, 0.50, 0.60],
+[0.40, 0.40, 0.10, 0.40, 0.40, 0.40, 0.50],
+[0.30, 0.40, 0.10, 0.30, 0.30, 0.30, 0.40],
+[0.70, 0.50, 0.20, 0.70, 0.70, 0.70, 0.70],
+[0.95, 0.50, 0.30, 0.80, 0.90, 0.90, 0.85]
 ];
 $pdo = new PDO("mysql:host=localhost;dbname=icas;charset=utf8mb4", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -471,21 +511,16 @@ while( $i < $l ) {
     $sql = "insert ignore into frzk_funktionsklassen_weight_absprachen (real_value) values ('" . $v[$i] . "')";
     $pdo->exec("insert ignore into frzk_funktionsklassen_weight_absprachen (real_value) values ('" . $v[$i] . "')");    
     $pdo->exec("update frzk_funktionsklassen_weight_absprachen set konv_value='" . $r[$i] . "' where id=" . $i+1);
-    $k = 7;
-    $j = 0;
-    while( $j < $k ) {
         $sql = "UPDATE `frzk_funktionsklassen_weight_absprachen` SET 
-            `kognition` = '" . $s[$i][$j] . "', 
-            `sozial` = '" . $s[$i][$j] . "', 
-            `affektiv` = '" . $s[$i][$j] . "', 
-            `motivation` = '" . $s[$i][$j] . "', 
-            `methodik` = '" . $s[$i][$j] . "', 
-            `performanz` = '" . $s[$i][$j] . "', 
-            `regulation` = '" . $s[$i][$j] . "' 
+            `kognition` = '" . $s[$i][0] . "', 
+            `sozial` = '" . $s[$i][1] . "', 
+            `affektiv` = '" . $s[$i][2] . "', 
+            `motivation` = '" . $s[$i][3] . "', 
+            `methodik` = '" . $s[$i][4] . "', 
+            `performanz` = '" . $s[$i][5] . "', 
+            `regulation` = '" . $s[$i][6] . "' 
             WHERE `frzk_funktionsklassen_weight_absprachen`.`id` = " . $i+1;
         $pdo->exec($sql);        
-        $j += 1;
-    } 
     $i += 1;
 } 
 
