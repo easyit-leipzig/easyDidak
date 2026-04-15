@@ -1,0 +1,1 @@
+python aggregate_sem_dichte_v2.py --host localhost --db icas --user root --password "" --group-by kw gruppe_id lehrkraft_id --date-from 2025-09-01 --fach MAT PHY --output sem_dichte_aggregation.json

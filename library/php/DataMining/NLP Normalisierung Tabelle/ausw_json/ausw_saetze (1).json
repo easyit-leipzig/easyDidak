@@ -1,0 +1,43 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"icas"},
+{"type":"table","name":"ausw_saetze","database":"icas","data":
+[
+{"id":"1","satz":"braucht selten Unterstützung bei der Anwendung neuer Lernmethoden"},
+{"id":"2","satz":"Selbstständigkeit hat sich in den letzten Wochen deutlich verbessert"},
+{"id":"3","satz":"zeigt meistens Engagement bei der Vorbereitung auf die Nachhilfestunden"},
+{"id":"4","satz":"kann Wissen nur bedingt in Diagrammen, Skizzen oder Mindmaps visualisieren"},
+{"id":"5","satz":"gespr ging in die hose! betrachtete es als angriff"},
+{"id":"6","satz":"kann mittlerweile zuvor schwierige Aufgaben teilweise bewältigen"},
+{"id":"7","satz":"kann nur wenig geschickt zwischen Aufgaben wechseln, die unterschiedliche Lernbereiche abdecken"},
+{"id":"8","satz":"kann Gelerntes gut auf andere Fächer oder den Alltag übertragen"},
+{"id":"9","satz":"kann den eigenen Lösungsweg jederzeit nachvollziehbar schriftlich präsentieren"},
+{"id":"10","satz":"Eigenständige Arbeit und versteht das Thema jedoch hat Problem beim Aufgabenverständnis."},
+{"id":"11","satz":"kann sein Wissen in Testsituationen bzw. unter Druck nur eingeschränkt anwenden"},
+{"id":"12","satz":"Dreisatz wird langsam \/ Einh.-Aufg. lösen"},
+{"id":"13","satz":"die Lernfortschritte des Schülers im Rahmen der Nachhilfe haben sich etwas verbessert"},
+{"id":"14","satz":"reagiert interessiert auf neue Herausforderungen"},
+{"id":"15","satz":"Lernmaterialien und Notizen sind sehr strukturiert"},
+{"id":"16","satz":"gelingt es regelmäßig, eigenständig Lösungsansätze umzusetzen, die mit dem Nachhilfelehrer besprochen wurden"},
+{"id":"17","satz":"konnte durch die Nachhilfe seine Noten im Unterricht etwas verbessern"},
+{"id":"18","satz":"die Lernstrategien des Schülers haben sich in den vergangenen Wochen teilweise verbessert"},
+{"id":"19","satz":"kann gut mit Stress umgehen, wenn Aufgaben schwieriger werden"},
+{"id":"20","satz":"kann nur sporadisch den Operatoren der Aufgabenstellung entsprechend eine Antwort formulieren"},
+{"id":"21","satz":"die Einstellung des Schülers zum Lernen hat sich in letzter Zeit verbessert"},
+{"id":"22","satz":"erledigt seine Hausaufgaben, die er durch die Nachhilfe erhält, zuverlässig"},
+{"id":"23","satz":"kann erlerntes Wissen auch bei unangekündigten Tests zuverlässig abrufen"},
+{"id":"24","satz":"kann Wissen, das in den letzten Nachhilfestunden thematisiert wurde, meistens abrufen"},
+{"id":"25","satz":"Aufgabenänderungen stressen den Schüler nur wenig"},
+{"id":"26","satz":"zeigt nur selten Geduld mit sich selbst und den eigenen Lernfortschritten"},
+{"id":"27","satz":"das Zeitmanagement des Schülers hat sich verbessert"},
+{"id":"28","satz":"kann sein Vorwissen meistens reaktivieren, um neue Informationen besser zu verstehen"},
+{"id":"29","satz":"kann sein Wissen in Testsituationen genauso gut wie im Unterricht anwenden"},
+{"id":"30","satz":"kann bereits erlerntes Wissen meistens auf neue Themen anwenden"},
+{"id":"31","satz":"strebt oftmals danach, Aufgaben selbstständig, also ohne Hilfe, zu lösen"},
+{"id":"32","satz":"ist meistens in der Lage, Aufgaben ohne Hilfe zu bearbeiten"},
+{"id":"33","satz":"lernt weitgehend aus gemachten Fehlern und erkennt Fehler und Korrekturen während des Unterrichts weitgehend als Chance zum Lernen"},
+{"id":"34","satz":"hat geplante Zeit überwiegend sinnvoll genutzt"},
+{"id":"35","satz":"ist überwiegend in der Lage, die Fehler einer fremden Lösung zu begründen und zu berichtigen"}
+]
+}
+]

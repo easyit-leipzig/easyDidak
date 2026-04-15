@@ -1,0 +1,17 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"icas"},
+{"type":"table","name":"tn_per_gruppe","database":"icas","data":
+[
+{"gruppe_id":"1","day_number":"1","teilnehmer_ids":"2,4,8,40,43"},
+{"gruppe_id":"2","day_number":"1","teilnehmer_ids":"12,13,16,20,21,23"},
+{"gruppe_id":"3","day_number":"2","teilnehmer_ids":"3,16,42"},
+{"gruppe_id":"4","day_number":"2","teilnehmer_ids":"5,7,8,9,13,15,16,22,24,42,45,47"},
+{"gruppe_id":"5","day_number":"3","teilnehmer_ids":"2,4,6,10,11"},
+{"gruppe_id":"6","day_number":"3","teilnehmer_ids":"5,7,12,13,14,15,22,42"},
+{"gruppe_id":"7","day_number":"4","teilnehmer_ids":"4,8,9,10,15,16,18,42"},
+{"gruppe_id":"8","day_number":"4","teilnehmer_ids":"10,16,17,18,19,22"},
+{"gruppe_id":"9","day_number":"5","teilnehmer_ids":"4,6,11,20,24,42"}
+]
+}
+]
