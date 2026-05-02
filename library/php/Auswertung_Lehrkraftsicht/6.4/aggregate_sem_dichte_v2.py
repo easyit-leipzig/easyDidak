@@ -1,45 +1,19 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-aggregate_sem_dichte.py
-
-Vollständige Aggregation und JSON-Export aus:
-datenm_values_sem_dichte_lehrer_type_3
-
-Funktionen:
-- MySQL/MariaDB-Verbindung via pymysql
-- robuste JSON-Serialisierung (inkl. Decimal, date, datetime)
-- Kollationskonflikte bei dominante_dimension werden vermieden
-- flexible Filter
-- flexible Gruppierung
-- Export aggregierter Mittelwerte, Min/Max, Std-Abweichungen
-- Export von Polaritäts- und Dominanzverteilungen
-
-Beispiel:
-python aggregate_sem_dichte.py ^
-  --host localhost ^
-  --port 3306 ^
-  --db icas ^
-  --user root ^
-  --password "" ^
-  --group-by kw gruppe_id lehrkraft_id ^
-  --date-from 2025-09-01 ^
-  --fach MAT PHY ^
-  --output sem_dichte_aggregation.json
-"""
-
-from __future__ import annotations
-
-import argparse
 import json
-from dataclasses import dataclass
+import math
+from collections import Counter, defaultdict
 from datetime import date, datetime
-from decimal import Decimal
-from typing import Any, Iterable
 
 import pymysql
 
+
+DB_CONFIG = {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "icas",
+    "charset": "utf8mb4",
+    "cursorclass": pymysql.cursors.DictCursor,
+}
 
 DIMENSIONS = [
     "x_kognition",
@@ -51,305 +25,223 @@ DIMENSIONS = [
     "x_regulation",
 ]
 
-DOM_DIMENSIONS = [
-    "kognition",
-    "sozial",
-    "affektiv",
-    "motivation",
-    "methodik",
-    "performanz",
-    "regulation",
-]
-
-ALLOWED_GROUP_FIELDS = {
-    "id",
-    "gruppe_id",
-    "teilnehmer_id",
-    "fach",
-    "datum",
-    "thema",
-    "wochentag",
-    "day_number",
-    "lehrkraft_id",
-    "id_mtr_rueckkopplung_datenmaske",
-    "type",
-    "kw",
-    "dominante_dimension",
-    "polaritaet_gesamt",
+DIMENSION_LABELS = {
+    "x_kognition": "kognition",
+    "x_sozial": "sozial",
+    "x_affektiv": "affektiv",
+    "x_motivation": "motivation",
+    "x_methodik": "methodik",
+    "x_performanz": "performanz",
+    "x_regulation": "regulation",
 }
 
 
-@dataclass
-class DBConfig:
-    host: str
-    port: int
-    db: str
-    user: str
-    password: str
-    charset: str = "utf8mb4"
-    collation: str = "utf8mb4_general_ci"
-
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Aggregiert datenm_values_sem_dichte_lehrer_type_3 und exportiert JSON."
-    )
-
-    parser.add_argument("--host", default="localhost", help="DB-Host")
-    parser.add_argument("--port", type=int, default=3306, help="DB-Port")
-    parser.add_argument("--db", default="icas", help="Datenbankname")
-    parser.add_argument("--user", default="root", help="DB-Benutzer")
-    parser.add_argument("--password", default="", help="DB-Passwort")
-    parser.add_argument(
-        "--table",
-        default="datenm_values_sem_dichte_lehrer_type_3",
-        help="Quelltabelle oder View",
-    )
-    parser.add_argument(
-        "--group-by",
-        nargs="+",
-        default=["kw"],
-        help=f"Gruppierungsfelder. Erlaubt: {', '.join(sorted(ALLOWED_GROUP_FIELDS))}",
-    )
-
-    parser.add_argument("--date-from", default=None, help="Startdatum, z. B. 2025-09-01")
-    parser.add_argument("--date-to", default=None, help="Enddatum, z. B. 2025-12-31")
-    parser.add_argument("--gruppe-id", type=int, default=None, help="Filter: gruppe_id")
-    parser.add_argument("--lehrkraft-id", type=int, default=None, help="Filter: lehrkraft_id")
-    parser.add_argument("--teilnehmer-id", type=int, default=None, help="Filter: teilnehmer_id")
-    parser.add_argument("--type", type=int, default=None, help="Filter: type")
-    parser.add_argument("--fach", nargs="*", default=None, help="Filter: Fachliste, z. B. MAT PHY")
-    parser.add_argument(
-        "--kw-from",
-        type=int,
-        default=None,
-        help="Filter: kw >= Wert",
-    )
-    parser.add_argument(
-        "--kw-to",
-        type=int,
-        default=None,
-        help="Filter: kw <= Wert",
-    )
-    parser.add_argument(
-        "--output",
-        default="sem_dichte_aggregation.json",
-        help="Zieldatei für JSON",
-    )
-
-    return parser.parse_args()
-
-
-def validate_group_fields(fields: Iterable[str]) -> list[str]:
-    group_fields = list(fields)
-    invalid = [field for field in group_fields if field not in ALLOWED_GROUP_FIELDS]
-    if invalid:
-        raise ValueError(
-            f"Ungültige group-by-Felder: {invalid}. Erlaubt sind: {sorted(ALLOWED_GROUP_FIELDS)}"
-        )
-    return group_fields
-
-
-def build_query(table: str, group_fields: list[str], args: argparse.Namespace) -> tuple[str, list[Any]]:
-    select_parts: list[str] = list(group_fields)
-
-    for dim in DIMENSIONS:
-        select_parts.append(f"AVG({dim}) AS avg_{dim}")
-        select_parts.append(f"MIN({dim}) AS min_{dim}")
-        select_parts.append(f"MAX({dim}) AS max_{dim}")
-        select_parts.append(f"STDDEV_POP({dim}) AS std_{dim}")
-
-    select_parts.extend(
-        [
-            "COUNT(*) AS n",
-            "AVG(d_semantisch) AS avg_d_semantisch",
-            "MIN(d_semantisch) AS min_d_semantisch",
-            "MAX(d_semantisch) AS max_d_semantisch",
-            "STDDEV_POP(d_semantisch) AS std_d_semantisch",
-            "AVG(dominante_dimension_wert) AS avg_dominante_dimension_wert",
-            "MIN(dominante_dimension_wert) AS min_dominante_dimension_wert",
-            "MAX(dominante_dimension_wert) AS max_dominante_dimension_wert",
-            "STDDEV_POP(dominante_dimension_wert) AS std_dominante_dimension_wert",
-            "SUM(CASE WHEN polaritaet_gesamt > 0 THEN 1 ELSE 0 END) AS n_pos",
-            "SUM(CASE WHEN polaritaet_gesamt < 0 THEN 1 ELSE 0 END) AS n_neg",
-            "SUM(CASE WHEN polaritaet_gesamt = 0 THEN 1 ELSE 0 END) AS n_neutral",
-            "AVG(CASE WHEN polaritaet_gesamt IS NOT NULL THEN polaritaet_gesamt END) AS avg_polaritaet",
-        ]
-    )
-
-    # BINARY-Vergleich vermeidet Kollationskonflikte
-    for dom in DOM_DIMENSIONS:
-        select_parts.append(
-            f"SUM(CASE WHEN BINARY dominante_dimension = BINARY '{dom}' THEN 1 ELSE 0 END) AS dom_{dom}"
-        )
-
-    where_clauses: list[str] = []
-    params: list[Any] = []
-
-    if args.date_from:
-        where_clauses.append("datum >= %s")
-        params.append(args.date_from)
-
-    if args.date_to:
-        where_clauses.append("datum <= %s")
-        params.append(args.date_to)
-
-    if args.gruppe_id is not None:
-        where_clauses.append("gruppe_id = %s")
-        params.append(args.gruppe_id)
-
-    if args.lehrkraft_id is not None:
-        where_clauses.append("lehrkraft_id = %s")
-        params.append(args.lehrkraft_id)
-
-    if args.teilnehmer_id is not None:
-        where_clauses.append("teilnehmer_id = %s")
-        params.append(args.teilnehmer_id)
-
-    if args.type is not None:
-        where_clauses.append("type = %s")
-        params.append(args.type)
-
-    if args.kw_from is not None:
-        where_clauses.append("kw >= %s")
-        params.append(args.kw_from)
-
-    if args.kw_to is not None:
-        where_clauses.append("kw <= %s")
-        params.append(args.kw_to)
-
-    if args.fach:
-        placeholders = ", ".join(["%s"] * len(args.fach))
-        where_clauses.append(f"fach IN ({placeholders})")
-        params.extend(args.fach)
-
-    sql = "SELECT\n  " + ",\n  ".join(select_parts) + f"\nFROM {table}"
-
-    if where_clauses:
-        sql += "\nWHERE " + " AND ".join(where_clauses) + " and lehrkraft_id<>1 "
-
-    if group_fields:
-        sql += "\nGROUP BY " + ", ".join(group_fields)
-        sql += "\nORDER BY " + ", ".join(group_fields)
-
-    return sql, params
-
-
-def normalize_value(value: Any) -> Any:
-    if value is None:
-        return None
-
-    if isinstance(value, Decimal):
-        if value == value.to_integral_value():
-            return int(value)
-        return round(float(value), 6)
-
-    if isinstance(value, float):
-        return round(value, 6)
-
+def to_serializable(value):
     if isinstance(value, (datetime, date)):
         return value.isoformat()
-
-    if hasattr(value, "isoformat"):
-        try:
-            return value.isoformat()
-        except Exception:
-            pass
-
+    if isinstance(value, float):
+        if math.isnan(value) or math.isinf(value):
+            return None
+        return round(value, 6)
     return value
 
 
-def row_to_dict(row: dict[str, Any]) -> dict[str, Any]:
-    return {key: normalize_value(value) for key, value in row.items()}
+def compute_dominant_dimension(row):
+    best_key = None
+    best_val = None
+
+    for dim in DIMENSIONS:
+        val = float(row.get(dim) or 0.0)
+        if best_val is None or abs(val) > abs(best_val):
+            best_key = dim
+            best_val = val
+
+    return DIMENSION_LABELS[best_key], float(best_val or 0.0)
 
 
-def test_connection(config: DBConfig) -> None:
-    conn = pymysql.connect(
-        host=config.host,
-        port=config.port,
-        user=config.user,
-        password=config.password,
-        database=config.db,
-        charset=config.charset,
-        collation=config.collation,
-        cursorclass=pymysql.cursors.DictCursor,
-    )
-    try:
-        with conn.cursor() as cursor:
-            cursor.execute("SELECT 1 AS ok")
-            cursor.fetchone()
-    finally:
-        conn.close()
+def compute_polarity(row):
+    total = sum(float(row.get(dim) or 0.0) for dim in DIMENSIONS)
+    if total > 0:
+        return 1, total
+    if total < 0:
+        return -1, total
+    return 0, total
 
 
-def fetch_rows(config: DBConfig, sql: str, params: list[Any]) -> list[dict[str, Any]]:
-    conn = pymysql.connect(
-        host=config.host,
-        port=config.port,
-        user=config.user,
-        password=config.password,
-        database=config.db,
-        charset=config.charset,
-        collation=config.collation,
-        cursorclass=pymysql.cursors.DictCursor,
-    )
-
-    try:
-        with conn.cursor() as cursor:
-            cursor.execute(sql, params)
-            rows = cursor.fetchall()
-            return rows
-    finally:
-        conn.close()
-
-
-def main() -> None:
-    args = parse_args()
-    group_fields = validate_group_fields(args.group_by)
-
-    config = DBConfig(
-        host=args.host,
-        port=args.port,
-        db=args.db,
-        user=args.user,
-        password=args.password,
-    )
-
-    test_connection(config)
-
-    sql, params = build_query(args.table, group_fields, args)
-    rows = fetch_rows(config, sql, params)
-
-    payload = {
-        "meta": {
-            "source_table": args.table,
-            "group_by": group_fields,
-            "filters": {
-                "date_from": args.date_from,
-                "date_to": args.date_to,
-                "gruppe_id": args.gruppe_id,
-                "lehrkraft_id": args.lehrkraft_id,
-                "teilnehmer_id": args.teilnehmer_id,
-                "type": args.type,
-                "fach": args.fach,
-                "kw_from": args.kw_from,
-                "kw_to": args.kw_to,
-            },
-            "dimensions": DIMENSIONS,
-            "dominanz_dimensionen": DOM_DIMENSIONS,
-            "row_count": len(rows),
-            "sql": sql,
-            "params": [normalize_value(x) for x in params],
-        },
-        "data": [row_to_dict(row) for row in rows],
+def build_summary(rows):
+    summary = {
+        "anzahl_saetze": len(rows),
+        "dominanzverteilung": {},
+        "polaritaetsverteilung": {},
+        "mittlere_dominanzstaerke": 0.0,
+        "mittlere_semantische_dichte": 0.0,
+        "gruppen": {},
+        "lehrkraefte": {},
+        "faecher": {},
     }
 
-    with open(args.output, "w", encoding="utf-8") as f:
+    dom_counter = Counter()
+    pol_counter = Counter()
+    dom_strengths = []
+    densities = []
+
+    by_group = defaultdict(list)
+    by_teacher = defaultdict(list)
+    by_subject = defaultdict(list)
+
+    for row in rows:
+        dom = row["berechnet"]["dominante_dimension"]
+        pol = row["berechnet"]["polaritaet"]
+        dom_strength = abs(float(row["berechnet"]["dominanzstaerke"]))
+        density = float(row["berechnet"]["d_semantisch"])
+
+        dom_counter[dom] += 1
+        pol_counter[str(pol)] += 1
+        dom_strengths.append(dom_strength)
+        densities.append(density)
+
+        by_group[str(row["gruppe_id"])].append(row)
+        by_teacher[str(row["lehrkraft_id"])].append(row)
+        by_subject[str(row["fach"])].append(row)
+
+    summary["dominanzverteilung"] = dict(dom_counter)
+    summary["polaritaetsverteilung"] = dict(pol_counter)
+    summary["mittlere_dominanzstaerke"] = round(sum(dom_strengths) / len(dom_strengths), 6) if dom_strengths else 0.0
+    summary["mittlere_semantische_dichte"] = round(sum(densities) / len(densities), 6) if densities else 0.0
+
+    def aggregate_subset(subset_rows):
+        if not subset_rows:
+            return {}
+
+        sub_dom = Counter(r["berechnet"]["dominante_dimension"] for r in subset_rows)
+        sub_pol = Counter(str(r["berechnet"]["polaritaet"]) for r in subset_rows)
+        sub_dom_strength = [abs(float(r["berechnet"]["dominanzstaerke"])) for r in subset_rows]
+        sub_density = [float(r["berechnet"]["d_semantisch"]) for r in subset_rows]
+
+        return {
+            "n": len(subset_rows),
+            "dominanzverteilung": dict(sub_dom),
+            "polaritaetsverteilung": dict(sub_pol),
+            "mittlere_dominanzstaerke": round(sum(sub_dom_strength) / len(sub_dom_strength), 6),
+            "mittlere_semantische_dichte": round(sum(sub_density) / len(sub_density), 6),
+        }
+
+    summary["gruppen"] = {k: aggregate_subset(v) for k, v in by_group.items()}
+    summary["lehrkraefte"] = {k: aggregate_subset(v) for k, v in by_teacher.items()}
+    summary["faecher"] = {k: aggregate_subset(v) for k, v in by_subject.items()}
+
+    return summary
+
+
+def main():
+    output_file = "dominanz_polarisierung_type3.json"
+
+    sql = """
+        SELECT
+            id,
+            gruppe_id,
+            teilnehmer_id,
+            fach,
+            datum,
+            thema,
+            bemerkung,
+            wochentag,
+            day_number,
+            lehrkraft_id,
+            id_mtr_rueckkopplung_datenmaske,
+            type,
+            x_kognition,
+            x_sozial,
+            x_affektiv,
+            x_motivation,
+            x_methodik,
+            x_performanz,
+            x_regulation,
+            dominante_dimension,
+            dominante_dimension_wert,
+            polaritaet_gesamt,
+            d_semantisch
+        FROM datenm_values_sem_dichte_lehrer_type_3 where lehrkraft_id<>1 
+        ORDER BY datum ASC, id ASC
+    """
+
+    with pymysql.connect(**DB_CONFIG) as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(sql)
+            raw_rows = cursor.fetchall()
+
+    export_rows = []
+
+    for row in raw_rows:
+        calc_dom, calc_dom_value = compute_dominant_dimension(row)
+        calc_pol, calc_sum = compute_polarity(row)
+        density = math.sqrt(sum((float(row.get(dim) or 0.0) ** 2) for dim in DIMENSIONS))
+
+        export_row = {
+            "id": row["id"],
+            "gruppe_id": row["gruppe_id"],
+            "teilnehmer_id": row["teilnehmer_id"],
+            "fach": row["fach"],
+            "datum": to_serializable(row["datum"]),
+            "thema": row["thema"],
+            "bemerkung": row["bemerkung"],
+            "wochentag": row["wochentag"],
+            "day_number": row["day_number"],
+            "lehrkraft_id": row["lehrkraft_id"],
+            "id_mtr_rueckkopplung_datenmaske": row["id_mtr_rueckkopplung_datenmaske"],
+            "type": row["type"],
+            "vektor": {
+                "x_kognition": to_serializable(float(row["x_kognition"] or 0.0)),
+                "x_sozial": to_serializable(float(row["x_sozial"] or 0.0)),
+                "x_affektiv": to_serializable(float(row["x_affektiv"] or 0.0)),
+                "x_motivation": to_serializable(float(row["x_motivation"] or 0.0)),
+                "x_methodik": to_serializable(float(row["x_methodik"] or 0.0)),
+                "x_performanz": to_serializable(float(row["x_performanz"] or 0.0)),
+                "x_regulation": to_serializable(float(row["x_regulation"] or 0.0)),
+            },
+            "gespeichert_im_view": {
+                "dominante_dimension": row["dominante_dimension"],
+                "dominante_dimension_wert": to_serializable(float(row["dominante_dimension_wert"] or 0.0)),
+                "polaritaet_gesamt": int(row["polaritaet_gesamt"] or 0),
+                "d_semantisch": to_serializable(float(row["d_semantisch"] or 0.0)),
+            },
+            "berechnet": {
+                "dominante_dimension": calc_dom,
+                "dominanzstaerke": to_serializable(calc_dom_value),
+                "polaritaet": calc_pol,
+                "summe_dimensionen": to_serializable(calc_sum),
+                "d_semantisch": to_serializable(density),
+            },
+            "konsistenzcheck": {
+                "dominante_dimension_identisch": row["dominante_dimension"] == calc_dom,
+                "dominanzwert_delta": to_serializable(float(row["dominante_dimension_wert"] or 0.0) - calc_dom_value),
+                "polaritaet_identisch": int(row["polaritaet_gesamt"] or 0) == calc_pol,
+                "d_semantisch_delta": to_serializable(float(row["d_semantisch"] or 0.0) - density),
+            }
+        }
+
+        export_rows.append(export_row)
+
+    payload = {
+        "quelle": "datenm_values_sem_dichte_lehrer_type_3",
+        "analyse": "6.x.4 Dominanz- und Polarisierungsanalyse",
+        "formeln": {
+            "dominante_dimension": "d(S_i) = argmax_j |x_j|",
+            "dominanzstaerke": "delta(S_i) = max_j |x_j|",
+            "polaritaet": "p(S_i) = sign(sum_{j=1}^{7} x_j)",
+            "semantische_dichte": "||S_i||_2 = sqrt(sum_{j=1}^{7} x_j^2)"
+        },
+        "dimensionen": [DIMENSION_LABELS[d] for d in DIMENSIONS],
+        "exportiert_am": datetime.now().isoformat(),
+        "zusammenfassung": build_summary(export_rows),
+        "daten": export_rows,
+    }
+
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
-    print(f"JSON exportiert: {args.output}")
-    print(f"Gruppierung: {group_fields}")
-    print(f"Zeilen: {len(rows)}")
+    print(f"JSON-Export abgeschlossen: {output_file}")
+    print(f"Anzahl exportierter Sätze: {len(export_rows)}")
 
 
 if __name__ == "__main__":

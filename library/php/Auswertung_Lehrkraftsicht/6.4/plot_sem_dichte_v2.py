@@ -1,234 +1,212 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-plot_sem_dichte.py
-
-Grafische Darstellung für JSON-Dateien aus aggregate_sem_dichte.py
-
-Erzeugt:
-- 01_dimensionsverlauf.png
-- 02_semantische_dichte.png
-- 03_polaritaet.png
-- 04_dominanz.png
-- 00_readme.txt
-
-Beispiel:
-python plot_sem_dichte.py --input sem_dichte_aggregation.json --x kw --outdir plots_sem_dichte
-"""
-
-from __future__ import annotations
-
-import argparse
 import json
-from pathlib import Path
-from typing import Any
+import math
+import os
+from collections import Counter, defaultdict
 
 import matplotlib.pyplot as plt
 
 
-DIMENSIONS = [
-    "x_kognition",
-    "x_sozial",
-    "x_affektiv",
-    "x_motivation",
-    "x_methodik",
-    "x_performanz",
-    "x_regulation",
-]
-
-DOM_DIMENSIONS = [
-    "kognition",
-    "sozial",
-    "affektiv",
-    "motivation",
-    "methodik",
-    "performanz",
-    "regulation",
-]
+INPUT_FILE = "dominanz_polarisierung_type3.json"
+OUTPUT_DIR = "dominanz_polarisierung_auswertung"
 
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Erzeugt Diagramme aus aggregierten FRZK-JSON-Daten.")
-    parser.add_argument("--input", required=True, help="JSON-Datei aus aggregate_sem_dichte.py")
-    parser.add_argument("--x", default=None, help="Feld für die x-Achse, z. B. kw, datum oder gruppe_id")
-    parser.add_argument("--outdir", default="plots_sem_dichte", help="Ausgabeordner")
-    parser.add_argument(
-        "--title-prefix",
-        default="",
-        help="Optionaler Präfix für Diagrammtitel",
-    )
-    return parser.parse_args()
+def ensure_dir(path):
+    os.makedirs(path, exist_ok=True)
 
 
-def load_json(path: str) -> dict[str, Any]:
+def load_data(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def choose_x_field(payload: dict[str, Any], explicit_x: str | None) -> str:
-    if explicit_x:
-        return explicit_x
-
-    group_by = payload.get("meta", {}).get("group_by", [])
-    if not group_by:
-        raise ValueError("Kein x-Feld angegeben und keine group_by-Information im JSON gefunden.")
-    return group_by[0]
+def pct(part, whole):
+    return round((part / whole) * 100, 2) if whole else 0.0
 
 
-def sort_rows(rows: list[dict[str, Any]], x_field: str) -> list[dict[str, Any]]:
-    def sort_key(row: dict[str, Any]) -> Any:
-        value = row.get(x_field)
+def summarize_subset(rows):
+    n = len(rows)
+    dom_counter = Counter(r["berechnet"]["dominante_dimension"] for r in rows)
+    pol_counter = Counter(r["berechnet"]["polaritaet"] for r in rows)
 
-        if value is None:
-            return (2, "")
+    dom_strengths = [abs(float(r["berechnet"]["dominanzstaerke"])) for r in rows]
+    densities = [float(r["berechnet"]["d_semantisch"]) for r in rows]
+    sums = [float(r["berechnet"]["summe_dimensionen"]) for r in rows]
 
-        try:
-            return (0, float(value))
-        except (TypeError, ValueError):
-            return (1, str(value))
+    mean_dom_strength = sum(dom_strengths) / n if n else 0.0
+    mean_density = sum(densities) / n if n else 0.0
+    mean_sum = sum(sums) / n if n else 0.0
 
-    return sorted(rows, key=sort_key)
-
-
-def get_x_values(rows: list[dict[str, Any]], x_field: str) -> list[Any]:
-    return [row.get(x_field) for row in rows]
-
-
-def title_with_prefix(prefix: str, title: str) -> str:
-    prefix = prefix.strip()
-    return f"{prefix} – {title}" if prefix else title
-
-
-def save_readme(payload: dict[str, Any], outdir: Path) -> Path:
-    meta = payload.get("meta", {})
-    lines = [
-        "Auswertung datenm_values_sem_dichte_lehrer_type_3",
-        "==============================================",
-        f"Quelle: {meta.get('source_table')}",
-        f"Gruppierung: {meta.get('group_by')}",
-        f"Filter: {meta.get('filters')}",
-        f"Zeilenzahl: {meta.get('row_count')}",
-        "",
-        "Diagramme:",
-        "01_dimensionsverlauf.png  -> Mittelwerte der sieben Dimensionen",
-        "02_semantische_dichte.png -> mittlere semantische Dichte",
-        "03_polaritaet.png         -> positive / negative / neutrale Polarität",
-        "04_dominanz.png           -> Häufigkeit dominanter Dimensionen",
-    ]
-    outpath = outdir / "00_readme.txt"
-    outpath.write_text("\n".join(lines), encoding="utf-8")
-    return outpath
+    return {
+        "n": n,
+        "dominanzverteilung": dict(dom_counter),
+        "polaritaetsverteilung": dict(pol_counter),
+        "mittlere_dominanzstaerke": round(mean_dom_strength, 6),
+        "mittlere_semantische_dichte": round(mean_density, 6),
+        "mittlere_dimensionssumme": round(mean_sum, 6),
+        "positiv_quote": pct(pol_counter.get(1, 0), n),
+        "negativ_quote": pct(pol_counter.get(-1, 0), n),
+        "neutral_quote": pct(pol_counter.get(0, 0), n),
+    }
 
 
-def save_dimension_plot(rows: list[dict[str, Any]], x_field: str, outdir: Path, title_prefix: str) -> Path:
-    x = get_x_values(rows, x_field)
+def create_text_report(payload, output_path):
+    rows = payload["daten"]
+    summary = payload["zusammenfassung"]
 
-    plt.figure(figsize=(13, 7))
-    for dim in DIMENSIONS:
-        y = [row.get(f"avg_{dim}") for row in rows]
-        plt.plot(x, y, marker="o", label=dim.replace("x_", ""))
+    by_group = defaultdict(list)
+    by_teacher = defaultdict(list)
+    by_subject = defaultdict(list)
 
-    plt.xlabel(x_field)
-    plt.ylabel("Mittelwert")
-    plt.title(title_with_prefix(title_prefix, "Mittlere Dimensionswerte"))
-    plt.xticks(rotation=45, ha="right")
-    plt.legend()
+    for row in rows:
+        by_group[str(row["gruppe_id"])].append(row)
+        by_teacher[str(row["lehrkraft_id"])].append(row)
+        by_subject[str(row["fach"])].append(row)
+
+    mismatches_dom = sum(1 for r in rows if not r["konsistenzcheck"]["dominante_dimension_identisch"])
+    mismatches_pol = sum(1 for r in rows if not r["konsistenzcheck"]["polaritaet_identisch"])
+
+    lines = []
+    lines.append("6.x.4 Dominanz- und Polarisierungsanalyse – Auswertungsbericht")
+    lines.append("=" * 70)
+    lines.append("")
+    lines.append(f"Quelle: {payload['quelle']}")
+    lines.append(f"Anzahl Sätze: {summary['anzahl_saetze']}")
+    lines.append(f"Mittlere Dominanzstärke: {summary['mittlere_dominanzstaerke']}")
+    lines.append(f"Mittlere semantische Dichte: {summary['mittlere_semantische_dichte']}")
+    lines.append("")
+    lines.append("Globale Dominanzverteilung:")
+    for k, v in sorted(summary["dominanzverteilung"].items(), key=lambda x: (-x[1], x[0])):
+        lines.append(f"  - {k}: {v}")
+    lines.append("")
+    lines.append("Globale Polaritätsverteilung:")
+    for k, v in sorted(summary["polaritaetsverteilung"].items(), key=lambda x: str(x[0])):
+        lines.append(f"  - {k}: {v}")
+    lines.append("")
+    lines.append("Konsistenzcheck zwischen View und Neuberechnung:")
+    lines.append(f"  - Abweichungen dominante Dimension: {mismatches_dom}")
+    lines.append(f"  - Abweichungen Polarität: {mismatches_pol}")
+    lines.append("")
+
+    lines.append("Analyse nach Gruppe")
+    lines.append("-" * 70)
+    for key in sorted(by_group.keys(), key=lambda x: int(x) if x.isdigit() else x):
+        s = summarize_subset(by_group[key])
+        lines.append(
+            f"Gruppe {key}: n={s['n']}, "
+            f"mittl. Dominanz={s['mittlere_dominanzstaerke']:.4f}, "
+            f"mittl. Dichte={s['mittlere_semantische_dichte']:.4f}, "
+            f"+={s['positiv_quote']:.2f}%, -={s['negativ_quote']:.2f}%, 0={s['neutral_quote']:.2f}%"
+        )
+        dom_sorted = sorted(s["dominanzverteilung"].items(), key=lambda x: (-x[1], x[0]))
+        lines.append("    Dominanz: " + ", ".join(f"{k}={v}" for k, v in dom_sorted))
+    lines.append("")
+
+    lines.append("Analyse nach Lehrkraft")
+    lines.append("-" * 70)
+    for key in sorted(by_teacher.keys(), key=lambda x: int(x) if x.isdigit() else x):
+        s = summarize_subset(by_teacher[key])
+        lines.append(
+            f"Lehrkraft {key}: n={s['n']}, "
+            f"mittl. Dominanz={s['mittlere_dominanzstaerke']:.4f}, "
+            f"mittl. Dichte={s['mittlere_semantische_dichte']:.4f}, "
+            f"+={s['positiv_quote']:.2f}%, -={s['negativ_quote']:.2f}%, 0={s['neutral_quote']:.2f}%"
+        )
+        dom_sorted = sorted(s["dominanzverteilung"].items(), key=lambda x: (-x[1], x[0]))
+        lines.append("    Dominanz: " + ", ".join(f"{k}={v}" for k, v in dom_sorted))
+    lines.append("")
+
+    lines.append("Analyse nach Fach")
+    lines.append("-" * 70)
+    for key in sorted(by_subject.keys()):
+        s = summarize_subset(by_subject[key])
+        lines.append(
+            f"Fach {key}: n={s['n']}, "
+            f"mittl. Dominanz={s['mittlere_dominanzstaerke']:.4f}, "
+            f"mittl. Dichte={s['mittlere_semantische_dichte']:.4f}, "
+            f"+={s['positiv_quote']:.2f}%, -={s['negativ_quote']:.2f}%, 0={s['neutral_quote']:.2f}%"
+        )
+        dom_sorted = sorted(s["dominanzverteilung"].items(), key=lambda x: (-x[1], x[0]))
+        lines.append("    Dominanz: " + ", ".join(f"{k}={v}" for k, v in dom_sorted))
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+
+def plot_global_dominance(rows, output_dir):
+    counter = Counter(r["berechnet"]["dominante_dimension"] for r in rows)
+    labels = list(counter.keys())
+    values = list(counter.values())
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(labels, values)
+    plt.title("Globale Dominanzverteilung")
+    plt.xlabel("Dominante Dimension")
+    plt.ylabel("Häufigkeit")
+    plt.xticks(rotation=30)
     plt.tight_layout()
-
-    outpath = outdir / "01_dimensionsverlauf.png"
-    plt.savefig(outpath, dpi=200, bbox_inches="tight")
+    plt.savefig(os.path.join(output_dir, "01_globale_dominanzverteilung.png"), dpi=200)
     plt.close()
-    return outpath
 
 
-def save_density_plot(rows: list[dict[str, Any]], x_field: str, outdir: Path, title_prefix: str) -> Path:
-    x = get_x_values(rows, x_field)
-    y = [row.get("avg_d_semantisch") for row in rows]
+def plot_global_polarity(rows, output_dir):
+    counter = Counter(r["berechnet"]["polaritaet"] for r in rows)
+    labels = [str(k) for k in sorted(counter.keys())]
+    values = [counter[int(k)] for k in labels]
 
-    plt.figure(figsize=(13, 7))
-    plt.plot(x, y, marker="o")
-    plt.xlabel(x_field)
-    plt.ylabel("Ø d_semantisch")
-    plt.title(title_with_prefix(title_prefix, "Mittlere semantische Dichte"))
-    plt.xticks(rotation=45, ha="right")
+    plt.figure(figsize=(8, 5))
+    plt.bar(labels, values)
+    plt.title("Globale Polaritätsverteilung")
+    plt.xlabel("Polarität (-1 / 0 / +1)")
+    plt.ylabel("Häufigkeit")
     plt.tight_layout()
-
-    outpath = outdir / "02_semantische_dichte.png"
-    plt.savefig(outpath, dpi=200, bbox_inches="tight")
+    plt.savefig(os.path.join(output_dir, "02_globale_polaritaetsverteilung.png"), dpi=200)
     plt.close()
-    return outpath
 
 
-def save_polarity_plot(rows: list[dict[str, Any]], x_field: str, outdir: Path, title_prefix: str) -> Path:
-    x = [str(v) for v in get_x_values(rows, x_field)]
-    pos = [row.get("n_pos", 0) for row in rows]
-    neg = [row.get("n_neg", 0) for row in rows]
-    neutral = [row.get("n_neutral", 0) for row in rows]
+def plot_density_by_group(rows, output_dir):
+    by_group = defaultdict(list)
+    for r in rows:
+        by_group[str(r["gruppe_id"])].append(float(r["berechnet"]["d_semantisch"]))
 
-    plt.figure(figsize=(13, 7))
-    plt.plot(x, pos, marker="o", label="positiv")
-    plt.plot(x, neg, marker="o", label="negativ")
-    plt.plot(x, neutral, marker="o", label="neutral")
-    plt.xlabel(x_field)
-    plt.ylabel("Anzahl")
-    plt.title(title_with_prefix(title_prefix, "Polaritätsverteilung"))
-    plt.xticks(rotation=45, ha="right")
-    plt.legend()
+    labels = sorted(by_group.keys(), key=lambda x: int(x) if x.isdigit() else x)
+    values = [sum(by_group[k]) / len(by_group[k]) for k in labels]
+
+    plt.figure(figsize=(12, 6))
+    plt.bar(labels, values)
+    plt.title("Mittlere semantische Dichte nach Gruppe")
+    plt.xlabel("Gruppe")
+    plt.ylabel("Mittlere semantische Dichte")
     plt.tight_layout()
-
-    outpath = outdir / "03_polaritaet.png"
-    plt.savefig(outpath, dpi=200, bbox_inches="tight")
+    plt.savefig(os.path.join(output_dir, "03_dichte_nach_gruppe.png"), dpi=200)
     plt.close()
-    return outpath
 
 
-def save_dominance_plot(rows: list[dict[str, Any]], x_field: str, outdir: Path, title_prefix: str) -> Path:
-    x = [str(v) for v in get_x_values(rows, x_field)]
+def plot_dominance_strength_hist(rows, output_dir):
+    values = [abs(float(r["berechnet"]["dominanzstaerke"])) for r in rows]
 
-    plt.figure(figsize=(13, 7))
-    for dom in DOM_DIMENSIONS:
-        y = [row.get(f"dom_{dom}", 0) for row in rows]
-        plt.plot(x, y, marker="o", label=dom)
-
-    plt.xlabel(x_field)
-    plt.ylabel("Anzahl")
-    plt.title(title_with_prefix(title_prefix, "Dominante Dimensionen"))
-    plt.xticks(rotation=45, ha="right")
-    plt.legend()
+    plt.figure(figsize=(9, 5))
+    plt.hist(values, bins=20)
+    plt.title("Verteilung der Dominanzstärke")
+    plt.xlabel("Dominanzstärke |δ(S_i)|")
+    plt.ylabel("Häufigkeit")
     plt.tight_layout()
-
-    outpath = outdir / "04_dominanz.png"
-    plt.savefig(outpath, dpi=200, bbox_inches="tight")
+    plt.savefig(os.path.join(output_dir, "04_hist_dominanzstaerke.png"), dpi=200)
     plt.close()
-    return outpath
 
 
-def main() -> None:
-    args = parse_args()
+def main():
+    ensure_dir(OUTPUT_DIR)
+    payload = load_data(INPUT_FILE)
+    rows = payload["daten"]
 
-    payload = load_json(args.input)
-    rows = payload.get("data", [])
-    if not rows:
-        raise ValueError("Die JSON-Datei enthält keine Daten in 'data'.")
+    create_text_report(payload, os.path.join(OUTPUT_DIR, "auswertungsbericht.txt"))
+    plot_global_dominance(rows, OUTPUT_DIR)
+    plot_global_polarity(rows, OUTPUT_DIR)
+    plot_density_by_group(rows, OUTPUT_DIR)
+    plot_dominance_strength_hist(rows, OUTPUT_DIR)
 
-    x_field = choose_x_field(payload, args.x)
-    rows = sort_rows(rows, x_field)
-
-    outdir = Path(args.outdir)
-    outdir.mkdir(parents=True, exist_ok=True)
-
-    created = [
-        save_readme(payload, outdir),
-        save_dimension_plot(rows, x_field, outdir, args.title_prefix),
-        save_density_plot(rows, x_field, outdir, args.title_prefix),
-        save_polarity_plot(rows, x_field, outdir, args.title_prefix),
-        save_dominance_plot(rows, x_field, outdir, args.title_prefix),
-    ]
-
-    print("Erzeugte Dateien:")
-    for path in created:
-        print(path)
+    print("Auswertung abgeschlossen.")
+    print(f"Ergebnisse liegen in: {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":

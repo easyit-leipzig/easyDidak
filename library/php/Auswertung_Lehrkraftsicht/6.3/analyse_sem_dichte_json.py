@@ -92,7 +92,7 @@ SELECT
     d_semantisch
 FROM datenm_values_sem_dichte_lehrer_type_3
 WHERE datum >= '{FILTER_DATE_FROM}'
-  AND lehrkraft_id<>1 and fach IN ({",".join([repr(x) for x in FILTER_FAECHER])})
+  and lehrkraft_id=1 and weekofyear(datum)<>44 and fach IN ({",".join([repr(x) for x in FILTER_FAECHER])})
 """
 
 df = pd.read_sql(sql, engine)
