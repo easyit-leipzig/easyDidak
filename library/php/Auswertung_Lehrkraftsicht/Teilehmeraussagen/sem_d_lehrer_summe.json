@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-04-26T07:52:32.915757",
+  "gesamt": {
+    "n": 2842,
+    "sum_vector": {
+      "x_kognition": 1336.9303957614195,
+      "x_sozial": 258.86912684300296,
+      "x_affektiv": 412.77347728518464,
+      "x_motivation": 985.353852885671,
+      "x_methodik": 1096.1572947723125,
+      "x_performanz": 1233.6912768857005,
+      "x_regulation": 1022.8265305364829
+    },
+    "norm_sum": 2601.0438981312304,
+    "sum_d_semantisch": 9724.255635189054
+  },
+  "lehrkraft_1": {
+    "n": 1802,
+    "sum_vector": {
+      "x_kognition": 854.4656351835721,
+      "x_sozial": 162.9486738765174,
+      "x_affektiv": 267.27831182646895,
+      "x_motivation": 626.5545956601975,
+      "x_methodik": 701.0003874525969,
+      "x_performanz": 773.7604847777594,
+      "x_regulation": 642.5011419818586
+    },
+    "norm_sum": 1650.3292695106932,
+    "sum_d_semantisch": 6201.781487511699
+  },
+  "andere": {
+    "n": 1040,
+    "sum_vector": {
+      "x_kognition": 482.46476057784406,
+      "x_sozial": 95.92045296648543,
+      "x_affektiv": 145.49516545871472,
+      "x_motivation": 358.7992572254754,
+      "x_methodik": 395.1569073197102,
+      "x_performanz": 459.9307921079442,
+      "x_regulation": 380.3253885546215
+    },
+    "norm_sum": 950.9003337705202,
+    "sum_d_semantisch": 3522.4741476773556
+  }
+}

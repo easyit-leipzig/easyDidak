@@ -4,7 +4,7 @@ ini_set('memory_limit', '1024M');
 set_time_limit(0);
 
 $pdo = new PDO(
-    "mysql:host=localhost;dbname=icas;charset=utf8mb4",
+    "mysql:host=localhost;dbname=icas_19_4_2;charset=utf8mb4",
     "root",
     "",
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]

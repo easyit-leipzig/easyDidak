@@ -1,0 +1,55 @@
+Alle
+
+Heatmap gespeichert unter: D:\xampp\htdocs\easyDidak\library\php\Auswertung_Lehrkraftsicht\6.6\frzk_korrelations_heatmap.png
+
+Stärkste positive Kopplungen:
+- x_kognition ↔ x_methodik: 0.7221
+- x_kognition ↔ x_performanz: 0.6859
+- x_affektiv ↔ x_sozial: 0.4751
+- x_methodik ↔ x_performanz: 0.3955
+- x_motivation ↔ x_regulation: 0.3396
+
+Stärkste negative Kopplungen:
+- x_methodik ↔ x_sozial: -0.6632
+- x_affektiv ↔ x_methodik: -0.5693
+- x_affektiv ↔ x_regulation: -0.5523
+- x_affektiv ↔ x_performanz: -0.5221
+- x_affektiv ↔ x_kognition: -0.5123
+
+
+Lehrkraft 1
+
+Heatmap gespeichert unter: D:\xampp\htdocs\easyDidak\library\php\Auswertung_Lehrkraftsicht\6.6\frzk_korrelations_heatmap.png
+
+Stärkste positive Kopplungen:
+- x_kognition ↔ x_methodik: 0.8052
+- x_motivation ↔ x_regulation: 0.6914
+- x_kognition ↔ x_performanz: 0.6069
+- x_affektiv ↔ x_sozial: 0.5785
+- x_methodik ↔ x_performanz: 0.4786
+
+Stärkste negative Kopplungen:
+- x_methodik ↔ x_sozial: -0.7710
+- x_affektiv ↔ x_methodik: -0.6679
+- x_kognition ↔ x_sozial: -0.6568
+- x_affektiv ↔ x_performanz: -0.6523
+- x_performanz ↔ x_sozial: -0.6326
+
+
+nicht Lehrkraft 1
+
+Heatmap gespeichert unter: D:\xampp\htdocs\easyDidak\library\php\Auswertung_Lehrkraftsicht\6.6\frzk_korrelations_heatmap.png
+
+Stärkste positive Kopplungen:
+- x_kognition ↔ x_performanz: 0.7674
+- x_kognition ↔ x_methodik: 0.6293
+- x_motivation ↔ x_performanz: 0.3363
+- x_methodik ↔ x_performanz: 0.3221
+- x_affektiv ↔ x_sozial: 0.3156
+
+Stärkste negative Kopplungen:
+- x_methodik ↔ x_sozial: -0.4678
+- x_affektiv ↔ x_regulation: -0.4308
+- x_affektiv ↔ x_methodik: -0.3832
+- x_affektiv ↔ x_kognition: -0.3807
+- x_affektiv ↔ x_performanz: -0.3742

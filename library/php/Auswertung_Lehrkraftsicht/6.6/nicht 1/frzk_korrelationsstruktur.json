@@ -1,0 +1,325 @@
+{
+  "quelle": "datenm_values_sem_dichte_lehrer_type_3",
+  "filter": {
+    "gruppe_id": null,
+    "lehrkraft_id": null,
+    "fach": null,
+    "date_from": null,
+    "date_to": null
+  },
+  "formel": {
+    "kovarianz": "Cov(x_j, x_k)",
+    "korrelation": "rho_jk = Cov(x_j, x_k) / (sigma_j * sigma_k)"
+  },
+  "statistik": {
+    "dimensions": [
+      "x_kognition",
+      "x_sozial",
+      "x_affektiv",
+      "x_motivation",
+      "x_methodik",
+      "x_performanz",
+      "x_regulation"
+    ],
+    "n": 197,
+    "deskriptiv": {
+      "x_kognition": {
+        "mean": 0.42880050527029506,
+        "std": 0.02570337402399077,
+        "min": 0.37219493451839,
+        "max": 0.59
+      },
+      "x_sozial": {
+        "mean": 0.19812919445602983,
+        "std": 0.0964245086811245,
+        "min": -0.079089736845292,
+        "max": 0.52
+      },
+      "x_affektiv": {
+        "mean": 0.2643574329337152,
+        "std": 0.05750843466897653,
+        "min": 0.041796298331569,
+        "max": 0.37418343559149
+      },
+      "x_motivation": {
+        "mean": 0.4096369329455372,
+        "std": 0.02364389550167546,
+        "min": 0.29547878774025,
+        "max": 0.57
+      },
+      "x_methodik": {
+        "mean": 0.41677904289476264,
+        "std": 0.015513141168817935,
+        "min": 0.36709518827304,
+        "max": 0.46
+      },
+      "x_performanz": {
+        "mean": 0.42973644276368433,
+        "std": 0.028431654799105113,
+        "min": 0.39132862471058,
+        "max": 0.61
+      },
+      "x_regulation": {
+        "mean": 0.416344024716888,
+        "std": 0.019604874652853963,
+        "min": 0.26009053526599,
+        "max": 0.49184433424714
+      }
+    },
+    "kovarianzmatrix": {
+      "x_kognition": {
+        "x_kognition": 0.0006606634362171634,
+        "x_sozial": -0.0007478619404112022,
+        "x_affektiv": -0.000562689264648279,
+        "x_motivation": 0.00016789097752717845,
+        "x_methodik": 0.00025093502316728854,
+        "x_performanz": 0.0005608120127393528,
+        "x_regulation": 2.041165960336982e-05
+      },
+      "x_sozial": {
+        "x_kognition": -0.0007478619404112022,
+        "x_sozial": 0.009297685874396253,
+        "x_affektiv": 0.0017501095903594203,
+        "x_motivation": 0.000386036446220026,
+        "x_methodik": -0.0006998225547140729,
+        "x_performanz": -0.0007778338291956692,
+        "x_regulation": -0.0005952401716294837
+      },
+      "x_affektiv": {
+        "x_kognition": -0.000562689264648279,
+        "x_sozial": 0.0017501095903594203,
+        "x_affektiv": 0.0033072200580759417,
+        "x_motivation": -6.636666289873755e-05,
+        "x_methodik": -0.0003418976282931411,
+        "x_performanz": -0.0006117982889507435,
+        "x_regulation": -0.00048573906621908036
+      },
+      "x_motivation": {
+        "x_kognition": 0.00016789097752717845,
+        "x_sozial": 0.000386036446220026,
+        "x_affektiv": -6.636666289873755e-05,
+        "x_motivation": 0.0005590337944941491,
+        "x_methodik": 0.00010018667783398814,
+        "x_performanz": 0.0002260563664111014,
+        "x_regulation": -1.595259160444033e-05
+      },
+      "x_methodik": {
+        "x_kognition": 0.00025093502316728854,
+        "x_sozial": -0.0006998225547140729,
+        "x_affektiv": -0.0003418976282931411,
+        "x_motivation": 0.00010018667783398814,
+        "x_methodik": 0.00024065754892367387,
+        "x_performanz": 0.00014206963349092154,
+        "x_regulation": 5.457323047631917e-05
+      },
+      "x_performanz": {
+        "x_kognition": 0.0005608120127393528,
+        "x_sozial": -0.0007778338291956692,
+        "x_affektiv": -0.0006117982889507435,
+        "x_motivation": 0.0002260563664111014,
+        "x_methodik": 0.00014206963349092154,
+        "x_performanz": 0.0008083589946154768,
+        "x_regulation": 6.343909223548177e-05
+      },
+      "x_regulation": {
+        "x_kognition": 2.041165960336982e-05,
+        "x_sozial": -0.0005952401716294837,
+        "x_affektiv": -0.00048573906621908036,
+        "x_motivation": -1.595259160444033e-05,
+        "x_methodik": 5.457323047631917e-05,
+        "x_performanz": 6.343909223548177e-05,
+        "x_regulation": 0.0003843511101541158
+      }
+    },
+    "korrelationsmatrix": {
+      "x_kognition": {
+        "x_kognition": 1.0,
+        "x_sozial": -0.30174762562990964,
+        "x_affektiv": -0.38066850536736135,
+        "x_motivation": 0.27626011647306825,
+        "x_methodik": 0.6293198055695455,
+        "x_performanz": 0.7674057241020209,
+        "x_regulation": 0.04050644330416939
+      },
+      "x_sozial": {
+        "x_kognition": -0.30174762562990964,
+        "x_sozial": 1.0,
+        "x_affektiv": 0.3156067357191911,
+        "x_motivation": 0.16932529583078604,
+        "x_methodik": -0.4678436682054396,
+        "x_performanz": -0.28372477166290544,
+        "x_regulation": -0.3148768474971902
+      },
+      "x_affektiv": {
+        "x_kognition": -0.38066850536736135,
+        "x_sozial": 0.3156067357191911,
+        "x_affektiv": 1.0,
+        "x_motivation": -0.04880894300516117,
+        "x_methodik": -0.3832346749026914,
+        "x_performanz": -0.3741748333182734,
+        "x_regulation": -0.43083146833249375
+      },
+      "x_motivation": {
+        "x_kognition": 0.27626011647306825,
+        "x_sozial": 0.16932529583078604,
+        "x_affektiv": -0.04880894300516117,
+        "x_motivation": 1.0,
+        "x_methodik": 0.2731437074699587,
+        "x_performanz": 0.33627576842494034,
+        "x_regulation": -0.03441502948716735
+      },
+      "x_methodik": {
+        "x_kognition": 0.6293198055695455,
+        "x_sozial": -0.4678436682054396,
+        "x_affektiv": -0.3832346749026914,
+        "x_motivation": 0.2731437074699587,
+        "x_methodik": 1.0,
+        "x_performanz": 0.3221064177825949,
+        "x_regulation": 0.17943859011125454
+      },
+      "x_performanz": {
+        "x_kognition": 0.7674057241020209,
+        "x_sozial": -0.28372477166290544,
+        "x_affektiv": -0.3741748333182734,
+        "x_motivation": 0.33627576842494034,
+        "x_methodik": 0.3221064177825949,
+        "x_performanz": 1.0,
+        "x_regulation": 0.11381270685939356
+      },
+      "x_regulation": {
+        "x_kognition": 0.04050644330416939,
+        "x_sozial": -0.3148768474971902,
+        "x_affektiv": -0.43083146833249375,
+        "x_motivation": -0.03441502948716735,
+        "x_methodik": 0.17943859011125454,
+        "x_performanz": 0.11381270685939356,
+        "x_regulation": 1.0
+      }
+    },
+    "staerkste_positive_kopplungen": [
+      {
+        "dim_a": "x_kognition",
+        "dim_b": "x_performanz",
+        "covariance": 0.0005608120127393528,
+        "correlation": 0.7674057241020209
+      },
+      {
+        "dim_a": "x_kognition",
+        "dim_b": "x_methodik",
+        "covariance": 0.00025093502316728854,
+        "correlation": 0.6293198055695455
+      },
+      {
+        "dim_a": "x_motivation",
+        "dim_b": "x_performanz",
+        "covariance": 0.0002260563664111014,
+        "correlation": 0.33627576842494034
+      },
+      {
+        "dim_a": "x_methodik",
+        "dim_b": "x_performanz",
+        "covariance": 0.00014206963349092154,
+        "correlation": 0.3221064177825949
+      },
+      {
+        "dim_a": "x_affektiv",
+        "dim_b": "x_sozial",
+        "covariance": 0.0017501095903594203,
+        "correlation": 0.3156067357191911
+      },
+      {
+        "dim_a": "x_kognition",
+        "dim_b": "x_motivation",
+        "covariance": 0.00016789097752717845,
+        "correlation": 0.27626011647306825
+      },
+      {
+        "dim_a": "x_methodik",
+        "dim_b": "x_motivation",
+        "covariance": 0.00010018667783398814,
+        "correlation": 0.2731437074699587
+      },
+      {
+        "dim_a": "x_methodik",
+        "dim_b": "x_regulation",
+        "covariance": 5.457323047631917e-05,
+        "correlation": 0.17943859011125454
+      },
+      {
+        "dim_a": "x_motivation",
+        "dim_b": "x_sozial",
+        "covariance": 0.000386036446220026,
+        "correlation": 0.16932529583078604
+      },
+      {
+        "dim_a": "x_performanz",
+        "dim_b": "x_regulation",
+        "covariance": 6.343909223548177e-05,
+        "correlation": 0.11381270685939356
+      }
+    ],
+    "staerkste_negative_kopplungen": [
+      {
+        "dim_a": "x_methodik",
+        "dim_b": "x_sozial",
+        "covariance": -0.0006998225547140729,
+        "correlation": -0.4678436682054396
+      },
+      {
+        "dim_a": "x_affektiv",
+        "dim_b": "x_regulation",
+        "covariance": -0.00048573906621908036,
+        "correlation": -0.43083146833249375
+      },
+      {
+        "dim_a": "x_affektiv",
+        "dim_b": "x_methodik",
+        "covariance": -0.0003418976282931411,
+        "correlation": -0.3832346749026914
+      },
+      {
+        "dim_a": "x_affektiv",
+        "dim_b": "x_kognition",
+        "covariance": -0.000562689264648279,
+        "correlation": -0.38066850536736135
+      },
+      {
+        "dim_a": "x_affektiv",
+        "dim_b": "x_performanz",
+        "covariance": -0.0006117982889507435,
+        "correlation": -0.3741748333182734
+      },
+      {
+        "dim_a": "x_regulation",
+        "dim_b": "x_sozial",
+        "covariance": -0.0005952401716294837,
+        "correlation": -0.3148768474971902
+      },
+      {
+        "dim_a": "x_kognition",
+        "dim_b": "x_sozial",
+        "covariance": -0.0007478619404112022,
+        "correlation": -0.30174762562990964
+      },
+      {
+        "dim_a": "x_performanz",
+        "dim_b": "x_sozial",
+        "covariance": -0.0007778338291956692,
+        "correlation": -0.28372477166290544
+      },
+      {
+        "dim_a": "x_affektiv",
+        "dim_b": "x_motivation",
+        "covariance": -6.636666289873755e-05,
+        "correlation": -0.04880894300516117
+      },
+      {
+        "dim_a": "x_motivation",
+        "dim_b": "x_regulation",
+        "covariance": -1.595259160444033e-05,
+        "correlation": -0.03441502948716735
+      }
+    ]
+  },
+  "daten": []
+}

@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "input_file": "frzk_lk1_vs_other_export.json",
+    "vector_mode": "sum",
+    "dimensionen": [
+      "kognition",
+      "sozial",
+      "affektiv",
+      "motivation",
+      "methodik",
+      "performanz",
+      "regulation"
+    ],
+    "n_total": 1047,
+    "n_by_group": {
+      "LK_1": 792,
+      "LK_other": 255
+    }
+  },
+  "descriptive": {
+    "LK_1": {
+      "n": 792,
+      "means": {
+        "kognition": 1.501052482754355,
+        "sozial": 0.6238986966663866,
+        "affektiv": 0.7150497518400424,
+        "motivation": 1.2948530104887792,
+        "methodik": 1.2607566181522711,
+        "performanz": 1.3783127681336218,
+        "regulation": 1.2437073941124763,
+        "d_semantisch": 3.4620032789330413,
+        "dominante_dimension_wert": 1.6518210775514557,
+        "token_anzahl": 8.664141414141413,
+        "funktionsklassen_anzahl_gesamt": 5.068181818181818
+      },
+      "std": {
+        "kognition": 0.665065938724314,
+        "sozial": 0.40377960125499585,
+        "affektiv": 0.4843582712837498,
+        "motivation": 0.6339545487366898,
+        "methodik": 0.5930050854891772,
+        "performanz": 0.7870897949849573,
+        "regulation": 0.727034572718799,
+        "d_semantisch": 0.7873125069164215,
+        "dominante_dimension_wert": 0.8220144684432228,
+        "token_anzahl": 2.6437583905326005,
+        "funktionsklassen_anzahl_gesamt": 1.2277440598031926
+      },
+      "median": {
+        "kognition": 1.6216459091988,
+        "sozial": 0.7111800361079,
+        "affektiv": 0.7997873860282949,
+        "motivation": 1.376852504409,
+        "methodik": 1.3744646909752,
+        "performanz": 1.5731268964815,
+        "regulation": 1.3537555353449,
+        "d_semantisch": 3.48912314151635,
+        "dominante_dimension_wert": 1.8125059872154,
+        "token_anzahl": 8.0,
+        "funktionsklassen_anzahl_gesamt": 5.0
+      }
+    },
+    "LK_other": {
+      "n": 255,
+      "means": {
+        "kognition": 1.5446126882162794,
+        "sozial": 0.6491914787970505,
+        "affektiv": 0.6646529499929344,
+        "motivation": 1.36049617025668,
+        "methodik": 1.3370241233792473,
+        "performanz": 1.526512979260887,
+        "regulation": 1.4287071673356742,
+        "d_semantisch": 3.5847669396745423,
+        "dominante_dimension_wert": 1.7759276079067132,
+        "token_anzahl": 9.709803921568627,
+        "funktionsklassen_anzahl_gesamt": 5.294117647058823
+      },
+      "std": {
+        "kognition": 0.6257950785392103,
+        "sozial": 0.39035175765294367,
+        "affektiv": 0.4326785225140105,
+        "motivation": 0.5761652050948419,
+        "methodik": 0.580327093028744,
+        "performanz": 0.6450050976668752,
+        "regulation": 0.6829822281984469,
+        "d_semantisch": 0.82746481629304,
+        "dominante_dimension_wert": 0.6564628896774884,
+        "token_anzahl": 2.8633754997800183,
+        "funktionsklassen_anzahl_gesamt": 1.1240764826561331
+      },
+      "median": {
+        "kognition": 1.6595143788737,
+        "sozial": 0.71676731274779,
+        "affektiv": 0.7570630234271,
+        "motivation": 1.484631629863,
+        "methodik": 1.464947469712,
+        "performanz": 1.6471764262225,
+        "regulation": 1.5521803495292,
+        "d_semantisch": 3.7030237001632,
+        "dominante_dimension_wert": 1.9081367181249,
+        "token_anzahl": 9.0,
+        "funktionsklassen_anzahl_gesamt": 5.0
+      }
+    }
+  },
+  "group_tests": {
+    "kognition": {
+      "mean_LK_1": 1.501052482754355,
+      "mean_LK_other": 1.5446126882162794,
+      "difference_LK_1_minus_other": -0.043560205461924406,
+      "cohens_d": -0.06642937829560523,
+      "t_test_p": 0.3416712714576729,
+      "mann_whitney_p": 0.5555472014894196
+    },
+    "sozial": {
+      "mean_LK_1": 0.6238986966663866,
+      "mean_LK_other": 0.6491914787970505,
+      "difference_LK_1_minus_other": -0.025292782130663882,
+      "cohens_d": -0.06314399396572064,
+      "t_test_p": 0.37269648415115886,
+      "mann_whitney_p": 0.549288975215541
+    },
+    "affektiv": {
+      "mean_LK_1": 0.7150497518400424,
+      "mean_LK_other": 0.6646529499929344,
+      "difference_LK_1_minus_other": 0.05039680184710793,
+      "cohens_d": 0.10670114556717405,
+      "t_test_p": 0.1170756462387171,
+      "mann_whitney_p": 0.023514236243931265
+    },
+    "motivation": {
+      "mean_LK_1": 1.2948530104887792,
+      "mean_LK_other": 1.36049617025668,
+      "difference_LK_1_minus_other": -0.0656431597679008,
+      "cohens_d": -0.10580719934459278,
+      "t_test_p": 0.1234456733141618,
+      "mann_whitney_p": 0.1592665015760556
+    },
+    "methodik": {
+      "mean_LK_1": 1.2607566181522711,
+      "mean_LK_other": 1.3370241233792473,
+      "difference_LK_1_minus_other": -0.07626750522697612,
+      "cohens_d": -0.12927821872548212,
+      "t_test_p": 0.07012737997409857,
+      "mann_whitney_p": 0.044547012324046634
+    },
+    "performanz": {
+      "mean_LK_1": 1.3783127681336218,
+      "mean_LK_other": 1.526512979260887,
+      "difference_LK_1_minus_other": -0.1482002111272651,
+      "cohens_d": -0.19628696183644914,
+      "t_test_p": 0.0026826039664637766,
+      "mann_whitney_p": 0.0008573889381795509
+    },
+    "regulation": {
+      "mean_LK_1": 1.2437073941124763,
+      "mean_LK_other": 1.4287071673356742,
+      "difference_LK_1_minus_other": -0.18499977322319783,
+      "cohens_d": -0.2581717776483337,
+      "t_test_p": 0.00023978802604182834,
+      "mann_whitney_p": 7.241352190215732e-06
+    },
+    "d_semantisch": {
+      "mean_LK_1": 3.4620032789330413,
+      "mean_LK_other": 3.5847669396745423,
+      "difference_LK_1_minus_other": -0.12276366074150102,
+      "cohens_d": -0.15398233852587026,
+      "t_test_p": 0.03770997744704009,
+      "mann_whitney_p": 0.012231751850190764
+    },
+    "dominante_dimension_wert": {
+      "mean_LK_1": 1.6518210775514557,
+      "mean_LK_other": 1.7759276079067132,
+      "difference_LK_1_minus_other": -0.12410653035525754,
+      "cohens_d": -0.15809879341067906,
+      "t_test_p": 0.014172172564844758,
+      "mann_whitney_p": 0.024043527502182412
+    },
+    "token_anzahl": {
+      "mean_LK_1": 8.664141414141413,
+      "mean_LK_other": 9.709803921568627,
+      "difference_LK_1_minus_other": -1.0456625074272132,
+      "cohens_d": -0.387456974196732,
+      "t_test_p": 3.777838909099283e-07,
+      "mann_whitney_p": 2.627053021910326e-06
+    },
+    "funktionsklassen_anzahl_gesamt": {
+      "mean_LK_1": 5.068181818181818,
+      "mean_LK_other": 5.294117647058823,
+      "difference_LK_1_minus_other": -0.22593582887700503,
+      "cohens_d": -0.18775286283264458,
+      "t_test_p": 0.006609435010578616,
+      "mann_whitney_p": 0.030156872250084663
+    }
+  },
+  "categorical_tests": {
+    "dominante_dimension": {
+      "table": {
+        "kognition": {
+          "LK_1": 345,
+          "LK_other": 85
+        },
+        "methodik": {
+          "LK_1": 9,
+          "LK_other": 5
+        },
+        "motivation": {
+          "LK_1": 116,
+          "LK_other": 22
+        },
+        "performanz": {
+          "LK_1": 191,
+          "LK_other": 75
+        },
+        "regulation": {
+          "LK_1": 130,
+          "LK_other": 68
+        },
+        "sozial": {
+          "LK_1": 1,
+          "LK_other": 0
+        }
+      },
+      "chi2": 24.367912689179718,
+      "p": 0.00018446854501012378,
+      "dof": 5
+    },
+    "polaritaet_gesamt": {
+      "table": {
+        "-1": {
+          "LK_1": 38,
+          "LK_other": 7
+        },
+        "1": {
+          "LK_1": 754,
+          "LK_other": 248
+        }
+      },
+      "chi2": 1.508752048042952,
+      "p": 0.2193296115589407,
+      "dof": 1
+    }
+  },
+  "cosine_analysis": {
+    "mean_internal_similarity_LK_1": 0.7705694693418157,
+    "mean_internal_similarity_LK_other": 0.8332402342495215,
+    "mean_between_similarity": 0.800529362341691,
+    "centroid_LK_1": {
+      "kognition": 1.501052482754355,
+      "sozial": 0.6238986966663866,
+      "affektiv": 0.7150497518400424,
+      "motivation": 1.2948530104887792,
+      "methodik": 1.2607566181522711,
+      "performanz": 1.3783127681336218,
+      "regulation": 1.2437073941124763
+    },
+    "centroid_LK_other": {
+      "kognition": 1.5446126882162794,
+      "sozial": 0.6491914787970505,
+      "affektiv": 0.6646529499929344,
+      "motivation": 1.36049617025668,
+      "methodik": 1.3370241233792473,
+      "performanz": 1.526512979260887,
+      "regulation": 1.4287071673356742
+    },
+    "centroid_difference_LK_1_minus_other": {
+      "kognition": -0.043560205461924406,
+      "sozial": -0.025292782130663882,
+      "affektiv": 0.05039680184710793,
+      "motivation": -0.0656431597679008,
+      "methodik": -0.07626750522697612,
+      "performanz": -0.1482002111272651,
+      "regulation": -0.18499977322319783
+    },
+    "centroid_cosine_similarity": 0.9987932998774431,
+    "centroid_euclidean_distance": 0.2671909980011911
+  }
+}

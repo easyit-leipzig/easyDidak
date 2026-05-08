@@ -1,0 +1,129 @@
+6.x.4 Dominanz- und Polarisierungsanalyse – Auswertungsbericht
+======================================================================
+
+Quelle: datenm_values_sem_dichte_lehrer_type_3
+Anzahl Sätze: 466
+Mittlere Dominanzstärke: 0.587644
+Mittlere semantische Dichte: 1.287816
+
+Globale Dominanzverteilung:
+  - kognition: 265
+  - performanz: 110
+  - regulation: 42
+  - motivation: 21
+  - sozial: 11
+  - affektiv: 10
+  - methodik: 7
+
+Globale Polaritätsverteilung:
+  - -1: 15
+  - 1: 451
+
+Konsistenzcheck zwischen View und Neuberechnung:
+  - Abweichungen dominante Dimension: 0
+  - Abweichungen Polarität: 0
+
+Analyse nach Gruppe
+----------------------------------------------------------------------
+Gruppe 0: n=224, mittl. Dominanz=0.6013, mittl. Dichte=1.3092, +=97.77%, -=2.23%, 0=0.00%
+    Dominanz: kognition=130, performanz=49, regulation=21, motivation=10, methodik=6, sozial=5, affektiv=3
+Gruppe 1: n=23, mittl. Dominanz=0.5038, mittl. Dichte=1.1286, +=95.65%, -=4.35%, 0=0.00%
+    Dominanz: kognition=16, performanz=5, regulation=2
+Gruppe 2: n=45, mittl. Dominanz=0.6092, mittl. Dichte=1.3499, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=30, performanz=10, regulation=4, motivation=1
+Gruppe 3: n=26, mittl. Dominanz=0.6096, mittl. Dichte=1.3568, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=17, performanz=8, regulation=1
+Gruppe 4: n=59, mittl. Dominanz=0.6107, mittl. Dichte=1.3200, +=86.44%, -=13.56%, 0=0.00%
+    Dominanz: kognition=23, performanz=13, motivation=7, regulation=7, affektiv=6, sozial=3
+Gruppe 5: n=30, mittl. Dominanz=0.6037, mittl. Dichte=1.3135, +=96.67%, -=3.33%, 0=0.00%
+    Dominanz: kognition=21, performanz=8, affektiv=1
+Gruppe 6: n=31, mittl. Dominanz=0.4797, mittl. Dichte=1.0773, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=13, performanz=11, motivation=2, regulation=2, sozial=2, methodik=1
+Gruppe 7: n=19, mittl. Dominanz=0.5998, mittl. Dichte=1.3265, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=10, performanz=4, regulation=3, motivation=1, sozial=1
+Gruppe 11: n=9, mittl. Dominanz=0.4324, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=5, performanz=2, regulation=2
+
+Analyse nach Lehrkraft
+----------------------------------------------------------------------
+Lehrkraft 5: n=5, mittl. Dominanz=0.7260, mittl. Dichte=1.6013, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=4, performanz=1
+Lehrkraft 6: n=19, mittl. Dominanz=0.7247, mittl. Dichte=1.5288, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=16, sozial=2, performanz=1
+Lehrkraft 7: n=24, mittl. Dominanz=0.6942, mittl. Dichte=1.4753, +=95.83%, -=4.17%, 0=0.00%
+    Dominanz: kognition=17, performanz=3, regulation=3, affektiv=1
+Lehrkraft 8: n=42, mittl. Dominanz=0.7294, mittl. Dichte=1.5241, +=92.86%, -=7.14%, 0=0.00%
+    Dominanz: kognition=36, performanz=2, sozial=2, affektiv=1, motivation=1
+Lehrkraft 9: n=7, mittl. Dominanz=0.6243, mittl. Dichte=1.3601, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: performanz=4, kognition=3
+Lehrkraft 10: n=10, mittl. Dominanz=0.8235, mittl. Dichte=1.8227, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=8, regulation=2
+Lehrkraft 11: n=1, mittl. Dominanz=0.6400, mittl. Dichte=1.4128, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=1
+Lehrkraft 12: n=40, mittl. Dominanz=0.5191, mittl. Dichte=1.1815, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=19, performanz=15, regulation=6
+Lehrkraft 13: n=4, mittl. Dominanz=0.7500, mittl. Dichte=1.6574, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=4
+Lehrkraft 14: n=22, mittl. Dominanz=0.8320, mittl. Dichte=1.8337, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=13, performanz=6, motivation=3
+Lehrkraft 15: n=8, mittl. Dominanz=0.7205, mittl. Dichte=1.5141, +=87.50%, -=12.50%, 0=0.00%
+    Dominanz: kognition=7, affektiv=1
+Lehrkraft 16: n=3, mittl. Dominanz=0.6567, mittl. Dichte=1.4856, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=3
+Lehrkraft 18: n=66, mittl. Dominanz=0.5665, mittl. Dichte=1.2725, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=38, performanz=18, regulation=5, methodik=3, motivation=2
+Lehrkraft 19: n=53, mittl. Dominanz=0.4417, mittl. Dichte=1.0007, +=98.11%, -=1.89%, 0=0.00%
+    Dominanz: kognition=26, performanz=17, regulation=5, methodik=2, motivation=2, affektiv=1
+Lehrkraft 20: n=2, mittl. Dominanz=0.4103, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: motivation=1, regulation=1
+Lehrkraft 21: n=32, mittl. Dominanz=0.6230, mittl. Dichte=1.3446, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=23, performanz=6, sozial=2, regulation=1
+Lehrkraft 22: n=5, mittl. Dominanz=0.5259, mittl. Dichte=1.1169, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=3, performanz=1, sozial=1
+Lehrkraft 23: n=64, mittl. Dominanz=0.4363, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: performanz=25, kognition=24, regulation=13, methodik=1, motivation=1
+Lehrkraft 24: n=4, mittl. Dominanz=0.4312, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=2, methodik=1, performanz=1
+Lehrkraft 25: n=2, mittl. Dominanz=0.4470, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=1, performanz=1
+Lehrkraft 26: n=4, mittl. Dominanz=0.4153, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=2, regulation=2
+Lehrkraft 28: n=9, mittl. Dominanz=0.4367, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=4, performanz=4, motivation=1
+Lehrkraft 29: n=1, mittl. Dominanz=0.4171, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: regulation=1
+Lehrkraft 30: n=1, mittl. Dominanz=0.4077, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=1
+Lehrkraft 33: n=1, mittl. Dominanz=0.4000, mittl. Dichte=0.8307, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: sozial=1
+Lehrkraft 34: n=16, mittl. Dominanz=0.5439, mittl. Dichte=1.0330, +=50.00%, -=50.00%, 0=0.00%
+    Dominanz: affektiv=6, motivation=3, sozial=3, kognition=2, performanz=1, regulation=1
+Lehrkraft 36: n=5, mittl. Dominanz=0.8588, mittl. Dichte=1.9093, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: motivation=4, performanz=1
+Lehrkraft 37: n=8, mittl. Dominanz=0.8009, mittl. Dichte=1.6818, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: performanz=3, kognition=2, regulation=2, motivation=1
+Lehrkraft 38: n=1, mittl. Dominanz=0.9213, mittl. Dichte=1.7837, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=1
+Lehrkraft 40: n=1, mittl. Dominanz=0.5000, mittl. Dichte=1.0536, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: motivation=1
+Lehrkraft 41: n=1, mittl. Dominanz=0.8931, mittl. Dichte=1.9496, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=1
+Lehrkraft 43: n=1, mittl. Dominanz=0.6800, mittl. Dichte=1.4789, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=1
+Lehrkraft 44: n=1, mittl. Dominanz=0.8593, mittl. Dichte=1.8992, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=1
+Lehrkraft 45: n=2, mittl. Dominanz=0.4472, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=2
+Lehrkraft 46: n=1, mittl. Dominanz=0.4000, mittl. Dichte=0.5268, +=0.00%, -=100.00%, 0=0.00%
+    Dominanz: motivation=1
+
+Analyse nach Fach
+----------------------------------------------------------------------
+Fach DEU: n=8, mittl. Dominanz=0.4350, mittl. Dichte=1.0000, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=4, performanz=4
+Fach ENG: n=19, mittl. Dominanz=0.5576, mittl. Dichte=1.1990, +=94.74%, -=5.26%, 0=0.00%
+    Dominanz: kognition=16, methodik=1, performanz=1, regulation=1
+Fach MAT: n=403, mittl. Dominanz=0.5961, mittl. Dichte=1.3038, +=96.53%, -=3.47%, 0=0.00%
+    Dominanz: kognition=230, performanz=93, regulation=33, motivation=21, sozial=11, affektiv=10, methodik=5
+Fach PHY: n=36, mittl. Dominanz=0.5429, mittl. Dichte=1.2201, +=100.00%, -=0.00%, 0=0.00%
+    Dominanz: kognition=15, performanz=12, regulation=8, methodik=1
