@@ -1,0 +1,83 @@
+AUSWERTUNG: 1. STABILISIERUNGSVORHERSAGE DES FRZK
+======================================================================
+
+FRZK-konforme Stabilisierung liegt vor, wenn die Lehrkraftsicht auf Teilnehmende im Zeitverlauf geringere semantische Breite, geringere Dimensionsvarianz, geringere Vektordrift, stabilere Polarität und stabilere Dominanzbreite zeigt.
+
+Datenbasis:
+- n_unterrichtseinheiten: 575
+- n_teilnehmer: 28
+- n_lehrkraefte: 14
+- zeitraum_von: 2025-09-01
+- zeitraum_bis: 2026-01-29
+
+----------------------------------------------------------------------
+alle_lehrkraefte
+----------------------------------------------------------------------
+Teilnehmer: 28
+Mittlerer Stabilisierungsindex: 0.3453
+Minimum Stabilisierungsindex: 0.3005
+Maximum Stabilisierungsindex: 0.4602
+Mittlere semantische Breite: 0.2690
+Mittlere Vektordrift: 0.2247
+
+Stabilste Teilnehmer:
+- TN 43: SI=0.4602, n=11
+- TN 20: SI=0.3917, n=24
+- TN 7: SI=0.3878, n=17
+- TN 16: SI=0.3812, n=29
+- TN 21: SI=0.3771, n=17
+
+Instabilste Teilnehmer:
+- TN 13: SI=0.3005, n=14
+- TN 5: SI=0.3020, n=18
+- TN 17: SI=0.3092, n=15
+- TN 10: SI=0.3124, n=29
+- TN 45: SI=0.3149, n=9
+
+----------------------------------------------------------------------
+lehrkraft_1
+----------------------------------------------------------------------
+Teilnehmer: 27
+Mittlerer Stabilisierungsindex: 0.3615
+Minimum Stabilisierungsindex: 0.2773
+Maximum Stabilisierungsindex: 0.4914
+Mittlere semantische Breite: 0.2649
+Mittlere Vektordrift: 0.2223
+
+Stabilste Teilnehmer:
+- TN 43: SI=0.4914, n=8
+- TN 17: SI=0.4686, n=3
+- TN 47: SI=0.4553, n=3
+- TN 12: SI=0.4489, n=10
+- TN 16: SI=0.4206, n=24
+
+Instabilste Teilnehmer:
+- TN 45: SI=0.2773, n=5
+- TN 23: SI=0.3003, n=11
+- TN 13: SI=0.3006, n=8
+- TN 11: SI=0.3048, n=16
+- TN 5: SI=0.3131, n=15
+
+----------------------------------------------------------------------
+nicht_lehrkraft_1
+----------------------------------------------------------------------
+Teilnehmer: 28
+Mittlerer Stabilisierungsindex: 0.4224
+Minimum Stabilisierungsindex: 0.2677
+Maximum Stabilisierungsindex: 0.8192
+Mittlere semantische Breite: 0.2604
+Mittlere Vektordrift: 0.2186
+
+Stabilste Teilnehmer:
+- TN 2: SI=0.8192, n=1
+- TN 4: SI=0.7125, n=2
+- TN 14: SI=0.6733, n=2
+- TN 42: SI=0.6029, n=1
+- TN 7: SI=0.5371, n=3
+
+Instabilste Teilnehmer:
+- TN 5: SI=0.2677, n=3
+- TN 17: SI=0.2959, n=12
+- TN 24: SI=0.2968, n=3
+- TN 16: SI=0.3108, n=5
+- TN 10: SI=0.3133, n=6
