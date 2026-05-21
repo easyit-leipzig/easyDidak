@@ -1,0 +1,69 @@
+Auswertung 5 – Kohärenzbildung
+Langfristige Lehrkraft-Teilnehmer-Interaktion erzeugt kohärente semantische Räume.
+Niedrige Werte bedeuten hohe interne Kohärenz.
+
+
+alle_lehrkraefte
+Datensätze: 3108
+Teilnehmer: 28
+Ø Kohärenz 1 |Kognition–Motivation|: 0.1858
+Ø Kohärenz 2 |Methodik–Regulation|: 0.1158
+Ø Kohärenzindex: 0.1508
+Std Kohärenzindex: 0.1243
+Polaritätswechsel gesamt: 178
+
+FRZK-Deutung:
+Der Scope zeigt sehr hohe interne Kohärenz. Niedrige Werte bedeuten, dass kognitive, motivationale,
+methodische und regulative Bewertungsanteile enger gekoppelt auftreten. Im Sinne der
+FRZK-Vorhersage spricht dies für einen stabilisierten semantischen Raum. Hohe
+Polaritätswechsel würden dagegen auf semantische Instabilität oder Wechsel zwischen
+Resonanz- und Irritationsphasen hinweisen.
+
+Grafiken:
+- plots_05_kohaerenzbildung\abb_05_1_kohaerenzindex_alle_lehrkraefte.png
+- plots_05_kohaerenzbildung\abb_05_2_kohaerenzachsen_alle_lehrkraefte.png
+- plots_05_kohaerenzbildung\abb_05_3_polaritaetswechsel_alle_lehrkraefte.png
+
+
+lehrkraft_1
+Datensätze: 1948
+Teilnehmer: 28
+Ø Kohärenz 1 |Kognition–Motivation|: 0.1852
+Ø Kohärenz 2 |Methodik–Regulation|: 0.1138
+Ø Kohärenzindex: 0.1495
+Std Kohärenzindex: 0.1179
+Polaritätswechsel gesamt: 102
+
+FRZK-Deutung:
+Der Scope zeigt sehr hohe interne Kohärenz. Niedrige Werte bedeuten, dass kognitive, motivationale,
+methodische und regulative Bewertungsanteile enger gekoppelt auftreten. Im Sinne der
+FRZK-Vorhersage spricht dies für einen stabilisierten semantischen Raum. Hohe
+Polaritätswechsel würden dagegen auf semantische Instabilität oder Wechsel zwischen
+Resonanz- und Irritationsphasen hinweisen.
+
+Grafiken:
+- plots_05_kohaerenzbildung\abb_05_1_kohaerenzindex_lehrkraft_1.png
+- plots_05_kohaerenzbildung\abb_05_2_kohaerenzachsen_lehrkraft_1.png
+- plots_05_kohaerenzbildung\abb_05_3_polaritaetswechsel_lehrkraft_1.png
+
+
+ohne_lehrkraft_1
+Datensätze: 1160
+Teilnehmer: 28
+Ø Kohärenz 1 |Kognition–Motivation|: 0.1868
+Ø Kohärenz 2 |Methodik–Regulation|: 0.1190
+Ø Kohärenzindex: 0.1529
+Std Kohärenzindex: 0.1342
+Polaritätswechsel gesamt: 74
+
+FRZK-Deutung:
+Der Scope zeigt sehr hohe interne Kohärenz. Niedrige Werte bedeuten, dass kognitive, motivationale,
+methodische und regulative Bewertungsanteile enger gekoppelt auftreten. Im Sinne der
+FRZK-Vorhersage spricht dies für einen stabilisierten semantischen Raum. Hohe
+Polaritätswechsel würden dagegen auf semantische Instabilität oder Wechsel zwischen
+Resonanz- und Irritationsphasen hinweisen.
+
+Grafiken:
+- plots_05_kohaerenzbildung\abb_05_1_kohaerenzindex_ohne_lehrkraft_1.png
+- plots_05_kohaerenzbildung\abb_05_2_kohaerenzachsen_ohne_lehrkraft_1.png
+- plots_05_kohaerenzbildung\abb_05_3_polaritaetswechsel_ohne_lehrkraft_1.png

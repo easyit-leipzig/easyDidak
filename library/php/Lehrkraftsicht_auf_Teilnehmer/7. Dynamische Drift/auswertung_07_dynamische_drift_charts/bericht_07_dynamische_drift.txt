@@ -1,0 +1,92 @@
+
+SCOPE: alle_lehrkraefte
+
+Die dynamische Drift zeigt eine mittlere Bewegung von 0.4336 im siebendimensionalen FRZK-Raum.
+Der Median liegt bei 0.3229, der Maximalwert bei 2.0000. Damit wird sichtbar,
+ob die Zustandsentwicklung eher kontinuierlich-verlaufend oder sprunghaft-transformativ ausgeprägt ist.
+
+Die mittlere Richtungsähnlichkeit aufeinanderfolgender Zustände beträgt 0.8325.
+Hohe Cosine-Werte bei gleichzeitig vorhandener Δ-Bewegung sprechen FRZK-konform nicht gegen Bewegung,
+sondern für gerichtete Trajektorien: Der Teilnehmer verändert seine semantische Lage, bleibt aber im
+gleichen funktionalen Bewegungsfeld.
+
+Dominanzwechsel treten in 67.18% der Übergänge auf.
+Polaritätswechsel treten in 5.78% der Übergänge auf.
+Dominanzwechsel markieren Wechsel des primären Bedeutungsfokus; Polaritätswechsel markieren echte
+semantische Umschläge.
+
+Stärkste Drift-Dimensionen:
+delta_kognition     0.161658
+delta_regulation    0.159665
+delta_motivation    0.140004
+delta_affektiv      0.135765
+delta_sozial        0.133455
+delta_performanz    0.133447
+delta_methodik      0.116173
+
+FRZK-Bewertung:
+Die Vorhersage „Teilnehmer bewegen sich kontinuierlich durch den Zustandsraum“ ist dann bestätigt,
+wenn viele nicht-null Transitionen auftreten, die Drift nicht ausschließlich zufällig verteilt ist und
+die Zustandsfolgen je Teilnehmer zeitlich geordnete Bewegungsmuster zeigen.
+
+
+SCOPE: lehrkraft_1
+
+Die dynamische Drift zeigt eine mittlere Bewegung von 0.4204 im siebendimensionalen FRZK-Raum.
+Der Median liegt bei 0.3214, der Maximalwert bei 2.0000. Damit wird sichtbar,
+ob die Zustandsentwicklung eher kontinuierlich-verlaufend oder sprunghaft-transformativ ausgeprägt ist.
+
+Die mittlere Richtungsähnlichkeit aufeinanderfolgender Zustände beträgt 0.8450.
+Hohe Cosine-Werte bei gleichzeitig vorhandener Δ-Bewegung sprechen FRZK-konform nicht gegen Bewegung,
+sondern für gerichtete Trajektorien: Der Teilnehmer verändert seine semantische Lage, bleibt aber im
+gleichen funktionalen Bewegungsfeld.
+
+Dominanzwechsel treten in 66.56% der Übergänge auf.
+Polaritätswechsel treten in 5.31% der Übergänge auf.
+Dominanzwechsel markieren Wechsel des primären Bedeutungsfokus; Polaritätswechsel markieren echte
+semantische Umschläge.
+
+Stärkste Drift-Dimensionen:
+delta_kognition     0.155365
+delta_regulation    0.154136
+delta_motivation    0.138186
+delta_affektiv      0.136816
+delta_sozial        0.131954
+delta_performanz    0.125353
+delta_methodik      0.111967
+
+FRZK-Bewertung:
+Die Vorhersage „Teilnehmer bewegen sich kontinuierlich durch den Zustandsraum“ ist dann bestätigt,
+wenn viele nicht-null Transitionen auftreten, die Drift nicht ausschließlich zufällig verteilt ist und
+die Zustandsfolgen je Teilnehmer zeitlich geordnete Bewegungsmuster zeigen.
+
+
+SCOPE: ohne_lehrkraft_1
+
+Die dynamische Drift zeigt eine mittlere Bewegung von 0.4564 im siebendimensionalen FRZK-Raum.
+Der Median liegt bei 0.3289, der Maximalwert bei 1.9958. Damit wird sichtbar,
+ob die Zustandsentwicklung eher kontinuierlich-verlaufend oder sprunghaft-transformativ ausgeprägt ist.
+
+Die mittlere Richtungsähnlichkeit aufeinanderfolgender Zustände beträgt 0.8127.
+Hohe Cosine-Werte bei gleichzeitig vorhandener Δ-Bewegung sprechen FRZK-konform nicht gegen Bewegung,
+sondern für gerichtete Trajektorien: Der Teilnehmer verändert seine semantische Lage, bleibt aber im
+gleichen funktionalen Bewegungsfeld.
+
+Dominanzwechsel treten in 69.17% der Übergänge auf.
+Polaritätswechsel treten in 6.54% der Übergänge auf.
+Dominanzwechsel markieren Wechsel des primären Bedeutungsfokus; Polaritätswechsel markieren echte
+semantische Umschläge.
+
+Stärkste Drift-Dimensionen:
+delta_kognition     0.174095
+delta_regulation    0.167507
+delta_performanz    0.146191
+delta_motivation    0.144544
+delta_sozial        0.138038
+delta_affektiv      0.134393
+delta_methodik      0.122642
+
+FRZK-Bewertung:
+Die Vorhersage „Teilnehmer bewegen sich kontinuierlich durch den Zustandsraum“ ist dann bestätigt,
+wenn viele nicht-null Transitionen auftreten, die Drift nicht ausschließlich zufällig verteilt ist und
+die Zustandsfolgen je Teilnehmer zeitlich geordnete Bewegungsmuster zeigen.

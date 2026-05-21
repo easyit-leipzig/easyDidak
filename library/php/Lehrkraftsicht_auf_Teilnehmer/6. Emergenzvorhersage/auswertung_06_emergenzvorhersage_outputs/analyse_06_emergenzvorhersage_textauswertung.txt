@@ -1,0 +1,14 @@
+6. Emergenzvorhersage – textuelle Auswertung
+
+alle_lehrkraefte
+----------------
+Im Vergleichsraum 'alle_lehrkraefte' wurden 3108 Zustände analysiert. Die KMeans-Lösung erzeugt 2 wiederkehrende Zustandsräume. Der stärkste Attraktor ist Cluster 0 mit 3014 Beobachtungen und einer mittleren semantischen Dichte von 3.415. Die dominante Dimension dieses Attraktors ist kognition. FRZK-konform spricht dies für emergente Stabilisierung, wenn Cluster nicht nur punktuell auftreten, sondern über Transitionen wiederholt erreicht werden.
+
+lehrkraft_1
+-----------
+Im Vergleichsraum 'lehrkraft_1' wurden 1948 Zustände analysiert. Die KMeans-Lösung erzeugt 2 wiederkehrende Zustandsräume. Der stärkste Attraktor ist Cluster 0 mit 1893 Beobachtungen und einer mittleren semantischen Dichte von 3.445. Die dominante Dimension dieses Attraktors ist kognition. FRZK-konform spricht dies für emergente Stabilisierung, wenn Cluster nicht nur punktuell auftreten, sondern über Transitionen wiederholt erreicht werden.
+
+ohne_lehrkraft_1
+----------------
+Im Vergleichsraum 'ohne_lehrkraft_1' wurden 1160 Zustände analysiert. Die KMeans-Lösung erzeugt 2 wiederkehrende Zustandsräume. Der stärkste Attraktor ist Cluster 0 mit 1121 Beobachtungen und einer mittleren semantischen Dichte von 3.362. Die dominante Dimension dieses Attraktors ist kognition. FRZK-konform spricht dies für emergente Stabilisierung, wenn Cluster nicht nur punktuell auftreten, sondern über Transitionen wiederholt erreicht werden.
+

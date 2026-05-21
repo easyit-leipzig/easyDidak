@@ -1,0 +1,6353 @@
+{
+  "auswertungspunkt": "1. Perspektivische Vektorkohärenz",
+  "beschreibung": "Vergleich der 7D-Richtung von Lehrkraftvektor und Teilnehmer-7D-Vektor über Cosine Similarity.",
+  "filter": {
+    "lehrkraft_id": 1,
+    "matching": "teilnehmer_id + gruppe_id + datum",
+    "lehrkraft_quelle": "sql_semantische_dichte_lehrer_type_1",
+    "teilnehmer_quelle": "frzk_semantische_dichte_teilnehmer_7d"
+  },
+  "dimensionen": [
+    "kognition",
+    "sozial",
+    "affektiv",
+    "motivation",
+    "methodik",
+    "performanz",
+    "regulation"
+  ],
+  "summary": {
+    "lehrer_rohzeilen": 1607,
+    "teilnehmer_rohzeilen": 335,
+    "lehrer_aggregierte_termine": 374,
+    "matches": 71,
+    "unmatched_lehrer_termine": 307
+  },
+  "matches": [
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-09-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          116,
+          117,
+          118,
+          119
+        ],
+        "vektor_7d": {
+          "kognition": 0.49188389727464,
+          "sozial": 0.15333254098600352,
+          "affektiv": 0.141250285723174,
+          "motivation": 0.3690423372703925,
+          "methodik": 0.45026204084418,
+          "performanz": 0.42913926739266,
+          "regulation": 0.36530979621347254
+        },
+        "d_semantisch_mean": 3.865718572828225,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "regulation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 4,
+        "rueckkopplung_teilnehmer_id": 4,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-08 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.25841410088398,
+          "sozial": 0.42069304143011,
+          "affektiv": 0.41234595727475,
+          "motivation": 0.44365294304186,
+          "methodik": 0.4644014093709,
+          "performanz": 0.31142212157813,
+          "regulation": 0.27700178182476
+        },
+        "d_semantisch": 1.9266454054326,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23",
+        "emotion_valenz": 0.75,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-09-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "vektor_7d": {
+          "kognition": 0.5320080773069661,
+          "sozial": 0.1551809495430666,
+          "affektiv": 0.20902246131950802,
+          "motivation": 0.34973749840019797,
+          "methodik": 0.4409568892422421,
+          "performanz": 0.413121251401628,
+          "regulation": 0.3082654408384146
+        },
+        "d_semantisch_mean": 3.8023831622578994,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "kognition",
+          "kognition",
+          "methodik"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 3,
+        "rueckkopplung_teilnehmer_id": 3,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-08 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.3494644594658,
+          "sozial": 0.34900749384375,
+          "affektiv": 0.35757702727483,
+          "motivation": 0.35621136647309,
+          "methodik": 0.51008787561778,
+          "performanz": 0.3629927673001,
+          "regulation": 0.3307069726922
+        },
+        "d_semantisch": 1.9604465177275,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "6,23,2",
+        "emotion_valenz": 0.76666666666667,
+        "emotion_aktivierung": 0.46666666666667,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-09-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          159,
+          161,
+          162,
+          163
+        ],
+        "vektor_7d": {
+          "kognition": 0.47635842523196,
+          "sozial": 0.13605753003213775,
+          "affektiv": 0.23573257471564749,
+          "motivation": 0.40523047767610754,
+          "methodik": 0.3374153645443775,
+          "performanz": 0.5061058321779874,
+          "regulation": 0.3311824100625125
+        },
+        "d_semantisch_mean": 3.449797199504475,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "performanz",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 1,
+        "rueckkopplung_teilnehmer_id": 1,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-08 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.36829642407033,
+          "sozial": 0.40915376452818,
+          "affektiv": 0.35467827785097,
+          "motivation": 0.28082091833555,
+          "methodik": 0.51826143506903,
+          "performanz": 0.32059893425201,
+          "regulation": 0.34772874381537
+        },
+        "d_semantisch": 1.9295280949248,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "3,28,1",
+        "emotion_valenz": 0.80666666666667,
+        "emotion_aktivierung": 0.48333333333333,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-09-15",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          793,
+          794,
+          795,
+          796,
+          797
+        ],
+        "vektor_7d": {
+          "kognition": 0.47403068864816394,
+          "sozial": 0.1514091362629702,
+          "affektiv": 0.14765424006864122,
+          "motivation": 0.39271353078555,
+          "methodik": 0.42221294011534605,
+          "performanz": 0.44547294462210196,
+          "regulation": 0.39475134295153
+        },
+        "d_semantisch_mean": 3.76502857314224,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "motivation",
+          "regulation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 25,
+        "rueckkopplung_teilnehmer_id": 32,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-15 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.40372892069248,
+          "sozial": 0.5439634765183,
+          "affektiv": 0.015754041789359,
+          "motivation": 0.2094750462734,
+          "methodik": 0.62555799799604,
+          "performanz": 0.32490221601345,
+          "regulation": -0.0097184903260099
+        },
+        "d_semantisch": 0.95914367859819,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "22,25,12,24,11,20",
+        "emotion_valenz": -0.125,
+        "emotion_aktivierung": 0.50833333333333,
+        "emotion_anzahl": 6
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-09-15",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          106,
+          107,
+          108,
+          109,
+          110
+        ],
+        "vektor_7d": {
+          "kognition": 0.4380433424021216,
+          "sozial": 0.1276787540365894,
+          "affektiv": 0.19552636635409656,
+          "motivation": 0.328294541116978,
+          "methodik": 0.383584751338196,
+          "performanz": 0.285923227227676,
+          "regulation": 0.351958088536152
+        },
+        "d_semantisch_mean": 2.9043367798229798,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "sozial",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 27,
+        "rueckkopplung_teilnehmer_id": 34,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-15 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.24475584616495,
+          "sozial": 0.49477525891409,
+          "affektiv": 0.38295736629115,
+          "motivation": 0.40189036655776,
+          "methodik": 0.48175485736372,
+          "performanz": 0.29628983527995,
+          "regulation": 0.25931524730587
+        },
+        "d_semantisch": 1.6168957220315,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "27,6,23",
+        "emotion_valenz": 0.66666666666667,
+        "emotion_aktivierung": 0.56666666666667,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-09-15",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "vektor_7d": {
+          "kognition": 0.47049610738854397,
+          "sozial": 0.11184877013722638,
+          "affektiv": 0.1519085304159284,
+          "motivation": 0.39580175865643596,
+          "methodik": 0.4030315364245641,
+          "performanz": 0.492115872103294,
+          "regulation": 0.394738779064422
+        },
+        "d_semantisch_mean": 4.08776761866818,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "performanz",
+          "kognition",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 28,
+        "rueckkopplung_teilnehmer_id": 35,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-15 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.34288990245704,
+          "sozial": 0.44515531196177,
+          "affektiv": 0.24359470153719,
+          "motivation": 0.31985198713571,
+          "methodik": 0.57148317076173,
+          "performanz": 0.34288990245704,
+          "regulation": 0.28009478738405
+        },
+        "d_semantisch": 1.7498328045174,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "4,24",
+        "emotion_valenz": 0.2,
+        "emotion_aktivierung": 0.775,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-09-15",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          154,
+          155,
+          156,
+          157
+        ],
+        "vektor_7d": {
+          "kognition": 0.4522197751055825,
+          "sozial": 0.10463132292301475,
+          "affektiv": 0.10039764866528751,
+          "motivation": 0.39880932878413755,
+          "methodik": 0.39999706648584177,
+          "performanz": 0.4715741568725475,
+          "regulation": 0.3191860936359475
+        },
+        "d_semantisch_mean": 2.6289961377841724,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "motivation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 26,
+        "rueckkopplung_teilnehmer_id": 33,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-15 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.35194780257296,
+          "sozial": 0.44849488717032,
+          "affektiv": 0.32461160989388,
+          "motivation": 0.2394108421514,
+          "methodik": 0.5012589915433,
+          "performanz": 0.36137276134517,
+          "regulation": 0.36117029443304
+        },
+        "d_semantisch": 1.9949766814554,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-09-15",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          236,
+          237,
+          238,
+          239,
+          240
+        ],
+        "vektor_7d": {
+          "kognition": 0.41801609214167995,
+          "sozial": 0.23109808275659577,
+          "affektiv": 0.2839004114391198,
+          "motivation": 0.46604759800038204,
+          "methodik": 0.329148591186,
+          "performanz": 0.410685036059932,
+          "regulation": 0.2947839215786102
+        },
+        "d_semantisch_mean": 3.0585259545856998,
+        "dominante_dimensionen": [
+          "motivation",
+          "kognition",
+          "performanz",
+          "motivation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 29,
+        "rueckkopplung_teilnehmer_id": 36,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-15 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.27631100726494,
+          "sozial": 0.48929170517245,
+          "affektiv": 0.3472647463119,
+          "motivation": 0.34587734098213,
+          "methodik": 0.48070764016943,
+          "performanz": 0.3086520349489,
+          "regulation": 0.34303935642325
+        },
+        "d_semantisch": 1.4014426935427,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,23,13,25,2",
+        "emotion_valenz": 0.506,
+        "emotion_aktivierung": 0.53,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-09-22",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          783,
+          784,
+          785,
+          786,
+          787
+        ],
+        "vektor_7d": {
+          "kognition": 0.542894483891774,
+          "sozial": 0.08104951881704839,
+          "affektiv": 0.16023334433337202,
+          "motivation": 0.329272657265898,
+          "methodik": 0.419586832882788,
+          "performanz": 0.489553102612916,
+          "regulation": 0.340286657580886
+        },
+        "d_semantisch_mean": 3.6104835920823,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "kognition",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 44,
+        "rueckkopplung_teilnehmer_id": 51,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-22 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.34052554827604,
+          "sozial": 0.40721032196347,
+          "affektiv": 0.41034401598141,
+          "motivation": 0.36254652589155,
+          "methodik": 0.39350781760059,
+          "performanz": 0.41567123029248,
+          "regulation": 0.30127883164279
+        },
+        "d_semantisch": 1.7119970175957,
+        "dominante_dimension": "performanz",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "3,28,1,23,4,8,13,2",
+        "emotion_valenz": 0.8025,
+        "emotion_aktivierung": 0.53125,
+        "emotion_anzahl": 8
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-09-22",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          102,
+          103,
+          104,
+          105
+        ],
+        "vektor_7d": {
+          "kognition": 0.53399570879529,
+          "sozial": 0.20852110558962075,
+          "affektiv": 0.295319194663634,
+          "motivation": 0.3810187800420375,
+          "methodik": 0.38244707827448754,
+          "performanz": 0.40912544377107996,
+          "regulation": 0.26438254937656247
+        },
+        "d_semantisch_mean": 3.511106132792,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 45,
+        "rueckkopplung_teilnehmer_id": 52,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-22 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.15909758735354,
+          "sozial": 0.45229706883932,
+          "affektiv": 0.38545326200869,
+          "motivation": 0.37069059398844,
+          "methodik": 0.49928897209536,
+          "performanz": 0.21542509138013,
+          "regulation": 0.43408770632761
+        },
+        "d_semantisch": 1.7920220385623,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23",
+        "emotion_valenz": 0.75,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-09-22",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 3,
+        "ids": [
+          31,
+          32,
+          33
+        ],
+        "vektor_7d": {
+          "kognition": 0.51163337607565,
+          "sozial": 0.14558793667197967,
+          "affektiv": 0.1867035679578,
+          "motivation": 0.3597461560298367,
+          "methodik": 0.4429618010133333,
+          "performanz": 0.44422270482576004,
+          "regulation": 0.3740169854480033
+        },
+        "d_semantisch_mean": 4.220917692602833,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 48,
+        "rueckkopplung_teilnehmer_id": 55,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-22 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.37145812847483,
+          "sozial": 0.47335732799265,
+          "affektiv": 0.30341792212496,
+          "motivation": 0.28795241154108,
+          "methodik": 0.43437495980502,
+          "performanz": 0.38140556250023,
+          "regulation": 0.35891623281325
+        },
+        "d_semantisch": 1.8901932825804,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-09-22",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          150,
+          151,
+          152,
+          153
+        ],
+        "vektor_7d": {
+          "kognition": 0.3955112423940875,
+          "sozial": 0.227087763764525,
+          "affektiv": 0.20254338772681774,
+          "motivation": 0.43702545735978254,
+          "methodik": 0.37440829505079,
+          "performanz": 0.4593378653796475,
+          "regulation": 0.4392459341505275
+        },
+        "d_semantisch_mean": 4.131564915256225,
+        "dominante_dimensionen": [
+          "performanz",
+          "performanz",
+          "regulation",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 47,
+        "rueckkopplung_teilnehmer_id": 54,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-22 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.3467184420572,
+          "sozial": 0.39406548393129,
+          "affektiv": 0.3825182491625,
+          "motivation": 0.3722649424533,
+          "methodik": 0.39406548393129,
+          "performanz": 0.36668035864578,
+          "regulation": 0.38711138715603
+        },
+        "d_semantisch": 2.270528321296,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23",
+        "emotion_valenz": 0.75,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-09-22",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          231,
+          232,
+          233,
+          234,
+          235
+        ],
+        "vektor_7d": {
+          "kognition": 0.466798021742202,
+          "sozial": 0.1493861704973288,
+          "affektiv": 0.1741721139582674,
+          "motivation": 0.39633030414879206,
+          "methodik": 0.408618275020838,
+          "performanz": 0.458447181979182,
+          "regulation": 0.386295317281538
+        },
+        "d_semantisch_mean": 3.6898776702082,
+        "dominante_dimensionen": [
+          "kognition",
+          "performanz",
+          "methodik",
+          "motivation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 49,
+        "rueckkopplung_teilnehmer_id": 56,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-22 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.394648892534,
+          "sozial": 0.42063375080062,
+          "affektiv": 0.43029335152798,
+          "motivation": 0.33858236888798,
+          "methodik": 0.40032729386542,
+          "performanz": 0.3382610467545,
+          "regulation": 0.30470745169527
+        },
+        "d_semantisch": 1.4987736504456,
+        "dominante_dimension": "affektiv",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,23,4,14,13,2",
+        "emotion_valenz": 0.78833333333333,
+        "emotion_aktivierung": 0.51666666666667,
+        "emotion_anzahl": 6
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-09-29",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          774,
+          775,
+          776,
+          777,
+          778
+        ],
+        "vektor_7d": {
+          "kognition": 0.4912463275445139,
+          "sozial": 0.12397744852440817,
+          "affektiv": 0.12492585918703758,
+          "motivation": 0.354637022276046,
+          "methodik": 0.393465244847622,
+          "performanz": 0.434966157547976,
+          "regulation": 0.414757945638372
+        },
+        "d_semantisch_mean": 3.3360192703706,
+        "dominante_dimensionen": [
+          "kognition",
+          "performanz",
+          "regulation",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 71,
+        "rueckkopplung_teilnehmer_id": 79,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-29 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.24327331019672,
+          "sozial": 0.46616864852374,
+          "affektiv": 0.30412636461736,
+          "motivation": 0.41602020300073,
+          "methodik": 0.57635396544753,
+          "performanz": 0.16104007858093,
+          "regulation": 0.31594529702544
+        },
+        "d_semantisch": 1.2419268644262,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "9,24",
+        "emotion_valenz": 0.175,
+        "emotion_aktivierung": 0.75,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-09-29",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          93,
+          94,
+          95,
+          96,
+          97
+        ],
+        "vektor_7d": {
+          "kognition": 0.53007632018186,
+          "sozial": 0.112125857675675,
+          "affektiv": 0.1159284928560826,
+          "motivation": 0.33923682226467594,
+          "methodik": 0.42989680765209404,
+          "performanz": 0.440962560121488,
+          "regulation": 0.385995642987302
+        },
+        "d_semantisch_mean": 3.5287071231396405,
+        "dominante_dimensionen": [
+          "kognition",
+          "performanz",
+          "performanz",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 74,
+        "rueckkopplung_teilnehmer_id": 82,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-29 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.36669587407664,
+          "sozial": 0.43685832527697,
+          "affektiv": 0.32129453474168,
+          "motivation": 0.29911892292962,
+          "methodik": 0.46082101822465,
+          "performanz": 0.40509382532307,
+          "regulation": 0.3248532166807
+        },
+        "d_semantisch": 2.1700399070159,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,3,28,27,6,10,4,14,7",
+        "emotion_valenz": 0.76111111111111,
+        "emotion_aktivierung": 0.53888888888889,
+        "emotion_anzahl": 9
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-09-29",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "vektor_7d": {
+          "kognition": 0.29578471629941,
+          "sozial": 0.083207305583122,
+          "affektiv": 0.10684207476276922,
+          "motivation": 0.21543548576698202,
+          "methodik": 0.24963748205533004,
+          "performanz": 0.30207116294508596,
+          "regulation": 0.14760097641024797
+        },
+        "d_semantisch_mean": 3.7897480484006403,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "kognition",
+          "regulation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          -1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 73,
+        "rueckkopplung_teilnehmer_id": 81,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-29 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.31634886398639,
+          "sozial": 0.40924495896652,
+          "affektiv": 0.33359130206853,
+          "motivation": 0.34556719656291,
+          "methodik": 0.52724810664399,
+          "performanz": 0.31634886398639,
+          "regulation": 0.35167448713154
+        },
+        "d_semantisch": 1.8966402854207,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "14,2",
+        "emotion_valenz": 0.725,
+        "emotion_aktivierung": 0.35,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-09-29",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          145,
+          146,
+          147,
+          148
+        ],
+        "vektor_7d": {
+          "kognition": 0.5043086522954325,
+          "sozial": 0.21977748228063526,
+          "affektiv": 0.2561673208416975,
+          "motivation": 0.357511192551575,
+          "methodik": 0.4151625443832025,
+          "performanz": 0.4127304098745075,
+          "regulation": 0.314059814494045
+        },
+        "d_semantisch_mean": 4.10519864162645,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "motivation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 72,
+        "rueckkopplung_teilnehmer_id": 80,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-29 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.32370384770219,
+          "sozial": 0.4724869826709,
+          "affektiv": 0.3839394222148,
+          "motivation": 0.31544130938315,
+          "methodik": 0.42275151081081,
+          "performanz": 0.37139674451806,
+          "regulation": 0.32924882371383
+        },
+        "d_semantisch": 2.1164604236812,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "1",
+        "emotion_valenz": 0.9,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-09-29",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          226,
+          227,
+          228,
+          230
+        ],
+        "vektor_7d": {
+          "kognition": 0.603329960414395,
+          "sozial": 0.07268970271673049,
+          "affektiv": 0.16793306408623426,
+          "motivation": 0.2502670504442675,
+          "methodik": 0.4292748669472925,
+          "performanz": 0.4274702505594275,
+          "regulation": 0.371681504133605
+        },
+        "d_semantisch_mean": 3.2780107155462,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 75,
+        "rueckkopplung_teilnehmer_id": 83,
+        "ue_id": 0,
+        "zeitpunkt": "2025-09-29 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.29033633482617,
+          "sozial": 0.43543323657043,
+          "affektiv": 0.45000129895387,
+          "motivation": 0.35738182891518,
+          "methodik": 0.4220352908298,
+          "performanz": 0.25845572074073,
+          "regulation": 0.38854423271281
+        },
+        "d_semantisch": 1.4216820550676,
+        "dominante_dimension": "affektiv",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,1,23,4",
+        "emotion_valenz": 0.825,
+        "emotion_aktivierung": 0.5875,
+        "emotion_anzahl": 4
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-10-20",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          761,
+          762,
+          763,
+          764,
+          765
+        ],
+        "vektor_7d": {
+          "kognition": 0.5434430219322121,
+          "sozial": 0.09888552656165958,
+          "affektiv": 0.16548746727659996,
+          "motivation": 0.30506660159687,
+          "methodik": 0.447635262446226,
+          "performanz": 0.45194095183549604,
+          "regulation": 0.387120070409018
+        },
+        "d_semantisch_mean": 3.72798699250554,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 98,
+        "rueckkopplung_teilnehmer_id": 106,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-20 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.48751146242244,
+          "sozial": 0.39896428999868,
+          "affektiv": 0.26622519474385,
+          "motivation": 0.27291664955577,
+          "methodik": 0.3865962213972,
+          "performanz": 0.45637408850117,
+          "regulation": 0.3163333198404
+        },
+        "d_semantisch": 1.8242888017872,
+        "dominante_dimension": "kognition",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "22,9,8,14,2",
+        "emotion_valenz": 0.474,
+        "emotion_aktivierung": 0.4,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-10-20",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          16,
+          17,
+          18,
+          20
+        ],
+        "vektor_7d": {
+          "kognition": 0.430795255306105,
+          "sozial": 0.21161132346299574,
+          "affektiv": 0.1321439113618405,
+          "motivation": 0.42040271430264253,
+          "methodik": 0.40244136027530747,
+          "performanz": 0.4305915993112625,
+          "regulation": 0.432873117120015
+        },
+        "d_semantisch_mean": 3.6240096394819004,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "motivation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 102,
+        "rueckkopplung_teilnehmer_id": 110,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-20 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.34507378338973,
+          "sozial": 0.3923395288099,
+          "affektiv": 0.36348843508097,
+          "motivation": 0.35089645696039,
+          "methodik": 0.50367912482352,
+          "performanz": 0.35843212138604,
+          "regulation": 0.29929143785566
+        },
+        "d_semantisch": 1.9853909963942,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-10-20",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          140,
+          141,
+          142,
+          143,
+          144
+        ],
+        "vektor_7d": {
+          "kognition": 0.506736202218324,
+          "sozial": 0.09443682814416401,
+          "affektiv": 0.1821233862619732,
+          "motivation": 0.339914792762812,
+          "methodik": 0.44509886342440996,
+          "performanz": 0.453748758379636,
+          "regulation": 0.39535665821340993
+        },
+        "d_semantisch_mean": 3.8286627816225396,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "regulation",
+          "performanz",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 100,
+        "rueckkopplung_teilnehmer_id": 108,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-20 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.14896812734602,
+          "sozial": 0.58019165387397,
+          "affektiv": 0.29476378531338,
+          "motivation": 0.21387566854679,
+          "methodik": 0.61155336489419,
+          "performanz": 0.20439812821896,
+          "regulation": 0.30460061828384
+        },
+        "d_semantisch": 1.3425690677206,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-10-20",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          140,
+          141,
+          142,
+          143,
+          144
+        ],
+        "vektor_7d": {
+          "kognition": 0.506736202218324,
+          "sozial": 0.09443682814416401,
+          "affektiv": 0.1821233862619732,
+          "motivation": 0.339914792762812,
+          "methodik": 0.44509886342440996,
+          "performanz": 0.453748758379636,
+          "regulation": 0.39535665821340993
+        },
+        "d_semantisch_mean": 3.8286627816225396,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "regulation",
+          "performanz",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 101,
+        "rueckkopplung_teilnehmer_id": 109,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-20 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.14896812734602,
+          "sozial": 0.58019165387397,
+          "affektiv": 0.29476378531338,
+          "motivation": 0.21387566854679,
+          "methodik": 0.61155336489419,
+          "performanz": 0.20439812821896,
+          "regulation": 0.30460061828384
+        },
+        "d_semantisch": 1.3425690677206,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-10-20",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          221,
+          222,
+          224,
+          225
+        ],
+        "vektor_7d": {
+          "kognition": 0.4895669584570725,
+          "sozial": 0.17351450221895776,
+          "affektiv": 0.15771583188579402,
+          "motivation": 0.3756593774313725,
+          "methodik": 0.41297807711838497,
+          "performanz": 0.424723169828645,
+          "regulation": 0.400879473226605
+        },
+        "d_semantisch_mean": 3.573101856396275,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "regulation",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 103,
+        "rueckkopplung_teilnehmer_id": 111,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-20 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.35156552674809,
+          "sozial": 0.36384241815834,
+          "affektiv": 0.42531776501795,
+          "motivation": 0.36272506884714,
+          "methodik": 0.45641840314665,
+          "performanz": 0.35156552674809,
+          "regulation": 0.31565743907045
+        },
+        "d_semantisch": 1.7066519723885,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "1,23,4,8,13",
+        "emotion_valenz": 0.84,
+        "emotion_aktivierung": 0.62,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-10-27",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          75,
+          77,
+          78,
+          79
+        ],
+        "vektor_7d": {
+          "kognition": 0.5159049360712524,
+          "sozial": 0.11220791386559426,
+          "affektiv": 0.2300032102646025,
+          "motivation": 0.3392615687278525,
+          "methodik": 0.39901808131785754,
+          "performanz": 0.48169572741685246,
+          "regulation": 0.27820774513089747
+        },
+        "d_semantisch_mean": 3.203746383335575,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 124,
+        "rueckkopplung_teilnehmer_id": 132,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-27 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.18037264264724,
+          "sozial": 0.56605554389296,
+          "affektiv": 0.1736458624354,
+          "motivation": 0.298610948096,
+          "methodik": 0.63265031376272,
+          "performanz": 0.2442324467084,
+          "regulation": 0.26044104583232
+        },
+        "d_semantisch": 1.5806520246861,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "22,23,9,25",
+        "emotion_valenz": 0.0625,
+        "emotion_aktivierung": 0.525,
+        "emotion_anzahl": 4
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-10-27",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "vektor_7d": {
+          "kognition": 0.5084932309425321,
+          "sozial": 0.0623443670591148,
+          "affektiv": 0.13990677536458257,
+          "motivation": 0.329685680842848,
+          "methodik": 0.42924723741443394,
+          "performanz": 0.46760350896629593,
+          "regulation": 0.417891262060754
+        },
+        "d_semantisch_mean": 3.33992918486418,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "kognition",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 126,
+        "rueckkopplung_teilnehmer_id": 135,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-27 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.31249237474273,
+          "sozial": 0.40569185492915,
+          "affektiv": 0.3849491329296,
+          "motivation": 0.35992425305189,
+          "methodik": 0.52082062457121,
+          "performanz": 0.31249237474273,
+          "regulation": 0.30187037516266
+        },
+        "d_semantisch": 1.9200468497239,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "4",
+        "emotion_valenz": 0.85,
+        "emotion_aktivierung": 0.75,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-10-27",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          135,
+          136,
+          137,
+          138
+        ],
+        "vektor_7d": {
+          "kognition": 0.53951472615176,
+          "sozial": 0.089782728264181,
+          "affektiv": 0.18327992149010375,
+          "motivation": 0.34592886960877245,
+          "methodik": 0.44364573447290245,
+          "performanz": 0.45113257829323,
+          "regulation": 0.31912835411570495
+        },
+        "d_semantisch_mean": 3.588355673630975,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "methodik"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 125,
+        "rueckkopplung_teilnehmer_id": 133,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-27 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.28037383676554,
+          "sozial": 0.41318249628606,
+          "affektiv": 0.33982347437601,
+          "motivation": 0.38340009583097,
+          "methodik": 0.46728972794256,
+          "performanz": 0.31514888628685,
+          "regulation": 0.41293655432398
+        },
+        "d_semantisch": 2.1399999609142,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "28",
+        "emotion_valenz": 0.6,
+        "emotion_aktivierung": 0.35,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-10-27",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          217,
+          218,
+          219,
+          220
+        ],
+        "vektor_7d": {
+          "kognition": 0.1170219591378675,
+          "sozial": 0.046760559471798246,
+          "affektiv": -0.07858716448906876,
+          "motivation": 0.04366273209299501,
+          "methodik": 0.07545186506192,
+          "performanz": -0.12464619382676499,
+          "regulation": 0.10335132972581426
+        },
+        "d_semantisch_mean": 2.1951954355811,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "performanz",
+          "performanz"
+        ],
+        "polaritaeten": [
+          -1,
+          1,
+          1,
+          -1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 127,
+        "rueckkopplung_teilnehmer_id": 136,
+        "ue_id": 0,
+        "zeitpunkt": "2025-10-27 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.38442558776413,
+          "sozial": 0.39662957467728,
+          "affektiv": 0.43238043173486,
+          "motivation": 0.35543349135359,
+          "methodik": 0.38442558776413,
+          "performanz": 0.38442558776413,
+          "regulation": 0.29334293429956
+        },
+        "d_semantisch": 1.5607701950987,
+        "dominante_dimension": "affektiv",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,1,23,4",
+        "emotion_valenz": 0.825,
+        "emotion_aktivierung": 0.5875,
+        "emotion_anzahl": 4
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-11-03",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          738,
+          740,
+          741,
+          742
+        ],
+        "vektor_7d": {
+          "kognition": 0.471535411487215,
+          "sozial": 0.1818770369318835,
+          "affektiv": 0.2390492414943925,
+          "motivation": 0.37987456879169496,
+          "methodik": 0.396155276287765,
+          "performanz": 0.427814968295885,
+          "regulation": 0.39140091110346
+        },
+        "d_semantisch_mean": 3.5351868474023247,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "motivation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 144,
+        "rueckkopplung_teilnehmer_id": 155,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-03 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.34959185410094,
+          "sozial": 0.46723228754443,
+          "affektiv": 0.41079522231712,
+          "motivation": 0.36461135598083,
+          "methodik": 0.45998928171176,
+          "performanz": 0.27913148040617,
+          "regulation": 0.26130603824783
+        },
+        "d_semantisch": 1.7162871291537,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23,8,13",
+        "emotion_valenz": 0.81666666666667,
+        "emotion_aktivierung": 0.58333333333333,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2025-11-03",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 3,
+        "ids": [
+          1278,
+          1279,
+          1280
+        ],
+        "vektor_7d": {
+          "kognition": 0.39447453994616666,
+          "sozial": 0.13913004829428702,
+          "affektiv": 0.159288937371704,
+          "motivation": 0.42905723896884,
+          "methodik": 0.3536704270322934,
+          "performanz": 0.47379356826992,
+          "regulation": 0.4308647400005934
+        },
+        "d_semantisch_mean": 3.337677391591067,
+        "dominante_dimensionen": [
+          "regulation",
+          "motivation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 145,
+        "rueckkopplung_teilnehmer_id": 156,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-03 16:55:09",
+        "vektor_7d": {
+          "kognition": 0.40240033917787,
+          "sozial": 0.4002169407016,
+          "affektiv": -0.225676066508,
+          "motivation": 0.2115866770072,
+          "methodik": 0.58493245179464,
+          "performanz": 0.40355804813739,
+          "regulation": 0.27784291460246
+        },
+        "d_semantisch": 1.0257594660276,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "17,16,24",
+        "emotion_valenz": -0.76666666666667,
+        "emotion_aktivierung": 0.85,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-11-03",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          68,
+          69,
+          70,
+          71
+        ],
+        "vektor_7d": {
+          "kognition": 0.4762644037622925,
+          "sozial": 0.13052589014457727,
+          "affektiv": 0.17216641200313676,
+          "motivation": 0.38237130982672995,
+          "methodik": 0.4201234791820075,
+          "performanz": 0.43660156147345497,
+          "regulation": 0.42727253453882497
+        },
+        "d_semantisch_mean": 3.60971178646475,
+        "dominante_dimensionen": [
+          "regulation",
+          "kognition",
+          "methodik",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 151,
+        "rueckkopplung_teilnehmer_id": 162,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-03 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.22153674551025,
+          "sozial": 0.49582033518961,
+          "affektiv": 0.35568835461075,
+          "motivation": 0.30598655900675,
+          "methodik": 0.55979715263343,
+          "performanz": 0.26818189172671,
+          "regulation": 0.31566961436999
+        },
+        "d_semantisch": 1.7863613538153,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,27,1,6,23,4,9",
+        "emotion_valenz": 0.76428571428571,
+        "emotion_aktivierung": 0.59285714285714,
+        "emotion_anzahl": 7
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-11-03",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "vektor_7d": {
+          "kognition": 0.46246149252467994,
+          "sozial": 0.1119399221455392,
+          "affektiv": 0.0931166147811586,
+          "motivation": 0.39416613442696,
+          "methodik": 0.436669319842928,
+          "performanz": 0.447913102590822,
+          "regulation": 0.39734447450097
+        },
+        "d_semantisch_mean": 3.6991936127475595,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "kognition",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 148,
+        "rueckkopplung_teilnehmer_id": 159,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-03 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.3208913444648,
+          "sozial": 0.41659578053325,
+          "affektiv": 0.34634476283747,
+          "motivation": 0.33693591168804,
+          "methodik": 0.53481890744134,
+          "performanz": 0.3208913444648,
+          "regulation": 0.31779502447435
+        },
+        "d_semantisch": 1.8697917847545,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-11-03",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ],
+        "vektor_7d": {
+          "kognition": 0.534721247340796,
+          "sozial": 0.14777963492653318,
+          "affektiv": 0.1723289697274652,
+          "motivation": 0.346041815850714,
+          "methodik": 0.423739787600952,
+          "performanz": 0.41903540045070403,
+          "regulation": 0.385166350842692
+        },
+        "d_semantisch_mean": 3.58267956702016,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "motivation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 149,
+        "rueckkopplung_teilnehmer_id": 160,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-03 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.13080162643922,
+          "sozial": 0.4609200169763,
+          "affektiv": 0.40015608681035,
+          "motivation": 0.37870185178593,
+          "methodik": 0.57828087478392,
+          "performanz": 0.17947199906777,
+          "regulation": 0.31667762190548
+        },
+        "d_semantisch": 1.5290329739297,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5",
+        "emotion_valenz": 0.8,
+        "emotion_aktivierung": 0.4,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-11-03",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          130,
+          131,
+          132,
+          133,
+          134
+        ],
+        "vektor_7d": {
+          "kognition": 0.534721247340796,
+          "sozial": 0.14777963492653318,
+          "affektiv": 0.1723289697274652,
+          "motivation": 0.346041815850714,
+          "methodik": 0.423739787600952,
+          "performanz": 0.41903540045070403,
+          "regulation": 0.385166350842692
+        },
+        "d_semantisch_mean": 3.58267956702016,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "motivation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 150,
+        "rueckkopplung_teilnehmer_id": 161,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-03 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.13080162643922,
+          "sozial": 0.4609200169763,
+          "affektiv": 0.40015608681035,
+          "motivation": 0.37870185178593,
+          "methodik": 0.57828087478392,
+          "performanz": 0.17947199906777,
+          "regulation": 0.31667762190548
+        },
+        "d_semantisch": 1.5290329739297,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5",
+        "emotion_valenz": 0.8,
+        "emotion_aktivierung": 0.4,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-11-03",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 2,
+        "ids": [
+          215,
+          216
+        ],
+        "vektor_7d": {
+          "kognition": 0.473392842926285,
+          "sozial": 0.096547925922155,
+          "affektiv": 0.10869065033103249,
+          "motivation": 0.355322823502245,
+          "methodik": 0.41613388198847,
+          "performanz": 0.42988932677498504,
+          "regulation": 0.50936959947114
+        },
+        "d_semantisch_mean": 3.5087209692637504,
+        "dominante_dimensionen": [
+          "regulation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 152,
+        "rueckkopplung_teilnehmer_id": 163,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-03 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.39208506486291,
+          "sozial": 0.39759655809243,
+          "affektiv": 0.39530959696985,
+          "motivation": 0.36926852049385,
+          "methodik": 0.34337884562528,
+          "performanz": 0.40726328202068,
+          "regulation": 0.33434256021409
+        },
+        "d_semantisch": 1.7473411868575,
+        "dominante_dimension": "performanz",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23",
+        "emotion_valenz": 0.75,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-11-10",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1228,
+          1229,
+          1230,
+          1231
+        ],
+        "vektor_7d": {
+          "kognition": 0.4904148817314425,
+          "sozial": 0.04353983518251475,
+          "affektiv": 0.15396448757075876,
+          "motivation": 0.3607956538725025,
+          "methodik": 0.43410008365609004,
+          "performanz": 0.4849928341360875,
+          "regulation": 0.4051158209921675
+        },
+        "d_semantisch_mean": 4.1649784045348754,
+        "dominante_dimensionen": [
+          "regulation",
+          "kognition",
+          "kognition",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 171,
+        "rueckkopplung_teilnehmer_id": 186,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-10 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.24121330826886,
+          "sozial": 0.4983307907093,
+          "affektiv": 0.4072652100299,
+          "motivation": 0.35975330332622,
+          "methodik": 0.43931793391478,
+          "performanz": 0.24047357923763,
+          "regulation": 0.38388459434299
+        },
+        "d_semantisch": 1.6053593605223,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,1,13,2",
+        "emotion_valenz": 0.82,
+        "emotion_aktivierung": 0.4875,
+        "emotion_anzahl": 4
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2025-11-10",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1273,
+          1274,
+          1275,
+          1276,
+          1277
+        ],
+        "vektor_7d": {
+          "kognition": 0.478427457127436,
+          "sozial": 0.1310484749782606,
+          "affektiv": 0.18588834636195056,
+          "motivation": 0.406303423065026,
+          "methodik": 0.368789343300732,
+          "performanz": 0.437790085359368,
+          "regulation": 0.39999409554173804
+        },
+        "d_semantisch_mean": 3.23476433535984,
+        "dominante_dimensionen": [
+          "motivation",
+          "kognition",
+          "kognition",
+          "methodik",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 172,
+        "rueckkopplung_teilnehmer_id": 185,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-10 17:01:44",
+        "vektor_7d": {
+          "kognition": 0.33551395361257,
+          "sozial": 0.44735193815009,
+          "affektiv": 0.40281699478037,
+          "motivation": 0.4188915010433,
+          "methodik": 0.27076564677505,
+          "performanz": 0.33551395361257,
+          "regulation": 0.40458788881255
+        },
+        "d_semantisch": 1.788301181528,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "13,26",
+        "emotion_valenz": 0.765,
+        "emotion_aktivierung": 0.7,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-11-10",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1058,
+          1059,
+          1060,
+          1061,
+          1062
+        ],
+        "vektor_7d": {
+          "kognition": 0.491867792348842,
+          "sozial": 0.1021768639842138,
+          "affektiv": 0.163536918551705,
+          "motivation": 0.360963924373272,
+          "methodik": 0.44292717479957,
+          "performanz": 0.45872664185874196,
+          "regulation": 0.398705855548114
+        },
+        "d_semantisch_mean": 4.2031149809180395,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "methodik",
+          "kognition",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 174,
+        "rueckkopplung_teilnehmer_id": 188,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-10 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.2517586324536,
+          "sozial": 0.49700043583758,
+          "affektiv": 0.36965350827823,
+          "motivation": 0.35915527223244,
+          "methodik": 0.50566904809056,
+          "performanz": 0.27988193824547,
+          "regulation": 0.29989472393388
+        },
+        "d_semantisch": 1.9775780290892,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23,4,13,12,2",
+        "emotion_valenz": 0.8,
+        "emotion_aktivierung": 0.56,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-11-10",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 3,
+        "ids": [
+          1585,
+          1587,
+          1588
+        ],
+        "vektor_7d": {
+          "kognition": 0.4544220973397834,
+          "sozial": 0.19150137436136735,
+          "affektiv": 0.27642594556593664,
+          "motivation": 0.4092027735177333,
+          "methodik": 0.38245509360753,
+          "performanz": 0.45715900353767003,
+          "regulation": 0.3168453183303033
+        },
+        "d_semantisch_mean": 3.4461608239854997,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 176,
+        "rueckkopplung_teilnehmer_id": 190,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-10 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.3208913444648,
+          "sozial": 0.41659578053325,
+          "affektiv": 0.34634476283747,
+          "motivation": 0.33693591168804,
+          "methodik": 0.53481890744134,
+          "performanz": 0.3208913444648,
+          "regulation": 0.31779502447435
+        },
+        "d_semantisch": 1.8697917847545,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-11-10",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1100,
+          1101,
+          1102,
+          1103
+        ],
+        "vektor_7d": {
+          "kognition": 0.32228215119582504,
+          "sozial": 0.18335955015893424,
+          "affektiv": 0.07857315244518023,
+          "motivation": 0.20898541283335997,
+          "methodik": 0.27713691791190503,
+          "performanz": 0.09839548664301748,
+          "regulation": 0.2776625023347917
+        },
+        "d_semantisch_mean": 2.99946035356195,
+        "dominante_dimensionen": [
+          "kognition",
+          "performanz",
+          "kognition",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          -1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 173,
+        "rueckkopplung_teilnehmer_id": 187,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-10 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.2145771223552,
+          "sozial": 0.40213841235108,
+          "affektiv": 0.38922342469865,
+          "motivation": 0.36493269309812,
+          "methodik": 0.48996557493252,
+          "performanz": 0.28092987422072,
+          "regulation": 0.4342611554015
+        },
+        "d_semantisch": 1.8046380624753,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "12",
+        "emotion_valenz": 0.82,
+        "emotion_aktivierung": 0.5,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-11-10",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1872,
+          1873,
+          1874,
+          1875,
+          1876
+        ],
+        "vektor_7d": {
+          "kognition": 0.43114053654156803,
+          "sozial": 0.1348218358397642,
+          "affektiv": 0.217392636198008,
+          "motivation": 0.40542088395522596,
+          "methodik": 0.3544276287524554,
+          "performanz": 0.4814720610019,
+          "regulation": 0.39127070930114394
+        },
+        "d_semantisch_mean": 3.42517812145674,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "motivation",
+          "performanz",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 175,
+        "rueckkopplung_teilnehmer_id": 189,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-10 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.32267761530057,
+          "sozial": 0.41891479881126,
+          "affektiv": 0.39717232401811,
+          "motivation": 0.36416473726778,
+          "methodik": 0.47552490675873,
+          "performanz": 0.32267761530057,
+          "regulation": 0.31588440234687
+        },
+        "d_semantisch": 1.859441037205,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "1",
+        "emotion_valenz": 0.9,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 42,
+        "gruppe_id": 3,
+        "datum": "2025-11-11",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          995,
+          996,
+          997,
+          999
+        ],
+        "vektor_7d": {
+          "kognition": 0.53194057292595,
+          "sozial": 0.057444632292702,
+          "affektiv": 0.1471315069605245,
+          "motivation": 0.30938162358481497,
+          "methodik": 0.4823518533234025,
+          "performanz": 0.4426223671012675,
+          "regulation": 0.3861616080918125
+        },
+        "d_semantisch_mean": 3.1944836958664,
+        "dominante_dimensionen": [
+          "kognition",
+          "methodik",
+          "regulation",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 178,
+        "rueckkopplung_teilnehmer_id": 192,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-11 16:45:25",
+        "vektor_7d": {
+          "kognition": 0.0,
+          "sozial": 0.0,
+          "affektiv": 0.0,
+          "motivation": 0.0,
+          "methodik": 0.0,
+          "performanz": 0.0,
+          "regulation": 0.0
+        },
+        "d_semantisch": 0.0,
+        "dominante_dimension": "kognition",
+        "polaritaet_gesamt": 0,
+        "emotion_ids": "",
+        "emotion_valenz": null,
+        "emotion_aktivierung": null,
+        "emotion_anzahl": 0
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 15,
+        "gruppe_id": 4,
+        "datum": "2025-11-11",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 3,
+        "ids": [
+          1328,
+          1330,
+          1331
+        ],
+        "vektor_7d": {
+          "kognition": 0.4845861178327067,
+          "sozial": 0.14943469243949434,
+          "affektiv": 0.24310192126086197,
+          "motivation": 0.40857323069618334,
+          "methodik": 0.38411340083406004,
+          "performanz": 0.43217330233442003,
+          "regulation": 0.39636839171889005
+        },
+        "d_semantisch_mean": 3.8536684168651,
+        "dominante_dimensionen": [
+          "kognition",
+          "motivation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 179,
+        "rueckkopplung_teilnehmer_id": 193,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-11 17:10:00",
+        "vektor_7d": {
+          "kognition": -0.76721238640846,
+          "sozial": -0.094219064997531,
+          "affektiv": -0.26630906555998,
+          "motivation": -0.33384394536357,
+          "methodik": 0.14805853071041,
+          "performanz": -0.38657988462442,
+          "regulation": -0.22083995428216
+        },
+        "d_semantisch": 0.78205202348408,
+        "dominante_dimension": "kognition",
+        "polaritaet_gesamt": -1,
+        "emotion_ids": "28,22,15,23",
+        "emotion_valenz": -0.05,
+        "emotion_aktivierung": 0.4,
+        "emotion_anzahl": 4
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 5,
+        "gruppe_id": 6,
+        "datum": "2025-11-12",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1629,
+          1630,
+          1631,
+          1632,
+          1633
+        ],
+        "vektor_7d": {
+          "kognition": 0.31844470318801,
+          "sozial": 0.10577661691171761,
+          "affektiv": 0.125132405350948,
+          "motivation": 0.25015703349248597,
+          "methodik": 0.22988707112940338,
+          "performanz": 0.238269579469836,
+          "regulation": 0.1568013311795858
+        },
+        "d_semantisch_mean": 3.2282630779516603,
+        "dominante_dimensionen": [
+          "kognition",
+          "performanz",
+          "kognition",
+          "motivation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          -1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 189,
+        "rueckkopplung_teilnehmer_id": 204,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-12 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.18050326742058,
+          "sozial": 0.57072412796075,
+          "affektiv": 0.38866332568887,
+          "motivation": 0.33502469777926,
+          "methodik": 0.42651518334729,
+          "performanz": 0.29152436768759,
+          "regulation": 0.33390140986327
+        },
+        "d_semantisch": 1.5795081544641,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,3,28,1,15,6,10,23,4,8,14,13,7,26,12,2",
+        "emotion_valenz": 0.695,
+        "emotion_aktivierung": 0.54375,
+        "emotion_anzahl": 16
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-11-17",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1219,
+          1220,
+          1221,
+          1222,
+          1223
+        ],
+        "vektor_7d": {
+          "kognition": 0.357423402330394,
+          "sozial": 0.0759789516483258,
+          "affektiv": 0.0202943510590774,
+          "motivation": 0.23405097550837403,
+          "methodik": 0.28875134477543,
+          "performanz": 0.255327370554362,
+          "regulation": 0.21554358235916599
+        },
+        "d_semantisch_mean": 4.05302018319664,
+        "dominante_dimensionen": [
+          "kognition",
+          "regulation",
+          "kognition",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          -1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 203,
+        "rueckkopplung_teilnehmer_id": 217,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-17 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.43716095735925,
+          "sozial": 0.43658931831726,
+          "affektiv": 0.27750217293239,
+          "motivation": 0.36796643315611,
+          "methodik": 0.45673959454729,
+          "performanz": 0.37691950808571,
+          "regulation": 0.23493390240918
+        },
+        "d_semantisch": 1.5671719329193,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23,9,25",
+        "emotion_valenz": 0.31666666666667,
+        "emotion_aktivierung": 0.66666666666667,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2025-11-17",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1268,
+          1269,
+          1270,
+          1271,
+          1272
+        ],
+        "vektor_7d": {
+          "kognition": 0.532044714044774,
+          "sozial": 0.0873646579966808,
+          "affektiv": 0.15174374485143943,
+          "motivation": 0.355230596326452,
+          "methodik": 0.41402164161763205,
+          "performanz": 0.411631252039268,
+          "regulation": 0.3738594610523906
+        },
+        "d_semantisch_mean": 3.69686740701552,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "regulation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 204,
+        "rueckkopplung_teilnehmer_id": 218,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-17 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.30289008780332,
+          "sozial": 0.41564479202207,
+          "affektiv": 0.4340398824798,
+          "motivation": 0.40568663554654,
+          "methodik": 0.41017578160073,
+          "performanz": 0.30690051503955,
+          "regulation": 0.3465438453484
+        },
+        "d_semantisch": 1.9247203740782,
+        "dominante_dimension": "affektiv",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,3",
+        "emotion_valenz": 0.86,
+        "emotion_aktivierung": 0.45,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-11-17",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1575,
+          1576,
+          1577,
+          1578
+        ],
+        "vektor_7d": {
+          "kognition": 0.52556564887034,
+          "sozial": 0.1612234502180955,
+          "affektiv": 0.2624729078831375,
+          "motivation": 0.3478002104828875,
+          "methodik": 0.4401397898468725,
+          "performanz": 0.42600795097897753,
+          "regulation": 0.29251475785249725
+        },
+        "d_semantisch_mean": 3.7655919287432753,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 206,
+        "rueckkopplung_teilnehmer_id": 221,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-17 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.35724363746595,
+          "sozial": 0.365749438358,
+          "affektiv": 0.39482072752387,
+          "motivation": 0.35377043543503,
+          "methodik": 0.46378998548211,
+          "performanz": 0.35724363746595,
+          "regulation": 0.33888528387395
+        },
+        "d_semantisch": 1.679526062098,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "4,14,2",
+        "emotion_valenz": 0.76666666666667,
+        "emotion_aktivierung": 0.48333333333333,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-11-17",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1096,
+          1097,
+          1098,
+          1099
+        ],
+        "vektor_7d": {
+          "kognition": 0.5042816765676825,
+          "sozial": 0.23415831785597502,
+          "affektiv": 0.25416681254851925,
+          "motivation": 0.37110266860580254,
+          "methodik": 0.40283504207805,
+          "performanz": 0.4229230763559425,
+          "regulation": 0.3119401080415973
+        },
+        "d_semantisch_mean": 3.878400444287175,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 205,
+        "rueckkopplung_teilnehmer_id": 220,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-17 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.34856577707458,
+          "sozial": 0.49049675217082,
+          "affektiv": 0.16277225553521,
+          "motivation": 0.33353779147616,
+          "methodik": 0.49049675217082,
+          "performanz": 0.37642774003807,
+          "regulation": 0.34334772651958
+        },
+        "d_semantisch": 2.0387494822009,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "21",
+        "emotion_valenz": -0.8,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-11-17",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1867,
+          1869,
+          1870,
+          1871
+        ],
+        "vektor_7d": {
+          "kognition": 0.45375142225787,
+          "sozial": 0.09123644887297924,
+          "affektiv": 0.13846721465683298,
+          "motivation": 0.37902504550023497,
+          "methodik": 0.4033802068183075,
+          "performanz": 0.46628547963738,
+          "regulation": 0.47756860869843
+        },
+        "d_semantisch_mean": 4.088785042722975,
+        "dominante_dimensionen": [
+          "kognition",
+          "performanz",
+          "kognition",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 207,
+        "rueckkopplung_teilnehmer_id": 222,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-17 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.34362578547305,
+          "sozial": 0.39788248844248,
+          "affektiv": 0.42067281557403,
+          "motivation": 0.3970500499534,
+          "methodik": 0.38582544333816,
+          "performanz": 0.34362578547305,
+          "regulation": 0.34936589802584
+        },
+        "d_semantisch": 1.7460854948077,
+        "dominante_dimension": "affektiv",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "1,23,4,13",
+        "emotion_valenz": 0.845,
+        "emotion_aktivierung": 0.65,
+        "emotion_anzahl": 4
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-11-24",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1214,
+          1216,
+          1217,
+          1218
+        ],
+        "vektor_7d": {
+          "kognition": 0.46113017325729244,
+          "sozial": 0.0920102111827575,
+          "affektiv": 0.15109798831357124,
+          "motivation": 0.39268258589186,
+          "methodik": 0.41342312720916496,
+          "performanz": 0.47453046751026495,
+          "regulation": 0.41212928277310745
+        },
+        "d_semantisch_mean": 3.764778436829325,
+        "dominante_dimensionen": [
+          "kognition",
+          "regulation",
+          "methodik",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 213,
+        "rueckkopplung_teilnehmer_id": 228,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-24 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.4317605938295,
+          "sozial": 0.3423858247215,
+          "affektiv": 0.40617860649175,
+          "motivation": 0.36942140761174,
+          "methodik": 0.29128346282277,
+          "performanz": 0.44031221124373,
+          "regulation": 0.34085275386454
+        },
+        "d_semantisch": 2.059849171986,
+        "dominante_dimension": "performanz",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "3",
+        "emotion_valenz": 0.92,
+        "emotion_aktivierung": 0.5,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2025-11-24",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1264,
+          1265,
+          1266,
+          1267
+        ],
+        "vektor_7d": {
+          "kognition": 0.38357020055135005,
+          "sozial": 0.22037453049670225,
+          "affektiv": 0.14120039167723214,
+          "motivation": 0.46752989461079003,
+          "methodik": 0.34189913914742753,
+          "performanz": 0.471199455927195,
+          "regulation": 0.43089290228188754
+        },
+        "d_semantisch_mean": 2.9427261301299747,
+        "dominante_dimensionen": [
+          "performanz",
+          "performanz",
+          "regulation",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 211,
+        "rueckkopplung_teilnehmer_id": 226,
+        "ue_id": 71,
+        "zeitpunkt": "2025-11-24 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.32082368388385,
+          "sozial": 0.42776491184513,
+          "affektiv": 0.34627173535241,
+          "motivation": 0.37760438349186,
+          "methodik": 0.47279279730251,
+          "performanz": 0.32082368388385,
+          "regulation": 0.35375032512456
+        },
+        "d_semantisch": 1.8701861172332,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2025-11-24",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1264,
+          1265,
+          1266,
+          1267
+        ],
+        "vektor_7d": {
+          "kognition": 0.38357020055135005,
+          "sozial": 0.22037453049670225,
+          "affektiv": 0.14120039167723214,
+          "motivation": 0.46752989461079003,
+          "methodik": 0.34189913914742753,
+          "performanz": 0.471199455927195,
+          "regulation": 0.43089290228188754
+        },
+        "d_semantisch_mean": 2.9427261301299747,
+        "dominante_dimensionen": [
+          "performanz",
+          "performanz",
+          "regulation",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 212,
+        "rueckkopplung_teilnehmer_id": 227,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-24 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.32082368388385,
+          "sozial": 0.42776491184513,
+          "affektiv": 0.34627173535241,
+          "motivation": 0.37760438349186,
+          "methodik": 0.47279279730251,
+          "performanz": 0.32082368388385,
+          "regulation": 0.35375032512456
+        },
+        "d_semantisch": 1.8701861172332,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-11-24",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1044,
+          1045,
+          1046,
+          1047,
+          1048
+        ],
+        "vektor_7d": {
+          "kognition": 0.5526020055932599,
+          "sozial": 0.08155154771364817,
+          "affektiv": 0.17967187627744,
+          "motivation": 0.32126699981678,
+          "methodik": 0.44998824799122,
+          "performanz": 0.449144613634952,
+          "regulation": 0.34757470057622203
+        },
+        "d_semantisch_mean": 3.76985279402162,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "kognition",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 217,
+        "rueckkopplung_teilnehmer_id": 230,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-24 18:32:51",
+        "vektor_7d": {
+          "kognition": 0.15565524575495,
+          "sozial": 0.48848602261667,
+          "affektiv": 0.38070988041334,
+          "motivation": 0.38709861530573,
+          "methodik": 0.54595496645393,
+          "performanz": 0.21076401030547,
+          "regulation": 0.31603671405946
+        },
+        "d_semantisch": 1.8316529034422,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "28,27,1,10,13",
+        "emotion_valenz": 0.732,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-11-24",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1570,
+          1571,
+          1572,
+          1573
+        ],
+        "vektor_7d": {
+          "kognition": 0.5084966077113975,
+          "sozial": 0.0363947082915375,
+          "affektiv": 0.13526585473536024,
+          "motivation": 0.348618270075915,
+          "methodik": 0.421622409936545,
+          "performanz": 0.4926483320997225,
+          "regulation": 0.39967682611321753
+        },
+        "d_semantisch_mean": 3.524214929100125,
+        "dominante_dimensionen": [
+          "kognition",
+          "regulation",
+          "kognition",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 215,
+        "rueckkopplung_teilnehmer_id": 231,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-24 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.46991035181289,
+          "sozial": 0.36603543193846,
+          "affektiv": 0.28054918031207,
+          "motivation": 0.31072822013627,
+          "methodik": 0.43528537852141,
+          "performanz": 0.43494027911984,
+          "regulation": 0.30215235621569
+        },
+        "d_semantisch": 2.1280654824312,
+        "dominante_dimension": "kognition",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "27,23",
+        "emotion_valenz": 0.575,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-11-24",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1092,
+          1093,
+          1094,
+          1095
+        ],
+        "vektor_7d": {
+          "kognition": 0.5070172688432975,
+          "sozial": 0.0795969341328435,
+          "affektiv": 0.1970123632802375,
+          "motivation": 0.34079524449029003,
+          "methodik": 0.4168259993774925,
+          "performanz": 0.4861058642598425,
+          "regulation": 0.3593786880191675
+        },
+        "d_semantisch_mean": 3.57789419095545,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 214,
+        "rueckkopplung_teilnehmer_id": 229,
+        "ue_id": 72,
+        "zeitpunkt": "2025-11-24 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.24787311440493,
+          "sozial": 0.40303341149682,
+          "affektiv": 0.39667714529324,
+          "motivation": 0.37215393982184,
+          "methodik": 0.49786480243725,
+          "performanz": 0.29871888146235,
+          "regulation": 0.37837724985231
+        },
+        "d_semantisch": 2.0085774182202,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "1,7",
+        "emotion_valenz": 0.85,
+        "emotion_aktivierung": 0.575,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-11-24",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1863,
+          1864,
+          1865,
+          1866
+        ],
+        "vektor_7d": {
+          "kognition": 0.3941204845794475,
+          "sozial": 0.09432134042988251,
+          "affektiv": 0.16782170960363751,
+          "motivation": 0.37936091784147746,
+          "methodik": 0.35766121626767244,
+          "performanz": 0.491792963958985,
+          "regulation": 0.47932960114359
+        },
+        "d_semantisch_mean": 2.893165727133025,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "performanz",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 216,
+        "rueckkopplung_teilnehmer_id": 232,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-24 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.38901605960072,
+          "sozial": 0.39448441218746,
+          "affektiv": 0.36771503646144,
+          "motivation": 0.34691004747091,
+          "methodik": 0.40046144873576,
+          "performanz": 0.40407547083472,
+          "regulation": 0.33740371315125
+        },
+        "d_semantisch": 1.7611262200663,
+        "dominante_dimension": "performanz",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.3,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 15,
+        "gruppe_id": 4,
+        "datum": "2025-11-25",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1315,
+          1316,
+          1317,
+          1318,
+          1319
+        ],
+        "vektor_7d": {
+          "kognition": 0.49423908231649005,
+          "sozial": 0.16052089806447478,
+          "affektiv": 0.2152184047765084,
+          "motivation": 0.376270980149932,
+          "methodik": 0.381568622415362,
+          "performanz": 0.444925104546724,
+          "regulation": 0.3278753098803421
+        },
+        "d_semantisch_mean": 3.09827639594834,
+        "dominante_dimensionen": [
+          "kognition",
+          "motivation",
+          "performanz",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 223,
+        "rueckkopplung_teilnehmer_id": 235,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-25 18:27:51",
+        "vektor_7d": {
+          "kognition": 0.066644272668964,
+          "sozial": 0.026030034477352,
+          "affektiv": 0.49457065506968,
+          "motivation": 0.49457065506968,
+          "methodik": 0.58133743666086,
+          "performanz": 0.35655093737582,
+          "regulation": 0.20149174836172
+        },
+        "d_semantisch": 1.2131734735068,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "",
+        "emotion_valenz": null,
+        "emotion_aktivierung": null,
+        "emotion_anzahl": 0
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 45,
+        "gruppe_id": 4,
+        "datum": "2025-11-25",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1909,
+          1910,
+          1911,
+          1912,
+          1913
+        ],
+        "vektor_7d": {
+          "kognition": 0.2073182092154,
+          "sozial": 0.09321982062545339,
+          "affektiv": 0.009680820576240002,
+          "motivation": 0.076853712935564,
+          "methodik": 0.20237909855367198,
+          "performanz": -0.03770779014057,
+          "regulation": 0.10994948375388743
+        },
+        "d_semantisch_mean": 3.21308366565638,
+        "dominante_dimensionen": [
+          "performanz",
+          "performanz",
+          "kognition",
+          "performanz",
+          "methodik"
+        ],
+        "polaritaeten": [
+          1,
+          -1,
+          1,
+          -1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 219,
+        "rueckkopplung_teilnehmer_id": 234,
+        "ue_id": 74,
+        "zeitpunkt": "2025-11-25 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.39658922428583,
+          "sozial": 0.4336042185525,
+          "affektiv": 0.3731415302136,
+          "motivation": 0.25104465109537,
+          "methodik": 0.27135052187978,
+          "performanz": 0.44577858543756,
+          "regulation": 0.42437801090419
+        },
+        "d_semantisch": 1.5129004089405,
+        "dominante_dimension": "performanz",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,27,9,12,2,11",
+        "emotion_valenz": 0.71666666666667,
+        "emotion_aktivierung": 0.49166666666667,
+        "emotion_anzahl": 6
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 5,
+        "gruppe_id": 6,
+        "datum": "2025-11-26",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 3,
+        "ids": [
+          1615,
+          1616,
+          1618
+        ],
+        "vektor_7d": {
+          "kognition": 0.4711610865179033,
+          "sozial": 0.1872372186804653,
+          "affektiv": 0.25567483691872767,
+          "motivation": 0.44680492351384,
+          "methodik": 0.35169466987827674,
+          "performanz": 0.43317739099671,
+          "regulation": 0.33535865980972
+        },
+        "d_semantisch_mean": 2.9151122719748663,
+        "dominante_dimensionen": [
+          "motivation",
+          "kognition",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 233,
+        "rueckkopplung_teilnehmer_id": 247,
+        "ue_id": 0,
+        "zeitpunkt": "2025-11-26 18:23:34",
+        "vektor_7d": {
+          "kognition": 0.26004703991741,
+          "sozial": 0.51704320378762,
+          "affektiv": 0.39902889670571,
+          "motivation": 0.32509142069091,
+          "methodik": 0.34563214166238,
+          "performanz": 0.33491486595192,
+          "regulation": 0.41049217324621
+        },
+        "d_semantisch": 1.7359496624607,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,1,6,10,23,4,9,8,14,13,7,26,2,11",
+        "emotion_valenz": 0.80071428571429,
+        "emotion_aktivierung": 0.56785714285714,
+        "emotion_anzahl": 14
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 45,
+        "gruppe_id": 4,
+        "datum": "2025-12-02",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1904,
+          1905,
+          1906,
+          1907,
+          1908
+        ],
+        "vektor_7d": {
+          "kognition": 0.48496886089878605,
+          "sozial": 0.1170201371560972,
+          "affektiv": 0.192454847096648,
+          "motivation": 0.37438287426099,
+          "methodik": 0.436859919736926,
+          "performanz": 0.436025649425532,
+          "regulation": 0.413103482780884
+        },
+        "d_semantisch_mean": 3.66626547492746,
+        "dominante_dimensionen": [
+          "performanz",
+          "methodik",
+          "kognition",
+          "regulation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 248,
+        "rueckkopplung_teilnehmer_id": 263,
+        "ue_id": 0,
+        "zeitpunkt": "2025-12-02 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.12646180023868,
+          "sozial": 0.44811463997619,
+          "affektiv": 0.39624304181129,
+          "motivation": 0.36697873167747,
+          "methodik": 0.55909427473943,
+          "performanz": 0.17351735381586,
+          "regulation": 0.38577721996723
+        },
+        "d_semantisch": 1.5815052410773,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,23,9,14,26",
+        "emotion_valenz": 0.75,
+        "emotion_aktivierung": 0.57,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2025-12-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1196,
+          1197,
+          1198,
+          1199,
+          1200
+        ],
+        "vektor_7d": {
+          "kognition": 0.405938227862966,
+          "sozial": 0.147609950379974,
+          "affektiv": 0.156084328622786,
+          "motivation": 0.41677873481360395,
+          "methodik": 0.406673853945386,
+          "performanz": 0.465335522712418,
+          "regulation": 0.46772455201136004
+        },
+        "d_semantisch_mean": 4.61772955941556,
+        "dominante_dimensionen": [
+          "performanz",
+          "methodik",
+          "regulation",
+          "performanz",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 268,
+        "rueckkopplung_teilnehmer_id": 283,
+        "ue_id": 86,
+        "zeitpunkt": "2025-12-08 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.43852470437432,
+          "sozial": 0.28446596178333,
+          "affektiv": 0.33139702962816,
+          "motivation": 0.28151370895117,
+          "methodik": 0.40606424919547,
+          "performanz": 0.51007605521863,
+          "regulation": 0.33561210196005
+        },
+        "d_semantisch": 1.8145948733901,
+        "dominante_dimension": "performanz",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "8,2",
+        "emotion_valenz": 0.76,
+        "emotion_aktivierung": 0.4,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2025-12-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1254,
+          1256,
+          1257,
+          1258
+        ],
+        "vektor_7d": {
+          "kognition": 0.41090131048232753,
+          "sozial": 0.04101893338684075,
+          "affektiv": 0.15540075392108224,
+          "motivation": 0.42508217420936756,
+          "methodik": 0.39795474956755006,
+          "performanz": 0.4155752657252225,
+          "regulation": 0.4501366641354575
+        },
+        "d_semantisch_mean": 3.398261486785775,
+        "dominante_dimensionen": [
+          "regulation",
+          "motivation",
+          "regulation",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 269,
+        "rueckkopplung_teilnehmer_id": 284,
+        "ue_id": 0,
+        "zeitpunkt": "2025-12-08 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.36037782202042,
+          "sozial": 0.40569479365173,
+          "affektiv": 0.33707195089575,
+          "motivation": 0.35348037113545,
+          "methodik": 0.45373759816312,
+          "performanz": 0.35144490845412,
+          "regulation": 0.37092095419587
+        },
+        "d_semantisch": 1.9719257237525,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,28,2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.35,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2025-12-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1254,
+          1256,
+          1257,
+          1258
+        ],
+        "vektor_7d": {
+          "kognition": 0.41090131048232753,
+          "sozial": 0.04101893338684075,
+          "affektiv": 0.15540075392108224,
+          "motivation": 0.42508217420936756,
+          "methodik": 0.39795474956755006,
+          "performanz": 0.4155752657252225,
+          "regulation": 0.4501366641354575
+        },
+        "d_semantisch_mean": 3.398261486785775,
+        "dominante_dimensionen": [
+          "regulation",
+          "motivation",
+          "regulation",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 270,
+        "rueckkopplung_teilnehmer_id": 285,
+        "ue_id": 0,
+        "zeitpunkt": "2025-12-08 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.36037782202042,
+          "sozial": 0.40569479365173,
+          "affektiv": 0.33707195089575,
+          "motivation": 0.35348037113545,
+          "methodik": 0.45373759816312,
+          "performanz": 0.35144490845412,
+          "regulation": 0.37092095419587
+        },
+        "d_semantisch": 1.9719257237525,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,28,2",
+        "emotion_valenz": 0.7,
+        "emotion_aktivierung": 0.35,
+        "emotion_anzahl": 3
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 16,
+        "gruppe_id": 2,
+        "datum": "2025-12-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1027,
+          1028,
+          1029,
+          1030
+        ],
+        "vektor_7d": {
+          "kognition": 0.4416729472093475,
+          "sozial": 0.23455565542892498,
+          "affektiv": 0.19771436279168,
+          "motivation": 0.4048629986636975,
+          "methodik": 0.3661499111108925,
+          "performanz": 0.401401042135815,
+          "regulation": 0.453790552203435
+        },
+        "d_semantisch_mean": 3.1865075223551003,
+        "dominante_dimensionen": [
+          "regulation",
+          "regulation",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 274,
+        "rueckkopplung_teilnehmer_id": 289,
+        "ue_id": 0,
+        "zeitpunkt": "2025-12-08 18:25:18",
+        "vektor_7d": {
+          "kognition": 0.41768211848109,
+          "sozial": 0.4038804484791,
+          "affektiv": 0.32677080006602,
+          "motivation": 0.31941290733299,
+          "methodik": 0.41768211848109,
+          "performanz": 0.41768211848109,
+          "regulation": 0.32357652117809
+        },
+        "d_semantisch": 2.3941652164063,
+        "dominante_dimension": "kognition",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "1,23,13,7,12",
+        "emotion_valenz": 0.83,
+        "emotion_aktivierung": 0.58,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 20,
+        "gruppe_id": 2,
+        "datum": "2025-12-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1556,
+          1557,
+          1558,
+          1559,
+          1560
+        ],
+        "vektor_7d": {
+          "kognition": 0.466057328616116,
+          "sozial": 0.0953258038338854,
+          "affektiv": 0.2023050764594004,
+          "motivation": 0.36067029739314205,
+          "methodik": 0.41052526760720004,
+          "performanz": 0.48885496283868807,
+          "regulation": 0.391370489738936
+        },
+        "d_semantisch_mean": 4.07798922440506,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "regulation",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 272,
+        "rueckkopplung_teilnehmer_id": 287,
+        "ue_id": 0,
+        "zeitpunkt": "2025-12-08 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.33775875823162,
+          "sozial": 0.43849382647614,
+          "affektiv": 0.33372695323472,
+          "motivation": 0.29976089793057,
+          "methodik": 0.52145211797163,
+          "performanz": 0.33775875823162,
+          "regulation": 0.32621866732538
+        },
+        "d_semantisch": 1.776415814659,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23,2",
+        "emotion_valenz": 0.725,
+        "emotion_aktivierung": 0.45,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 21,
+        "gruppe_id": 2,
+        "datum": "2025-12-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1082,
+          1083,
+          1084,
+          1085,
+          1086
+        ],
+        "vektor_7d": {
+          "kognition": 0.5406838443888301,
+          "sozial": 0.179774325920045,
+          "affektiv": 0.249418464092372,
+          "motivation": 0.36150725553332197,
+          "methodik": 0.402774880325802,
+          "performanz": 0.454963451551444,
+          "regulation": 0.284717838240176
+        },
+        "d_semantisch_mean": 3.7990905080190798,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "performanz",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 271,
+        "rueckkopplung_teilnehmer_id": 286,
+        "ue_id": 87,
+        "zeitpunkt": "2025-12-08 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.31228814781636,
+          "sozial": 0.44801018401907,
+          "affektiv": 0.36348909238049,
+          "motivation": 0.33142226246323,
+          "methodik": 0.42223726033621,
+          "performanz": 0.35829911282758,
+          "regulation": 0.39132517454398
+        },
+        "d_semantisch": 2.1938276795228,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "1,8",
+        "emotion_valenz": 0.86,
+        "emotion_aktivierung": 0.55,
+        "emotion_anzahl": 2
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 23,
+        "gruppe_id": 2,
+        "datum": "2025-12-08",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1858,
+          1859,
+          1860,
+          1861,
+          1862
+        ],
+        "vektor_7d": {
+          "kognition": 0.478954568129278,
+          "sozial": 0.08146420060264639,
+          "affektiv": 0.1531797519056824,
+          "motivation": 0.34158376130891,
+          "methodik": 0.405974144394626,
+          "performanz": 0.481588210166886,
+          "regulation": 0.44167670740781206
+        },
+        "d_semantisch_mean": 3.3869758888468198,
+        "dominante_dimensionen": [
+          "regulation",
+          "kognition",
+          "kognition",
+          "performanz",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 273,
+        "rueckkopplung_teilnehmer_id": 288,
+        "ue_id": 0,
+        "zeitpunkt": "2025-12-08 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.35284595294571,
+          "sozial": 0.42093903158436,
+          "affektiv": 0.36264722941643,
+          "motivation": 0.34024431176908,
+          "methodik": 0.41474875170812,
+          "performanz": 0.35284595294571,
+          "regulation": 0.39308277214128
+        },
+        "d_semantisch": 1.700458782758,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "23",
+        "emotion_valenz": 0.75,
+        "emotion_aktivierung": 0.6,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 45,
+        "gruppe_id": 4,
+        "datum": "2025-12-09",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1899,
+          1900,
+          1901,
+          1902
+        ],
+        "vektor_7d": {
+          "kognition": 0.513238279535265,
+          "sozial": 0.12364896187432173,
+          "affektiv": 0.12406496736448624,
+          "motivation": 0.37636293797702997,
+          "methodik": 0.4165480551596925,
+          "performanz": 0.4534338829354675,
+          "regulation": 0.3958877813308675
+        },
+        "d_semantisch_mean": 3.2633179014366,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 277,
+        "rueckkopplung_teilnehmer_id": 292,
+        "ue_id": 0,
+        "zeitpunkt": "2025-12-09 17:10:00",
+        "vektor_7d": {
+          "kognition": 0.32037880199167,
+          "sozial": 0.52481098992921,
+          "affektiv": 0.35551487272005,
+          "motivation": 0.27875382885411,
+          "methodik": 0.37658560935863,
+          "performanz": 0.36011570766505,
+          "regulation": 0.38253925433462
+        },
+        "d_semantisch": 1.8727830803713,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "3,6,4,8,2",
+        "emotion_valenz": 0.828,
+        "emotion_aktivierung": 0.51,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 5,
+        "gruppe_id": 6,
+        "datum": "2025-12-10",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1606,
+          1607,
+          1608,
+          1609
+        ],
+        "vektor_7d": {
+          "kognition": 0.45280275141216,
+          "sozial": 0.22800326610710026,
+          "affektiv": 0.26844644145107,
+          "motivation": 0.4077806182816675,
+          "methodik": 0.385071337986365,
+          "performanz": 0.3725446702750425,
+          "regulation": 0.3080541386060977
+        },
+        "d_semantisch_mean": 2.8576778178646998,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "motivation",
+          "motivation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 288,
+        "rueckkopplung_teilnehmer_id": 301,
+        "ue_id": 0,
+        "zeitpunkt": "2025-12-10 18:27:20",
+        "vektor_7d": {
+          "kognition": 0.34660918982882,
+          "sozial": 0.47664427150317,
+          "affektiv": 0.35299899443021,
+          "motivation": 0.25172948476042,
+          "methodik": 0.34052832684937,
+          "performanz": 0.48965425229786,
+          "regulation": 0.33011430606286
+        },
+        "d_semantisch": 1.7310562364192,
+        "dominante_dimension": "performanz",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,1,6,10,23,4,8,14,13,7,12,24,11",
+        "emotion_valenz": 0.72538461538462,
+        "emotion_aktivierung": 0.57692307692308,
+        "emotion_anzahl": 13
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2026-01-12",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1241,
+          1242,
+          1243,
+          1244,
+          1245
+        ],
+        "vektor_7d": {
+          "kognition": 0.516551343998074,
+          "sozial": 0.0472973052660096,
+          "affektiv": 0.12035215002694222,
+          "motivation": 0.338741573752796,
+          "methodik": 0.453771888115092,
+          "performanz": 0.46035618597492595,
+          "regulation": 0.412420739296888
+        },
+        "d_semantisch_mean": 3.86330353161948,
+        "dominante_dimensionen": [
+          "kognition",
+          "methodik",
+          "performanz",
+          "kognition",
+          "kognition"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 301,
+        "rueckkopplung_teilnehmer_id": 316,
+        "ue_id": 93,
+        "zeitpunkt": "2026-01-12 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.30724988219164,
+          "sozial": 0.44868236764493,
+          "affektiv": 0.35068714321068,
+          "motivation": 0.33158934886929,
+          "methodik": 0.4743506953134,
+          "performanz": 0.34535839471153,
+          "regulation": 0.35646552455284
+        },
+        "d_semantisch": 1.9528079080549,
+        "dominante_dimension": "methodik",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,28,23,4,13",
+        "emotion_valenz": 0.776,
+        "emotion_aktivierung": 0.55,
+        "emotion_anzahl": 5
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 2,
+        "gruppe_id": 1,
+        "datum": "2026-01-19",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 4,
+        "ids": [
+          1188,
+          1189,
+          1190,
+          1191
+        ],
+        "vektor_7d": {
+          "kognition": 0.42015203516467503,
+          "sozial": 0.14383402329175224,
+          "affektiv": 0.2601118922415075,
+          "motivation": 0.39694699139517253,
+          "methodik": 0.336845177772985,
+          "performanz": 0.480640106544875,
+          "regulation": 0.4209260400538475
+        },
+        "d_semantisch_mean": 3.16246429483315,
+        "dominante_dimensionen": [
+          "performanz",
+          "kognition",
+          "performanz",
+          "performanz"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 310,
+        "rueckkopplung_teilnehmer_id": 325,
+        "ue_id": 0,
+        "zeitpunkt": "2026-01-19 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.35578715313852,
+          "sozial": 0.5233057131511,
+          "affektiv": 0.056632719854765,
+          "motivation": 0.18436520904162,
+          "methodik": 0.48366134094269,
+          "performanz": 0.52201496614897,
+          "regulation": 0.23651832459542
+        },
+        "d_semantisch": 1.3275926941416,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "25",
+        "emotion_valenz": -0.6,
+        "emotion_aktivierung": 0.7,
+        "emotion_anzahl": 1
+      }
+    },
+    {
+      "match_key": {
+        "teilnehmer_id": 43,
+        "gruppe_id": 1,
+        "datum": "2026-01-19",
+        "matching_typ": "teilnehmer_id + gruppe_id + datum"
+      },
+      "lehrkraft": {
+        "lehrkraft_id": 1,
+        "satz_anzahl": 5,
+        "ids": [
+          1236,
+          1237,
+          1238,
+          1239,
+          1240
+        ],
+        "vektor_7d": {
+          "kognition": 0.5455936764267,
+          "sozial": 0.0663460992439854,
+          "affektiv": 0.14670964111465218,
+          "motivation": 0.33072429312148205,
+          "methodik": 0.42108127328391404,
+          "performanz": 0.45744262318538,
+          "regulation": 0.40287803383486204
+        },
+        "d_semantisch_mean": 3.4993772670429,
+        "dominante_dimensionen": [
+          "kognition",
+          "kognition",
+          "kognition",
+          "kognition",
+          "regulation"
+        ],
+        "polaritaeten": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "teilnehmer_7d": {
+        "id": 309,
+        "rueckkopplung_teilnehmer_id": 324,
+        "ue_id": 96,
+        "zeitpunkt": "2026-01-19 15:35:00",
+        "vektor_7d": {
+          "kognition": 0.38194595187001,
+          "sozial": 0.4682989496841,
+          "affektiv": 0.336736367607,
+          "motivation": 0.2894335955938,
+          "methodik": 0.39324677092961,
+          "performanz": 0.44004206774213,
+          "regulation": 0.29894840833775
+        },
+        "d_semantisch": 2.0611137212397,
+        "dominante_dimension": "sozial",
+        "polaritaet_gesamt": 1,
+        "emotion_ids": "5,28,1,13,7,2",
+        "emotion_valenz": 0.78,
+        "emotion_aktivierung": 0.475,
+        "emotion_anzahl": 6
+      }
+    }
+  ],
+  "unmatched_lehrer": [
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 1,
+      "datum": "2025-09-01",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 2,
+      "datum": "2025-09-01",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 2,
+      "datum": "2025-09-01",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 21,
+      "gruppe_id": 2,
+      "datum": "2025-09-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 23,
+      "gruppe_id": 2,
+      "datum": "2025-09-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 0,
+      "datum": "2025-09-02",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-09-02",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-09-02",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 2,
+      "datum": "2025-09-02",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-09-02",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-09-02",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 4,
+      "datum": "2025-09-02",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-09-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-09-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2025-09-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-09-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-09-03",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 13,
+      "gruppe_id": 4,
+      "datum": "2025-09-03",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-09-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 0,
+      "datum": "2025-09-04",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-09-04",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-09-04",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-09-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-09-04",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-09-04",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 7,
+      "datum": "2025-09-05",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 7,
+      "datum": "2025-09-05",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 7,
+      "datum": "2025-09-05",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 0,
+      "datum": "2025-09-08",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-09-09",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-09-09",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 2,
+      "datum": "2025-09-09",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-09-09",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-09-09",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 4,
+      "datum": "2025-09-09",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-09-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2025-09-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-09-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-09-10",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 13,
+      "gruppe_id": 4,
+      "datum": "2025-09-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-09-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-09-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-09-11",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-09-11",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-09-11",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-09-11",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-09-11",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-09-11",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 7,
+      "datum": "2025-09-12",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 7,
+      "datum": "2025-09-12",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 7,
+      "datum": "2025-09-12",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-09-16",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-09-16",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 2,
+      "datum": "2025-09-16",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-09-16",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-09-16",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 4,
+      "datum": "2025-09-16",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-09-17",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-09-17",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-09-17",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-09-17",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-09-18",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-09-18",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-09-18",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-09-18",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 7,
+      "datum": "2025-09-19",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 7,
+      "datum": "2025-09-19",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 7,
+      "datum": "2025-09-19",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 7,
+      "datum": "2025-09-19",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 24,
+      "gruppe_id": 7,
+      "datum": "2025-09-19",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 13,
+      "gruppe_id": 0,
+      "datum": "2025-09-22",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-09-23",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-09-23",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-09-23",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 4,
+      "datum": "2025-09-23",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-09-24",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 3,
+      "datum": "2025-09-24",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-09-24",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-09-24",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-09-24",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 13,
+      "gruppe_id": 4,
+      "datum": "2025-09-24",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-09-24",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-09-24",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-09-25",
+      "lehrer_satz_anzahl": 2
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-09-25",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-09-25",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-09-25",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-09-25",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-09-25",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 7,
+      "datum": "2025-09-26",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 7,
+      "datum": "2025-09-26",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 24,
+      "gruppe_id": 7,
+      "datum": "2025-09-26",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-09-30",
+      "lehrer_satz_anzahl": 2
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-09-30",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 2,
+      "datum": "2025-09-30",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-09-30",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-09-30",
+      "lehrer_satz_anzahl": 2
+    },
+    {
+      "teilnehmer_id": 24,
+      "gruppe_id": 2,
+      "datum": "2025-09-30",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 4,
+      "datum": "2025-09-30",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-10-01",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-10-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-10-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2025-10-01",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-10-01",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-10-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-10-01",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-10-02",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-10-02",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-10-02",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-10-02",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-10-02",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-10-07",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-10-07",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 13,
+      "gruppe_id": 2,
+      "datum": "2025-10-07",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 2,
+      "datum": "2025-10-07",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 42,
+      "gruppe_id": 3,
+      "datum": "2025-10-07",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-10-15",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-10-15",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 2,
+      "datum": "2025-10-20",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-10-21",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-10-21",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 2,
+      "datum": "2025-10-21",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-10-21",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 42,
+      "gruppe_id": 3,
+      "datum": "2025-10-21",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 4,
+      "datum": "2025-10-21",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 0,
+      "datum": "2025-10-22",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-10-22",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-10-22",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-10-22",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-10-22",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-10-22",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-10-22",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-10-22",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 0,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 0,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 17,
+      "gruppe_id": 6,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 6,
+      "datum": "2025-10-23",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 7,
+      "datum": "2025-10-24",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 7,
+      "datum": "2025-10-24",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 7,
+      "datum": "2025-10-24",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 0,
+      "datum": "2025-10-27",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 1,
+      "datum": "2025-10-27",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-10-28",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-10-28",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-10-28",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 4,
+      "datum": "2025-10-28",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-10-29",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-10-29",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-10-29",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2025-10-29",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-10-29",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-10-29",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-10-29",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-10-30",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-10-30",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-10-30",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-10-30",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-10-30",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-11-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-11-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-11-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-11-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 42,
+      "gruppe_id": 3,
+      "datum": "2025-11-04",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 4,
+      "datum": "2025-11-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 0,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 3,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 13,
+      "gruppe_id": 4,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-11-05",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-11-06",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-11-06",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-11-06",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-11-06",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-11-06",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-11-06",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 6,
+      "datum": "2025-11-06",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 7,
+      "datum": "2025-11-07",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 7,
+      "datum": "2025-11-07",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 24,
+      "gruppe_id": 7,
+      "datum": "2025-11-07",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-11-11",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-11-11",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-11-11",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 45,
+      "gruppe_id": 4,
+      "datum": "2025-11-11",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-11-12",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-11-12",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-11-12",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-11-12",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-11-12",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 13,
+      "gruppe_id": 4,
+      "datum": "2025-11-12",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-11-12",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-11-13",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-11-13",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-11-13",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-11-13",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 17,
+      "gruppe_id": 6,
+      "datum": "2025-11-13",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-11-13",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-11-13",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 6,
+      "datum": "2025-11-13",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 7,
+      "datum": "2025-11-14",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 7,
+      "datum": "2025-11-14",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 7,
+      "datum": "2025-11-14",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 7,
+      "datum": "2025-11-14",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 24,
+      "gruppe_id": 7,
+      "datum": "2025-11-14",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-11-18",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-11-18",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-11-18",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 45,
+      "gruppe_id": 4,
+      "datum": "2025-11-18",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-11-20",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-11-20",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-11-20",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-11-20",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-11-20",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 6,
+      "datum": "2025-11-20",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-11-25",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-11-25",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-11-25",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-11-25",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-11-26",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-11-26",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-11-26",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2025-11-26",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-11-26",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-11-26",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-11-26",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-11-26",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 0,
+      "datum": "2025-11-27",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-11-27",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-11-27",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-11-27",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-11-27",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-11-27",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 42,
+      "gruppe_id": 0,
+      "datum": "2025-11-28",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 4,
+      "gruppe_id": 7,
+      "datum": "2025-11-28",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 7,
+      "datum": "2025-11-28",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 7,
+      "datum": "2025-11-28",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 7,
+      "datum": "2025-11-28",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 24,
+      "gruppe_id": 7,
+      "datum": "2025-11-28",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 13,
+      "gruppe_id": 0,
+      "datum": "2025-12-01",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 1,
+      "datum": "2025-12-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 43,
+      "gruppe_id": 1,
+      "datum": "2025-12-01",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 2,
+      "datum": "2025-12-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 2,
+      "datum": "2025-12-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 21,
+      "gruppe_id": 2,
+      "datum": "2025-12-01",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 47,
+      "gruppe_id": 0,
+      "datum": "2025-12-02",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-12-02",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 5,
+      "gruppe_id": 2,
+      "datum": "2025-12-02",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-12-02",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-12-02",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-12-03",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-12-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-12-03",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2025-12-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-12-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-12-03",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 47,
+      "gruppe_id": 0,
+      "datum": "2025-12-04",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-12-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-12-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2025-12-04",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2025-12-04",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-12-04",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 6,
+      "datum": "2025-12-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 11,
+      "datum": "2025-12-04",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 42,
+      "gruppe_id": 0,
+      "datum": "2025-12-05",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 47,
+      "gruppe_id": 0,
+      "datum": "2025-12-09",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 3,
+      "gruppe_id": 1,
+      "datum": "2025-12-09",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 8,
+      "gruppe_id": 2,
+      "datum": "2025-12-09",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 2,
+      "datum": "2025-12-09",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 42,
+      "gruppe_id": 3,
+      "datum": "2025-12-09",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 0,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 3,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 7,
+      "gruppe_id": 4,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 12,
+      "gruppe_id": 4,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 14,
+      "gruppe_id": 4,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 4,
+      "datum": "2025-12-10",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 9,
+      "gruppe_id": 5,
+      "datum": "2025-12-11",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 10,
+      "gruppe_id": 5,
+      "datum": "2025-12-11",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 15,
+      "gruppe_id": 5,
+      "datum": "2025-12-11",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2025-12-11",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 6,
+      "datum": "2025-12-11",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 16,
+      "gruppe_id": 6,
+      "datum": "2026-01-15",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2026-01-15",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2026-01-15",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 7,
+      "datum": "2026-01-16",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 7,
+      "datum": "2026-01-16",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 20,
+      "gruppe_id": 7,
+      "datum": "2026-01-16",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 24,
+      "gruppe_id": 7,
+      "datum": "2026-01-16",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 2,
+      "gruppe_id": 3,
+      "datum": "2026-01-21",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 6,
+      "gruppe_id": 3,
+      "datum": "2026-01-21",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 11,
+      "gruppe_id": 3,
+      "datum": "2026-01-21",
+      "lehrer_satz_anzahl": 4
+    },
+    {
+      "teilnehmer_id": 17,
+      "gruppe_id": 6,
+      "datum": "2026-01-29",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 18,
+      "gruppe_id": 6,
+      "datum": "2026-01-29",
+      "lehrer_satz_anzahl": 3
+    },
+    {
+      "teilnehmer_id": 19,
+      "gruppe_id": 6,
+      "datum": "2026-01-29",
+      "lehrer_satz_anzahl": 5
+    },
+    {
+      "teilnehmer_id": 22,
+      "gruppe_id": 6,
+      "datum": "2026-01-29",
+      "lehrer_satz_anzahl": 5
+    }
+  ],
+  "created_at": "2026-05-21T03:12:43"
+}

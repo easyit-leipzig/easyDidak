@@ -1,15 +1,20 @@
-# export_stabilisierung_lehrkraftdaten.py
+# -*- coding: utf-8 -*-
+"""
+Export 01 – Stabilisierungsvorhersage des FRZK
+
+Erzeugt eine JSON-Datei mit drei Scopes:
+1. alle_lehrkraefte
+2. lehrkraft_1
+3. ohne_lehrkraft_1
+"""
 
 import json
-import traceback
+import math
+from datetime import date, datetime
 from pathlib import Path
 
-import numpy as np
-import pandas as pd
 import mysql.connector
 
-OUTPUT = Path.cwd() / "frzk_stabilisierung_lehrkraftdaten.json"
-BASE_TABLE = "analyze_lehrkraftdaten"
 
 DB_CONFIG = {
     "host": "127.0.0.1",
@@ -22,280 +27,235 @@ DB_CONFIG = {
     "use_pure": True
 }
 
-MEAN_DIMS = [
-    "mean_kognition",
-    "mean_sozial",
-    "mean_affektiv",
-    "mean_motivation",
-    "mean_methodik",
-    "mean_performanz",
-    "mean_regulation"
-]
+OUTPUT_FILE = Path("auswertung_01_stabilisierungsvorhersage.json")
 
-VAR_DIMS = [
-    "var_kognition",
-    "var_sozial",
-    "var_affektiv",
-    "var_motivation",
-    "var_methodik",
-    "var_performanz",
-    "var_regulation"
-]
-
-RANGE_DIMS = [
-    "range_kognition",
-    "range_sozial",
-    "range_affektiv",
-    "range_motivation",
-    "range_methodik",
-    "range_performanz",
-    "range_regulation"
+DIMENSIONS = [
+    "x_kognition",
+    "x_sozial",
+    "x_affektiv",
+    "x_motivation",
+    "x_methodik",
+    "x_performanz",
+    "x_regulation",
 ]
 
 
-def safe_float(v):
-    if v is None or pd.isna(v):
-        return None
-    return float(v)
+def json_default(obj):
+    if isinstance(obj, (datetime, date)):
+        return obj.isoformat()
+    return obj
 
 
-def analyze_subset(df, label):
-    result = {
-        "gruppe": label,
-        "n_unterrichtseinheiten": int(len(df)),
-        "n_teilnehmer": int(df["teilnehmer_id"].nunique()) if len(df) else 0,
-        "n_lehrkraefte": int(df["lehrkraft_id"].nunique()) if len(df) else 0,
-        "zeitraum": {
-            "von": str(df["datum"].min().date()) if len(df) else None,
-            "bis": str(df["datum"].max().date()) if len(df) else None
-        }
-    }
-
-    teilnehmer_liste = []
-
-    for tid, g in df.groupby("teilnehmer_id"):
-        g = g.sort_values(["datum", "id_mtr_rueckkopplung_datenmaske"]).copy()
-
-        delta_values = g["delta_vektor"].dropna()
-
-        mean_varianz_summe = safe_float(g["varianz_summe"].mean())
-        mean_range_summe = safe_float(g["range_summe"].mean())
-        mean_sem_breite = safe_float(g["semantische_breite"].mean())
-        std_sem_breite = safe_float(g["semantische_breite"].std(ddof=0))
-        mean_delta = safe_float(delta_values.mean())
-        std_delta = safe_float(delta_values.std(ddof=0))
-        dichte_std = safe_float(g["d_semantisch_mean"].std(ddof=0))
-        polaritaet_std = safe_float(g["polaritaet_index"].std(ddof=0))
-        dominanz_std = safe_float(g["dominanz_breite"].std(ddof=0))
-
-        stabilisierungsindex = 1 / (
-            1
-            + (mean_sem_breite or 0)
-            + (std_sem_breite or 0)
-            + (mean_delta or 0)
-            + (dichte_std or 0)
-            + (polaritaet_std or 0)
-            + (dominanz_std or 0)
-        )
-
-        teilnehmer_liste.append({
-            "teilnehmer_id": int(tid),
-            "n_unterrichtseinheiten": int(len(g)),
-            "datum_von": str(g["datum"].min().date()),
-            "datum_bis": str(g["datum"].max().date()),
-
-            "satzanzahl_summe": int(g["satzanzahl"].sum()),
-            "satzanzahl_mean": safe_float(g["satzanzahl"].mean()),
-
-            "semantische_breite_mean": mean_sem_breite,
-            "semantische_breite_std": std_sem_breite,
-
-            "varianz_summe_mean": mean_varianz_summe,
-            "range_summe_mean": mean_range_summe,
-
-            "d_semantisch_mean": safe_float(g["d_semantisch_mean"].mean()),
-            "d_semantisch_std": dichte_std,
-
-            "delta_vektor_mean": mean_delta,
-            "delta_vektor_std": std_delta,
-
-            "polaritaet_index_mean": safe_float(g["polaritaet_index"].mean()),
-            "polaritaet_index_std": polaritaet_std,
-
-            "dominanz_breite_mean": safe_float(g["dominanz_breite"].mean()),
-            "dominanz_breite_std": dominanz_std,
-
-            "stabilisierungsindex": safe_float(stabilisierungsindex)
-        })
-
-    tdf = pd.DataFrame(teilnehmer_liste)
-
-    result["teilnehmer"] = teilnehmer_liste
-
-    result["gesamt"] = {
-        "semantische_breite_mean": safe_float(df["semantische_breite"].mean()) if len(df) else None,
-        "semantische_breite_std": safe_float(df["semantische_breite"].std(ddof=0)) if len(df) else None,
-        "delta_vektor_mean": safe_float(df["delta_vektor"].dropna().mean()) if len(df) else None,
-        "delta_vektor_std": safe_float(df["delta_vektor"].dropna().std(ddof=0)) if len(df) else None,
-        "d_semantisch_mean": safe_float(df["d_semantisch_mean"].mean()) if len(df) else None,
-        "d_semantisch_std": safe_float(df["d_semantisch_mean"].std(ddof=0)) if len(df) else None,
-        "polaritaet_index_mean": safe_float(df["polaritaet_index"].mean()) if len(df) else None,
-        "polaritaet_index_std": safe_float(df["polaritaet_index"].std(ddof=0)) if len(df) else None,
-        "dominanz_breite_mean": safe_float(df["dominanz_breite"].mean()) if len(df) else None,
-        "mittlerer_stabilisierungsindex": safe_float(tdf["stabilisierungsindex"].mean()) if not tdf.empty else None,
-        "min_stabilisierungsindex": safe_float(tdf["stabilisierungsindex"].min()) if not tdf.empty else None,
-        "max_stabilisierungsindex": safe_float(tdf["stabilisierungsindex"].max()) if not tdf.empty else None
-    }
-
-    return result
-
-
-try:
-    print("============================================================")
-    print("START: 1. Stabilisierungsvorhersage des FRZK")
-    print("============================================================")
-
-    conn = mysql.connector.connect(**DB_CONFIG)
+def fetch_rows(where_clause: str = "", params=None):
+    params = params or []
 
     sql = f"""
-    SELECT
-        id_mtr_rueckkopplung_datenmaske,
-        datum,
-        teilnehmer_id,
-        lehrkraft_id,
-        gruppe_id,
-        satzanzahl,
-
-        mean_kognition,
-        mean_sozial,
-        mean_affektiv,
-        mean_motivation,
-        mean_methodik,
-        mean_performanz,
-        mean_regulation,
-
-        var_kognition,
-        var_sozial,
-        var_affektiv,
-        var_motivation,
-        var_methodik,
-        var_performanz,
-        var_regulation,
-
-        range_kognition,
-        range_sozial,
-        range_affektiv,
-        range_motivation,
-        range_methodik,
-        range_performanz,
-        range_regulation,
-
-        semantische_breite,
-        d_semantisch_mean,
-        d_semantisch_std,
-        polaritaet_index,
-        dominanz_breite
-    FROM {BASE_TABLE}
-    WHERE datum IS NOT NULL
-    ORDER BY teilnehmer_id, datum, id_mtr_rueckkopplung_datenmaske;
+        SELECT
+            id,
+            gruppe_id,
+            teilnehmer_id,
+            fach,
+            datum,
+            thema,
+            bemerkung,
+            wochentag,
+            day_number,
+            lehrkraft_id,
+            id_mtr_rueckkopplung_datenmaske,
+            mtr_rueckkopplung_datenmaske_values_id,
+            x_kognition,
+            x_sozial,
+            x_affektiv,
+            x_motivation,
+            x_methodik,
+            x_performanz,
+            x_regulation,
+            dominante_dimension,
+            dominante_dimension_wert,
+            polaritaet_gesamt,
+            d_semantisch,
+            token_anzahl,
+            funktionsklassen_anzahl_gesamt,
+            operator_count,
+            modulator_count,
+            has_operator,
+            operator_names,
+            modulator_names
+        FROM analyze_lehrkraftdaten
+        {where_clause}
+        ORDER BY teilnehmer_id, datum, id
     """
 
-    df = pd.read_sql(sql, conn)
-    conn.close()
+    conn = mysql.connector.connect(**DB_CONFIG)
+    try:
+        cur = conn.cursor(dictionary=True)
+        cur.execute(sql, params)
+        return cur.fetchall()
+    finally:
+        conn.close()
 
-    print("Geladene UE-Datensätze:", len(df))
 
-    df["datum"] = pd.to_datetime(df["datum"], errors="coerce")
+def mean(values):
+    values = [v for v in values if v is not None]
+    return sum(values) / len(values) if values else None
 
-    numeric_cols = (
-        ["id_mtr_rueckkopplung_datenmaske", "teilnehmer_id", "lehrkraft_id",
-         "gruppe_id", "satzanzahl", "semantische_breite", "d_semantisch_mean",
-         "d_semantisch_std", "polaritaet_index", "dominanz_breite"]
-        + MEAN_DIMS
-        + VAR_DIMS
-        + RANGE_DIMS
+
+def stddev(values):
+    values = [v for v in values if v is not None]
+    if len(values) < 2:
+        return None
+    m = mean(values)
+    return math.sqrt(sum((v - m) ** 2 for v in values) / (len(values) - 1))
+
+
+def euclidean_delta(row_a, row_b):
+    total = 0.0
+    for dim in DIMENSIONS:
+        a = row_a.get(dim)
+        b = row_b.get(dim)
+        if a is None or b is None:
+            continue
+        total += (float(b) - float(a)) ** 2
+    return math.sqrt(total)
+
+
+def compute_scope_metrics(rows):
+    by_participant = {}
+
+    for row in rows:
+        tid = row["teilnehmer_id"]
+        by_participant.setdefault(tid, []).append(row)
+
+    participant_metrics = []
+
+    for tid, items in by_participant.items():
+        items = sorted(items, key=lambda r: (r["datum"], r["id"]))
+
+        d_values = [float(r["d_semantisch"]) for r in items if r["d_semantisch"] is not None]
+
+        deltas = []
+        dominance_changes = 0
+        dominance_pairs = 0
+
+        for prev, curr in zip(items, items[1:]):
+            deltas.append(euclidean_delta(prev, curr))
+
+            if prev.get("dominante_dimension") and curr.get("dominante_dimension"):
+                dominance_pairs += 1
+                if prev["dominante_dimension"] != curr["dominante_dimension"]:
+                    dominance_changes += 1
+
+        dimension_std = {
+            dim.replace("x_", "") + "_varianz": stddev(
+                [float(r[dim]) for r in items if r.get(dim) is not None]
+            )
+            for dim in DIMENSIONS
+        }
+
+        stabilitaet = stddev(d_values)
+        mittlere_delta_bewegung = mean(deltas)
+        delta_std = stddev(deltas)
+
+        dominanzwechsel_rate = (
+            dominance_changes / dominance_pairs if dominance_pairs > 0 else None
+        )
+
+        dominanzstabilitaet = (
+            1 - dominanzwechsel_rate if dominanzwechsel_rate is not None else None
+        )
+
+        kohaerenz_index = (
+            1 / (1 + stabilitaet) if stabilitaet is not None else None
+        )
+
+        participant_metrics.append({
+            "teilnehmer_id": tid,
+            "n": len(items),
+            "stabilitaet_std_d_semantisch": stabilitaet,
+            "mittlere_delta_bewegung": mittlere_delta_bewegung,
+            "delta_std": delta_std,
+            "dominanzwechsel": dominance_changes,
+            "dominanzwechsel_rate": dominanzwechsel_rate,
+            "dominanzstabilitaet": dominanzstabilitaet,
+            "kohaerenz_index": kohaerenz_index,
+            **dimension_std
+        })
+
+    participant_metrics = sorted(
+        participant_metrics,
+        key=lambda x: (
+            x["stabilitaet_std_d_semantisch"] is None,
+            x["stabilitaet_std_d_semantisch"] or 999999
+        )
     )
 
-    for col in numeric_cols:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-
-    df = df.dropna(subset=[
-        "id_mtr_rueckkopplung_datenmaske",
-        "datum",
-        "teilnehmer_id",
-        "lehrkraft_id",
-        "semantische_breite",
-        "d_semantisch_mean",
-        "polaritaet_index",
-        "dominanz_breite"
-    ] + MEAN_DIMS)
-
-    print("UE-Datensätze nach Bereinigung:", len(df))
-
-    if df.empty:
-        raise ValueError("Keine auswertbaren Datensätze nach Bereinigung.")
-
-    df = df.sort_values(
-        ["teilnehmer_id", "datum", "id_mtr_rueckkopplung_datenmaske"]
-    ).reset_index(drop=True)
-
-    df["varianz_summe"] = df[VAR_DIMS].sum(axis=1)
-    df["range_summe"] = df[RANGE_DIMS].sum(axis=1)
-
-    df["delta_vektor"] = np.nan
-
-    for tid, g in df.groupby("teilnehmer_id"):
-        indices = g.index.to_list()
-        values = g[MEAN_DIMS].to_numpy(dtype=float)
-
-        deltas = [np.nan]
-
-        for i in range(1, len(values)):
-            delta = np.linalg.norm(values[i] - values[i - 1])
-            deltas.append(float(delta))
-
-        df.loc[indices, "delta_vektor"] = deltas
-
-    out = {
-        "analyse": "1. Stabilisierungsvorhersage des FRZK",
-        "basis": BASE_TABLE,
-        "auswertungsebene": "UE-aggregierter Zustandsraum der satzweisen Lehrkraftsicht",
-        "interpretation": (
-            "FRZK-konforme Stabilisierung liegt vor, wenn die Lehrkraftsicht auf "
-            "Teilnehmende im Zeitverlauf geringere semantische Breite, geringere "
-            "Dimensionsvarianz, geringere Vektordrift, stabilere Polarität und "
-            "stabilere Dominanzbreite zeigt."
-        ),
-        "formel_stabilisierungsindex": (
-            "SI = 1 / (1 + mean(semantische_breite) + std(semantische_breite) "
-            "+ mean(delta_vektor) + std(d_semantisch_mean) "
-            "+ std(polaritaet_index) + std(dominanz_breite))"
-        ),
-        "datenbasis": {
-            "n_unterrichtseinheiten": int(len(df)),
-            "n_teilnehmer": int(df["teilnehmer_id"].nunique()),
-            "n_lehrkraefte": int(df["lehrkraft_id"].nunique()),
-            "zeitraum_von": str(df["datum"].min().date()),
-            "zeitraum_bis": str(df["datum"].max().date())
-        },
-        "daten": {
-            "alle_lehrkraefte": analyze_subset(df, "alle_lehrkraefte"),
-            "lehrkraft_1": analyze_subset(df[df["lehrkraft_id"] == 1], "lehrkraft_1"),
-            "nicht_lehrkraft_1": analyze_subset(df[df["lehrkraft_id"] != 1], "nicht_lehrkraft_1")
+    return {
+        "anzahl_datensaetze": len(rows),
+        "anzahl_teilnehmer": len(by_participant),
+        "teilnehmer_metrics": participant_metrics,
+        "scope_summary": {
+            "mittlere_stabilitaet": mean([
+                x["stabilitaet_std_d_semantisch"]
+                for x in participant_metrics
+            ]),
+            "mittlere_delta_bewegung": mean([
+                x["mittlere_delta_bewegung"]
+                for x in participant_metrics
+            ]),
+            "mittlere_dominanzstabilitaet": mean([
+                x["dominanzstabilitaet"]
+                for x in participant_metrics
+            ]),
+            "mittlerer_kohaerenz_index": mean([
+                x["kohaerenz_index"]
+                for x in participant_metrics
+            ])
         }
     }
 
-    OUTPUT.write_text(
-        json.dumps(out, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
 
-    print("JSON geschrieben:", OUTPUT.resolve())
-    print("Dateigröße:", OUTPUT.stat().st_size, "Bytes")
-    print("FERTIG")
+def build_scope(name, where_clause="", params=None):
+    rows = fetch_rows(where_clause, params)
+    return {
+        "name": name,
+        "beschreibung": name,
+        "rows": rows,
+        "metrics": compute_scope_metrics(rows)
+    }
 
-except Exception:
-    print("FEHLER")
-    traceback.print_exc()
 
-input("Enter drücken zum Beenden ...")
+def main():
+    data = {
+        "auswertung": "01_stabilisierungsvorhersage_frzk",
+        "frzk_vorhersage": (
+            "Wiederholte kohärente Interaktion erzeugt stabile Zustandsräume."
+        ),
+        "messlogik": {
+            "sinkende_varianz": "STDDEV(d_semantisch) und Dimensionsvarianzen",
+            "sinkende_delta_bewegung": "euklidische Distanz aufeinanderfolgender Zustände",
+            "steigende_dominanzstabilitaet": "1 - Rate der Wechsel dominanter Dimensionen",
+            "steigende_kohaerenz": "1 / (1 + STDDEV(d_semantisch))"
+        },
+        "scopes": {
+            "alle_lehrkraefte": build_scope("alle_lehrkraefte"),
+            "lehrkraft_1": build_scope(
+                "lehrkraft_1",
+                "WHERE lehrkraft_id = %s",
+                [1]
+            ),
+            "ohne_lehrkraft_1": build_scope(
+                "ohne_lehrkraft_1",
+                "WHERE lehrkraft_id <> %s OR lehrkraft_id IS NULL",
+                [1]
+            )
+        }
+    }
+
+    with OUTPUT_FILE.open("w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2, default=json_default)
+
+    print(f"JSON erzeugt: {OUTPUT_FILE.resolve()}")
+
+
+if __name__ == "__main__":
+    main()

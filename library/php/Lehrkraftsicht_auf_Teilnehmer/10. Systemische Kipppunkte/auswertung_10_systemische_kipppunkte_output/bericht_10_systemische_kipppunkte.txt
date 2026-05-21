@@ -1,0 +1,84 @@
+
+================================================================================
+SCOPE: alle_lehrkraefte
+Datensätze: 3108
+Kipppunkt-Kandidaten gesamt: 2999
+Dichte-Schwelle d_semantisch > 2.5: 2584
+Polaritätswechsel: 178
+Dominanzwechsel: 2069
+Delta-Spikes: 163
+Mittlere semantische Dichte: 3.3757
+Maximale semantische Dichte: 8.2666
+Standardabweichung Δd: 1.2669
+
+Dominante Dimensionen bei Kipppunkt-Kandidaten:
+  kognition: 1426
+  performanz: 791
+  regulation: 414
+  motivation: 259
+  methodik: 91
+  sozial: 12
+
+Polarität bei Kipppunkt-Kandidaten:
+  1: 2911
+  -1: 82
+  0: 6
+
+FRZK-Deutung:
+Systemische Kipppunkte liegen dort vor, wo semantische Dichte, Polarität oder dominante Dimension nicht kontinuierlich fortgeschrieben werden, sondern in einen qualitativ anderen Zustandsmodus wechseln. Besonders relevant sind Kombinationen aus hoher d_semantisch, Polaritätswechsel und Dominanzwechsel, weil sie auf eine Reorganisation des Bedeutungsraums hindeuten.
+
+================================================================================
+SCOPE: lehrkraft_id_1
+Datensätze: 1948
+Kipppunkt-Kandidaten gesamt: 1892
+Dichte-Schwelle d_semantisch > 2.5: 1646
+Polaritätswechsel: 102
+Dominanzwechsel: 1278
+Delta-Spikes: 104
+Mittlere semantische Dichte: 3.4048
+Maximale semantische Dichte: 4.9946
+Standardabweichung Δd: 1.2364
+
+Dominante Dimensionen bei Kipppunkt-Kandidaten:
+  kognition: 945
+  performanz: 464
+  regulation: 239
+  motivation: 171
+  methodik: 65
+  sozial: 3
+
+Polarität bei Kipppunkt-Kandidaten:
+  1: 1843
+  -1: 44
+  0: 5
+
+FRZK-Deutung:
+Systemische Kipppunkte liegen dort vor, wo semantische Dichte, Polarität oder dominante Dimension nicht kontinuierlich fortgeschrieben werden, sondern in einen qualitativ anderen Zustandsmodus wechseln. Besonders relevant sind Kombinationen aus hoher d_semantisch, Polaritätswechsel und Dominanzwechsel, weil sie auf eine Reorganisation des Bedeutungsraums hindeuten.
+
+================================================================================
+SCOPE: ohne_lehrkraft_id_1
+Datensätze: 1160
+Kipppunkt-Kandidaten gesamt: 1106
+Dichte-Schwelle d_semantisch > 2.5: 938
+Polaritätswechsel: 74
+Dominanzwechsel: 783
+Delta-Spikes: 51
+Mittlere semantische Dichte: 3.3267
+Maximale semantische Dichte: 8.2666
+Standardabweichung Δd: 1.3193
+
+Dominante Dimensionen bei Kipppunkt-Kandidaten:
+  kognition: 480
+  performanz: 329
+  regulation: 172
+  motivation: 90
+  methodik: 25
+  sozial: 9
+
+Polarität bei Kipppunkt-Kandidaten:
+  1: 1068
+  -1: 37
+  0: 1
+
+FRZK-Deutung:
+Systemische Kipppunkte liegen dort vor, wo semantische Dichte, Polarität oder dominante Dimension nicht kontinuierlich fortgeschrieben werden, sondern in einen qualitativ anderen Zustandsmodus wechseln. Besonders relevant sind Kombinationen aus hoher d_semantisch, Polaritätswechsel und Dominanzwechsel, weil sie auf eine Reorganisation des Bedeutungsraums hindeuten.
