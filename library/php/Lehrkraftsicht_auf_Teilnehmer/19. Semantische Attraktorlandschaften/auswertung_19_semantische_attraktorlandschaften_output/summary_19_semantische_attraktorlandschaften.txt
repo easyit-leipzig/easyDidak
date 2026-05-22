@@ -1,0 +1,45 @@
+Auswertung 19 – Semantische Attraktorlandschaften
+Quelle: sql_semantische_dichte_lehrer_type_1
+Erzeugt aus: auswertung_19_semantische_attraktorlandschaften.json
+
+
+alle_lehrkraefte
+Datensätze: 2458
+Attraktoren/Cluster: 2
+Kipppunktzonen: 1675
+Dominante Attraktorbecken:
+  - A0: n=2382, Anteil=0.969, dominante Dimension=kognition, mittlere Dichte=3.554
+  - A1: n=76, Anteil=0.031, dominante Dimension=performanz, mittlere Dichte=2.261
+Metastabile Räume:
+  - A0: Selbstübergang p=0.968, mittlere Verweildauer=12.67
+Stärkste Übergänge:
+  - A1 → A0: p=0.958, n=69
+  - A0 → A1: p=0.032, n=72
+
+
+lehrkraft_1
+Datensätze: 1607
+Attraktoren/Cluster: 2
+Kipppunktzonen: 1088
+Dominante Attraktorbecken:
+  - A0: n=1544, Anteil=0.961, dominante Dimension=kognition, mittlere Dichte=3.587
+  - A1: n=63, Anteil=0.039, dominante Dimension=performanz, mittlere Dichte=1.997
+Metastabile Räume:
+  - A0: Selbstübergang p=0.959, mittlere Verweildauer=14.17
+Stärkste Übergänge:
+  - A1 → A0: p=0.983, n=58
+  - A0 → A1: p=0.041, n=61
+
+
+ohne_lehrkraft_1
+Datensätze: 851
+Attraktoren/Cluster: 2
+Kipppunktzonen: 587
+Dominante Attraktorbecken:
+  - A0: n=826, Anteil=0.971, dominante Dimension=kognition, mittlere Dichte=3.524
+  - A1: n=25, Anteil=0.029, dominante Dimension=performanz, mittlere Dichte=2.546
+Metastabile Räume:
+  - A0: Selbstübergang p=0.968, mittlere Verweildauer=9.18
+Stärkste Übergänge:
+  - A1 → A0: p=0.957, n=22
+  - A0 → A1: p=0.032, n=24

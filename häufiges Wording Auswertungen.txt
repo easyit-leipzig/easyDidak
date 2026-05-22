@@ -1,0 +1,17 @@
+ich möchte ab sofort für jeden dier auswerungspunkte 1. ein python-skript welches die werte für alle lehrkräfte, 2. für lehrkraft_id=1 und 3. alle außer lehrkraft_id=1 als json in einem file erzeugt und dann ein zweites python-skript welches diese json-daten liest und die möglichen textuellen und/oder grafischen auswertungen durchführt. für: 
+
+analysiere das word-dokument und icas.sql. ich möchte ab sofort für jeden dier auswerungspunkte 1. ein python-skript welches die werte für alle lehrkräfte, 2. für lehrkraft_id=1 und 3. alle außer lehrkraft_id=1 als json in einem file erzeugt und dann ein zweites python-skript welches diese json-daten liest und die möglichen textuellen und/oder grafischen auswertungen durchführt. für: 
+
+
+das word-file ist das referenzkapitel für die erstellung eines neuen absatzes. das-zip-file enthält die auswertungsdaten. erzeuge anhand des referenskapitels ein neues kapitel für die auswertungsdaten. erstelle einen vollständigen dissertationsartikel.
+
+das word-file ist das referenzkapitel für die erstellung eines neuen absatzes. das-zip-file enthält die auswertungsdaten. erzeuge anhand des referenskapitels ein neues kapitel für die auswertungsdaten unter berücksichtigung des Aspekts der nachhilfe. erstelle einen vollständigen dissertationsartikel.
+
+der abschnitt "Einordnung in die Bildungsforschung" ist nicht absatzspezifisch. den abschnitt mit literaaturverweisen ausarbeiten
+
+das dokument enthält ein literatur- und ein quellenverzeichnis, die abgeglichen und am ende zusammengeführt werden müssen. ich benötige den abschnitt vollständig ohne jegliche kürzung hier im chat. den vollständigen absatz mit gliederungen und allem anderen neu erzeugen
+
+ich möchte ab sofort für jeden dieser auswerungspunkte 1. ein python-skript welches die werte für lehrkraft_id=1 und teilnehmer-7d-sicht als json in einem file erzeugt und dann ein zweites python-skript welches diese json-daten liest und die möglichen textuellen und/oder grafischen auswertungen durchführt. für: 
+
+die daten mussten geändert werden. das neue zip-file enthält die aktuellen daten. analysiere dieses und erstelle den absatz neu, ohne auf die alten daten zu verweisen. referenz ist aber der bisher bestehende absatz in form und umfang.
+
