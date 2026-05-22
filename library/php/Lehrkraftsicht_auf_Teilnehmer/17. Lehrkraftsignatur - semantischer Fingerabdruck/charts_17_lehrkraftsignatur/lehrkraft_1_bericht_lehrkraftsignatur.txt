@@ -1,0 +1,14 @@
+Auswertung 17: Lehrkraftsignatur / semantischer Fingerabdruck – lehrkraft_1
+==========================================================================================
+
+Anzahl Lehrkräfte: 1
+
+Lehrkraft 1
+  Datensätze: 1948
+  Typisierung: kognitiv verdichtend
+  Cluster: 0
+  mittlere semantische Dichte: 3.4048
+  mittlere Polarität: 0.9482
+  mittlere Drift: 0.1533
+  Dominanzwechselrate: 0.6646
+  Primäre dominante Dimension: kognition

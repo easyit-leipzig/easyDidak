@@ -1,0 +1,79 @@
+16. Semantische Erschöpfung / Sättigung
+=======================================
+Operationalisierung: hohe semantische Dichte + viele Tokens + geringe Drift bzw. geringe Drift pro Token.
+Dämpfung: damping = exp(-0.15 * ||V||).
+
+
+SCOPE: alle_lehrkraefte
+=======================
+Datensätze: 3108
+Mittlere semantische Dichte: 3.375652
+Mittlere Tokenzahl: 4.650579
+Mittlere Drift: 1.778719
+Mittlere Dämpfung beta=0.15: 0.608811
+Sättigungs-/Erschöpfungskandidaten: 263 (8.46%)
+
+Schwellenwerte:
+- q75_d_semantisch: 4.04857516276
+- q75_token_anzahl: 6.0
+- q25_drift_zum_vorwert: 1.1024717092505536
+- q25_drift_pro_token: 0.2171342830274673
+
+Interpretation: Es existieren einzelne Sättigungspunkte. Die semantische Aktivierung erreicht lokal hohe Werte, ohne durchgehend in Drift überzugehen. Didaktisch sind dies mögliche Hinweise auf punktuelle Überforderung oder Inputverdichtung.
+
+Dominante Dimensionen innerhalb der Sättigungskandidaten:
+- kognition: 192
+- performanz: 41
+- regulation: 20
+- motivation: 6
+- methodik: 4
+
+
+SCOPE: lehrkraft_1
+==================
+Datensätze: 1948
+Mittlere semantische Dichte: 3.404803
+Mittlere Tokenzahl: 4.677105
+Mittlere Drift: 1.752807
+Mittlere Dämpfung beta=0.15: 0.605895
+Sättigungs-/Erschöpfungskandidaten: 171 (8.78%)
+
+Schwellenwerte:
+- q75_d_semantisch: 4.0730731755336
+- q75_token_anzahl: 6.0
+- q25_drift_zum_vorwert: 1.1034890272976572
+- q25_drift_pro_token: 0.2166799971537685
+
+Interpretation: Es existieren einzelne Sättigungspunkte. Die semantische Aktivierung erreicht lokal hohe Werte, ohne durchgehend in Drift überzugehen. Didaktisch sind dies mögliche Hinweise auf punktuelle Überforderung oder Inputverdichtung.
+
+Dominante Dimensionen innerhalb der Sättigungskandidaten:
+- kognition: 127
+- performanz: 26
+- regulation: 13
+- motivation: 3
+- methodik: 2
+
+
+SCOPE: ohne_lehrkraft_1
+=======================
+Datensätze: 1160
+Mittlere semantische Dichte: 3.326699
+Mittlere Tokenzahl: 4.606034
+Mittlere Drift: 1.825479
+Mittlere Dämpfung beta=0.15: 0.613707
+Sättigungs-/Erschöpfungskandidaten: 88 (7.59%)
+
+Schwellenwerte:
+- q75_d_semantisch: 3.9991745726494
+- q75_token_anzahl: 6.0
+- q25_drift_zum_vorwert: 1.1008949374612085
+- q25_drift_pro_token: 0.21806777617135523
+
+Interpretation: Es existieren einzelne Sättigungspunkte. Die semantische Aktivierung erreicht lokal hohe Werte, ohne durchgehend in Drift überzugehen. Didaktisch sind dies mögliche Hinweise auf punktuelle Überforderung oder Inputverdichtung.
+
+Dominante Dimensionen innerhalb der Sättigungskandidaten:
+- kognition: 61
+- performanz: 14
+- regulation: 8
+- motivation: 3
+- methodik: 2

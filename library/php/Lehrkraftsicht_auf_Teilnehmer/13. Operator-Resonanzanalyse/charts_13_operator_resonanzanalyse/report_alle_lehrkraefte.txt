@@ -1,0 +1,32 @@
+================================================================================
+SCOPE: alle_lehrkraefte
+================================================================================
+Datensätze: 3108
+Transitionen: 2945
+Operatorhaltige Datensätze: 1274
+Operatorhaltige Transitionen: 1206
+Operatorfreie Transitionen: 1739
+
+Kernvergleich operatorhaltig vs. operatorfrei:
+  mittlere ΔV-Norm operatorhaltig: 1.8388458350815466
+  mittlere ΔV-Norm operatorfrei:   1.7338160843029498
+  mittlere Resonanzänderung operatorhaltig: 0.17335174591748506
+  mittlere Resonanzänderung operatorfrei:   0.15553609860139214
+  Δ semantische Dichte operatorhaltig: -0.029270151616108298
+  Δ semantische Dichte operatorfrei:   0.011866709613333803
+  Polaritätswechselrate operatorhaltig: 0.05638474295190713
+  Polaritätswechselrate operatorfrei:   0.05462909718228867
+  Dominanzwechselrate operatorhaltig: 0.654228855721393
+  Dominanzwechselrate operatorfrei:   0.6837262794709603
+
+Top-Operatoren nach mittlerer ΔV-Norm:
+  nie: n=5, mean_delta=6.14758540907917, res_change=1.5881480875935208, Δd=-0.49237491489086765
+  kein: n=3, mean_delta=5.609696494341378, res_change=1.6973810633441433, Δd=1.0548664362138398
+  keine: n=7, mean_delta=4.757092193798693, res_change=1.567586070363076, Δd=-0.59374192605262
+  unbedingt: n=2, mean_delta=3.434805251825659, res_change=0.2385178174269983, Δd=0.13700636141705003
+  fast: n=13, mean_delta=2.5375336689531434, res_change=0.43377485458987847, Δd=-0.9986079558563217
+  ausnahmslos: n=6, mean_delta=2.378994086408974, res_change=0.376082160441132, Δd=0.41028120692815
+  nicht: n=60, mean_delta=2.306373472529931, res_change=0.24802613186623376, Δd=-0.9720273577680391
+  bedingt: n=42, mean_delta=2.2899807810457307, res_change=0.31462443320409744, Δd=-1.0321953110141249
+  stark: n=34, mean_delta=2.237130291676658, res_change=0.276851023718749, Δd=-0.36312553559083827
+  relativ: n=2, mean_delta=2.199868715678204, res_change=0.20590514408474908, Δd=-0.49413941989464993

@@ -1,0 +1,86 @@
+18. Zeitliche Unterrichtsphasen-Erkennung – textuelle Gesamtauswertung
+==============================================================================
+
+Scope: alle_lehrkraefte
+Datensätze: 3108
+Zeitraum: 2023-12-04 bis 2026-01-29
+Mittlere semantische Dichte: 3.3757
+Mittlere Drift: 0.4064
+Mittlere Rolling Cohesion: 0.8492
+Changepoints: 1127
+Phasenverteilung:
+  - Einstieg: 163
+  - Aktivierung: 1068
+  - Destabilisierung: 841
+  - Rekonstruktion: 180
+  - Konsolidierung: 745
+  - Ermüdung: 58
+  - Abschlussstabilisierung: 53
+Dominante Dimensionen:
+  - kognition: 1488
+  - performanz: 819
+  - regulation: 419
+  - motivation: 268
+  - methodik: 91
+  - sozial: 12
+  - nan: 11
+
+Scope: lehrkraft_1
+Datensätze: 1948
+Zeitraum: 2024-11-15 bis 2026-01-29
+Mittlere semantische Dichte: 3.4048
+Mittlere Drift: 0.4066
+Mittlere Rolling Cohesion: 0.8479
+Changepoints: 698
+Phasenverteilung:
+  - Einstieg: 55
+  - Aktivierung: 669
+  - Destabilisierung: 521
+  - Rekonstruktion: 129
+  - Konsolidierung: 515
+  - Ermüdung: 38
+  - Abschlussstabilisierung: 21
+Dominante Dimensionen:
+  - kognition: 979
+  - performanz: 473
+  - regulation: 243
+  - motivation: 175
+  - methodik: 66
+  - nan: 9
+  - sozial: 3
+
+Scope: ohne_lehrkraft_1
+Datensätze: 1160
+Zeitraum: 2023-12-04 bis 2026-01-29
+Mittlere semantische Dichte: 3.3267
+Mittlere Drift: 0.4061
+Mittlere Rolling Cohesion: 0.8515
+Changepoints: 432
+Phasenverteilung:
+  - Einstieg: 108
+  - Aktivierung: 399
+  - Destabilisierung: 320
+  - Rekonstruktion: 51
+  - Konsolidierung: 230
+  - Ermüdung: 20
+  - Abschlussstabilisierung: 32
+Dominante Dimensionen:
+  - kognition: 509
+  - performanz: 346
+  - regulation: 176
+  - motivation: 93
+  - methodik: 25
+  - sozial: 9
+  - nan: 2
+
+Didaktische Lesart
+- Einstieg: erste Beobachtung einer Trajektorie ohne vorherigen Vergleichszustand.
+- Aktivierung: moderate Bewegung ohne Bruch, häufig mit kognitiver, methodischer oder motivationaler Öffnung.
+- Destabilisierung: Drift, Dominanzwechsel, Polaritätswechsel oder niedrige Kohäsion markieren Irritation.
+- Rekonstruktion: erhöhte Drift bei gleichzeitigem Dichtezuwachs; das System ordnet sich neu.
+- Konsolidierung: hohe Kohäsion, geringe Drift und tragfähige semantische Dichte.
+- Ermüdung: negative Polarität oder affektiv-motivationaler Abfall.
+- Abschlussstabilisierung: am Ende einer Trajektorie geringe Drift und hohe Kohäsion.
+
+Methodische Einschränkung
+Die Phasen sind keine extern beobachteten Unterrichtsabschnitte, sondern aus FRZK-Zustandsfolgen rekonstruierte semantische Phasen. Sie zeigen daher Unterrichtsphasen aus Lehrkraftsicht, nicht aus Teilnehmersicht.

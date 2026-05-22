@@ -1,0 +1,264 @@
+Auswertung 17: Lehrkraftsignatur / semantischer Fingerabdruck – ohne_lehrkraft_1
+==========================================================================================
+
+Anzahl Lehrkräfte: 26
+
+Lehrkraft 6
+  Datensätze: 2
+  Typisierung: kognitiv verdichtend
+  Cluster: 2
+  mittlere semantische Dichte: 1.6502
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.2403
+  Dominanzwechselrate: 1.0000
+  Primäre dominante Dimension: performanz
+
+Lehrkraft 7
+  Datensätze: 7
+  Typisierung: kognitiv verdichtend
+  Cluster: 2
+  mittlere semantische Dichte: 1.7829
+  mittlere Polarität: 0.8571
+  mittlere Drift: 0.0893
+  Dominanzwechselrate: 0.6000
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 8
+  Datensätze: 9
+  Typisierung: performanzzentriert
+  Cluster: 3
+  mittlere semantische Dichte: 2.0840
+  mittlere Polarität: 0.3333
+  mittlere Drift: 0.7385
+  Dominanzwechselrate: 0.8750
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 10
+  Datensätze: 4
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 2.0625
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.1172
+  Dominanzwechselrate: 0.3333
+  Primäre dominante Dimension: regulation
+
+Lehrkraft 12
+  Datensätze: 166
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.4028
+  mittlere Polarität: 0.9518
+  mittlere Drift: 0.1535
+  Dominanzwechselrate: 0.6242
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 14
+  Datensätze: 19
+  Typisierung: performanzzentriert
+  Cluster: 1
+  mittlere semantische Dichte: 3.6319
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.1198
+  Dominanzwechselrate: 0.6111
+  Primäre dominante Dimension: motivation
+
+Lehrkraft 15
+  Datensätze: 4
+  Typisierung: kognitiv verdichtend
+  Cluster: 2
+  mittlere semantische Dichte: 2.5242
+  mittlere Polarität: 0.7500
+  mittlere Drift: 0.3377
+  Dominanzwechselrate: 0.5000
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 18
+  Datensätze: 188
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.4156
+  mittlere Polarität: 0.9255
+  mittlere Drift: 0.1959
+  Dominanzwechselrate: 0.6471
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 19
+  Datensätze: 238
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.3235
+  mittlere Polarität: 0.9664
+  mittlere Drift: 0.1545
+  Dominanzwechselrate: 0.6582
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 20
+  Datensätze: 12
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.5319
+  mittlere Polarität: 0.8333
+  mittlere Drift: 0.2374
+  Dominanzwechselrate: 0.7273
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 21
+  Datensätze: 55
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.2914
+  mittlere Polarität: 0.8909
+  mittlere Drift: 0.2532
+  Dominanzwechselrate: 0.7407
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 22
+  Datensätze: 16
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 2.9737
+  mittlere Polarität: 0.8750
+  mittlere Drift: 0.3257
+  Dominanzwechselrate: 0.5333
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 23
+  Datensätze: 301
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.4028
+  mittlere Polarität: 0.9468
+  mittlere Drift: 0.1613
+  Dominanzwechselrate: 0.7000
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 24
+  Datensätze: 17
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.6573
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.0669
+  Dominanzwechselrate: 0.6875
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 25
+  Datensätze: 9
+  Typisierung: performanzzentriert
+  Cluster: 1
+  mittlere semantische Dichte: 3.3543
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.1635
+  Dominanzwechselrate: 0.8750
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 26
+  Datensätze: 22
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.3637
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.0810
+  Dominanzwechselrate: 0.7619
+  Primäre dominante Dimension: performanz
+
+Lehrkraft 28
+  Datensätze: 40
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.3745
+  mittlere Polarität: 0.9500
+  mittlere Drift: 0.1527
+  Dominanzwechselrate: 0.7692
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 29
+  Datensätze: 5
+  Typisierung: performanzzentriert
+  Cluster: 1
+  mittlere semantische Dichte: 3.2905
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.1106
+  Dominanzwechselrate: 0.7500
+  Primäre dominante Dimension: regulation
+
+Lehrkraft 30
+  Datensätze: 6
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.5080
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.0811
+  Dominanzwechselrate: 0.8000
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 34
+  Datensätze: 4
+  Typisierung: regulatorisch stabilisierend
+  Cluster: 3
+  mittlere semantische Dichte: 2.9714
+  mittlere Polarität: 0.0000
+  mittlere Drift: 1.2957
+  Dominanzwechselrate: 1.0000
+  Primäre dominante Dimension: regulation
+
+Lehrkraft 36
+  Datensätze: 5
+  Typisierung: motivational aktivierend
+  Cluster: 4
+  mittlere semantische Dichte: 2.3434
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.1500
+  Dominanzwechselrate: 0.5000
+  Primäre dominante Dimension: motivation
+
+Lehrkraft 37
+  Datensätze: 17
+  Typisierung: kognitiv verdichtend
+  Cluster: 2
+  mittlere semantische Dichte: 2.3373
+  mittlere Polarität: 0.7647
+  mittlere Drift: 0.4995
+  Dominanzwechselrate: 0.7500
+  Primäre dominante Dimension: performanz
+
+Lehrkraft 38
+  Datensätze: 1
+  Typisierung: regulatorisch stabilisierend
+  Cluster: 2
+  mittlere semantische Dichte: 2.3598
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.0000
+  Dominanzwechselrate: 0.0000
+  Primäre dominante Dimension: kognition
+
+Lehrkraft 41
+  Datensätze: 1
+  Typisierung: regulatorisch stabilisierend
+  Cluster: 0
+  mittlere semantische Dichte: 1.8812
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.0000
+  Dominanzwechselrate: 0.0000
+  Primäre dominante Dimension: performanz
+
+Lehrkraft 44
+  Datensätze: 1
+  Typisierung: regulatorisch stabilisierend
+  Cluster: 1
+  mittlere semantische Dichte: 3.1414
+  mittlere Polarität: 1.0000
+  mittlere Drift: 0.0000
+  Dominanzwechselrate: 0.0000
+  Primäre dominante Dimension: regulation
+
+Lehrkraft 45
+  Datensätze: 11
+  Typisierung: kognitiv verdichtend
+  Cluster: 1
+  mittlere semantische Dichte: 3.1156
+  mittlere Polarität: 0.8182
+  mittlere Drift: 0.2215
+  Dominanzwechselrate: 0.6000
+  Primäre dominante Dimension: kognition

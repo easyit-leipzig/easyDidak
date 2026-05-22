@@ -4,56 +4,56 @@ FRZK-Vorhersage: Wiederholte kohärente Interaktion erzeugt stabile Zustandsräu
 
 ## Scope: alle_lehrkraefte
 
-- Datensätze: 3108
+- Datensätze: 2842
 - Teilnehmer: 28
-- Mittlere Stabilität STDDEV(d_semantisch): 0.9149157842712929
-- Mittlere Delta-Bewegung: 0.4298861817849958
-- Mittlere Dominanzstabilität: 0.3333039542748616
-- Mittlerer Kohärenzindex: 0.5235392652041355
+- Mittlere Stabilität STDDEV(d_semantisch): 0.88472551672499
+- Mittlere Delta-Bewegung: 0.42402836738062716
+- Mittlere Dominanzstabilität: 0.33479633892505495
+- Mittlerer Kohärenzindex: 0.5314888199492939
 
 ### Stabilste Teilnehmer
 
-- Teilnehmer 22.0: Stabilität=0.7490025260409752, Delta=0.3743614705987495, Kohärenz=0.5717544629644361
-- Teilnehmer 21.0: Stabilität=0.7662286399103806, Delta=0.3685276506877646, Kohärenz=0.5661781138656774
+- Teilnehmer 22.0: Stabilität=0.7361771073402754, Delta=0.35912132144688447, Kohärenz=0.5759781048673905
+- Teilnehmer 21.0: Stabilität=0.7695738345607839, Delta=0.3742288486148899, Kohärenz=0.5651078132313165
 - Teilnehmer 16.0: Stabilität=0.7721231249791702, Delta=0.3498427765735325, Kohärenz=0.5642948765265698
-- Teilnehmer 15.0: Stabilität=0.8170937672763833, Delta=0.4250814604890839, Kohärenz=0.5503293324806712
-- Teilnehmer 24.0: Stabilität=0.8182236475994512, Delta=0.47633870781501586, Kohärenz=0.5499873468922657
+- Teilnehmer 10.0: Stabilität=0.7781128803770063, Delta=0.5065846293860106, Kohärenz=0.5623939914253216
+- Teilnehmer 20.0: Stabilität=0.7870223847709054, Delta=0.3685761126184234, Kohärenz=0.5595900804164796
 
 
 ## Scope: lehrkraft_1
 
-- Datensätze: 1948
+- Datensätze: 1802
 - Teilnehmer: 28
-- Mittlere Stabilität STDDEV(d_semantisch): 0.881396978184336
-- Mittlere Delta-Bewegung: 0.4177151473061959
-- Mittlere Dominanzstabilität: 0.3266826492358213
-- Mittlerer Kohärenzindex: 0.533660066050184
+- Mittlere Stabilität STDDEV(d_semantisch): 0.8585869206083654
+- Mittlere Delta-Bewegung: 0.418534453570063
+- Mittlere Dominanzstabilität: 0.32784012963716097
+- Mittlerer Kohärenzindex: 0.5397059329713461
 
 ### Stabilste Teilnehmer
 
-- Teilnehmer 12.0: Stabilität=0.6610202733334233, Delta=0.3121031373263669, Kohärenz=0.6020396114691287
+- Teilnehmer 12.0: Stabilität=0.6773097050712604, Delta=0.3125939374092572, Kohärenz=0.5961928181638435
 - Teilnehmer 40.0: Stabilität=0.699304362345189, Delta=0.34649108986326116, Kohärenz=0.5884760977250199
 - Teilnehmer 47.0: Stabilität=0.7175164086468879, Delta=0.26671487560517204, Kohärenz=0.5822360677111845
 - Teilnehmer 16.0: Stabilität=0.7396207214995201, Delta=0.3434920101445252, Kohärenz=0.5748379446400357
-- Teilnehmer 24.0: Stabilität=0.7733277254498655, Delta=0.440209233721983, Kohärenz=0.5639115577163356
+- Teilnehmer 10.0: Stabilität=0.7553546743612517, Delta=0.4865854957471749, Kohärenz=0.5696854399888647
 
 
 ## Scope: ohne_lehrkraft_1
 
-- Datensätze: 1160
+- Datensätze: 1040
 - Teilnehmer: 28
-- Mittlere Stabilität STDDEV(d_semantisch): 0.9039322495248093
-- Mittlere Delta-Bewegung: 0.44518388084866534
-- Mittlere Dominanzstabilität: 0.30251951189380144
-- Mittlerer Kohärenzindex: 0.5291203163537973
+- Mittlere Stabilität STDDEV(d_semantisch): 0.8383588431826386
+- Mittlere Delta-Bewegung: 0.42102479115803276
+- Mittlere Dominanzstabilität: 0.30862626558337336
+- Mittlerer Kohärenzindex: 0.549460194128923
 
 ### Stabilste Teilnehmer
 
+- Teilnehmer 2.0: Stabilität=0.2882540864779506, Delta=0.3138176780238433, Kohärenz=0.7762443841602483
 - Teilnehmer 42.0: Stabilität=0.5548417720616902, Delta=0.4105001400104241, Kohärenz=0.6431522602290388
 - Teilnehmer 43.0: Stabilität=0.5772109321105658, Delta=0.297269710569704, Kohärenz=0.6340306040497936
 - Teilnehmer 21.0: Stabilität=0.6535642686968112, Delta=0.23643715233993262, Kohärenz=0.6047542384234686
-- Teilnehmer 19.0: Stabilität=0.6856409335067503, Delta=0.5093317027564995, Kohärenz=0.5932461535088815
-- Teilnehmer 22.0: Stabilität=0.7170656568339322, Delta=0.41284886974595136, Kohärenz=0.5823889121653524
+- Teilnehmer 22.0: Stabilität=0.6805596269983863, Delta=0.36869728305763383, Kohärenz=0.5950398807247796
 
 
 ## FRZK-Interpretation
