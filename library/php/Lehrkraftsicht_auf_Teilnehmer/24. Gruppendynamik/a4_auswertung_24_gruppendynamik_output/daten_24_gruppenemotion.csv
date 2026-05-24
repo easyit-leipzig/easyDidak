@@ -1,0 +1,95 @@
+﻿id,gruppe_id,zeitpunkt,z_affektiv,kohaerenz,stabilitaet,dynamik,emotionaler_status,emotionaler_modus,bemerkung,zeitphase,ist_fokusgruppe_4,tage_zum_ereignis_080126
+23,3,2025-09-09 15:35:00,1.0,0.866667,0.92,0.0,emotional gedämpft,Trägheitsmodus,z=1.00 Koh=0.87 Stab=0.92 Δ=0.000 → emotional gedämpft / Trägheitsmodus,vor_abwesenheit,0,-121
+30,4,2025-09-09 17:10:00,2.875,0.833333,0.904028,0.0,emotional integriert,Resonanzmodus,z=2.88 Koh=0.83 Stab=0.90 Δ=0.000 → emotional integriert / Resonanzmodus,vor_abwesenheit,1,-121
+41,5,2025-09-10 15:35:00,1.75,0.944444,0.989444,0.0,emotional balanciert,Trägheitsmodus,z=1.75 Koh=0.94 Stab=0.99 Δ=0.000 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-120
+52,6,2025-09-10 17:10:00,1.5,0.916667,0.971836,0.0,emotional balanciert,Trägheitsmodus,z=1.50 Koh=0.92 Stab=0.97 Δ=0.000 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-120
+62,7,2025-09-11 15:35:00,2.0,0.796298,0.856481,0.0,emotional balanciert,Trägheitsmodus,z=2.00 Koh=0.80 Stab=0.86 Δ=0.000 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-119
+73,8,2025-09-11 17:10:00,1.875,0.855556,0.929028,0.0,emotional balanciert,Trägheitsmodus,z=1.88 Koh=0.86 Stab=0.93 Δ=0.000 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-119
+1,1,2025-09-15 15:35:00,2.5,0.833333,0.902778,0.0,emotional integriert,Resonanzmodus,z=2.50 Koh=0.83 Stab=0.90 Δ=0.000 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-115
+13,2,2025-09-15 17:10:00,2.0,0.791667,0.842882,0.0,emotional balanciert,Trägheitsmodus,z=2.00 Koh=0.79 Stab=0.84 Δ=0.000 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-115
+42,5,2025-09-17 15:35:00,1.25,0.944444,0.989444,0.499997,emotional balanciert,Adaptiver Modus,z=1.25 Koh=0.94 Stab=0.99 Δ=0.500 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-113
+53,6,2025-09-17 17:10:00,1.0,0.888889,0.957778,0.363887,emotional gedämpft,Adaptiver Modus,z=1.00 Koh=0.89 Stab=0.96 Δ=0.364 → emotional gedämpft / Adaptiver Modus,vor_abwesenheit,0,-113
+63,7,2025-09-18 15:35:00,1.66667,0.866667,0.939753,0.272226,emotional balanciert,Adaptiver Modus,z=1.67 Koh=0.87 Stab=0.94 Δ=0.272 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-112
+74,8,2025-09-18 17:10:00,2.0,0.805556,0.871528,0.199997,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.81 Stab=0.87 Δ=0.200 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-112
+85,9,2025-09-19 15:35:00,2.3,0.906667,0.970578,0.0,emotional integriert,Resonanzmodus,z=2.30 Koh=0.91 Stab=0.97 Δ=0.000 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-111
+2,1,2025-09-22 15:35:00,1.5,0.844444,0.916111,0.766663,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.84 Stab=0.92 Δ=0.767 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-108
+14,2,2025-09-22 17:10:00,1.7,0.931111,0.981978,0.217503,emotional balanciert,Adaptiver Modus,z=1.70 Koh=0.93 Stab=0.98 Δ=0.218 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-108
+24,3,2025-09-23 15:35:00,1.0,1.0,1.0,0.2,emotional gedämpft,Adaptiver Modus,z=1.00 Koh=1.00 Stab=1.00 Δ=0.200 → emotional gedämpft / Adaptiver Modus,vor_abwesenheit,0,-107
+31,4,2025-09-23 17:10:00,2.66667,0.796296,0.845123,0.172226,emotional integriert,Resonanzmodus,z=2.67 Koh=0.80 Stab=0.85 Δ=0.172 → emotional integriert / Resonanzmodus,vor_abwesenheit,1,-107
+43,5,2025-09-24 15:35:00,1.66667,0.925927,0.981481,0.450003,emotional balanciert,Adaptiver Modus,z=1.67 Koh=0.93 Stab=0.98 Δ=0.450 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-106
+54,6,2025-09-24 17:10:00,1.875,0.905556,0.969583,0.61667,emotional balanciert,Adaptiver Modus,z=1.88 Koh=0.91 Stab=0.97 Δ=0.617 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-106
+64,7,2025-09-25 15:35:00,1.5,0.782716,0.830755,0.00369889,emotional balanciert,Trägheitsmodus,z=1.50 Koh=0.78 Stab=0.83 Δ=0.004 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-105
+75,8,2025-09-25 17:10:00,1.75,0.925,0.980937,0.30417,emotional balanciert,Adaptiver Modus,z=1.75 Koh=0.93 Stab=0.98 Δ=0.304 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-105
+86,9,2025-09-26 15:35:00,2.25,0.905556,0.964028,0.165003,emotional integriert,Resonanzmodus,z=2.25 Koh=0.91 Stab=0.96 Δ=0.165 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-104
+3,1,2025-09-29 15:35:00,2.0,0.911111,0.964444,0.316663,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.91 Stab=0.96 Δ=0.317 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-101
+15,2,2025-09-29 17:10:00,1.75,0.916667,0.96875,0.01167,emotional balanciert,Trägheitsmodus,z=1.75 Koh=0.92 Stab=0.97 Δ=0.012 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-101
+25,3,2025-09-30 15:35:00,2.0,0.833333,0.875,0.75,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.83 Stab=0.88 Δ=0.750 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-100
+32,4,2025-09-30 17:10:00,2.2,0.895556,0.962911,0.0711067,emotional balanciert,Resonanzmodus,z=2.20 Koh=0.90 Stab=0.96 Δ=0.071 → emotional balanciert / Resonanzmodus,vor_abwesenheit,1,-100
+44,5,2025-10-01 15:35:00,1.5,0.888889,0.957778,0.0666633,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.89 Stab=0.96 Δ=0.067 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-99
+55,6,2025-10-01 17:10:00,1.5,0.888889,0.95679,0.405556,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.89 Stab=0.96 Δ=0.406 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-99
+65,7,2025-10-02 15:35:00,2.0,0.833333,0.899444,0.0425933,emotional balanciert,Trägheitsmodus,z=2.00 Koh=0.83 Stab=0.90 Δ=0.043 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-98
+76,8,2025-10-02 17:10:00,2.125,0.841667,0.891007,0.166667,emotional balanciert,Resonanzmodus,z=2.12 Koh=0.84 Stab=0.89 Δ=0.167 → emotional balanciert / Resonanzmodus,vor_abwesenheit,0,-98
+33,4,2025-10-07 17:10:00,1.66667,0.98148,0.998704,0.606663,emotional balanciert,Adaptiver Modus,z=1.67 Koh=0.98 Stab=1.00 Δ=0.607 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,1,-93
+4,1,2025-10-20 15:35:00,1.5,0.933333,0.982778,0.449997,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.93 Stab=0.98 Δ=0.450 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-80
+16,2,2025-10-20 17:10:00,2.375,0.805556,0.843194,0.433333,emotional integriert,Resonanzmodus,z=2.38 Koh=0.81 Stab=0.84 Δ=0.433 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-80
+26,3,2025-10-21 15:35:00,1.0,0.955556,0.991111,0.683333,emotional gedämpft,Adaptiver Modus,z=1.00 Koh=0.96 Stab=0.99 Δ=0.683 → emotional gedämpft / Adaptiver Modus,vor_abwesenheit,0,-79
+34,4,2025-10-21 17:10:00,2.33333,0.907409,0.967593,0.466663,emotional integriert,Resonanzmodus,z=2.33 Koh=0.91 Stab=0.97 Δ=0.467 → emotional integriert / Resonanzmodus,vor_abwesenheit,1,-79
+45,5,2025-10-22 15:35:00,3.0,0.777778,0.777778,0.899997,emotional integriert,Resonanzmodus,z=3.00 Koh=0.78 Stab=0.78 Δ=0.900 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-78
+56,6,2025-10-22 17:10:00,2.16667,0.833333,0.896605,0.416671,emotional balanciert,Resonanzmodus,z=2.17 Koh=0.83 Stab=0.90 Δ=0.417 → emotional balanciert / Resonanzmodus,vor_abwesenheit,0,-78
+66,7,2025-10-23 15:35:00,1.83333,0.992593,0.999753,0.138892,emotional balanciert,Adaptiver Modus,z=1.83 Koh=0.99 Stab=1.00 Δ=0.139 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-77
+77,8,2025-10-23 17:10:00,2.33333,0.677778,0.64142,0.301386,emotional aktiviert,Adaptiver Modus,z=2.33 Koh=0.68 Stab=0.64 Δ=0.301 → emotional aktiviert / Adaptiver Modus,vor_abwesenheit,0,-77
+87,9,2025-10-24 15:35:00,2.33333,0.892593,0.954259,0.0749967,emotional integriert,Resonanzmodus,z=2.33 Koh=0.89 Stab=0.95 Δ=0.075 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-76
+5,1,2025-10-27 15:35:00,2.0,0.944444,0.986111,0.400003,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.94 Stab=0.99 Δ=0.400 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-73
+17,2,2025-10-27 17:10:00,1.875,0.872222,0.934861,0.324997,emotional balanciert,Adaptiver Modus,z=1.88 Koh=0.87 Stab=0.93 Δ=0.325 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-73
+35,4,2025-10-28 17:10:00,2.33333,0.925927,0.978457,0.0444478,emotional integriert,Resonanzmodus,z=2.33 Koh=0.93 Stab=0.98 Δ=0.044 → emotional integriert / Resonanzmodus,vor_abwesenheit,1,-72
+46,5,2025-10-29 15:35:00,2.33333,0.944444,0.988827,0.438892,emotional integriert,Resonanzmodus,z=2.33 Koh=0.94 Stab=0.99 Δ=0.439 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-71
+57,6,2025-10-29 17:10:00,2.0,0.870371,0.943148,0.144443,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.87 Stab=0.94 Δ=0.144 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-71
+67,7,2025-10-30 15:35:00,1.0,0.911111,0.972778,0.605553,emotional gedämpft,Adaptiver Modus,z=1.00 Koh=0.91 Stab=0.97 Δ=0.606 → emotional gedämpft / Adaptiver Modus,vor_abwesenheit,0,-70
+78,8,2025-10-30 17:10:00,2.625,0.791667,0.819062,0.08194,emotional integriert,Resonanzmodus,z=2.62 Koh=0.79 Stab=0.82 Δ=0.082 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-70
+6,1,2025-11-03 15:35:00,2.0,0.844444,0.913333,0.18333,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.84 Stab=0.91 Δ=0.183 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-66
+18,2,2025-11-03 17:10:00,2.2,0.8,0.82,0.16667,emotional balanciert,Resonanzmodus,z=2.20 Koh=0.80 Stab=0.82 Δ=0.167 → emotional balanciert / Resonanzmodus,vor_abwesenheit,0,-66
+27,3,2025-11-04 15:35:00,1.5,0.877778,0.949444,0.449997,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.88 Stab=0.95 Δ=0.450 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-65
+36,4,2025-11-04 17:10:00,2.0,0.866667,0.939753,0.105558,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.87 Stab=0.94 Δ=0.106 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,1,-65
+68,7,2025-11-06 15:35:00,2.0,0.761111,0.801528,0.891663,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.76 Stab=0.80 Δ=0.892 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-63
+79,8,2025-11-06 17:10:00,2.1,0.922222,0.974244,0.310833,emotional balanciert,Resonanzmodus,z=2.10 Koh=0.92 Stab=0.97 Δ=0.311 → emotional balanciert / Resonanzmodus,vor_abwesenheit,0,-63
+94,10,2025-11-07 06:30:00,0.0,1.0,0.0,0.0,emotional gedämpft,Fragmentierungsmodus,z=0.00 Koh=1.00 Stab=0.00 Δ=0.000 → emotional gedämpft / Fragmentierungsmodus,vor_abwesenheit,0,-62
+88,9,2025-11-07 15:35:00,2.16667,0.907407,0.970679,0.244448,emotional balanciert,Resonanzmodus,z=2.17 Koh=0.91 Stab=0.97 Δ=0.244 → emotional balanciert / Resonanzmodus,vor_abwesenheit,0,-62
+7,1,2025-11-10 15:35:00,2.0,0.95,0.991528,0.108333,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.95 Stab=0.99 Δ=0.108 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-59
+19,2,2025-11-10 17:10:00,1.875,0.830556,0.882257,0.229167,emotional balanciert,Adaptiver Modus,z=1.88 Koh=0.83 Stab=0.88 Δ=0.229 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-59
+28,3,2025-11-11 15:35:00,1.5,0.833333,0.902778,0.0666633,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.83 Stab=0.90 Δ=0.067 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-58
+37,4,2025-11-11 17:10:00,3.375,0.838889,0.908194,0.944447,emotional integriert,Resonanzmodus,z=3.38 Koh=0.84 Stab=0.91 Δ=0.944 → emotional integriert / Resonanzmodus,vor_abwesenheit,1,-58
+47,5,2025-11-12 15:35:00,2.25,0.944444,0.986111,0.144447,emotional integriert,Resonanzmodus,z=2.25 Koh=0.94 Stab=0.99 Δ=0.144 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-57
+58,6,2025-11-12 17:10:00,1.9,0.837038,0.909383,0.161115,emotional balanciert,Adaptiver Modus,z=1.90 Koh=0.84 Stab=0.91 Δ=0.161 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-57
+69,7,2025-11-13 15:35:00,2.5,0.744444,0.772778,0.275003,emotional integriert,Resonanzmodus,z=2.50 Koh=0.74 Stab=0.77 Δ=0.275 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-56
+80,8,2025-11-13 17:10:00,2.25,0.825,0.877465,0.0774967,emotional integriert,Resonanzmodus,z=2.25 Koh=0.82 Stab=0.88 Δ=0.077 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-56
+89,9,2025-11-14 15:35:00,2.25,0.930556,0.981215,0.156947,emotional integriert,Resonanzmodus,z=2.25 Koh=0.93 Stab=0.98 Δ=0.157 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-55
+8,1,2025-11-17 15:35:00,1.5,0.888889,0.944444,0.174997,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.89 Stab=0.94 Δ=0.175 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-52
+20,2,2025-11-17 17:10:00,1.83333,0.888889,0.947901,0.0152744,emotional balanciert,Trägheitsmodus,z=1.83 Koh=0.89 Stab=0.95 Δ=0.015 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-52
+90,9,2025-11-21 15:35:00,2.25,0.972222,0.997361,0.0624967,emotional integriert,Resonanzmodus,z=2.25 Koh=0.97 Stab=1.00 Δ=0.062 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-48
+9,1,2025-11-24 15:35:00,1.66667,0.951851,0.992037,0.149997,emotional balanciert,Adaptiver Modus,z=1.67 Koh=0.95 Stab=0.99 Δ=0.150 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-45
+21,2,2025-11-24 17:10:00,1.5,0.88148,0.95037,0.0888933,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.88 Stab=0.95 Δ=0.089 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-45
+29,3,2025-11-25 15:35:00,1.5,0.944444,0.989444,0.199997,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.94 Stab=0.99 Δ=0.200 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-44
+38,4,2025-11-25 17:10:00,2.5,0.911111,0.973299,0.662503,emotional integriert,Resonanzmodus,z=2.50 Koh=0.91 Stab=0.97 Δ=0.663 → emotional integriert / Resonanzmodus,vor_abwesenheit,1,-44
+48,5,2025-11-26 15:35:00,1.75,0.922222,0.972778,0.216663,emotional balanciert,Adaptiver Modus,z=1.75 Koh=0.92 Stab=0.97 Δ=0.217 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-43
+59,6,2025-11-26 17:10:00,2.25,0.833333,0.899444,0.377773,emotional integriert,Resonanzmodus,z=2.25 Koh=0.83 Stab=0.90 Δ=0.378 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-43
+70,7,2025-11-27 15:35:00,1.5,0.822222,0.891111,0.949997,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.82 Stab=0.89 Δ=0.950 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-42
+81,8,2025-11-27 17:10:00,1.5,0.94074,0.987901,0.576392,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.94 Stab=0.99 Δ=0.576 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-42
+91,9,2025-11-28 15:35:00,2.25,0.966667,0.995694,0.0333367,emotional integriert,Resonanzmodus,z=2.25 Koh=0.97 Stab=1.00 Δ=0.033 → emotional integriert / Resonanzmodus,vor_abwesenheit,0,-41
+39,4,2025-12-02 17:10:00,2.125,0.916667,0.97309,0.408337,emotional balanciert,Resonanzmodus,z=2.12 Koh=0.92 Stab=0.97 Δ=0.408 → emotional balanciert / Resonanzmodus,vor_abwesenheit,1,-37
+49,5,2025-12-03 15:35:00,1.625,0.852778,0.922257,0.145837,emotional balanciert,Adaptiver Modus,z=1.62 Koh=0.85 Stab=0.92 Δ=0.146 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-36
+60,6,2025-12-03 17:10:00,1.5,0.905556,0.968194,0.374997,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.91 Stab=0.97 Δ=0.375 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-36
+71,7,2025-12-04 15:35:00,1.5,0.933333,0.982778,0.116663,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.93 Stab=0.98 Δ=0.117 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-35
+82,8,2025-12-04 17:10:00,1.9,0.942222,0.987644,0.375553,emotional balanciert,Adaptiver Modus,z=1.90 Koh=0.94 Stab=0.99 Δ=0.376 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-35
+92,9,2025-12-05 15:35:00,2.0,0.85,0.92375,0.18333,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.85 Stab=0.92 Δ=0.183 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-34
+10,1,2025-12-08 15:35:00,1.5,0.918518,0.97537,0.03333,emotional balanciert,Trägheitsmodus,z=1.50 Koh=0.92 Stab=0.98 Δ=0.033 → emotional balanciert / Trägheitsmodus,vor_abwesenheit,0,-31
+22,2,2025-12-08 17:10:00,1.66667,0.933333,0.984938,0.0888856,emotional balanciert,Adaptiver Modus,z=1.67 Koh=0.93 Stab=0.98 Δ=0.089 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-31
+40,4,2025-12-09 17:10:00,2.0,0.918518,0.977531,0.115281,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.92 Stab=0.98 Δ=0.115 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,1,-30
+50,5,2025-12-10 15:35:00,1.75,0.894444,0.959583,0.10417,emotional balanciert,Adaptiver Modus,z=1.75 Koh=0.89 Stab=0.96 Δ=0.104 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-29
+61,6,2025-12-10 17:10:00,1.5,0.95,0.991528,0.0666633,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.95 Stab=0.99 Δ=0.067 → emotional balanciert / Adaptiver Modus,vor_abwesenheit,0,-29
+72,7,2025-12-11 15:35:00,0.5,0.911111,0.964444,0.683337,emotional gedämpft,Adaptiver Modus,z=0.50 Koh=0.91 Stab=0.96 Δ=0.683 → emotional gedämpft / Adaptiver Modus,vor_abwesenheit,0,-28
+83,8,2025-12-11 17:10:00,2.16667,0.962962,0.994815,0.24667,emotional balanciert,Resonanzmodus,z=2.17 Koh=0.96 Stab=0.99 Δ=0.247 → emotional balanciert / Resonanzmodus,vor_abwesenheit,0,-28
+11,1,2026-01-12 15:35:00,1.5,0.977778,0.997778,0.183333,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.98 Stab=1.00 Δ=0.183 → emotional balanciert / Adaptiver Modus,nach_rueckkehr,0,4
+84,8,2026-01-15 17:10:00,2.0,0.885184,0.955494,0.0944444,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.89 Stab=0.96 Δ=0.094 → emotional balanciert / Adaptiver Modus,nach_rueckkehr,0,7
+93,9,2026-01-16 15:35:00,2.0,0.888889,0.955309,0.186111,emotional balanciert,Adaptiver Modus,z=2.00 Koh=0.89 Stab=0.96 Δ=0.186 → emotional balanciert / Adaptiver Modus,nach_rueckkehr,0,8
+12,1,2026-01-19 15:35:00,1.5,0.866667,0.93875,0.35833,emotional balanciert,Adaptiver Modus,z=1.50 Koh=0.87 Stab=0.94 Δ=0.358 → emotional balanciert / Adaptiver Modus,nach_rueckkehr,0,11
+51,5,2026-01-21 15:35:00,1.83333,0.992593,0.999753,0.00277778,emotional balanciert,Trägheitsmodus,z=1.83 Koh=0.99 Stab=1.00 Δ=0.003 → emotional balanciert / Trägheitsmodus,nach_rueckkehr,0,13
