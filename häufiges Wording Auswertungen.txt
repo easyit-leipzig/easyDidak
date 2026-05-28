@@ -1,11 +1,11 @@
-ich möchte ab sofort für jeden dier auswerungspunkte 1. ein python-skript welches die werte für alle lehrkräfte, 2. für lehrkraft_id=1 und 3. alle außer lehrkraft_id=1 als json in einem file erzeugt und dann ein zweites python-skript welches diese json-daten liest und die möglichen textuellen und/oder grafischen auswertungen durchführt. für: 
+analysiere das word-file und ich möchte ab sofort für jeden dier auswerungspunkte 1. ein python- und php-skript welches die werte für alle lehrkräfte, 2. für lehrkraft_id=1 und 3. alle außer lehrkraft_id=1 als json in einem file erzeugt und dann ein zweites python-skript und php-skript welches diese json-daten liest und die möglichen textuellen und/oder grafischen auswertungen durchführt. für: 
 
 analysiere das word-dokument und icas.sql. ich möchte ab sofort für jeden dier auswerungspunkte 1. ein python-skript welches die werte für alle lehrkräfte, 2. für lehrkraft_id=1 und 3. alle außer lehrkraft_id=1 als json in einem file erzeugt und dann ein zweites python-skript welches diese json-daten liest und die möglichen textuellen und/oder grafischen auswertungen durchführt. für: 
 
 
 das word-file ist das referenzkapitel für die erstellung eines neuen absatzes. das-zip-file enthält die auswertungsdaten. erzeuge anhand des referenskapitels ein neues kapitel für die auswertungsdaten. erstelle einen vollständigen dissertationsartikel.
 
-das word-file ist das referenzkapitel für die erstellung eines neuen absatzes. das-zip-file enthält die auswertungsdaten. erzeuge anhand des referenskapitels ein neues kapitel für die auswertungsdaten unter berücksichtigung des Aspekts der nachhilfe. erstelle einen vollständigen dissertationsartikel.
+das word-file ist das referenzkapitel für die erstellung eines neuen absatzes. das-zip-file enthält die auswertungsdaten. erzeuge anhand des referenskapitels ein neues kapitel für die auswertungsdaten unter berücksichtigung des Aspekts der nachhilfe. erstelle einen vollständigen dissertationsartikel mit gliederung, literaturnummern, literaturverzeichnis durch deep research.
 
 der abschnitt "Einordnung in die Bildungsforschung" ist nicht absatzspezifisch. den abschnitt mit literaaturverweisen ausarbeiten
 
@@ -15,3 +15,11 @@ ich möchte ab sofort für jeden dieser auswerungspunkte 1. ein python-skript we
 
 die daten mussten geändert werden. das neue zip-file enthält die aktuellen daten. analysiere dieses und erstelle den absatz neu, ohne auf die alten daten zu verweisen. referenz ist aber der bisher bestehende absatz in form und umfang.
 
+
+teile den abschnitt entsprechend des angehangenen word-files in einen unterabschnitt und die beschriebene anlage.
+
+das angehangene word-dokument beschreibt einen bruch in der dokumentation. es soll eine teilung in abschnitt und anlage geben. für diesen abschnitt sollen die innovativen leistungen der dissertation  stehen die zu erbringenden inhalte im angehangenen  word-dokument. erstelle aus den bisherigen betrachtungen den unterabschnitt mit gliederung, literaturrecherche, nummern im text und literaturverzeichnis. der abschnitt soll nicht länger als 2-3 seiten sein.
+
+mit gliederung, literaturrecherche, nummern im text und literaturverzeichnis. der abschnitt soll nicht länger als 1 seiten sein. persönlicher schreibstil und ich-form
+
+erstelle für das angehangene word-file aus dem absatz einen dissertationsfähigen abschnitt, der die bestehende literaturverzeichnis erweitert, alles wesentliche enthält,  mit gliederung, konsequenzen für die bildungsforschung, methodisch didaktischen betrachtungen in meinem persönlichen schreibstil und in der ich-form, und nicht länger als 1-2 seiten ist in meinem persönlichen schreibstil und in der ich-form
