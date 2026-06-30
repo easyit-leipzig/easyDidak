@@ -811,5 +811,5 @@ foreach ($tables as $t) {
     file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     echo "✅ Exportiert: $t → $file (" . count($data) . " Einträge)\n";
 }
-
+require_once("analyze_frzk_hub_setzung_v6.php" );
 ?>
